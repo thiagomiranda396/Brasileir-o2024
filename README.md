@@ -41,7 +41,7 @@ O que a Fase 2 entregou e verificou:
   placar, rodada e data nas 380 partidas.
 - Uma divergência encontrada na Wikipédia (gols pró do Juventude: 47 contra 48 oficiais) e uma
   na fonte secundária (horário de uma partida), ambas investigadas e documentadas.
-- **41 testes automatizados** (biblioteca padrão do Python).
+- **57 testes automatizados** (biblioteca padrão do Python).
 
 Detalhes: [auditoria da Fase 2](docs/qualidade/auditoria_fase2.md).
 
@@ -166,13 +166,14 @@ Observações:
   versionados com a nova data de aquisição. Para manter os registros originais:
   `git restore data/raw`.
 - O passo 3 é determinístico: gera um CSV idêntico byte a byte ao versionado.
-- O passo 5 regrava o relatório versionado com a data de geração, então o Git passa a mostrá-lo
-  como modificado mesmo sem mudança nos resultados. O relatório versionado foi gerado **com** a
-  auditoria local; sem os arquivos dela, a seção 2 é regravada como "NÃO EXECUTADA". Para
-  descartar a alteração: `git restore docs/qualidade/relatorio_validacao_fase2.md`.
+- O passo 5 só regrava o relatório versionado quando o conteúdo muda: a data de geração é
+  ignorada na comparação; os hashes dos dados validados, registrados no cabeçalho, não. Sem os
+  arquivos da auditoria local, uma auditoria anterior é **preservada** se os dados e os demais
+  resultados não mudaram; caso contrário, o relatório é regravado com a seção 2 "NÃO
+  EXECUTADA" e um aviso explícito na saída. O motivo da decisão é sempre exibido.
 - **Auditoria local (opcional):** `py -3.14 -I scripts/baixar_fontes.py --auditoria` baixa a fonte
   secundária para `data/external/`. A comparação também exige um mapa de nomes local, que não é
-  versionado ([detalhes](docs/fontes_de_dados.md)). Sem esses arquivos, 8 dos 41 testes são
+  versionado ([detalhes](docs/fontes_de_dados.md)). Sem esses arquivos, 11 dos 57 testes são
   **pulados** de propósito, e os demais continuam executáveis.
 
 O banco de dados **não** faz parte destes passos: os scripts SQL da Fase 3 ainda não foram

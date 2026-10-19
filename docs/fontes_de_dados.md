@@ -34,10 +34,12 @@ python -I -X utf8 scripts/validar_dados.py         # gera docs/qualidade/relator
 - **Auditoria local (opcional):** `baixar_fontes.py --auditoria` também baixa o adaoduque para
   `data/external/adaoduque/`. A comparação também precisa do mapa de nomes local
   `data/external/adaoduque/mapa_nomes_adaoduque.csv`, que não é versionado. Se **qualquer um**
-  dos dois faltar, os 8 testes de comparação de `tests/test_auditoria_local.py` são **pulados**
-  (o motivo informa o arquivo ausente) e a seção 2 do relatório aparece como "NÃO EXECUTADA". Os
-  demais testes não dependem deles. O adaoduque nunca alimenta o produto analítico: nenhum
-  script de carga ou modelagem lê `data/external/`.
+  dos dois faltar, 11 testes são **pulados** (8 em `tests/test_auditoria_local.py` e 3 em
+  `tests/test_relatorio.py`; o motivo informa o arquivo ausente). Nesse caso, o relatório
+  versionado mantém a auditoria anterior se os dados validados (identificados pelo SHA-256 no
+  cabeçalho) e os demais resultados não mudaram; se mudaram, a seção 2 é regravada como "NÃO
+  EXECUTADA", com aviso. Os demais testes não dependem desses arquivos. O adaoduque nunca
+  alimenta o produto analítico: nenhum script de carga ou modelagem lê `data/external/`.
 
 ### Testes automatizados (`tests/`)
 
@@ -47,6 +49,7 @@ python -I -X utf8 scripts/validar_dados.py         # gera docs/qualidade/relator
 | `test_integridade.py` | CSV real aprovado + 12 tipos de erro injetado detectados | Não |
 | `test_classificacao.py` | Regras de pontuação e desempate; regressão contra a tabela oficial da CBF | Não |
 | `test_auditoria_local.py` | Detecção dos arquivos de auditoria (sempre executada) + comparação jogo a jogo e detecção de divergências injetadas | Comparação: **sim** (pulada se o dataset ou o mapa estiverem ausentes) |
+| `test_relatorio.py` | Regravação do relatório só quando o conteúdo muda: regra de decisão (textos sintéticos) e execução real em diretório temporário, incluindo preservação e invalidação da auditoria anterior | 3 dos 16 testes: **sim** (pulados se ausentes) |
 
 Os erros são injetados em cópias em memória; nenhum arquivo é alterado pelos testes.
 

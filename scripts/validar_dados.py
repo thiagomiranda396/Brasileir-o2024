@@ -8,6 +8,7 @@ Gera o relatório docs/qualidade/relatorio_validacao_fase2.md.
 """
 
 import csv
+import hashlib
 import re
 import sys
 from collections import Counter, defaultdict
@@ -224,11 +225,18 @@ def carregar_wikipedia() -> dict:
 # Relatório
 # --------------------------------------------------------------------------
 
+def sha256_arquivo(caminho: Path) -> str:
+    return hashlib.sha256(caminho.read_bytes()).hexdigest()
+
+
 def gerar_relatorio(integ, sem_mapa, comp, tabela, empates, wiki) -> str:
     agora = datetime.now(timezone.utc).isoformat(timespec="seconds")
     L = ["# Relatório de validação — Fase 2", "",
          f"Gerado automaticamente por `scripts/validar_dados.py` em {agora} (UTC).",
          "Não edite à mão; execute o script novamente.", "",
+         "Dados validados: " + "; ".join(
+             f"`{p.relative_to(RAIZ).as_posix()}` sha256 `{sha256_arquivo(p)}`"
+             for p in (PARTIDAS, CLUBES)), "",
          "## 1. Integridade interna (`data/processed/partidas.csv`)", "",
          "| Teste | Resultado | Detalhe |", "|---|---|---|"]
     for nome, ok, det in integ:
@@ -281,6 +289,55 @@ def secao_adaoduque(sem_mapa, comp) -> list[str]:
     return L
 
 
+PREFIXO_DATA = "Gerado automaticamente por "
+MARCA_NAO_EXECUTADA = "**NÃO EXECUTADA:**"
+
+
+def secoes_relevantes(texto: str) -> dict[str, str]:
+    """Divide o relatório por seção '## ', descartando só a linha da data de geração do cabeçalho.
+
+    A linha dos hashes dos dados validados é mantida: qualquer mudança nos dados de entrada
+    muda o cabeçalho e impede que uma auditoria anterior seja preservada.
+    """
+    secoes, atual = {}, "cabecalho"
+    for linha in texto.splitlines():
+        if linha.startswith("## "):
+            atual = linha.split(".")[0][3:]  # "## 2. Comparação..." -> "2"
+        if not (atual == "cabecalho" and linha.startswith(PREFIXO_DATA)):
+            secoes.setdefault(atual, []).append(linha)
+    return {k: "\n".join(v) for k, v in secoes.items()}
+
+
+def decidir_gravacao(atual: str | None, novo: str) -> tuple[bool, str]:
+    """Decide se o relatório versionado deve ser regravado.
+
+    - sem relatório anterior: grava;
+    - conteúdo igual, desconsiderando só a data de geração: não grava;
+    - auditoria local ausente agora, mas executada no relatório anterior: preserva o anterior se
+      as demais seções não mudaram, incluindo os hashes dos dados validados no cabeçalho; se
+      mudaram, a auditoria anterior se referia a outros dados e o relatório é regravado com a
+      seção 2 "NÃO EXECUTADA" e um aviso explícito;
+    - qualquer outra diferença: grava.
+    """
+    if atual is None:
+        return True, "relatório criado"
+    sec_atual, sec_novo = secoes_relevantes(atual), secoes_relevantes(novo)
+    if sec_atual == sec_novo:
+        return False, "relatório inalterado (só a data de geração seria diferente); arquivo mantido"
+    auditoria_agora = "2" in sec_novo and MARCA_NAO_EXECUTADA not in sec_novo["2"]
+    auditoria_antes = "2" in sec_atual and MARCA_NAO_EXECUTADA not in sec_atual["2"]
+    if auditoria_antes and not auditoria_agora:
+        demais_atual = {k: v for k, v in sec_atual.items() if k != "2"}
+        demais_novo = {k: v for k, v in sec_novo.items() if k != "2"}
+        if demais_atual == demais_novo:
+            return False, ("auditoria local ausente: relatório versionado PRESERVADO, com a "
+                           "auditoria executada anteriormente; as demais seções não mudaram")
+        return True, ("ATENÇÃO: os dados validados ou os resultados mudaram e a auditoria local "
+                      "não pôde ser reexecutada; a auditoria anterior (de outros dados) foi "
+                      "substituída por 'NÃO EXECUTADA'")
+    return True, "relatório atualizado: resultados diferentes do relatório anterior"
+
+
 def secao_wikipedia(tabela, empates, wiki) -> list[str]:
     L = ["", "## 3. Classificação recalculada × Wikipédia (revisão 70400733)", "",
           "Ordenação: pontos, vitórias, saldo de gols, gols pró.", "",
@@ -327,9 +384,12 @@ def main() -> int:
     empates = empates_nao_resolvidos(tabela)
     wiki = carregar_wikipedia()
 
-    RELATORIO.parent.mkdir(parents=True, exist_ok=True)
-    RELATORIO.write_text(gerar_relatorio(integ, sem_mapa, comp, tabela, empates, wiki),
-                         encoding="utf-8", newline="\n")
+    novo = gerar_relatorio(integ, sem_mapa, comp, tabela, empates, wiki)
+    atual = RELATORIO.read_text(encoding="utf-8") if RELATORIO.exists() else None
+    gravar, motivo = decidir_gravacao(atual, novo)
+    if gravar:
+        RELATORIO.parent.mkdir(parents=True, exist_ok=True)
+        RELATORIO.write_text(novo, encoding="utf-8", newline="\n")
 
     reprovados = [n for n, ok, _ in integ if not ok]
     print(f"Integridade: {len(integ) - len(reprovados)}/{len(integ)} aprovados")
@@ -341,7 +401,7 @@ def main() -> int:
         print(f"adaoduque: {comp['comuns']} em comum; divergências "
               + ", ".join(f"{c}={len(comp[c])}" for c in ("placar", "rodada", "data", "hora"))
               + f" (hora > {TOLERANCIA_MIN} min: {hora_relevante})")
-    print(f"Relatório: {RELATORIO.relative_to(RAIZ)}")
+    print(f"Relatório: {RELATORIO.relative_to(RAIZ)} ({motivo})")
     return 1 if reprovados else 0
 
 

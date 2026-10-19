@@ -1,7 +1,9 @@
 # Relatório de validação — Fase 2
 
-Gerado automaticamente por `scripts/validar_dados.py` em 2026-10-19T21:08:15+00:00 (UTC).
+Gerado automaticamente por `scripts/validar_dados.py` em 2026-10-19T21:49:50+00:00 (UTC).
 Não edite à mão; execute o script novamente.
+
+Dados validados: `data/processed/partidas.csv` sha256 `6f7fa8000d411247f2e9c75dab96ed2df1c548ef038faca220af3805a88ddfee`; `data/reference/clubes.csv` sha256 `72408ad0acb164f769875a82b323ee2a7759672d09b2dbb3a7493d5616b6df39`
 
 ## 1. Integridade interna (`data/processed/partidas.csv`)
 
