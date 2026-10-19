@@ -8,7 +8,7 @@ sua licença.
 | Caminho | Licença | Titular |
 |---|---|---|
 | `scripts/`, `tests/`, `sql/` | [MIT](LICENSE) | Thiago Miranda, 2026 |
-| `docs/`, `LICENCAS.md` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) | Thiago Miranda, 2026 |
+| `README.md`, `docs/`, `LICENCAS.md` | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) | Thiago Miranda, 2026 |
 | `data/reference/clubes.csv` (cadastro elaborado no projeto: siglas, nomes, UF, grafia na fonte) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt_BR) | Thiago Miranda, 2026 |
 
 Atribuição sugerida para a documentação: "Projeto Brasileirão 2024 — BI, de Thiago Miranda,
