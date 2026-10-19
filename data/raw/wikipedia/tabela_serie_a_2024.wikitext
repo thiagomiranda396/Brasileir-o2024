@@ -1,0 +1,76 @@
+{{#invoke:Sports table|main|style=WDL
+|template_name=Tabela do Campeonato Brasileiro da Série A - 2024
+<!--Update team positions here-->
+|team1=BOT |team2=PAL |team3=FLA |team4=FOR |team5=INT |team6=SPA |team7=COR |team8=BAH |team9=CRU |team10=VAS |team11=VIT |team12=ATM |team13=FLU |team14=GRE |team15=JUV |team16=RBB |team17=ATP |team18=CRI |team19=ATG |team20=CUI
+
+<!--Team definitions (wikilinks in table)-->
+|name_ATP={{Futebol Athletico-PR|estado=antes}}
+|name_ATG={{Futebol Atlético-GO|estado=antes}}
+|name_ATM={{Futebol Atlético-MG|estado=antes}}
+|name_BAH={{Futebol Bahia|estado=antes}}
+|name_BOT={{Futebol Botafogo|estado=antes}}
+|name_COR={{Futebol Corinthians|estado=antes}}
+|name_CRI={{Futebol Criciúma|estado=antes}}
+|name_CRU={{Futebol Cruzeiro|estado=antes}}
+|name_CUI={{Futebol Cuiabá|estado=antes}}
+|name_FLA={{Futebol Flamengo|estado=antes}}
+|name_FLU={{Futebol Fluminense|estado=antes}}
+|name_FOR={{Futebol Fortaleza|estado=antes}}
+|name_GRE={{Futebol Grêmio|estado=antes}}
+|name_INT={{Futebol Internacional-RS|estado=antes}}
+|name_JUV={{Futebol Juventude|estado=antes}}
+|name_PAL={{Futebol Palmeiras|estado=antes}}
+|name_RBB={{Futebol Red Bull Bragantino|estado=antes}}
+|name_SPA={{Futebol São Paulo|estado=antes}}
+|name_VAS={{Futebol Vasco|estado=antes}}
+|name_VIT={{Futebol Vitória|estado=antes}}
+
+<!--Notes here-->
+
+<!--Update team results here and then (if needed positions above). Don't forget to update the date above (update parameter)-->
+|win_ATP=11|draw_ATP=9 |loss_ATP=18|gf_ATP=40|ga_ATP=46<!-- Athletico Paranaense -->
+|win_ATG=7 |draw_ATG=9 |loss_ATG=22|gf_ATG=29|ga_ATG=58<!-- Atlético Goianiense -->
+|win_ATM=11|draw_ATM=14|loss_ATM=13|gf_ATM=47|ga_ATM=54<!-- Atlético Mineiro -->
+|win_BAH=15|draw_BAH=8 |loss_BAH=15|gf_BAH=49|ga_BAH=49<!-- Bahia -->
+|win_BOT=23|draw_BOT=10|loss_BOT=5 |gf_BOT=59|ga_BOT=29|status_BOT=C<!-- Botafogo -->
+|win_COR=15|draw_COR=11|loss_COR=12|gf_COR=54|ga_COR=45<!-- Corinthians -->
+|win_CRI=9 |draw_CRI=11|loss_CRI=18|gf_CRI=42|ga_CRI=61<!-- Criciúma -->
+|win_CRU=14|draw_CRU=10|loss_CRU=14|gf_CRU=43|ga_CRU=41<!-- Cruzeiro -->
+|win_CUI=6 |draw_CUI=12|loss_CUI=20|gf_CUI=29|ga_CUI=49<!-- Cuiabá -->
+|win_FLA=20|draw_FLA=10|loss_FLA=8 |gf_FLA=61|ga_FLA=42<!-- Flamengo -->
+|win_FLU=12|draw_FLU=10|loss_FLU=16|gf_FLU=33|ga_FLU=39<!-- Fluminense -->
+|win_FOR=19|draw_FOR=11|loss_FOR=8 |gf_FOR=53|ga_FOR=39<!-- Fortaleza -->
+|win_GRE=12|draw_GRE=9 |loss_GRE=17|gf_GRE=44|ga_GRE=50<!-- Grêmio -->
+|win_INT=18|draw_INT=11|loss_INT=9 |gf_INT=53|ga_INT=36<!-- Internacional -->
+|win_JUV=11|draw_JUV=12|loss_JUV=15|gf_JUV=47|ga_JUV=59<!-- Juventude -->
+|win_PAL=22|draw_PAL=7 |loss_PAL=9 |gf_PAL=60|ga_PAL=33<!-- Palmeiras -->
+|win_RBB=10|draw_RBB=14|loss_RBB=14|gf_RBB=44|ga_RBB=48<!-- Red Bull Bragantino -->
+|win_SPA=17|draw_SPA=8 |loss_SPA=13|gf_SPA=53|ga_SPA=43<!-- São Paulo -->
+|win_VAS=14|draw_VAS=8 |loss_VAS=16|gf_VAS=43|ga_VAS=56<!-- Vasco da Gama -->
+|win_VIT=13|draw_VIT=8 |loss_VIT=17|gf_VIT=45|ga_VIT=52<!-- Vitória -->
+
+<!---Competition rules-->
+|class_rules={{Small|1) pontos; 2) vitórias; 3) saldo de gols; 4) gols marcados; 5) confronto direto (somente entre duas equipes); 6) menos cartões vermelhos; 7) menos cartões amarelos; 8) sorteio.}}
+
+<!--Update team qualifications here (defined below)-->
+|result1=LIBG |result2=LIBG |result3=LIBG |result4=LIBG |result5=LIBG |result6=LIBG |result7=LIB2
+|result8=LIB2 |result9=CSA |result10=CSA |result11=CSA |result12=CSA |result13=CSA |result14=CSA |result15= |result16= |result17=REL |result18=REL |result19=REL |result20=REL
+
+<!--Notes here-->
+|note_res_LIBG=Botafogo e Flamengo têm vaga garantida na Copa Libertadores de 2025 por serem campeões da [[Copa Libertadores da América de 2024|Copa Libertadores de 2024]] e da [[Copa do Brasil de Futebol de 2024|Copa do Brasil de 2024]], respectivamente.
+
+<!--Qualification and relegation column definitions-->
+|res_col_header=QR
+|col_LIBG=green1 |text_LIBG=Fase de grupos da [[Copa Libertadores da América de 2025|Copa Libertadores de 2025]]
+|col_LIB2=green2 |text_LIB2=Segunda fase da [[Copa Libertadores da América de 2025|Copa Libertadores de 2025]]
+|col_CSA=blue2 |text_CSA={{nowrap|Fase de grupos da [[Copa Sul-Americana de 2025]]}}
+|col_REL=red1 |text_REL=Rebaixados à [[Campeonato Brasileiro de Futebol de 2025 - Série B|Série B de 2025]]
+|col_LIB-CB=green1 |text_LIB-CB=Fase de grupos da [[Copa Libertadores da América de 2025|Copa Libertadores de 2025]]
+
+|update=complete
+|source=[https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/2024 CBF]
+}}<noinclude>
+{{Notas e referências}}
+[[Categoria:!Predefinições sobre o Campeonato Brasileiro de Futebol de 2024]]
+[[Categoria:!Predefinições sobre o Campeonato Brasileiro de Futebol - Série A]]
+</noinclude>

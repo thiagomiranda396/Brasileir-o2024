@@ -1,0 +1,12 @@
+{
+  "openfootball_2024_br1": {
+    "arquivo": "2024_br1.txt",
+    "descricao": "Partidas da Série A 2024 (Football.TXT)",
+    "url": "https://raw.githubusercontent.com/openfootball/south-america/119fa1724b2079a1072a0cb0ca0ccac26d92fd34/brazil/2024_br1.txt",
+    "versao": "commit 119fa1724b2079a1072a0cb0ca0ccac26d92fd34",
+    "licenca": "CC0-1.0 (domínio público)",
+    "sha256": "9c39f868c78e85e53758482a2138d986b412606af541cc65cba88af211c1860d",
+    "bytes": 30652,
+    "adquirido_em_utc": "2026-10-18T00:27:41+00:00"
+  }
+}

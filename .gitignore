@@ -1,0 +1,20 @@
+# Dados de terceiros sem licença de redistribuição (usados apenas para validação local)
+data/external/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Credenciais e configurações locais
+.env
+*.local.*
+
+# Power BI: arquivos temporários
+*.pbix.bak
+~$*
+
+# Sistema
+Thumbs.db
+desktop.ini
+.vscode/

@@ -1,0 +1,8 @@
+# Dados brutos: preservar bytes exatos (o hash SHA-256 é verificado por scripts/baixar_fontes.py)
+data/raw/** -text
+
+# Arquivos gerados e código: sempre LF
+*.csv text eol=lf
+*.py  text eol=lf
+*.md  text eol=lf
+*.sql text eol=lf
