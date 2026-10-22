@@ -11,6 +11,16 @@
 A URL, a versão, o hash SHA-256, o tamanho e a data de aquisição de cada arquivo ficam
 registrados em `PROCEDENCIA.json`, na mesma pasta do arquivo baixado.
 
+**`adquirido_em_utc`** é o momento da **primeira obtenção e validação bem-sucedida daquela
+versão do conteúdo**, identificada pelo SHA-256. Um novo download idêntico não altera a data, e
+nem o arquivo de dados nem o registro são regravados. Se só os metadados descritivos mudarem
+(descrição, licença etc.), o registro é atualizado e a data é preservada. A data atual só é
+usada quando uma nova versão do conteúdo é validada, quando o arquivo existe sem registro, ou
+quando a data registrada está ausente ou é inválida (só vale texto ISO 8601 com fuso UTC,
+deslocamento zero). Nesses casos a data original não é conhecida, e a saída informa a
+substituição. O registro só é criado ou atualizado depois de validar o download pelo hash
+esperado.
+
 **Atribuição (Wikipédia):** "Predefinição:Tabela do Campeonato Brasileiro da Série A - 2024",
 colaboradores da Wikipédia em português, licença
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
@@ -29,8 +39,12 @@ python -I -X utf8 -m unittest discover -s tests -v # testes automatizados
 python -I -X utf8 scripts/validar_dados.py         # gera docs/qualidade/relatorio_validacao_fase2.md
 ```
 
-- `baixar_fontes.py --verificar` só confere os hashes dos arquivos locais, sem acessar a rede.
+- `baixar_fontes.py --verificar` só confere os hashes dos arquivos locais, sem acessar a rede e
+  sem gravar nem criar nenhum arquivo ou pasta.
   Se uma fonte mudar o conteúdo publicado na URL fixada, o script falha em vez de sobrescrever.
+- Fontes sem hash SHA-256 esperado são **recusadas** sempre que são processadas, inclusive em
+  `--verificar`: não são baixadas, verificadas nem registradas, e o script termina com código 1.
+  (Uma fonte de auditoria não solicitada, sem `--auditoria`, é apenas ignorada.)
 - **Auditoria local (opcional):** `baixar_fontes.py --auditoria` também baixa o adaoduque para
   `data/external/adaoduque/`. A comparação também precisa do mapa de nomes local
   `data/external/adaoduque/mapa_nomes_adaoduque.csv`, que não é versionado. Se **qualquer um**
@@ -45,6 +59,7 @@ python -I -X utf8 scripts/validar_dados.py         # gera docs/qualidade/relator
 
 | Arquivo | Escopo | Depende do adaoduque? |
 |---|---|---|
+| `test_baixar_fontes.py` | Aquisição sem rede (downloads simulados): gravação só do que mudou, preservação de `adquirido_em_utc` (só quando a data é válida), nova versão, hash divergente, recusa de fonte sem hash, `--verificar` somente leitura, `--auditoria` | Não |
 | `test_conversor.py` | Interpretação do Football.TXT com entradas sintéticas: herança e marcação de horários, jogos adiados, rejeição de linhas inválidas | Não |
 | `test_integridade.py` | CSV real aprovado + 12 tipos de erro injetado detectados | Não |
 | `test_classificacao.py` | Regras de pontuação e desempate; regressão contra a tabela oficial da CBF | Não |

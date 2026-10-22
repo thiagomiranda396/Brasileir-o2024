@@ -2,7 +2,17 @@
 
 Cada fonte aponta para um commit Git ou revisão da Wikipédia imutável. O hash
 SHA-256 esperado de cada arquivo fica registrado abaixo; se o conteúdo baixado
-divergir, o script falha em vez de sobrescrever silenciosamente os dados.
+divergir, o script falha em vez de sobrescrever silenciosamente os dados. Fontes
+sem hash esperado são recusadas antes de qualquer download ou verificação.
+
+Gravação: o arquivo de dados só é gravado se o conteúdo validado for diferente do
+arquivo local, e o PROCEDENCIA.json só é gravado se o registro da fonte mudar.
+O campo adquirido_em_utc é o momento da primeira obtenção e validação
+bem-sucedida daquela versão do conteúdo (identificada pelo SHA-256): ele é
+preservado em novos downloads idênticos, mesmo que metadados descritivos mudem,
+e só recebe a data atual quando uma nova versão é validada, quando não há
+registro anterior ou quando a data registrada é ausente ou inválida (não é texto
+ISO 8601 com fuso UTC); nesses casos a data original não é conhecida.
 
 Fontes de "produto" alimentam o modelo analítico. Fontes de "auditoria" (sem licença de
 redistribuição) servem só para conferência local, ficam em data/external/ (fora do Git)
@@ -76,37 +86,99 @@ def baixar(url: str) -> bytes:
         return resp.read()
 
 
-def registrar_procedencia(fonte: dict, hash_obtido: str, tamanho: int) -> None:
-    """Grava o registro de procedência ao lado do arquivo baixado."""
-    destino = RAIZ / fonte["destino"]
-    manifesto = destino.parent / "PROCEDENCIA.json"
-    registros = json.loads(manifesto.read_text(encoding="utf-8")) if manifesto.exists() else {}
-    registros[fonte["id"]] = {
-        "arquivo": destino.name,
+def agora_utc() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def data_aquisicao_valida(valor) -> bool:
+    """Texto ISO 8601 com fuso UTC (deslocamento zero), como o gerado por agora_utc()."""
+    if not isinstance(valor, str):
+        return False
+    try:
+        data = datetime.fromisoformat(valor)
+    except ValueError:
+        return False
+    return data.utcoffset() is not None and data.utcoffset().total_seconds() == 0
+
+
+def registro_esperado(fonte: dict, hash_obtido: str, tamanho: int,
+                      anterior: dict | None) -> dict:
+    """Registro de procedência para o conteúdo validado.
+
+    A data de aquisição do registro anterior só é mantida se ele for um objeto, se referir à
+    mesma versão do conteúdo (mesmo SHA-256) e contiver uma data válida; caso contrário, recebe
+    a data atual (versão nova, ou data anterior ausente ou inválida e, portanto, desconhecida).
+    """
+    mesma_versao = (isinstance(anterior, dict) and anterior.get("sha256") == hash_obtido
+                    and data_aquisicao_valida(anterior.get("adquirido_em_utc")))
+    return {
+        "arquivo": Path(fonte["destino"]).name,
         "descricao": fonte["descricao"],
         "url": fonte["url"],
         "versao": fonte["versao"],
         "licenca": fonte["licenca"],
         "sha256": hash_obtido,
         "bytes": tamanho,
-        "adquirido_em_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "adquirido_em_utc": anterior["adquirido_em_utc"] if mesma_versao else agora_utc(),
     }
-    manifesto.write_text(json.dumps(registros, ensure_ascii=False, indent=2) + "\n",
-                         encoding="utf-8", newline="\n")
 
 
-def main() -> int:
+def gravar_se_necessario(fonte: dict, conteudo: bytes, hash_obtido: str) -> str:
+    """Grava dados e registro de uma fonte já validada, só no que mudou; devolve o status."""
+    destino = RAIZ / fonte["destino"]
+    dados_iguais = destino.exists() and sha256(destino.read_bytes()) == hash_obtido
+    if not dados_iguais:
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_bytes(conteudo)
+
+    manifesto = destino.parent / "PROCEDENCIA.json"
+    registros = json.loads(manifesto.read_text(encoding="utf-8")) if manifesto.exists() else {}
+    anterior = registros.get(fonte["id"])
+    novo = registro_esperado(fonte, hash_obtido, len(conteudo), anterior)
+    if novo != anterior:
+        registros[fonte["id"]] = novo
+        manifesto.write_text(json.dumps(registros, ensure_ascii=False, indent=2) + "\n",
+                             encoding="utf-8", newline="\n")
+
+    if anterior is None:
+        return "registro criado (data atual)"
+    if not isinstance(anterior, dict):
+        return "registro anterior inválido substituído (data atual)"
+    if anterior.get("sha256") != hash_obtido:
+        return "nova versão registrada (data atual)"
+    if novo["adquirido_em_utc"] != anterior.get("adquirido_em_utc"):
+        return ("registro corrigido: data de aquisição anterior ausente ou inválida; "
+                "data atual registrada")
+    if novo != anterior:
+        return "metadados atualizados; data de aquisição preservada"
+    if not dados_iguais:
+        return "arquivo de dados restaurado; registro inalterado"
+    return "inalterado; nada foi gravado"
+
+
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--auditoria", action="store_true",
                         help="também baixa as fontes de auditoria local (data/external/)")
     parser.add_argument("--verificar", action="store_true",
-                        help="não baixa; apenas confere o hash dos arquivos locais")
-    args = parser.parse_args()
+                        help="não baixa nem grava; apenas confere o hash dos arquivos locais")
+    args = parser.parse_args(argv)
 
     falhas = 0
     for fonte in FONTES:
         destino = RAIZ / fonte["destino"]
-        if args.verificar:
+        if not args.verificar and fonte["uso"] == "auditoria" and not args.auditoria:
+            print(f"[IGNORADA] {fonte['id']}: fonte de auditoria; use --auditoria")
+            continue
+
+        esperado = fonte.get("sha256")
+        if not esperado:
+            print(f"[RECUSADA] {fonte['id']}: sem hash SHA-256 esperado; nada foi baixado, "
+                  "verificado ou registrado")
+            falhas += 1
+            continue
+
+        if args.verificar:  # somente leitura: nenhum caminho abaixo grava ou cria pastas
             if not destino.exists():
                 if fonte["uso"] == "auditoria":
                     print(f"[AUSENTE, opcional] {fonte['id']}: fonte de auditoria local")
@@ -115,26 +187,18 @@ def main() -> int:
                 falhas += 1
                 continue
             conteudo = destino.read_bytes()
-        elif fonte["uso"] == "auditoria" and not args.auditoria:
-            print(f"[IGNORADA] {fonte['id']}: fonte de auditoria; use --auditoria")
-            continue
         else:
             conteudo = baixar(fonte["url"])
 
         obtido = sha256(conteudo)
-        esperado = fonte["sha256"]
-        if esperado and obtido != esperado:
-            print(f"[ERRO] {fonte['id']}: hash {obtido} difere do esperado {esperado}")
+        if obtido != esperado:
+            print(f"[ERRO] {fonte['id']}: hash {obtido} difere do esperado {esperado}; "
+                  "nada foi gravado")
             falhas += 1
             continue
 
-        if not args.verificar:
-            destino.parent.mkdir(parents=True, exist_ok=True)
-            destino.write_bytes(conteudo)
-            registrar_procedencia(fonte, obtido, len(conteudo))
-
-        status = "OK" if esperado else "SEM HASH ESPERADO"
-        print(f"[{status}] {fonte['id']}: {len(conteudo)} bytes, sha256={obtido}")
+        situacao = "verificado" if args.verificar else gravar_se_necessario(fonte, conteudo, obtido)
+        print(f"[OK] {fonte['id']}: {len(conteudo)} bytes, sha256={obtido} ({situacao})")
 
     return 1 if falhas else 0
 

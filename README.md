@@ -41,7 +41,7 @@ O que a Fase 2 entregou e verificou:
   placar, rodada e data nas 380 partidas.
 - Uma divergência encontrada na Wikipédia (gols pró do Juventude: 47 contra 48 oficiais) e uma
   na fonte secundária (horário de uma partida), ambas investigadas e documentadas.
-- **57 testes automatizados** (biblioteca padrão do Python).
+- **70 testes automatizados** (biblioteca padrão do Python).
 
 Detalhes: [auditoria da Fase 2](docs/qualidade/auditoria_fase2.md).
 
@@ -162,9 +162,10 @@ Observações:
   `& "$env:LOCALAPPDATA\Programs\Python\Python314\python.exe"` no lugar de `py -3.14`.
 - `-I` executa o Python em modo isolado (sem variáveis de ambiente nem pacotes do usuário).
   `-X utf8` garante a saída correta de caracteres acentuados no console do Windows.
-- O passo 2 confere o hash de cada arquivo baixado, mas regrava os `PROCEDENCIA.json`
-  versionados com a nova data de aquisição. Para manter os registros originais:
-  `git restore data/raw`.
+- O passo 2 confere o hash de cada arquivo baixado e só grava o que mudou: com conteúdo idêntico
+  ao versionado, nem os dados nem os `PROCEDENCIA.json` são regravados, e a saída informa
+  "inalterado". A data de aquisição registrada é a da primeira obtenção validada daquela versão
+  do conteúdo. Fontes sem hash esperado são recusadas, sem download.
 - O passo 3 é determinístico: gera um CSV idêntico byte a byte ao versionado.
 - O passo 5 só regrava o relatório versionado quando o conteúdo muda: a data de geração é
   ignorada na comparação; os hashes dos dados validados, registrados no cabeçalho, não. Sem os
@@ -173,7 +174,7 @@ Observações:
   EXECUTADA" e um aviso explícito na saída. O motivo da decisão é sempre exibido.
 - **Auditoria local (opcional):** `py -3.14 -I scripts/baixar_fontes.py --auditoria` baixa a fonte
   secundária para `data/external/`. A comparação também exige um mapa de nomes local, que não é
-  versionado ([detalhes](docs/fontes_de_dados.md)). Sem esses arquivos, 11 dos 57 testes são
+  versionado ([detalhes](docs/fontes_de_dados.md)). Sem esses arquivos, 11 dos 70 testes são
   **pulados** de propósito, e os demais continuam executáveis.
 
 O banco de dados **não** faz parte destes passos: os scripts SQL da Fase 3 ainda não foram
