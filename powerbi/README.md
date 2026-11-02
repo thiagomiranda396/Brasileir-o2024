@@ -15,6 +15,7 @@ compactado que o Git só consegue tratar como "mudou tudo".
 | `Brasileirao2024.SemanticModel/` | Modelo semântico em TMDL: tabelas, consultas do Power Query, relações e as 93 medidas |
 | `Brasileirao2024.Report/` | Relatório em PBIR: 11 páginas (7 visíveis, 1 de *drill-through*, 2 dicas de ferramenta e 1 de auditoria) |
 | `medidas.dax` | Todas as medidas, colunas e tabelas calculadas num arquivo só, para ler fora do Desktop (gerado do modelo) |
+| `gerar_imagens.py` | Baixa os escudos e fotos e grava em base64 em `dados/` para o modelo exibir sem depender da internet |
 | `tema_brasileirao.json` | Tema de cores e fontes (já aplicado ao relatório) |
 | `dados/*.csv` | As views do schema `analytics` exportadas por `sql/06_exportar_csv.sql`: a fonte do modelo |
 
@@ -111,6 +112,7 @@ erDiagram
 | `classificacao_final` | clube | 20 |
 | `jogador_estatisticas` | jogador × clube | 587 |
 | `credito_imagem` | imagem (escudo ou foto), sem relação | conforme a busca de imagens |
+| `imagem_escudo`, `imagem_foto` | pedaço da imagem em base64 (ocultas), ligadas a `dim_clube` e `dim_jogador` | geradas por `gerar_imagens.py` |
 | `Ranking` | métrica do ranking, tabela desconectada | 6 |
 | `Medidas` | só guarda as medidas | 0 |
 
@@ -123,6 +125,8 @@ Relações (todas de um para muitos, filtrando da dimensão para o fato, exceto 
 | `dim_clube[id_clube]` | `fato_participacao[id_adversario]` | **Não** | Use `USERELATIONSHIP` para "contra quem" |
 | `dim_clube[id_clube]` | `fato_gol[id_clube_beneficiado]` | Sim | Gols a favor do clube |
 | `dim_clube[id_clube]` | `fato_cartao[id_clube]`, `classificacao_rodada[id_clube]` | Sim | |
+| `dim_clube[id_clube]` | `imagem_escudo[id_clube]` | Sim | Escudo embutido |
+| `dim_jogador[id_jogador]` | `imagem_foto[id_jogador]` | Sim | Foto embutida |
 | `dim_clube[id_clube]` | `classificacao_final[id_clube]` | Sim (1:1, ambas as direções) | |
 | `dim_jogador[id_jogador]` | `fato_gol[id_jogador]`, `fato_cartao[id_jogador]` | Sim | |
 | `dim_jogador[id_jogador]` | `jogador_estatisticas[id_jogador]` | Sim (1:1, ambas as direções) | |
@@ -177,9 +181,20 @@ arquivos do Wikimedia Commons com licença livre e, nas fotos, jogadores confirm
 Sem imagem confirmada, o relatório não inventa: o clube aparece com a sigla num círculo nas suas
 cores e o jogador com a **camisa do clube e as iniciais**, nunca um rosto genérico. Isso é feito
 pelas medidas `Escudo ou sigla` e `Foto ou camisa` (categoria URL de imagem), que montam um SVG
-quando a URL está vazia.
+quando a URL está vazia. Os 3 escudos de Corinthians, Bragantino e Vasco são de uso justo
+(`licenca` = "Uso justo", sem `licenca_url`), como no site; o crédito aparece na página Sobre os dados.
 
-Depois de exportar os CSVs de novo, basta **Atualizar** no Desktop.
+**Imagens embutidas.** O Power BI Desktop nem sempre consegue exibir a imagem pela URL da
+Wikimedia (a tabela mostra só o nome). Por isso as imagens ficam dentro do modelo:
+
+    py -3.14 -I powerbi/gerar_imagens.py
+
+O script baixa cada escudo e foto uma vez e grava `dados/imagem_escudo.csv` e
+`dados/imagem_foto.csv` em base64, em pedaços de até 30.000 caracteres (o Power BI corta textos
+acima de 32.766). As medidas juntam os pedaços; se uma imagem não baixar, usam a URL e, sem URL, a
+sigla ou a camisa. Sem esses dois arquivos o relatório abre normalmente, só sem as imagens embutidas.
+
+Depois de exportar os CSVs de novo, rode o script e clique em **Atualizar** no Desktop.
 
 ## 6. Publicar no Power BI Service
 
@@ -187,7 +202,8 @@ Depois de exportar os CSVs de novo, basta **Atualizar** no Desktop.
    workspace (ex.: *Meu workspace*). O Desktop envia o modelo com os dados importados e o
    relatório.
 2. No Service (app.powerbi.com), abra o relatório e confira as páginas. Os escudos e fotos
-   carregam direto do Wikimedia Commons; as siglas e camisas são geradas pelo próprio relatório.
+   vão embutidos no modelo (não dependem da Wikimedia); as siglas e camisas são geradas pelo
+   próprio relatório.
 3. Atualização: os dados vêm de CSVs no seu computador, então o Service não consegue atualizá-los
    sozinho (precisaria de um *gateway*). Como a temporada 2024 está fechada, não é necessário:
    quando mudar os CSVs, atualize no Desktop e publique de novo, substituindo o relatório.

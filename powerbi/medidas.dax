@@ -171,9 +171,14 @@ Cor de destaque do clube =
             c1
         )
 
-// Escudo do clube (Wikimedia Commons). Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
+// Escudo do clube (Wikimedia Commons), embutido no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
 // [categoria ImageUrl]
 Escudo ou sigla =
+    VAR embutida =
+        IF (
+            HASONEVALUE ( dim_clube[id_clube] ),
+            CONCATENATEX ( imagem_escudo, imagem_escudo[conteudo], "", imagem_escudo[parte], ASC )
+        )
     VAR url = SELECTEDVALUE ( dim_clube[escudo_url] )
     VAR sigla = SELECTEDVALUE ( dim_clube[id_clube] )
     VAR c1 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#", "%23" )
@@ -181,6 +186,7 @@ Escudo ou sigla =
     RETURN
         SWITCH (
             TRUE (),
+            embutida <> "", embutida,
             NOT ISBLANK ( url ), url,
             ISBLANK ( sigla ), BLANK (),
             "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
@@ -402,9 +408,14 @@ Nota do ranking =
         "Súmulas compiladas (adaoduque); gols conferidos com o placar de cada jogo."
     )
 
-// Foto real (Wikimedia Commons, confirmada pela Wikidata). Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
+// Foto real (Wikimedia Commons, confirmada pela Wikidata), embutida no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
 // [categoria ImageUrl]
 Foto ou camisa =
+    VAR embutida =
+        IF (
+            HASONEVALUE ( dim_jogador[id_jogador] ),
+            CONCATENATEX ( imagem_foto, imagem_foto[conteudo], "", imagem_foto[parte], ASC )
+        )
     VAR url = SELECTEDVALUE ( dim_jogador[foto_url] )
     VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
     VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
@@ -417,6 +428,7 @@ Foto ou camisa =
     RETURN
         SWITCH (
             TRUE (),
+            embutida <> "", embutida,
             NOT ISBLANK ( url ), url,
             ISBLANK ( nome ), BLANK (),
             "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>"

@@ -1,0 +1,52 @@
+/// Grão: pedaço da imagem do escudo (base64). Gerada por powerbi/gerar_imagens.py.
+table imagem_escudo
+	isHidden
+	lineageTag: 8f7562ba-1510-5ffb-ae2c-85fd07f76aea
+
+	column id_clube
+		dataType: string
+		isHidden
+		lineageTag: 1c546b91-ca6f-5d21-8841-45b508641b83
+		summarizeBy: none
+		sourceColumn: id_clube
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Ordem do pedaço.
+	column parte
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 238ecb7a-8687-5f3a-a236-eb8b36f761fd
+		summarizeBy: none
+		sourceColumn: parte
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Pedaço do data URI da imagem.
+	column conteudo
+		dataType: string
+		isHidden
+		lineageTag: 30874455-8cbb-5ce1-999a-55125ae33755
+		summarizeBy: none
+		sourceColumn: conteudo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition imagem_escudo = m
+		mode: import
+		source =
+				let
+				    // Arquivo opcional: sem ele, a tabela fica vazia e o relatório abre do mesmo jeito.
+				    Arquivo = try Table.Buffer(Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\imagem_escudo.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv])) otherwise null,
+				    Cabecalhos = if Arquivo = null then #table({"id_clube", "parte", "conteudo"}, {}) else Table.PromoteHeaders(Arquivo, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_clube", "parte", "conteudo"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(VaziosComoNulos, {{"id_clube", type text}, {"parte", Int64.Type}, {"conteudo", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

@@ -218,8 +218,13 @@ table Medidas
 		displayFolder: 2. Clubes
 		lineageTag: 81fcac6e-d464-543c-a9e8-499a26d6ad67
 
-	/// Escudo do clube (Wikimedia Commons). Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
+	/// Escudo do clube (Wikimedia Commons), embutido no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
 	measure 'Escudo ou sigla' =
+			VAR embutida =
+			    IF (
+			        HASONEVALUE ( dim_clube[id_clube] ),
+			        CONCATENATEX ( imagem_escudo, imagem_escudo[conteudo], "", imagem_escudo[parte], ASC )
+			    )
 			VAR url = SELECTEDVALUE ( dim_clube[escudo_url] )
 			VAR sigla = SELECTEDVALUE ( dim_clube[id_clube] )
 			VAR c1 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#", "%23" )
@@ -227,6 +232,7 @@ table Medidas
 			RETURN
 			    SWITCH (
 			        TRUE (),
+			        embutida <> "", embutida,
 			        NOT ISBLANK ( url ), url,
 			        ISBLANK ( sigla ), BLANK (),
 			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
@@ -511,8 +517,13 @@ table Medidas
 		displayFolder: 4. Jogadores
 		lineageTag: d0cfa7b3-40e1-52ca-9d31-4b32ca9d473c
 
-	/// Foto real (Wikimedia Commons, confirmada pela Wikidata). Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
+	/// Foto real (Wikimedia Commons, confirmada pela Wikidata), embutida no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
 	measure 'Foto ou camisa' =
+			VAR embutida =
+			    IF (
+			        HASONEVALUE ( dim_jogador[id_jogador] ),
+			        CONCATENATEX ( imagem_foto, imagem_foto[conteudo], "", imagem_foto[parte], ASC )
+			    )
 			VAR url = SELECTEDVALUE ( dim_jogador[foto_url] )
 			VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
 			VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
@@ -525,6 +536,7 @@ table Medidas
 			RETURN
 			    SWITCH (
 			        TRUE (),
+			        embutida <> "", embutida,
 			        NOT ISBLANK ( url ), url,
 			        ISBLANK ( nome ), BLANK (),
 			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>"
