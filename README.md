@@ -4,7 +4,7 @@ Projeto de portfólio sobre o **Campeonato Brasileiro Série A 2024**: dados pú
 modelagem relacional em **PostgreSQL**, camada analítica em SQL, dashboard no **Power BI** e um
 **site interativo** com estatísticas, escudos, fotos de jogadores e um jogo de técnico.
 
-> **Site:** `https://<seu-usuario>.github.io/<repositorio>/` (publicado pelo GitHub Pages a partir
+> **Site:** `https://thiagomiranda396.github.io/Brasileir-o2024/` (publicado pelo GitHub Pages a partir
 > da pasta `web/`)
 
 ![Visão geral do site](docs/img/site-visao-geral.png)
