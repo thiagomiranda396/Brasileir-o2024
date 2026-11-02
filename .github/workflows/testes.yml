@@ -1,0 +1,60 @@
+name: Testes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    name: Dados e site (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Conferir hashes das fontes versionadas
+        run: python -I scripts/baixar_fontes.py --verificar
+      - name: Testes (unittest)
+        run: python -I -X utf8 -m unittest discover -s tests -v
+
+  postgres:
+    name: Banco (PostgreSQL)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      PGHOST: localhost
+      PGPASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar o cliente psql
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Criar papéis e banco
+        run: psql -v ON_ERROR_STOP=1 -U postgres -d postgres -f sql/00_criar_banco_e_papel.sql
+      - name: Senhas de teste (só no CI)
+        run: |
+          psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            -c "ALTER ROLE bi_brasileirao PASSWORD 'ci'" -c "ALTER ROLE bi_brasileirao_leitura PASSWORD 'ci'"
+      - name: Estrutura, carga, views e testes SQL
+        env:
+          PGPASSWORD: ci
+        run: |
+          psql -v ON_ERROR_STOP=1 -U bi_brasileirao -d brasileirao2024 -f sql/executar_tudo.sql
+          # Segunda carga: precisa ser idempotente (0 inserções, 0 atualizações, 0 remoções).
+          psql -v ON_ERROR_STOP=1 -U bi_brasileirao -d brasileirao2024 -f sql/03_carga.sql
+          psql -v ON_ERROR_STOP=1 -U bi_brasileirao -d brasileirao2024 -f sql/05_testes.sql
+      - name: Exportação do site igual à versionada
+        env:
+          PGPASSWORD: ci
+          PGUSER: bi_brasileirao_leitura
+        run: |
+          python3 -I scripts/exportar_web.py
+          git diff --exit-code web/data/brasileirao2024.json
