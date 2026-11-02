@@ -1,0 +1,6 @@
+/// Pasta raiz do projeto no seu computador (termina com \). Os CSVs ficam em powerbi\dados.
+expression PastaProjeto = "C:\Projetos\Brasileirão2024\" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 927eb68e-17d6-5759-b129-9eb61cc630f5
+
+	annotation PBI_ResultType = Text
+

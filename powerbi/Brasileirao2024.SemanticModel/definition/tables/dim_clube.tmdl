@@ -1,0 +1,115 @@
+/// Grão: clube (20). Cadastro, cores e escudo (Wikimedia Commons).
+table dim_clube
+	lineageTag: 5cf7c18e-654f-568b-a50a-51ac771a4cce
+
+	/// Sigla de 3 letras (chave).
+	column id_clube
+		dataType: string
+		lineageTag: bd77194d-25c9-596c-9ef1-d4ddc6716db8
+		summarizeBy: none
+		sourceColumn: id_clube
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nome curto do clube.
+	column nome
+		dataType: string
+		lineageTag: c9984e26-0a66-550e-b46f-e3b46f46e8ae
+		summarizeBy: none
+		sourceColumn: nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column uf
+		dataType: string
+		lineageTag: 4523dcb7-9dd0-5856-a93a-e4846a053803
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_completo
+		dataType: string
+		lineageTag: 8008c2ce-125d-5ea2-b0c8-6a9d1d36ecf0
+		summarizeBy: none
+		sourceColumn: nome_completo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cidade
+		dataType: string
+		lineageTag: 3c18582f-19e4-56fb-b503-19ff718ce32c
+		summarizeBy: none
+		sourceColumn: cidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column estadio
+		dataType: string
+		lineageTag: 04472e04-3ad3-5b72-8b7f-a64bd598e55c
+		summarizeBy: none
+		sourceColumn: estadio
+
+		annotation SummarizationSetBy = Automatic
+
+	column capacidade
+		dataType: int64
+		formatString: 0
+		lineageTag: c8153586-fb36-5a5e-a0d5-f0393782ba65
+		summarizeBy: none
+		sourceColumn: capacidade
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Cor principal em hexadecimal.
+	column cor_primaria
+		dataType: string
+		lineageTag: fb3af151-6446-5bf0-8a0c-230f2ee1ef82
+		summarizeBy: none
+		sourceColumn: cor_primaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column cor_secundaria
+		dataType: string
+		lineageTag: e7816f93-b44e-5c6f-9955-4738564be121
+		summarizeBy: none
+		sourceColumn: cor_secundaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column wiki_pt
+		dataType: string
+		isHidden
+		lineageTag: beff31da-4665-5b2d-97b8-8a1d9da3f2a1
+		summarizeBy: none
+		sourceColumn: wiki_pt
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Miniatura fixa do escudo na Wikimedia Commons (vazio se não houver imagem confirmada).
+	column escudo_url
+		dataType: string
+		lineageTag: 6cb6253a-4c02-5574-b559-079c39a4e570
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: escudo_url
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_clube = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\dim_clube.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_clube", "nome", "uf", "nome_completo", "cidade", "estadio", "capacidade", "cor_primaria", "cor_secundaria", "wiki_pt", "escudo_url"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(VaziosComoNulos, {{"id_clube", type text}, {"nome", type text}, {"uf", type text}, {"nome_completo", type text}, {"cidade", type text}, {"estadio", type text}, {"capacidade", Int64.Type}, {"cor_primaria", type text}, {"cor_secundaria", type text}, {"wiki_pt", type text}, {"escudo_url", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

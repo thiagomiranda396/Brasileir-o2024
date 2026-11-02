@@ -1,0 +1,761 @@
+id_partida,rodada,data_partida,id_clube,id_adversario,mando,gols_pro,gols_contra,saldo,resultado,pontos,sem_sofrer_gols,tecnico,formacao
+1,1,2024-04-13,INT,BAH,Casa,2,1,1,V,3,f,E. Coudet,4-4-2
+1,1,2024-04-13,BAH,INT,Fora,1,2,-1,D,0,f,R. Ceni,4-4-2
+2,1,2024-04-13,CRI,JUV,Casa,1,1,0,E,1,f,C. Tencati,4-3-1-2
+2,1,2024-04-13,JUV,CRI,Fora,1,1,0,E,1,f,R. Machado Marques,4-4-2
+3,1,2024-04-13,FLU,RBB,Casa,2,2,0,E,1,f,F. Diniz Silva,4-2-3-1
+3,1,2024-04-13,RBB,FLU,Fora,2,2,0,E,1,f,P. Faria Caixinha,4-3-3
+4,1,2024-04-13,SPA,FOR,Casa,1,2,-1,D,0,f,T. Carpini Barbosa,3-4-1-2
+4,1,2024-04-13,FOR,SPA,Fora,2,1,1,V,3,f,J. Vojvoda,3-5-2
+5,1,2024-04-14,VAS,GRE,Casa,2,1,1,V,3,f,R. Díaz,4-3-3
+5,1,2024-04-14,GRE,VAS,Fora,1,2,-1,D,0,f,Renato Gaúcho,4-2-3-1
+6,1,2024-04-14,COR,ATM,Casa,0,0,0,E,1,t,A. Cardoso de Oliveira,4-2-3-1
+6,1,2024-04-14,ATM,COR,Fora,0,0,0,E,1,t,G. Milito,3-4-1-2
+7,1,2024-04-14,ATP,CUI,Casa,4,0,4,V,3,t,A. Stival,4-1-2-1-2
+7,1,2024-04-14,CUI,ATP,Fora,0,4,-4,D,0,f,L. Iubel,5-4-1
+8,1,2024-04-14,ATG,FLA,Casa,1,2,-1,D,0,f,J. Ribeiro Ventura,4-1-3-2
+8,1,2024-04-14,FLA,ATG,Fora,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+9,1,2024-04-14,CRU,BOT,Casa,3,2,1,V,3,f,F. Seabra,4-3-3
+9,1,2024-04-14,BOT,CRU,Fora,2,3,-1,D,0,f,A. Torres Gomes Araújo Amorim,4-4-2
+10,1,2024-04-14,VIT,PAL,Casa,0,1,-1,D,0,f,L. Condé,4-3-3
+10,1,2024-04-14,PAL,VIT,Fora,1,0,1,V,3,t,A. Moreira Ferreira,4-2-3-1
+11,2,2024-04-16,BAH,FLU,Casa,2,1,1,V,3,f,R. Ceni,4-2-3-1
+11,2,2024-04-16,FLU,BAH,Fora,1,2,-1,D,0,f,F. Diniz Silva,4-2-3-1
+12,2,2024-04-17,RBB,VAS,Casa,2,1,1,V,3,f,P. Faria Caixinha,4-3-3
+12,2,2024-04-17,VAS,RBB,Fora,1,2,-1,D,0,f,R. Díaz,4-3-3
+13,2,2024-04-17,GRE,ATP,Casa,2,0,2,V,3,t,Renato Gaúcho,4-3-3
+13,2,2024-04-17,ATP,GRE,Fora,0,2,-2,D,0,f,A. Stival,4-2-3-1
+14,2,2024-04-17,ATM,CRI,Casa,1,1,0,E,1,f,G. Milito,4-2-3-1
+14,2,2024-04-17,CRI,ATM,Fora,1,1,0,E,1,f,C. Tencati,4-3-2-1
+15,2,2024-04-17,FOR,CRU,Casa,1,1,0,E,1,f,J. Vojvoda,3-5-2
+15,2,2024-04-17,CRU,FOR,Fora,1,1,0,E,1,f,F. Seabra,4-3-3
+16,2,2024-04-17,JUV,COR,Casa,2,0,2,V,3,t,R. Machado Marques,4-2-3-1
+16,2,2024-04-17,COR,JUV,Fora,0,2,-2,D,0,f,B. Lazaroni,4-3-3
+17,2,2024-04-17,PAL,INT,Casa,0,1,-1,D,0,f,A. Moreira Ferreira,3-4-2-1
+17,2,2024-04-17,INT,PAL,Fora,1,0,1,V,3,t,E. Coudet,4-2-3-1
+18,2,2024-04-17,FLA,SPA,Casa,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+18,2,2024-04-17,SPA,FLA,Fora,1,2,-1,D,0,f,T. Carpini Barbosa,3-4-2-1
+19,2,2024-04-18,BOT,ATG,Casa,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-4-2
+19,2,2024-04-18,ATG,BOT,Fora,0,1,-1,D,0,f,E. C. Tannus Faro,4-4-2
+20,3,2024-04-20,FLU,VAS,Casa,2,1,1,V,3,f,F. Diniz Silva,4-2-3-1
+20,3,2024-04-20,VAS,FLU,Fora,1,2,-1,D,0,f,R. Díaz,4-3-3
+21,3,2024-04-20,RBB,COR,Casa,1,0,1,V,3,t,P. Faria Caixinha,4-3-3
+21,3,2024-04-20,COR,RBB,Fora,0,1,-1,D,0,f,A. Cardoso de Oliveira,4-2-3-1
+22,3,2024-04-20,GRE,CUI,Casa,1,0,1,V,3,t,Renato Gaúcho,4-2-3-1
+22,3,2024-04-20,CUI,GRE,Fora,0,1,-1,D,0,f,L. Iubel,5-4-1
+23,3,2024-04-20,ATM,CRU,Casa,3,0,3,V,3,t,G. Milito,4-4-2
+23,3,2024-04-20,CRU,ATM,Fora,0,3,-3,D,0,f,F. Seabra,4-3-3
+24,3,2024-04-21,ATP,INT,Casa,1,0,1,V,3,t,A. Stival,4-2-3-1
+24,3,2024-04-21,INT,ATP,Fora,0,1,-1,D,0,f,E. Coudet,4-2-3-1
+25,3,2024-04-21,PAL,FLA,Casa,0,0,0,E,1,t,A. Moreira Ferreira,3-4-2-1
+25,3,2024-04-21,FLA,PAL,Fora,0,0,0,E,1,t,A. Bacchi,4-2-3-1
+26,3,2024-04-21,VIT,BAH,Casa,2,2,0,E,1,f,L. Condé,4-4-1-1
+26,3,2024-04-21,BAH,VIT,Fora,2,2,0,E,1,f,R. Ceni,4-3-3
+27,3,2024-04-21,ATG,SPA,Casa,0,3,-3,D,0,f,J. Ribeiro Ventura,4-4-2
+27,3,2024-04-21,SPA,ATG,Fora,3,0,3,V,3,t,M. Cruz,3-4-2-1
+28,3,2024-04-21,BOT,JUV,Casa,5,1,4,V,3,f,A. Torres Gomes Araújo Amorim,4-4-2
+28,3,2024-04-21,JUV,BOT,Fora,1,5,-4,D,0,f,R. Machado Marques,4-2-3-1
+29,4,2024-04-27,VAS,CRI,Casa,0,4,-4,D,0,f,R. Díaz,4-2-3-1
+29,4,2024-04-27,CRI,VAS,Fora,4,0,4,V,3,t,C. Tencati,4-4-2
+30,4,2024-04-27,CUI,ATM,Casa,0,3,-3,D,0,f,L. Iubel,5-4-1
+30,4,2024-04-27,ATM,CUI,Fora,3,0,3,V,3,t,G. Milito,3-5-2
+31,4,2024-04-27,BAH,GRE,Casa,1,0,1,V,3,t,R. Ceni,4-2-3-1
+31,4,2024-04-27,GRE,BAH,Fora,0,1,-1,D,0,f,Renato Gaúcho,4-3-3
+32,4,2024-04-28,FLA,BOT,Casa,0,2,-2,D,0,f,A. Bacchi,4-2-3-1
+32,4,2024-04-28,BOT,FLA,Fora,2,0,2,V,3,t,A. Torres Gomes Araújo Amorim,4-4-2
+33,4,2024-04-28,COR,FLU,Casa,3,0,3,V,3,t,A. Cardoso de Oliveira,4-3-3
+33,4,2024-04-28,FLU,COR,Fora,0,3,-3,D,0,f,F. Diniz Silva,4-2-3-1
+34,4,2024-04-28,CRU,VIT,Casa,3,1,2,V,3,f,F. Seabra,4-3-3
+34,4,2024-04-28,VIT,CRU,Fora,1,3,-2,D,0,f,L. Condé,4-4-2
+35,4,2024-04-28,FOR,RBB,Casa,1,1,0,E,1,f,J. Vojvoda,4-2-3-1
+35,4,2024-04-28,RBB,FOR,Fora,1,1,0,E,1,f,P. Faria Caixinha,4-3-3
+36,4,2024-04-28,JUV,ATP,Casa,1,1,0,E,1,f,R. Machado Marques,4-2-3-1
+36,4,2024-04-28,ATP,JUV,Fora,1,1,0,E,1,f,A. Stival,4-2-3-1
+37,4,2024-04-28,INT,ATG,Casa,1,1,0,E,1,f,E. Coudet,4-4-2
+37,4,2024-04-28,ATG,INT,Fora,1,1,0,E,1,f,J. Ribeiro Ventura,4-2-3-1
+38,4,2024-04-29,SPA,PAL,Casa,0,0,0,E,1,t,L. Zubeldía,3-4-2-1
+38,4,2024-04-29,PAL,SPA,Fora,0,0,0,E,1,t,A. Moreira Ferreira,4-2-3-1
+39,5,2024-05-04,FLU,ATM,Casa,2,2,0,E,1,f,F. Diniz Silva,4-2-3-1
+39,5,2024-05-04,ATM,FLU,Fora,2,2,0,E,1,f,G. Milito,4-4-2
+40,5,2024-05-04,RBB,FLA,Casa,1,1,0,E,1,f,P. Faria Caixinha,4-2-3-1
+40,5,2024-05-04,FLA,RBB,Fora,1,1,0,E,1,f,A. Bacchi,4-2-3-1
+41,5,2024-05-04,COR,FOR,Casa,0,0,0,E,1,t,A. Cardoso de Oliveira,4-2-3-1
+41,5,2024-05-04,FOR,COR,Fora,0,0,0,E,1,t,J. Vojvoda,4-2-3-1
+42,5,2024-05-05,ATP,VAS,Casa,1,0,1,V,3,t,A. Stival,4-2-3-1
+42,5,2024-05-05,VAS,ATP,Fora,0,1,-1,D,0,f,C. de Paiva,4-3-3
+43,5,2024-05-05,VIT,SPA,Casa,1,3,-2,D,0,f,L. Condé,3-4-1-2
+43,5,2024-05-05,SPA,VIT,Fora,3,1,2,V,3,f,L. Zubeldía,3-4-1-2
+44,5,2024-05-05,BOT,BAH,Casa,1,2,-1,D,0,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+44,5,2024-05-05,BAH,BOT,Fora,2,1,1,V,3,f,R. Ceni,4-1-2-1-2
+45,5,2024-05-05,CUI,PAL,Casa,0,2,-2,D,0,f,R. Colbachini,3-4-1-2
+45,5,2024-05-05,PAL,CUI,Fora,2,0,2,V,3,t,A. Moreira Ferreira,3-4-2-1
+46,6,2024-05-11,FLA,COR,Casa,2,0,2,V,3,t,A. Bacchi,4-2-3-1
+46,6,2024-05-11,COR,FLA,Fora,0,2,-2,D,0,f,A. Cardoso de Oliveira,3-4-3
+47,6,2024-05-12,ATG,CRU,Casa,0,1,-1,D,0,f,J. Ribeiro Ventura,4-2-3-1
+47,6,2024-05-12,CRU,ATG,Fora,1,0,1,V,3,t,F. Seabra,4-3-3
+48,6,2024-05-12,FOR,BOT,Casa,1,1,0,E,1,f,J. Vojvoda,4-2-3-1
+48,6,2024-05-12,BOT,FOR,Fora,1,1,0,E,1,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+49,6,2024-05-12,PAL,ATP,Casa,0,2,-2,D,0,f,A. Moreira Ferreira,4-2-3-1
+49,6,2024-05-12,ATP,PAL,Fora,2,0,2,V,3,t,A. Stival,4-2-3-1
+50,6,2024-05-12,BAH,RBB,Casa,1,0,1,V,3,t,R. Ceni,4-1-2-1-2
+50,6,2024-05-12,RBB,BAH,Fora,0,1,-1,D,0,f,P. Faria Caixinha,4-3-3
+51,6,2024-05-12,VAS,VIT,Casa,2,1,1,V,3,f,C. de Paiva,4-2-3-1
+51,6,2024-05-12,VIT,VAS,Fora,1,2,-1,D,0,f,L. Condé,3-4-1-2
+52,6,2024-05-13,SPA,FLU,Casa,2,1,1,V,3,f,L. Zubeldía,4-2-3-1
+52,6,2024-05-13,FLU,SPA,Fora,1,2,-1,D,0,f,F. Diniz Silva,4-2-3-1
+53,7,2024-06-01,GRE,RBB,Casa,0,2,-2,D,0,f,Renato Gaúcho,4-2-3-1
+53,7,2024-06-01,RBB,GRE,Fora,2,0,2,V,3,t,P. Faria Caixinha,4-3-3
+54,7,2024-06-01,VIT,ATG,Casa,0,2,-2,D,0,f,T. Carpini Barbosa,4-4-2
+54,7,2024-06-01,ATG,VIT,Fora,2,0,2,V,3,t,J. Ribeiro Ventura,4-3-3
+55,7,2024-06-01,CUI,INT,Casa,0,1,-1,D,0,f,A. Gonçalves Teixeira,4-3-3
+55,7,2024-06-01,INT,CUI,Fora,1,0,1,V,3,t,E. Coudet,4-1-3-2
+56,7,2024-06-01,FLU,JUV,Casa,1,1,0,E,1,f,E. de Barros,4-2-3-1
+56,7,2024-06-01,JUV,FLU,Fora,1,1,0,E,1,f,R. Machado Marques,4-2-3-1
+57,7,2024-06-01,COR,BOT,Casa,0,1,-1,D,0,f,A. Cardoso de Oliveira,4-3-3
+57,7,2024-06-01,BOT,COR,Fora,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+58,7,2024-06-02,ATM,BAH,Casa,1,1,0,E,1,f,G. Milito,3-5-2
+58,7,2024-06-02,BAH,ATM,Fora,1,1,0,E,1,f,R. Ceni,4-1-2-1-2
+59,7,2024-06-02,CRI,PAL,Casa,1,2,-1,D,0,f,C. Tencati,4-3-3
+59,7,2024-06-02,PAL,CRI,Fora,2,1,1,V,3,f,C. Martinho,4-2-3-1
+60,7,2024-06-02,VAS,FLA,Casa,1,6,-5,D,0,f,Á. Teixeira Pacheco,3-4-2-1
+60,7,2024-06-02,FLA,VAS,Fora,6,1,5,V,3,f,A. Bacchi,4-2-3-1
+61,7,2024-06-02,FOR,ATP,Casa,1,0,1,V,3,t,J. Vojvoda,4-3-3
+61,7,2024-06-02,ATP,FOR,Fora,0,1,-1,D,0,f,A. Stival,4-1-4-1
+62,7,2024-06-02,SPA,CRU,Casa,2,0,2,V,3,t,L. Zubeldía,4-4-2
+62,7,2024-06-02,CRU,SPA,Fora,0,2,-2,D,0,f,F. Seabra,4-3-2-1
+63,5,2024-06-05,JUV,ATG,Casa,1,0,1,V,3,t,R. Machado Marques,4-2-3-1
+63,5,2024-06-05,ATG,JUV,Fora,0,1,-1,D,0,f,J. Ribeiro Ventura,4-3-3
+64,2,2024-06-05,CUI,VIT,Casa,0,0,0,E,1,t,A. Gonçalves Teixeira,4-2-3-1
+64,2,2024-06-05,VIT,CUI,Fora,0,0,0,E,1,t,T. Carpini Barbosa,4-1-4-1
+65,6,2024-06-09,CRI,CUI,Casa,2,5,-3,D,0,f,C. Tencati,4-4-2
+65,6,2024-06-09,CUI,CRI,Fora,5,2,3,V,3,f,A. Gonçalves Teixeira,4-3-3
+66,8,2024-06-11,ATG,COR,Casa,2,2,0,E,1,f,J. Ribeiro Ventura,4-3-3
+66,8,2024-06-11,COR,ATG,Fora,2,2,0,E,1,f,A. Cardoso de Oliveira,4-3-3
+67,8,2024-06-11,JUV,VIT,Casa,1,1,0,E,1,f,R. Machado Marques,4-2-3-1
+67,8,2024-06-11,VIT,JUV,Fora,1,1,0,E,1,f,T. Carpini Barbosa,4-1-4-1
+68,8,2024-06-11,BOT,FLU,Casa,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-4-1-1
+68,8,2024-06-11,FLU,BOT,Fora,0,1,-1,D,0,f,F. Diniz Silva,4-2-3-1
+69,8,2024-06-11,RBB,ATM,Casa,1,2,-1,D,0,f,P. Faria Caixinha,4-3-3
+69,8,2024-06-11,ATM,RBB,Fora,2,1,1,V,3,f,G. Milito,3-5-2
+70,8,2024-06-13,CRU,CUI,Casa,2,1,1,V,3,f,F. Seabra,4-3-2-1
+70,8,2024-06-13,CUI,CRU,Fora,1,2,-1,D,0,f,A. Gonçalves Teixeira,4-2-3-1
+71,8,2024-06-13,FLA,GRE,Casa,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+71,8,2024-06-13,GRE,FLA,Fora,1,2,-1,D,0,f,Renato Gaúcho,4-4-2
+72,8,2024-06-13,INT,SPA,Casa,0,0,0,E,1,t,E. Coudet,4-1-3-2
+72,8,2024-06-13,SPA,INT,Fora,0,0,0,E,1,t,L. Zubeldía,4-2-3-1
+73,8,2024-06-13,ATP,CRI,Casa,3,1,2,V,3,f,A. Stival,4-2-3-1
+73,8,2024-06-13,CRI,ATP,Fora,1,3,-2,D,0,f,C. Tencati,4-4-2
+74,8,2024-06-13,BAH,FOR,Casa,1,0,1,V,3,t,R. Ceni,4-1-2-1-2
+74,8,2024-06-13,FOR,BAH,Fora,0,1,-1,D,0,f,J. Vojvoda,4-3-3
+75,8,2024-06-13,PAL,VAS,Casa,2,0,2,V,3,t,A. Moreira Ferreira,4-2-3-1
+75,8,2024-06-13,VAS,PAL,Fora,0,2,-2,D,0,f,Á. Teixeira Pacheco,5-4-1
+76,9,2024-06-15,RBB,JUV,Casa,2,1,1,V,3,f,P. Faria Caixinha,4-3-3
+76,9,2024-06-15,JUV,RBB,Fora,1,2,-1,D,0,f,R. Machado Marques,4-2-3-1
+77,9,2024-06-15,FLU,ATG,Casa,1,2,-1,D,0,f,F. Diniz Silva,4-2-3-1
+77,9,2024-06-15,ATG,FLU,Fora,2,1,1,V,3,f,J. Ribeiro Ventura,4-3-3
+78,9,2024-06-16,ATP,FLA,Casa,1,1,0,E,1,f,A. Stival,4-2-3-1
+78,9,2024-06-16,FLA,ATP,Fora,1,1,0,E,1,f,M. Rizzi Bacchi,4-2-3-1
+79,9,2024-06-16,COR,SPA,Casa,2,2,0,E,1,f,A. Cardoso de Oliveira,4-2-3-1
+79,9,2024-06-16,SPA,COR,Fora,2,2,0,E,1,f,L. Zubeldía,4-2-3-1
+80,9,2024-06-16,VIT,INT,Casa,2,1,1,V,3,f,T. Carpini Barbosa,4-1-4-1
+80,9,2024-06-16,INT,VIT,Fora,1,2,-1,D,0,f,E. Coudet,4-2-3-1
+81,9,2024-06-16,CRI,BAH,Casa,2,2,0,E,1,f,C. Tencati,4-3-1-2
+81,9,2024-06-16,BAH,CRI,Fora,2,2,0,E,1,f,R. Ceni,4-1-3-2
+82,9,2024-06-16,CUI,FOR,Casa,5,0,5,V,3,t,A. Gonçalves Teixeira,4-2-3-1
+82,9,2024-06-16,FOR,CUI,Fora,0,5,-5,D,0,f,J. Vojvoda,4-2-3-1
+83,9,2024-06-16,GRE,BOT,Casa,1,2,-1,D,0,f,Renato Gaúcho,4-4-1-1
+83,9,2024-06-16,BOT,GRE,Fora,2,1,1,V,3,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+84,9,2024-06-16,VAS,CRU,Casa,0,0,0,E,1,t,Á. Teixeira Pacheco,4-2-3-1
+84,9,2024-06-16,CRU,VAS,Fora,0,0,0,E,1,t,F. Seabra,4-3-2-1
+85,9,2024-06-17,ATM,PAL,Casa,0,4,-4,D,0,f,G. Milito,3-4-3
+85,9,2024-06-17,PAL,ATM,Fora,4,0,4,V,3,t,A. Moreira Ferreira,4-2-3-1
+86,10,2024-06-19,ATG,CRI,Casa,1,2,-1,D,0,f,J. Ribeiro Ventura,4-3-3
+86,10,2024-06-19,CRI,ATG,Fora,2,1,1,V,3,f,C. Tencati,4-4-2
+87,10,2024-06-19,BOT,ATP,Casa,1,1,0,E,1,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+87,10,2024-06-19,ATP,BOT,Fora,1,1,0,E,1,f,D. D. S. Cerqueira,4-2-3-1
+88,10,2024-06-19,FOR,GRE,Casa,1,0,1,V,3,t,J. Vojvoda,4-2-3-1
+88,10,2024-06-19,GRE,FOR,Fora,0,1,-1,D,0,f,Renato Gaúcho,4-3-3
+89,10,2024-06-19,JUV,VAS,Casa,2,0,2,V,3,t,R. Machado Marques,4-2-3-1
+89,10,2024-06-19,VAS,JUV,Fora,0,2,-2,D,0,f,Á. Teixeira Pacheco,4-2-3-1
+90,10,2024-06-19,SPA,CUI,Casa,0,1,-1,D,0,f,L. Zubeldía,4-2-3-1
+90,10,2024-06-19,CUI,SPA,Fora,1,0,1,V,3,t,N. M. Gaspar Pereira,4-2-3-1
+91,10,2024-06-19,CRU,FLU,Casa,2,0,2,V,3,t,F. Seabra,4-3-2-1
+91,10,2024-06-19,FLU,CRU,Fora,0,2,-2,D,0,f,F. Diniz Silva,4-2-3-1
+92,10,2024-06-19,INT,COR,Casa,1,0,1,V,3,t,E. Coudet,4-2-3-1
+92,10,2024-06-19,COR,INT,Fora,0,1,-1,D,0,f,A. Cardoso de Oliveira,4-2-3-1
+93,10,2024-06-20,VIT,ATM,Casa,4,2,2,V,3,f,T. Carpini Barbosa,4-1-4-1
+93,10,2024-06-20,ATM,VIT,Fora,2,4,-2,D,0,f,G. Milito,3-4-2-1
+94,10,2024-06-20,FLA,BAH,Casa,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+94,10,2024-06-20,BAH,FLA,Fora,1,2,-1,D,0,f,R. Ceni,4-1-3-2
+95,10,2024-06-20,PAL,RBB,Casa,2,1,1,V,3,f,A. Moreira Ferreira,4-2-3-1
+95,10,2024-06-20,RBB,PAL,Fora,1,2,-1,D,0,f,P. Malta,4-3-3
+96,11,2024-06-22,CRI,BOT,Casa,2,1,1,V,3,f,C. Tencati,5-3-2
+96,11,2024-06-22,BOT,CRI,Fora,1,2,-1,D,0,f,A. Torres Gomes Araújo Amorim,4-4-2
+97,11,2024-06-22,GRE,INT,Casa,0,1,-1,D,0,f,Renato Gaúcho,4-2-3-1
+97,11,2024-06-22,INT,GRE,Fora,1,0,1,V,3,t,E. Coudet,4-2-3-1
+98,11,2024-06-22,CUI,ATG,Casa,0,0,0,E,1,t,A. Gonçalves Teixeira,4-2-3-1
+98,11,2024-06-22,ATG,CUI,Fora,0,0,0,E,1,t,A. Gomes,4-3-3
+99,11,2024-06-22,VAS,SPA,Casa,4,1,3,V,3,f,C. de Paiva,4-2-3-1
+99,11,2024-06-22,SPA,VAS,Fora,1,4,-3,D,0,f,L. Zubeldía,4-1-3-2
+100,11,2024-06-23,ATP,COR,Casa,1,1,0,E,1,f,A. Stival,4-2-3-1
+100,11,2024-06-23,COR,ATP,Fora,1,1,0,E,1,f,A. Cardoso de Oliveira,4-2-3-1
+101,11,2024-06-23,BAH,CRU,Casa,4,1,3,V,3,f,R. Ceni,4-1-3-2
+101,11,2024-06-23,CRU,BAH,Fora,1,4,-3,D,0,f,F. Seabra,4-3-2-1
+102,11,2024-06-23,FLU,FLA,Casa,0,1,-1,D,0,f,F. Diniz Silva,4-4-2
+102,11,2024-06-23,FLA,FLU,Fora,1,0,1,V,3,t,A. Bacchi,4-2-3-1
+103,11,2024-06-23,ATM,FOR,Casa,1,1,0,E,1,f,G. Milito,3-4-1-2
+103,11,2024-06-23,FOR,ATM,Fora,1,1,0,E,1,f,J. Vojvoda,4-2-3-1
+104,11,2024-06-23,RBB,VIT,Casa,2,1,1,V,3,f,P. Faria Caixinha,4-3-3
+104,11,2024-06-23,VIT,RBB,Fora,1,2,-1,D,0,f,T. Carpini Barbosa,5-3-2
+105,11,2024-06-23,PAL,JUV,Casa,3,1,2,V,3,f,A. Moreira Ferreira,4-2-3-1
+105,11,2024-06-23,JUV,PAL,Fora,1,3,-2,D,0,f,R. Machado Marques,4-2-3-1
+106,12,2024-06-26,BOT,RBB,Casa,2,1,1,V,3,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+106,12,2024-06-26,RBB,BOT,Fora,1,2,-1,D,0,f,P. Faria Caixinha,3-4-3
+107,12,2024-06-26,CRU,ATP,Casa,2,0,2,V,3,t,F. Seabra,4-3-3
+107,12,2024-06-26,ATP,CRU,Fora,0,2,-2,D,0,f,J. Antonello,4-2-3-1
+108,12,2024-06-26,ATG,GRE,Casa,1,1,0,E,1,f,A. Gomes,4-3-3
+108,12,2024-06-26,GRE,ATG,Fora,1,1,0,E,1,f,Renato Gaúcho,4-3-3
+109,12,2024-06-26,COR,CUI,Casa,1,1,0,E,1,f,A. Cardoso de Oliveira,4-2-3-1
+109,12,2024-06-26,CUI,COR,Fora,1,1,0,E,1,f,A. Gonçalves Teixeira,4-3-3
+110,12,2024-06-26,JUV,FLA,Casa,2,1,1,V,3,f,R. Machado Marques,4-2-3-1
+110,12,2024-06-26,FLA,JUV,Fora,1,2,-1,D,0,f,A. Bacchi,4-2-3-1
+111,12,2024-06-26,BAH,VAS,Casa,2,1,1,V,3,f,R. Ceni,4-1-3-2
+111,12,2024-06-26,VAS,BAH,Fora,1,2,-1,D,0,f,C. de Paiva,4-2-3-1
+112,12,2024-06-26,FOR,PAL,Casa,3,0,3,V,3,t,J. Vojvoda,4-2-3-1
+112,12,2024-06-26,PAL,FOR,Fora,0,3,-3,D,0,f,A. Moreira Ferreira,3-4-2-1
+113,12,2024-06-26,INT,ATM,Casa,1,2,-1,D,0,f,E. Coudet,4-3-3
+113,12,2024-06-26,ATM,INT,Fora,2,1,1,V,3,f,G. Milito,4-1-4-1
+114,12,2024-06-27,FLU,VIT,Casa,0,1,-1,D,0,f,M. A. de Oliveira,4-2-3-1
+114,12,2024-06-27,VIT,FLU,Fora,1,0,1,V,3,t,T. Carpini Barbosa,4-1-4-1
+115,12,2024-06-27,SPA,CRI,Casa,2,1,1,V,3,f,L. Zubeldía,4-2-3-1
+115,12,2024-06-27,CRI,SPA,Fora,1,2,-1,D,0,f,C. Tencati,4-4-2
+116,13,2024-06-29,CUI,RBB,Casa,1,1,0,E,1,f,A. Gonçalves Teixeira,4-3-3
+116,13,2024-06-29,RBB,CUI,Fora,1,1,0,E,1,f,P. Faria Caixinha,4-2-3-1
+117,13,2024-06-29,VAS,BOT,Casa,1,1,0,E,1,f,C. de Paiva,4-2-3-1
+117,13,2024-06-29,BOT,VAS,Fora,1,1,0,E,1,f,A. Torres Gomes Araújo Amorim,4-4-2
+118,13,2024-06-30,ATM,ATG,Casa,1,1,0,E,1,f,G. Milito,3-4-2-1
+118,13,2024-06-30,ATG,ATM,Fora,1,1,0,E,1,f,A. Gomes,4-3-3
+119,13,2024-06-30,FOR,JUV,Casa,2,1,1,V,3,f,J. Vojvoda,4-2-3-1
+119,13,2024-06-30,JUV,FOR,Fora,1,2,-1,D,0,f,R. Machado Marques,4-2-3-1
+120,13,2024-06-30,GRE,FLU,Casa,1,0,1,V,3,t,Renato Gaúcho,4-2-3-1
+120,13,2024-06-30,FLU,GRE,Fora,0,1,-1,D,0,f,M. A. de Oliveira,3-4-2-1
+121,13,2024-06-30,SPA,BAH,Casa,3,1,2,V,3,f,M. Cuberas,4-2-3-1
+121,13,2024-06-30,BAH,SPA,Fora,1,3,-2,D,0,f,R. Ceni,4-1-3-2
+122,13,2024-06-30,CRI,INT,Casa,1,1,0,E,1,f,C. Tencati,5-3-2
+122,13,2024-06-30,INT,CRI,Fora,1,1,0,E,1,f,E. Coudet,4-2-3-1
+123,13,2024-06-30,FLA,CRU,Casa,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+123,13,2024-06-30,CRU,FLA,Fora,1,2,-1,D,0,f,F. Seabra,4-3-3
+124,13,2024-06-30,VIT,ATP,Casa,0,1,-1,D,0,f,T. Carpini Barbosa,4-1-4-1
+124,13,2024-06-30,ATP,VIT,Fora,1,0,1,V,3,t,J. Antonello,4-2-3-1
+125,13,2024-07-01,PAL,COR,Casa,2,0,2,V,3,t,A. Moreira Ferreira,4-2-3-1
+125,13,2024-07-01,COR,PAL,Fora,0,2,-2,D,0,f,A. Cardoso de Oliveira,4-2-3-1
+126,14,2024-07-03,CUI,BOT,Casa,1,2,-1,D,0,f,A. Gonçalves Teixeira,5-4-1
+126,14,2024-07-03,BOT,CUI,Fora,2,1,1,V,3,f,A. Torres Gomes Araújo Amorim,4-4-2
+127,14,2024-07-03,CRI,CRU,Casa,1,0,1,V,3,t,C. Tencati,4-3-1-2
+127,14,2024-07-03,CRU,CRI,Fora,0,1,-1,D,0,f,F. Seabra,4-3-3
+128,14,2024-07-03,VAS,FOR,Casa,2,0,2,V,3,t,C. de Paiva,4-2-3-1
+128,14,2024-07-03,FOR,VAS,Fora,0,2,-2,D,0,f,J. Vojvoda,4-2-3-1
+129,14,2024-07-03,ATP,SPA,Casa,1,2,-1,D,0,f,J. Antonello,4-2-3-1
+129,14,2024-07-03,SPA,ATP,Fora,2,1,1,V,3,f,L. Zubeldía,4-2-3-1
+130,14,2024-07-03,ATM,FLA,Casa,2,4,-2,D,0,f,G. Milito,4-1-4-1
+130,14,2024-07-03,FLA,ATM,Fora,4,2,2,V,3,f,A. Bacchi,4-2-3-1
+131,14,2024-07-03,RBB,ATG,Casa,3,1,2,V,3,f,P. Faria Caixinha,4-2-3-1
+131,14,2024-07-03,ATG,RBB,Fora,1,3,-2,D,0,f,A. Gomes,4-2-3-1
+132,14,2024-07-04,BAH,JUV,Casa,2,0,2,V,3,t,R. Ceni,4-1-3-2
+132,14,2024-07-04,JUV,BAH,Fora,0,2,-2,D,0,f,R. Machado Marques,4-2-3-1
+133,14,2024-07-04,GRE,PAL,Casa,2,2,0,E,1,f,Renato Gaúcho,4-2-3-1
+133,14,2024-07-04,PAL,GRE,Fora,2,2,0,E,1,f,A. Moreira Ferreira,4-3-3
+134,14,2024-07-04,COR,VIT,Casa,3,2,1,V,3,f,R. Laruccia,4-1-4-1
+134,14,2024-07-04,VIT,COR,Fora,2,3,-1,D,0,f,T. Carpini Barbosa,4-1-4-1
+135,14,2024-07-04,FLU,INT,Casa,1,1,0,E,1,f,L. Venker de Menezes,4-2-3-1
+135,14,2024-07-04,INT,FLU,Fora,1,1,0,E,1,f,E. Coudet,4-2-3-1
+136,15,2024-07-06,FLA,CUI,Casa,1,1,0,E,1,f,A. Bacchi,4-4-2
+136,15,2024-07-06,CUI,FLA,Fora,1,1,0,E,1,f,A. Gonçalves Teixeira,4-5-1
+137,15,2024-07-06,SPA,RBB,Casa,2,0,2,V,3,t,C. Gruezo,4-2-3-1
+137,15,2024-07-06,RBB,SPA,Fora,0,2,-2,D,0,f,P. Faria Caixinha,4-2-3-1
+138,15,2024-07-07,CRU,COR,Casa,3,0,3,V,3,t,F. Seabra,4-3-3
+138,15,2024-07-07,COR,CRU,Fora,0,3,-3,D,0,f,R. Laruccia,4-2-3-1
+139,15,2024-07-07,FOR,FLU,Casa,1,0,1,V,3,t,J. Vojvoda,4-2-3-1
+139,15,2024-07-07,FLU,FOR,Fora,0,1,-1,D,0,f,L. Venker de Menezes,4-2-3-1
+140,15,2024-07-07,JUV,GRE,Casa,3,0,3,V,3,t,R. Machado Marques,4-2-3-1
+140,15,2024-07-07,GRE,JUV,Fora,0,3,-3,D,0,f,Renato Gaúcho,4-4-2
+141,15,2024-07-07,INT,VAS,Casa,1,2,-1,D,0,f,E. Coudet,4-2-3-1
+141,15,2024-07-07,VAS,INT,Fora,2,1,1,V,3,f,C. de Paiva,4-2-3-1
+142,15,2024-07-07,ATG,ATP,Casa,1,2,-1,D,0,f,A. Gomes,4-3-3
+142,15,2024-07-07,ATP,ATG,Fora,2,1,1,V,3,f,J. Antonello,4-2-3-1
+143,15,2024-07-07,PAL,BAH,Casa,2,0,2,V,3,t,A. Moreira Ferreira,4-2-3-1
+143,15,2024-07-07,BAH,PAL,Fora,0,2,-2,D,0,f,R. Ceni,4-1-3-2
+144,15,2024-07-07,VIT,CRI,Casa,2,1,1,V,3,f,T. Carpini Barbosa,4-1-4-1
+144,15,2024-07-07,CRI,VIT,Fora,1,2,-1,D,0,f,C. Tencati,4-4-2
+145,15,2024-07-07,BOT,ATM,Casa,3,0,3,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+145,15,2024-07-07,ATM,BOT,Fora,0,3,-3,D,0,f,G. Milito,3-4-2-1
+146,16,2024-07-10,GRE,CRU,Casa,0,2,-2,D,0,f,Renato Gaúcho,4-2-3-1
+146,16,2024-07-10,CRU,GRE,Fora,2,0,2,V,3,t,F. Seabra,4-3-3
+147,16,2024-07-10,ATP,BAH,Casa,1,3,-2,D,0,f,J. Antonello,4-2-3-1
+147,16,2024-07-10,BAH,ATP,Fora,3,1,2,V,3,f,R. Ceni,4-1-2-1-2
+148,16,2024-07-10,VAS,COR,Casa,2,0,2,V,3,t,C. de Paiva,4-2-3-1
+148,16,2024-07-10,COR,VAS,Fora,0,2,-2,D,0,f,R. Laruccia,4-2-3-1
+149,16,2024-07-11,PAL,ATG,Casa,3,1,2,V,3,f,A. Moreira Ferreira,4-2-3-1
+149,16,2024-07-11,ATG,PAL,Fora,1,3,-2,D,0,f,V. Carmo Mancini,5-4-1
+150,16,2024-07-11,CRI,FLU,Casa,1,1,0,E,1,f,C. Tencati,4-4-2
+150,16,2024-07-11,FLU,CRI,Fora,1,1,0,E,1,f,L. Venker de Menezes,4-2-3-1
+151,16,2024-07-11,FLA,FOR,Casa,1,2,-1,D,0,f,A. Bacchi,4-2-3-1
+151,16,2024-07-11,FOR,FLA,Fora,2,1,1,V,3,f,J. Vojvoda,4-2-3-1
+152,16,2024-07-11,ATM,SPA,Casa,2,1,1,V,3,f,G. Milito,3-4-2-1
+152,16,2024-07-11,SPA,ATM,Fora,1,2,-1,D,0,f,L. Zubeldía,4-2-3-1
+153,16,2024-07-11,VIT,BOT,Casa,0,1,-1,D,0,f,T. Carpini Barbosa,4-1-4-1
+153,16,2024-07-11,BOT,VIT,Fora,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-4-2
+154,17,2024-07-13,BAH,CUI,Casa,1,2,-1,D,0,f,R. Ceni,4-4-1-1
+154,17,2024-07-13,CUI,BAH,Fora,2,1,1,V,3,f,A. Gonçalves Teixeira,4-5-1
+155,17,2024-07-13,CRU,RBB,Casa,2,1,1,V,3,f,F. Seabra,4-3-3
+155,17,2024-07-13,RBB,CRU,Fora,1,2,-1,D,0,f,P. Faria Caixinha,4-2-3-1
+156,17,2024-07-16,JUV,ATM,Casa,1,1,0,E,1,f,R. Machado Marques,4-2-3-1
+156,17,2024-07-16,ATM,JUV,Fora,1,1,0,E,1,f,G. Milito,4-2-3-1
+157,17,2024-07-16,COR,CRI,Casa,2,1,1,V,3,f,R. Díaz,4-2-3-1
+157,17,2024-07-16,CRI,COR,Fora,1,2,-1,D,0,f,C. Tencati,4-4-2
+158,17,2024-07-17,ATG,VAS,Casa,0,1,-1,D,0,f,V. Carmo Mancini,4-3-3
+158,17,2024-07-17,VAS,ATG,Fora,1,0,1,V,3,t,C. de Paiva,4-2-3-1
+159,17,2024-07-17,SPA,GRE,Casa,1,0,1,V,3,t,L. Zubeldía,4-2-3-1
+159,17,2024-07-17,GRE,SPA,Fora,0,1,-1,D,0,f,A. P. Mendes,4-3-3
+160,17,2024-07-17,BOT,PAL,Casa,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+160,17,2024-07-17,PAL,BOT,Fora,0,1,-1,D,0,f,A. Moreira Ferreira,4-2-3-1
+161,17,2024-07-17,FOR,VIT,Casa,3,1,2,V,3,f,J. Vojvoda,4-2-3-1
+161,17,2024-07-17,VIT,FOR,Fora,1,3,-2,D,0,f,T. Carpini Barbosa,4-1-4-1
+162,18,2024-07-20,FLA,CRI,Casa,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+162,18,2024-07-20,CRI,FLA,Fora,1,2,-1,D,0,f,C. Tencati,4-4-2
+163,18,2024-07-20,BOT,INT,Casa,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-2-2
+163,18,2024-07-20,INT,BOT,Fora,0,1,-1,D,0,f,R. Machado Marques,4-1-3-2
+164,18,2024-07-20,PAL,CRU,Casa,2,0,2,V,3,t,A. Moreira Ferreira,4-2-3-1
+164,18,2024-07-20,CRU,PAL,Fora,0,2,-2,D,0,f,F. Seabra,4-3-3
+165,18,2024-07-21,GRE,VIT,Casa,2,0,2,V,3,t,Renato Gaúcho,4-4-2
+165,18,2024-07-21,VIT,GRE,Fora,0,2,-2,D,0,f,T. Carpini Barbosa,3-4-3
+166,18,2024-07-21,ATM,VAS,Casa,2,0,2,V,3,t,G. Milito,3-4-2-1
+166,18,2024-07-21,VAS,ATM,Fora,0,2,-2,D,0,f,C. de Paiva,4-2-3-1
+167,18,2024-07-21,BAH,COR,Casa,0,1,-1,D,0,f,R. Ceni,4-1-2-1-2
+167,18,2024-07-21,COR,BAH,Fora,1,0,1,V,3,t,R. Díaz,3-4-1-2
+168,18,2024-07-21,RBB,ATP,Casa,1,0,1,V,3,t,P. Faria Caixinha,4-2-3-1
+168,18,2024-07-21,ATP,RBB,Fora,0,1,-1,D,0,f,M. Varini Di Zioli,4-2-3-1
+169,18,2024-07-21,FOR,ATG,Casa,3,1,2,V,3,f,J. Vojvoda,4-2-3-1
+169,18,2024-07-21,ATG,FOR,Fora,1,3,-2,D,0,f,V. Carmo Mancini,5-4-1
+170,18,2024-07-21,JUV,SPA,Casa,0,0,0,E,1,t,J. Ribeiro Ventura,4-2-3-1
+170,18,2024-07-21,SPA,JUV,Fora,0,0,0,E,1,t,L. Zubeldía,4-2-3-1
+171,18,2024-07-21,CUI,FLU,Casa,0,1,-1,D,0,f,A. Gonçalves Teixeira,4-5-1
+171,18,2024-07-21,FLU,CUI,Fora,1,0,1,V,3,t,L. Venker de Menezes,4-5-1
+172,19,2024-07-24,CRU,JUV,Casa,2,0,2,V,3,t,F. Seabra,4-3-3
+172,19,2024-07-24,JUV,CRU,Fora,0,2,-2,D,0,f,J. Ribeiro Ventura,4-2-3-1
+173,3,2024-07-24,CRI,FOR,Casa,1,1,0,E,1,f,C. Tencati,4-4-2
+173,3,2024-07-24,FOR,CRI,Fora,1,1,0,E,1,f,J. Vojvoda,4-2-3-1
+174,19,2024-07-24,SPA,BOT,Casa,2,2,0,E,1,f,M. Cuberas,4-2-3-1
+174,19,2024-07-24,BOT,SPA,Fora,2,2,0,E,1,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+175,19,2024-07-24,VIT,FLA,Casa,1,2,-1,D,0,f,T. Carpini Barbosa,4-1-4-1
+175,19,2024-07-24,FLA,VIT,Fora,2,1,1,V,3,f,A. Bacchi,4-2-3-1
+176,19,2024-07-24,ATG,BAH,Casa,1,1,0,E,1,f,V. Carmo Mancini,4-1-4-1
+176,19,2024-07-24,BAH,ATG,Fora,1,1,0,E,1,f,R. Ceni,4-1-3-2
+177,19,2024-07-24,FLU,PAL,Casa,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1
+177,19,2024-07-24,PAL,FLU,Fora,0,1,-1,D,0,f,J. M. Barreto Martins,4-2-3-1
+178,19,2024-07-25,COR,GRE,Casa,2,2,0,E,1,f,R. Díaz,3-4-1-2
+178,19,2024-07-25,GRE,COR,Fora,2,2,0,E,1,f,Renato Gaúcho,3-4-3
+179,20,2024-07-27,JUV,CRI,Casa,1,2,-1,D,0,f,J. Ribeiro Ventura,4-2-3-1
+179,20,2024-07-27,CRI,JUV,Fora,2,1,1,V,3,f,C. Tencati,4-2-3-1
+180,20,2024-07-27,PAL,VIT,Casa,0,2,-2,D,0,f,A. Moreira Ferreira,4-2-3-1
+180,20,2024-07-27,VIT,PAL,Fora,2,0,2,V,3,t,T. Carpini Barbosa,4-1-4-1
+181,20,2024-07-27,BAH,INT,Casa,1,1,0,E,1,f,R. Ceni,4-1-2-1-2
+181,20,2024-07-27,INT,BAH,Fora,1,1,0,E,1,f,R. Machado Marques,4-4-1-1
+182,20,2024-07-27,BOT,CRU,Casa,0,3,-3,D,0,f,A. Torres Gomes Araújo Amorim,4-4-2
+182,20,2024-07-27,CRU,BOT,Fora,3,0,3,V,3,t,F. Seabra,4-2-3-1
+183,20,2024-07-27,FOR,SPA,Casa,1,0,1,V,3,t,J. Vojvoda,4-2-3-1
+183,20,2024-07-27,SPA,FOR,Fora,0,1,-1,D,0,f,L. Zubeldía,4-4-2
+184,20,2024-07-28,RBB,FLU,Casa,0,1,-1,D,0,f,P. Faria Caixinha,4-2-3-1
+184,20,2024-07-28,FLU,RBB,Fora,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1
+185,20,2024-07-28,FLA,ATG,Casa,2,0,2,V,3,t,A. Bacchi,4-2-3-1
+185,20,2024-07-28,ATG,FLA,Fora,0,2,-2,D,0,f,V. Carmo Mancini,4-3-3
+186,20,2024-07-28,ATM,COR,Casa,2,1,1,V,3,f,G. Milito,3-4-1-2
+186,20,2024-07-28,COR,ATM,Fora,1,2,-1,D,0,f,R. Díaz,3-4-1-2
+187,20,2024-07-28,CUI,ATP,Casa,1,2,-1,D,0,f,A. Gonçalves Teixeira,4-2-3-1
+187,20,2024-07-28,ATP,CUI,Fora,2,1,1,V,3,f,M. Varini Di Zioli,4-3-3
+188,20,2024-07-28,GRE,VAS,Casa,1,0,1,V,3,t,Renato Gaúcho,3-4-3
+188,20,2024-07-28,VAS,GRE,Fora,0,1,-1,D,0,f,C. de Paiva,4-2-3-1
+189,21,2024-08-03,VIT,CUI,Casa,1,0,1,V,3,t,E. K. Neto,4-3-3
+189,21,2024-08-03,CUI,VIT,Fora,0,1,-1,D,0,f,A. Gonçalves Teixeira,4-2-3-1
+190,21,2024-08-03,VAS,RBB,Casa,2,2,0,E,1,f,C. de Paiva,4-2-3-1
+190,21,2024-08-03,RBB,VAS,Fora,2,2,0,E,1,f,P. Faria Caixinha,4-3-3
+191,21,2024-08-03,ATG,BOT,Casa,1,4,-3,D,0,f,V. Carmo Mancini,4-3-3
+191,21,2024-08-03,BOT,ATG,Fora,4,1,3,V,3,f,A. Torres Gomes Araújo Amorim,4-4-2
+192,21,2024-08-03,CRI,ATM,Casa,2,1,1,V,3,f,C. Tencati,4-2-3-1
+192,21,2024-08-03,ATM,CRI,Fora,1,2,-1,D,0,f,G. Milito,3-4-1-2
+193,21,2024-08-03,SPA,FLA,Casa,1,0,1,V,3,t,L. Zubeldía,4-2-3-1
+193,21,2024-08-03,FLA,SPA,Fora,0,1,-1,D,0,f,A. Bacchi,4-2-3-1
+194,21,2024-08-04,ATP,GRE,Casa,0,2,-2,D,0,f,M. Varini Di Zioli,3-3-3-1
+194,21,2024-08-04,GRE,ATP,Fora,2,0,2,V,3,t,Renato Gaúcho,4-2-3-1
+195,21,2024-08-04,COR,JUV,Casa,1,1,0,E,1,f,R. Díaz,4-2-3-1
+195,21,2024-08-04,JUV,COR,Fora,1,1,0,E,1,f,J. Ribeiro Ventura,4-2-3-1
+196,21,2024-08-04,FLU,BAH,Casa,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1
+196,21,2024-08-04,BAH,FLU,Fora,0,1,-1,D,0,f,R. Ceni,4-3-3
+197,21,2024-08-04,INT,PAL,Casa,1,1,0,E,1,f,R. Machado Marques,4-2-3-1
+197,21,2024-08-04,PAL,INT,Fora,1,1,0,E,1,f,A. Moreira Ferreira,3-4-2-1
+198,21,2024-08-05,CRU,FOR,Casa,1,2,-1,D,0,f,F. Seabra,4-2-3-1
+198,21,2024-08-05,FOR,CRU,Fora,2,1,1,V,3,f,J. Vojvoda,4-2-3-1
+199,22,2024-08-10,FOR,CRI,Casa,1,0,1,V,3,t,J. Vojvoda,4-2-3-1
+199,22,2024-08-10,CRI,FOR,Fora,0,1,-1,D,0,f,C. Tencati,4-2-3-1
+200,22,2024-08-10,CUI,GRE,Casa,1,3,-2,D,0,f,A. Gonçalves Teixeira,5-3-2
+200,22,2024-08-10,GRE,CUI,Fora,3,1,2,V,3,f,Renato Gaúcho,4-2-3-1
+201,22,2024-08-10,COR,RBB,Casa,1,1,0,E,1,f,R. Díaz,4-1-2-1-2
+201,22,2024-08-10,RBB,COR,Fora,1,1,0,E,1,f,P. Faria Caixinha,4-3-3
+202,22,2024-08-10,CRU,ATM,Casa,0,0,0,E,1,t,F. Seabra,4-2-3-1
+202,22,2024-08-10,ATM,CRU,Fora,0,0,0,E,1,t,G. Milito,3-4-1-2
+203,22,2024-08-10,VAS,FLU,Casa,2,0,2,V,3,t,C. de Paiva,4-2-3-1
+203,22,2024-08-10,FLU,VAS,Fora,0,2,-2,D,0,f,L. Venker de Menezes,4-2-3-1
+204,22,2024-08-11,JUV,BOT,Casa,3,2,1,V,3,f,J. Ribeiro Ventura,4-4-2
+204,22,2024-08-11,BOT,JUV,Fora,2,3,-1,D,0,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+205,22,2024-08-11,BAH,VIT,Casa,2,0,2,V,3,t,R. Ceni,4-1-3-2
+205,22,2024-08-11,VIT,BAH,Fora,0,2,-2,D,0,f,T. Carpini Barbosa,4-3-3
+206,22,2024-08-11,FLA,PAL,Casa,1,1,0,E,1,f,A. Bacchi,4-2-3-1
+206,22,2024-08-11,PAL,FLA,Fora,1,1,0,E,1,f,A. Moreira Ferreira,3-4-2-1
+207,22,2024-08-11,SPA,ATG,Casa,1,0,1,V,3,t,L. Zubeldía,4-2-3-1
+207,22,2024-08-11,ATG,SPA,Fora,0,1,-1,D,0,f,U. Louzer Filho,4-2-3-1
+208,22,2024-08-11,INT,ATP,Casa,2,2,0,E,1,f,R. Machado Marques,4-2-3-1
+208,22,2024-08-11,ATP,INT,Fora,2,2,0,E,1,f,M. Varini Di Zioli,4-3-3
+209,6,2024-08-14,INT,JUV,Casa,2,1,1,V,3,f,R. Machado Marques,4-2-3-1
+209,6,2024-08-14,JUV,INT,Fora,1,2,-1,D,0,f,J. Ribeiro Ventura,4-4-2
+210,23,2024-08-17,ATM,CUI,Casa,1,1,0,E,1,f,G. Milito,3-4-2-1
+210,23,2024-08-17,CUI,ATM,Fora,1,1,0,E,1,f,A. Gonçalves Teixeira,3-5-1-1
+211,23,2024-08-17,GRE,BAH,Casa,0,2,-2,D,0,f,Renato Gaúcho,4-2-3-1
+211,23,2024-08-17,BAH,GRE,Fora,2,0,2,V,3,t,R. Ceni,4-1-4-1
+212,23,2024-08-17,RBB,FOR,Casa,1,2,-1,D,0,f,P. Faria Caixinha,4-3-3
+212,23,2024-08-17,FOR,RBB,Fora,2,1,1,V,3,f,J. Vojvoda,4-2-3-1
+213,23,2024-08-17,FLU,COR,Casa,0,0,0,E,1,t,S. Lobo,4-2-3-1
+213,23,2024-08-17,COR,FLU,Fora,0,0,0,E,1,t,R. Díaz,3-4-2-1
+214,23,2024-08-18,ATG,INT,Casa,1,0,1,V,3,t,U. Louzer Filho,4-2-3-1
+214,23,2024-08-18,INT,ATG,Fora,0,1,-1,D,0,f,R. Machado Marques,4-2-3-1
+215,23,2024-08-18,CRI,VAS,Casa,2,2,0,E,1,f,C. Tencati,4-2-3-1
+215,23,2024-08-18,VAS,CRI,Fora,2,2,0,E,1,f,C. de Paiva,4-2-3-1
+216,23,2024-08-18,PAL,SPA,Casa,2,1,1,V,3,f,A. Moreira Ferreira,4-2-3-1
+216,23,2024-08-18,SPA,PAL,Fora,1,2,-1,D,0,f,L. Zubeldía,3-4-3
+217,23,2024-08-18,ATP,JUV,Casa,1,2,-1,D,0,f,M. Varini Di Zioli,4-3-3
+217,23,2024-08-18,JUV,ATP,Fora,2,1,1,V,3,f,J. Ribeiro Ventura,4-2-3-1
+218,23,2024-08-18,BOT,FLA,Casa,4,1,3,V,3,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+218,23,2024-08-18,FLA,BOT,Fora,1,4,-3,D,0,f,A. Bacchi,4-2-3-1
+219,23,2024-08-19,VIT,CRU,Casa,2,2,0,E,1,f,T. Carpini Barbosa,4-3-3
+219,23,2024-08-19,CRU,VIT,Fora,2,2,0,E,1,f,F. Seabra,4-3-3
+220,24,2024-08-24,ATG,JUV,Casa,2,1,1,V,3,f,U. Louzer Filho,4-2-3-1
+220,24,2024-08-24,JUV,ATG,Fora,1,2,-1,D,0,f,J. Ribeiro Ventura,4-2-3-1
+221,24,2024-08-24,PAL,CUI,Casa,5,0,5,V,3,t,A. Moreira Ferreira,4-2-3-1
+221,24,2024-08-24,CUI,PAL,Fora,0,5,-5,D,0,f,A. Gonçalves Teixeira,5-3-2
+222,24,2024-08-24,ATM,FLU,Casa,0,2,-2,D,0,f,G. Milito,3-4-1-2
+222,24,2024-08-24,FLU,ATM,Fora,2,0,2,V,3,t,L. Venker de Menezes,4-2-3-1
+223,24,2024-08-25,BAH,BOT,Casa,0,0,0,E,1,t,R. Ceni,4-1-3-2
+223,24,2024-08-25,BOT,BAH,Fora,0,0,0,E,1,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+224,24,2024-08-25,CRI,GRE,Casa,0,1,-1,D,0,f,C. Tencati,4-1-2-1-2
+224,24,2024-08-25,GRE,CRI,Fora,1,0,1,V,3,t,Renato Gaúcho,4-2-3-1
+225,24,2024-08-25,FOR,COR,Casa,1,0,1,V,3,t,J. Vojvoda,4-2-3-1
+225,24,2024-08-25,COR,FOR,Fora,0,1,-1,D,0,f,R. Díaz,3-4-2-1
+226,24,2024-08-25,SPA,VIT,Casa,2,1,1,V,3,f,L. Zubeldía,4-3-3
+226,24,2024-08-25,VIT,SPA,Fora,1,2,-1,D,0,f,T. Carpini Barbosa,4-1-4-1
+227,24,2024-08-25,INT,CRU,Casa,1,0,1,V,3,t,R. Machado Marques,4-2-3-1
+227,24,2024-08-25,CRU,INT,Fora,0,1,-1,D,0,f,F. Seabra,4-3-3
+228,24,2024-08-25,FLA,RBB,Casa,2,1,1,V,3,f,M. Rizzi Bacchi,4-2-3-1
+228,24,2024-08-25,RBB,FLA,Fora,1,2,-1,D,0,f,P. Faria Caixinha,4-2-3-1
+229,24,2024-08-26,VAS,ATP,Casa,2,1,1,V,3,f,C. de Paiva,4-2-3-1
+229,24,2024-08-26,ATP,VAS,Fora,1,2,-1,D,0,f,M. Varini Di Zioli,3-2-4-1
+230,19,2024-08-28,CRI,RBB,Casa,1,0,1,V,3,t,C. Tencati,4-1-4-1
+230,19,2024-08-28,RBB,CRI,Fora,0,1,-1,D,0,f,P. Faria Caixinha,4-3-3
+231,5,2024-08-28,CRU,INT,Casa,0,0,0,E,1,t,F. Seabra,4-2-3-1
+231,5,2024-08-28,INT,CRU,Fora,0,0,0,E,1,t,R. Machado Marques,4-2-3-1
+232,25,2024-08-31,CUI,CRI,Casa,2,1,1,V,3,f,B. Franco,4-2-3-1
+232,25,2024-08-31,CRI,CUI,Fora,1,2,-1,D,0,f,C. Tencati,4-1-4-1
+233,25,2024-08-31,BOT,FOR,Casa,2,0,2,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+233,25,2024-08-31,FOR,BOT,Fora,0,2,-2,D,0,f,J. Vojvoda,4-2-3-1
+234,25,2024-09-01,CRU,ATG,Casa,3,1,2,V,3,f,F. Seabra,4-3-3
+234,25,2024-09-01,ATG,CRU,Fora,1,3,-2,D,0,f,U. Louzer Filho,4-3-3
+235,25,2024-09-01,GRE,ATM,Casa,2,3,-1,D,0,f,Renato Gaúcho,4-2-3-1
+235,25,2024-09-01,ATM,GRE,Fora,3,2,1,V,3,f,G. Milito,4-3-3
+236,25,2024-09-01,COR,FLA,Casa,2,1,1,V,3,f,R. Díaz,3-4-2-1
+236,25,2024-09-01,FLA,COR,Fora,1,2,-1,D,0,f,A. Bacchi,4-2-3-1
+237,25,2024-09-01,ATP,PAL,Casa,0,2,-2,D,0,f,M. Varini Di Zioli,4-4-2
+237,25,2024-09-01,PAL,ATP,Fora,2,0,2,V,3,t,A. Moreira Ferreira,4-2-3-1
+238,25,2024-09-01,RBB,BAH,Casa,2,1,1,V,3,f,P. Faria Caixinha,3-4-2-1
+238,25,2024-09-01,BAH,RBB,Fora,1,2,-1,D,0,f,R. Ceni,4-3-1-2
+239,25,2024-09-01,FLU,SPA,Casa,2,0,2,V,3,t,L. Venker de Menezes,4-2-3-1
+239,25,2024-09-01,SPA,FLU,Fora,0,2,-2,D,0,f,L. Zubeldía,4-2-3-1
+240,25,2024-09-01,JUV,INT,Casa,1,3,-2,D,0,f,J. Ribeiro Ventura,4-2-3-1
+240,25,2024-09-01,INT,JUV,Fora,3,1,2,V,3,f,R. Machado Marques,4-2-3-1
+241,25,2024-09-01,VIT,VAS,Casa,0,1,-1,D,0,f,T. Carpini Barbosa,4-3-3
+241,25,2024-09-01,VAS,VIT,Fora,1,0,1,V,3,t,C. de Paiva,4-2-3-1
+242,16,2024-09-05,CUI,JUV,Casa,0,0,0,E,1,t,B. Franco,4-3-3
+242,16,2024-09-05,JUV,CUI,Fora,0,0,0,E,1,t,J. Ribeiro Ventura,4-2-3-1
+243,19,2024-09-11,INT,FOR,Casa,2,1,1,V,3,f,R. Machado Marques,4-2-3-1
+243,19,2024-09-11,FOR,INT,Fora,1,2,-1,D,0,f,J. Vojvoda,4-2-3-1
+244,26,2024-09-14,ATG,VIT,Casa,0,2,-2,D,0,f,U. Louzer Filho,4-2-3-1
+244,26,2024-09-14,VIT,ATG,Fora,2,0,2,V,3,t,T. Carpini Barbosa,4-2-3-1
+245,26,2024-09-14,ATP,FOR,Casa,1,1,0,E,1,f,M. Varini Di Zioli,4-2-3-1
+245,26,2024-09-14,FOR,ATP,Fora,1,1,0,E,1,f,J. Vojvoda,4-2-3-1
+246,26,2024-09-14,BOT,COR,Casa,2,1,1,V,3,f,F. Pereira da Silva Maia Carvalho,4-2-3-1
+246,26,2024-09-14,COR,BOT,Fora,1,2,-1,D,0,f,R. Díaz,3-4-1-2
+247,26,2024-09-15,RBB,GRE,Casa,2,2,0,E,1,f,P. Faria Caixinha,4-3-3
+247,26,2024-09-15,GRE,RBB,Fora,2,2,0,E,1,f,A. P. Mendes,4-3-3
+248,26,2024-09-15,JUV,FLU,Casa,2,1,1,V,3,f,J. Ribeiro Ventura,4-2-3-1
+248,26,2024-09-15,FLU,JUV,Fora,1,2,-1,D,0,f,L. Venker de Menezes,4-2-3-1
+249,26,2024-09-15,PAL,CRI,Casa,5,0,5,V,3,t,A. Moreira Ferreira,4-2-3-1
+249,26,2024-09-15,CRI,PAL,Fora,0,5,-5,D,0,f,C. Tencati,4-1-2-1-2
+250,26,2024-09-15,BAH,ATM,Casa,3,0,3,V,3,t,R. Ceni,4-3-1-2
+250,26,2024-09-15,ATM,BAH,Fora,0,3,-3,D,0,f,G. Milito,3-5-2
+251,26,2024-09-15,CRU,SPA,Casa,0,1,-1,D,0,f,F. Seabra,4-2-3-1
+251,26,2024-09-15,SPA,CRU,Fora,1,0,1,V,3,t,L. Zubeldía,3-4-2-1
+252,26,2024-09-15,FLA,VAS,Casa,1,1,0,E,1,f,A. Bacchi,4-2-3-1
+252,26,2024-09-15,VAS,FLA,Fora,1,1,0,E,1,f,C. de Paiva,4-2-3-1
+253,26,2024-09-16,INT,CUI,Casa,3,0,3,V,3,t,R. Machado Marques,4-2-3-1
+253,26,2024-09-16,CUI,INT,Fora,0,3,-3,D,0,f,B. Franco,4-2-3-1
+254,27,2024-09-21,COR,ATG,Casa,3,0,3,V,3,t,R. Díaz,4-3-1-2
+254,27,2024-09-21,ATG,COR,Fora,0,3,-3,D,0,f,U. Louzer Filho,4-2-3-1
+255,27,2024-09-21,VIT,JUV,Casa,1,0,1,V,3,t,T. Carpini Barbosa,4-2-3-1
+255,27,2024-09-21,JUV,VIT,Fora,0,1,-1,D,0,f,J. Ribeiro Ventura,4-2-3-1
+256,27,2024-09-21,FLU,BOT,Casa,0,1,-1,D,0,f,L. Venker de Menezes,4-2-3-1
+256,27,2024-09-21,BOT,FLU,Fora,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+257,27,2024-09-21,FOR,BAH,Casa,4,1,3,V,3,f,J. Vojvoda,4-2-3-1
+257,27,2024-09-21,BAH,FOR,Fora,1,4,-3,D,0,f,R. Ceni,4-3-1-2
+258,27,2024-09-22,ATM,RBB,Casa,3,0,3,V,3,t,G. Milito,3-5-2
+258,27,2024-09-22,RBB,ATM,Fora,0,3,-3,D,0,f,P. Faria Caixinha,4-3-3
+259,27,2024-09-22,VAS,PAL,Casa,0,1,-1,D,0,f,C. de Paiva,4-2-3-1
+259,27,2024-09-22,PAL,VAS,Fora,1,0,1,V,3,t,A. Moreira Ferreira,4-2-3-1
+260,27,2024-09-22,CUI,CRU,Casa,0,0,0,E,1,t,B. Franco,4-2-3-1
+260,27,2024-09-22,CRU,CUI,Fora,0,0,0,E,1,t,F. Seabra,3-4-3
+261,27,2024-09-22,GRE,FLA,Casa,3,2,1,V,3,f,M. Salles,4-2-3-1
+261,27,2024-09-22,FLA,GRE,Fora,2,3,-1,D,0,f,A. Bacchi,4-4-2
+262,27,2024-09-22,SPA,INT,Casa,1,3,-2,D,0,f,L. Zubeldía,4-2-3-1
+262,27,2024-09-22,INT,SPA,Fora,3,1,2,V,3,f,R. Machado Marques,4-2-3-1
+263,27,2024-09-22,CRI,ATP,Casa,0,0,0,E,1,t,C. Tencati,4-1-4-1
+263,27,2024-09-22,ATP,CRI,Fora,0,0,0,E,1,t,M. Varini Di Zioli,4-3-3
+264,16,2024-09-25,RBB,INT,Casa,2,2,0,E,1,f,P. Faria Caixinha,3-5-2
+264,16,2024-09-25,INT,RBB,Fora,2,2,0,E,1,f,R. Machado Marques,4-2-3-1
+265,5,2024-09-25,GRE,CRI,Casa,1,2,-1,D,0,f,Renato Gaúcho,4-2-3-1
+265,5,2024-09-25,CRI,GRE,Fora,2,1,1,V,3,f,C. Tencati,4-1-4-1
+266,28,2024-09-28,PAL,ATM,Casa,2,1,1,V,3,f,A. Moreira Ferreira,4-2-3-1
+266,28,2024-09-28,ATM,PAL,Fora,1,2,-1,D,0,f,L. Gonçalves,3-5-2
+267,28,2024-09-28,BOT,GRE,Casa,0,0,0,E,1,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+267,28,2024-09-28,GRE,BOT,Fora,0,0,0,E,1,t,M. Salles,4-2-3-1
+268,28,2024-09-29,JUV,RBB,Casa,1,1,0,E,1,f,R. Squinalli,4-2-3-1
+268,28,2024-09-29,RBB,JUV,Fora,1,1,0,E,1,f,P. Faria Caixinha,4-1-4-1
+269,28,2024-09-29,ATG,FLU,Casa,1,0,1,V,3,t,U. Louzer Filho,4-3-3
+269,28,2024-09-29,FLU,ATG,Fora,0,1,-1,D,0,f,L. Venker de Menezes,4-2-3-1
+270,28,2024-09-29,FOR,CUI,Casa,1,0,1,V,3,t,J. Vojvoda,4-2-3-1
+270,28,2024-09-29,CUI,FOR,Fora,0,1,-1,D,0,f,B. Franco,4-2-3-1
+271,28,2024-09-29,SPA,COR,Casa,3,1,2,V,3,f,L. Zubeldía,4-2-3-1
+271,28,2024-09-29,COR,SPA,Fora,1,3,-2,D,0,f,R. Díaz,4-3-1-2
+272,28,2024-09-29,BAH,CRI,Casa,1,0,1,V,3,t,R. Ceni,4-4-2
+272,28,2024-09-29,CRI,BAH,Fora,0,1,-1,D,0,f,C. Tencati,4-3-1-2
+273,28,2024-09-29,CRU,VAS,Casa,1,1,0,E,1,f,E. de Barros,4-2-3-1
+273,28,2024-09-29,VAS,CRU,Fora,1,1,0,E,1,f,C. de Paiva,4-2-3-1
+274,28,2024-09-29,INT,VIT,Casa,3,1,2,V,3,f,R. Machado Marques,4-2-3-1
+274,28,2024-09-29,VIT,INT,Fora,1,3,-2,D,0,f,T. Carpini Barbosa,4-2-3-1
+275,28,2024-09-29,FLA,ATP,Casa,1,0,1,V,3,t,F. Luís,4-2-3-1
+275,28,2024-09-29,ATP,FLA,Fora,0,1,-1,D,0,f,L. González,3-4-2-1
+276,29,2024-10-03,CRI,ATG,Casa,2,0,2,V,3,t,C. Tencati,4-2-3-1
+276,29,2024-10-03,ATG,CRI,Fora,0,2,-2,D,0,f,U. Louzer Filho,4-3-3
+277,29,2024-10-03,FLU,CRU,Casa,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1
+277,29,2024-10-03,CRU,FLU,Fora,0,1,-1,D,0,f,F. Diniz Silva,4-2-3-1
+278,29,2024-10-04,GRE,FOR,Casa,3,1,2,V,3,f,M. Salles,4-4-2
+278,29,2024-10-04,FOR,GRE,Fora,1,3,-2,D,0,f,J. Vojvoda,4-2-3-1
+279,29,2024-10-05,ATP,BOT,Casa,0,1,-1,D,0,f,L. González,3-4-2-1
+279,29,2024-10-05,BOT,ATP,Fora,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+280,29,2024-10-05,ATM,VIT,Casa,2,2,0,E,1,f,G. Milito,3-4-2-1
+280,29,2024-10-05,VIT,ATM,Fora,2,2,0,E,1,f,T. Carpini Barbosa,4-2-3-1
+281,29,2024-10-05,RBB,PAL,Casa,0,0,0,E,1,t,P. Faria Caixinha,4-1-4-1
+281,29,2024-10-05,PAL,RBB,Fora,0,0,0,E,1,t,A. Moreira Ferreira,4-2-3-1
+282,29,2024-10-05,BAH,FLA,Casa,0,2,-2,D,0,f,R. Ceni,4-1-3-2
+282,29,2024-10-05,FLA,BAH,Fora,2,0,2,V,3,t,F. Luís,4-2-3-1
+283,29,2024-10-05,COR,INT,Casa,2,2,0,E,1,f,R. Díaz,4-1-3-2
+283,29,2024-10-05,INT,COR,Fora,2,2,0,E,1,f,R. Machado Marques,4-1-3-2
+284,29,2024-10-05,CUI,SPA,Casa,2,0,2,V,3,t,B. Franco,5-4-1
+284,29,2024-10-05,SPA,CUI,Fora,0,2,-2,D,0,f,L. Zubeldía,4-2-3-1
+285,29,2024-10-05,VAS,JUV,Casa,1,1,0,E,1,f,C. de Paiva,4-2-3-1
+285,29,2024-10-05,JUV,VAS,Fora,1,1,0,E,1,f,J. Ribeiro Ventura,4-2-3-1
+286,6,2024-10-09,ATM,GRE,Casa,2,1,1,V,3,f,G. Milito,3-4-3
+286,6,2024-10-09,GRE,ATM,Fora,1,2,-1,D,0,f,Renato Gaúcho,4-3-3
+287,30,2024-10-16,FOR,ATM,Casa,1,1,0,E,1,f,J. Vojvoda,4-2-3-1
+287,30,2024-10-16,ATM,FOR,Fora,1,1,0,E,1,f,G. Milito,4-2-3-1
+288,30,2024-10-16,SPA,VAS,Casa,3,0,3,V,3,t,L. Zubeldía,4-2-3-1
+288,30,2024-10-16,VAS,SPA,Fora,0,3,-3,D,0,f,C. de Paiva,4-2-3-1
+289,30,2024-10-17,COR,ATP,Casa,5,2,3,V,3,f,R. Díaz,4-1-3-2
+289,30,2024-10-17,ATP,COR,Fora,2,5,-3,D,0,f,L. González,3-4-2-1
+290,30,2024-10-17,FLA,FLU,Casa,0,2,-2,D,0,f,F. Luís,4-2-3-1
+290,30,2024-10-17,FLU,FLA,Fora,2,0,2,V,3,t,L. Venker de Menezes,4-2-3-1
+291,30,2024-10-18,ATG,CUI,Casa,0,0,0,E,1,t,U. Louzer Filho,4-3-3
+291,30,2024-10-18,CUI,ATG,Fora,0,0,0,E,1,t,B. Franco,3-4-3
+292,30,2024-10-18,BOT,CRI,Casa,1,1,0,E,1,f,A. Torres Gomes Araújo Amorim,3-4-3
+292,30,2024-10-18,CRI,BOT,Fora,1,1,0,E,1,f,C. Tencati,5-4-1
+293,30,2024-10-18,CRU,BAH,Casa,1,1,0,E,1,f,F. Diniz Silva,4-2-3-1
+293,30,2024-10-18,BAH,CRU,Fora,1,1,0,E,1,f,R. Ceni,4-3-3
+294,30,2024-10-19,INT,GRE,Casa,1,0,1,V,3,t,R. Machado Marques,4-2-3-1
+294,30,2024-10-19,GRE,INT,Fora,0,1,-1,D,0,f,Renato Gaúcho,4-2-3-1
+295,30,2024-10-19,VIT,RBB,Casa,1,0,1,V,3,t,T. Carpini Barbosa,4-2-3-1
+295,30,2024-10-19,RBB,VIT,Fora,0,1,-1,D,0,f,P. Faria Caixinha,4-2-3-1
+296,30,2024-10-20,JUV,PAL,Casa,3,5,-2,D,0,f,J. Ribeiro Ventura,4-2-3-1
+296,30,2024-10-20,PAL,JUV,Fora,5,3,2,V,3,f,A. Moreira Ferreira,4-2-3-1
+297,17,2024-10-22,FLU,ATP,Casa,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1
+297,17,2024-10-22,ATP,FLU,Fora,0,1,-1,D,0,f,L. González,3-4-2-1
+298,19,2024-10-24,VAS,CUI,Casa,1,0,1,V,3,t,C. de Paiva,4-2-3-1
+298,19,2024-10-24,CUI,VAS,Fora,0,1,-1,D,0,f,B. Franco,4-2-3-1
+299,31,2024-10-26,FLA,JUV,Casa,4,2,2,V,3,f,F. Luís,4-2-3-1
+299,31,2024-10-26,JUV,FLA,Fora,2,4,-2,D,0,f,J. Ribeiro Ventura,4-2-3-1
+300,31,2024-10-26,GRE,ATG,Casa,3,1,2,V,3,f,Renato Gaúcho,4-4-1-1
+300,31,2024-10-26,ATG,GRE,Fora,1,3,-2,D,0,f,U. Louzer Filho,4-2-3-1
+301,31,2024-10-26,PAL,FOR,Casa,2,2,0,E,1,f,A. Moreira Ferreira,4-2-3-1
+301,31,2024-10-26,FOR,PAL,Fora,2,2,0,E,1,f,J. Vojvoda,3-1-4-2
+302,31,2024-10-26,VIT,FLU,Casa,2,1,1,V,3,f,T. Carpini Barbosa,4-2-3-1
+302,31,2024-10-26,FLU,VIT,Fora,1,2,-1,D,0,f,L. Venker de Menezes,4-2-3-1
+303,31,2024-10-26,ATP,CRU,Casa,3,0,3,V,3,t,L. González,4-2-3-1
+303,31,2024-10-26,CRU,ATP,Fora,0,3,-3,D,0,f,F. Diniz Silva,4-4-1-1
+304,31,2024-10-26,ATM,INT,Casa,1,3,-2,D,0,f,G. Milito,4-2-3-1
+304,31,2024-10-26,INT,ATM,Fora,3,1,2,V,3,f,R. Machado Marques,4-2-3-1
+305,31,2024-10-26,RBB,BOT,Casa,0,1,-1,D,0,f,P. Faria Caixinha,4-2-3-1
+305,31,2024-10-26,BOT,RBB,Fora,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+306,31,2024-10-26,CRI,SPA,Casa,1,1,0,E,1,f,C. Tencati,4-2-3-1
+306,31,2024-10-26,SPA,CRI,Fora,1,1,0,E,1,f,L. Zubeldía,4-2-3-1
+307,31,2024-10-28,CUI,COR,Casa,0,1,-1,D,0,f,B. Franco,4-2-3-1
+307,31,2024-10-28,COR,CUI,Fora,1,0,1,V,3,t,R. Díaz,4-3-1-2
+308,31,2024-10-28,VAS,BAH,Casa,3,2,1,V,3,f,C. de Paiva,4-2-3-1
+308,31,2024-10-28,BAH,VAS,Fora,2,3,-1,D,0,f,R. Ceni,4-1-2-1-2
+309,17,2024-10-30,INT,FLA,Casa,1,1,0,E,1,f,R. Machado Marques,4-2-3-1
+309,17,2024-10-30,FLA,INT,Fora,1,1,0,E,1,f,F. Luís,4-2-3-1
+310,32,2024-11-01,FLU,GRE,Casa,2,2,0,E,1,f,L. Venker de Menezes,4-2-3-1
+310,32,2024-11-01,GRE,FLU,Fora,2,2,0,E,1,f,Renato Gaúcho,4-2-3-1
+311,32,2024-11-02,RBB,CUI,Casa,0,0,0,E,1,t,F. Seabra,4-2-3-1
+311,32,2024-11-02,CUI,RBB,Fora,0,0,0,E,1,t,B. Franco,4-1-4-1
+312,32,2024-11-02,ATP,VIT,Casa,1,2,-1,D,0,f,L. González,3-4-2-1
+312,32,2024-11-02,VIT,ATP,Fora,2,1,1,V,3,f,T. Carpini Barbosa,5-4-1
+313,32,2024-11-02,JUV,FOR,Casa,0,3,-3,D,0,f,F. Matias,4-2-3-1
+313,32,2024-11-02,FOR,JUV,Fora,3,0,3,V,3,t,J. Vojvoda,3-1-4-2
+314,32,2024-11-04,COR,PAL,Casa,2,0,2,V,3,t,R. Díaz,3-4-1-2
+314,32,2024-11-04,PAL,COR,Fora,0,2,-2,D,0,f,A. Moreira Ferreira,4-2-3-1
+315,32,2024-11-05,BAH,SPA,Casa,0,3,-3,D,0,f,R. Ceni,4-2-3-1
+315,32,2024-11-05,SPA,BAH,Fora,3,0,3,V,3,t,L. Zubeldía,4-2-3-1
+316,32,2024-11-05,BOT,VAS,Casa,3,0,3,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+316,32,2024-11-05,VAS,BOT,Fora,0,3,-3,D,0,f,C. de Paiva,4-2-3-1
+317,32,2024-11-05,INT,CRI,Casa,2,0,2,V,3,t,R. Machado Marques,4-2-3-1
+317,32,2024-11-05,CRI,INT,Fora,0,2,-2,D,0,f,C. Tencati,4-4-2
+318,32,2024-11-06,ATG,ATM,Casa,1,0,1,V,3,t,A. Gomes,4-2-3-1
+318,32,2024-11-06,ATM,ATG,Fora,0,1,-1,D,0,f,G. Milito,3-4-2-1
+319,32,2024-11-06,CRU,FLA,Casa,0,1,-1,D,0,f,F. Diniz Silva,4-2-3-1
+319,32,2024-11-06,FLA,CRU,Fora,1,0,1,V,3,t,F. Luís,4-2-3-1
+320,33,2024-11-08,INT,FLU,Casa,2,0,2,V,3,t,R. Machado Marques,4-2-3-1
+320,33,2024-11-08,FLU,INT,Fora,0,2,-2,D,0,f,L. Venker de Menezes,4-2-3-1
+321,33,2024-11-08,PAL,GRE,Casa,1,0,1,V,3,t,A. Moreira Ferreira,4-2-3-1
+321,33,2024-11-08,GRE,PAL,Fora,0,1,-1,D,0,f,Renato Gaúcho,4-2-3-1
+322,33,2024-11-09,VIT,COR,Casa,1,2,-1,D,0,f,T. Carpini Barbosa,4-2-3-1
+322,33,2024-11-09,COR,VIT,Fora,2,1,1,V,3,f,R. Díaz,4-3-1-2
+323,33,2024-11-09,BOT,CUI,Casa,0,0,0,E,1,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+323,33,2024-11-09,CUI,BOT,Fora,0,0,0,E,1,t,B. Franco,4-1-4-1
+324,33,2024-11-09,ATG,RBB,Casa,0,0,0,E,1,t,A. Gomes,4-2-3-1
+324,33,2024-11-09,RBB,ATG,Fora,0,0,0,E,1,t,F. Seabra,4-2-3-1
+325,33,2024-11-09,CRU,CRI,Casa,2,1,1,V,3,f,F. Diniz Silva,4-2-3-1
+325,33,2024-11-09,CRI,CRU,Fora,1,2,-1,D,0,f,C. Tencati,4-2-3-1
+326,33,2024-11-09,FOR,VAS,Casa,3,0,3,V,3,t,J. Vojvoda,4-2-2-2
+326,33,2024-11-09,VAS,FOR,Fora,0,3,-3,D,0,f,C. de Paiva,4-3-3
+327,33,2024-11-09,JUV,BAH,Casa,2,1,1,V,3,f,F. Matias,4-2-3-1
+327,33,2024-11-09,BAH,JUV,Fora,1,2,-1,D,0,f,R. Ceni,4-3-3
+328,33,2024-11-09,SPA,ATP,Casa,2,1,1,V,3,f,L. Zubeldía,4-2-3-1
+328,33,2024-11-09,ATP,SPA,Fora,1,2,-1,D,0,f,L. González,4-3-3
+329,33,2024-11-13,FLA,ATM,Casa,0,0,0,E,1,t,F. Luís,3-4-2-1
+329,33,2024-11-13,ATM,FLA,Fora,0,0,0,E,1,t,G. Milito,3-1-4-2
+330,19,2024-11-16,ATP,ATM,Casa,1,0,1,V,3,t,L. González,4-2-3-1
+330,19,2024-11-16,ATM,ATP,Fora,0,1,-1,D,0,f,G. Milito,3-4-2-1
+331,34,2024-11-20,COR,CRU,Casa,2,1,1,V,3,f,R. Díaz,4-3-1-2
+331,34,2024-11-20,CRU,COR,Fora,1,2,-1,D,0,f,F. Diniz Silva,4-2-3-1
+332,34,2024-11-20,ATP,ATG,Casa,2,0,2,V,3,t,L. González,4-2-3-1
+332,34,2024-11-20,ATG,ATP,Fora,0,2,-2,D,0,f,A. Gomes,4-2-3-1
+333,34,2024-11-20,RBB,SPA,Casa,1,1,0,E,1,f,F. Seabra,4-2-3-1
+333,34,2024-11-20,SPA,RBB,Fora,1,1,0,E,1,f,M. Cuberas,4-2-3-1
+334,34,2024-11-20,CRI,VIT,Casa,0,1,-1,D,0,f,C. Tencati,4-2-2-2
+334,34,2024-11-20,VIT,CRI,Fora,1,0,1,V,3,t,T. Carpini Barbosa,4-2-3-1
+335,34,2024-11-20,BAH,PAL,Casa,1,2,-1,D,0,f,R. Ceni,4-3-3
+335,34,2024-11-20,PAL,BAH,Fora,2,1,1,V,3,f,A. Moreira Ferreira,4-2-3-1
+336,34,2024-11-20,CUI,FLA,Casa,1,2,-1,D,0,f,J. Bertazzo Tobar,5-3-2
+336,34,2024-11-20,FLA,CUI,Fora,2,1,1,V,3,f,F. Luís,3-4-2-1
+337,34,2024-11-20,GRE,JUV,Casa,2,2,0,E,1,f,Renato Gaúcho,4-2-2-2
+337,34,2024-11-20,JUV,GRE,Fora,2,2,0,E,1,f,F. Matias,4-2-3-1
+338,34,2024-11-20,ATM,BOT,Casa,0,0,0,E,1,t,G. Milito,3-4-3
+338,34,2024-11-20,BOT,ATM,Fora,0,0,0,E,1,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+339,34,2024-11-21,VAS,INT,Casa,0,1,-1,D,0,f,C. de Paiva,4-2-3-1
+339,34,2024-11-21,INT,VAS,Fora,1,0,1,V,3,t,R. Machado Marques,4-2-3-1
+340,34,2024-11-22,FLU,FOR,Casa,2,2,0,E,1,f,L. Venker de Menezes,4-2-3-1
+340,34,2024-11-22,FOR,FLU,Fora,2,2,0,E,1,f,J. Vojvoda,3-5-2
+341,35,2024-11-23,ATG,PAL,Casa,0,1,-1,D,0,f,A. Gomes,4-2-3-1
+341,35,2024-11-23,PAL,ATG,Fora,1,0,1,V,3,t,A. Moreira Ferreira,4-2-3-1
+342,35,2024-11-23,BOT,VIT,Casa,1,1,0,E,1,f,A. Torres Gomes Araújo Amorim,4-1-3-2
+342,35,2024-11-23,VIT,BOT,Fora,1,1,0,E,1,f,T. Carpini Barbosa,5-3-2
+343,35,2024-11-23,JUV,CUI,Casa,1,1,0,E,1,f,F. Matias,4-3-3
+343,35,2024-11-23,CUI,JUV,Fora,1,1,0,E,1,f,B. Franco,3-4-3
+344,35,2024-11-23,SPA,ATM,Casa,2,2,0,E,1,f,L. Zubeldía,4-2-3-1
+344,35,2024-11-23,ATM,SPA,Fora,2,2,0,E,1,f,G. Milito,4-3-3
+345,35,2024-11-24,BAH,ATP,Casa,1,1,0,E,1,f,R. Ceni,4-3-3
+345,35,2024-11-24,ATP,BAH,Fora,1,1,0,E,1,f,L. González,4-2-3-1
+346,35,2024-11-24,COR,VAS,Casa,3,1,2,V,3,f,R. Díaz,4-3-1-2
+346,35,2024-11-24,VAS,COR,Fora,1,3,-2,D,0,f,C. de Paiva,4-2-3-1
+347,35,2024-11-24,INT,RBB,Casa,4,1,3,V,3,f,R. Machado Marques,4-2-3-1
+347,35,2024-11-24,RBB,INT,Fora,1,4,-3,D,0,f,F. Seabra,4-2-3-1
+348,35,2024-11-26,FLU,CRI,Casa,0,0,0,E,1,t,L. Venker de Menezes,4-2-3-1
+348,35,2024-11-26,CRI,FLU,Fora,0,0,0,E,1,t,C. Tencati,4-3-1-2
+349,35,2024-11-26,FOR,FLA,Casa,0,0,0,E,1,t,J. Vojvoda,4-2-3-1
+349,35,2024-11-26,FLA,FOR,Fora,0,0,0,E,1,t,F. Luís,4-2-2-2
+350,36,2024-11-26,ATM,JUV,Casa,2,3,-1,D,0,f,G. Milito,3-4-2-1
+350,36,2024-11-26,JUV,ATM,Fora,3,2,1,V,3,f,F. Matias,4-3-3
+351,36,2024-11-26,PAL,BOT,Casa,1,3,-2,D,0,f,A. Moreira Ferreira,4-2-3-1
+351,36,2024-11-26,BOT,PAL,Fora,3,1,2,V,3,f,A. Torres Gomes Araújo Amorim,4-2-3-1
+352,35,2024-11-27,CRU,GRE,Casa,1,1,0,E,1,f,F. Diniz Silva,4-2-3-1
+352,35,2024-11-27,GRE,CRU,Fora,1,1,0,E,1,f,Renato Gaúcho,4-2-3-1
+353,36,2024-11-30,CRI,COR,Casa,2,4,-2,D,0,f,C. Tencati,3-5-2
+353,36,2024-11-30,COR,CRI,Fora,4,2,2,V,3,f,R. Díaz,4-3-1-2
+354,36,2024-11-30,CUI,BAH,Casa,1,2,-1,D,0,f,B. Franco,4-3-3
+354,36,2024-11-30,BAH,CUI,Fora,2,1,1,V,3,f,R. Ceni,4-1-4-1
+355,36,2024-11-30,VAS,ATG,Casa,2,2,0,E,1,f,F. Loureiro,4-2-3-1
+355,36,2024-11-30,ATG,VAS,Fora,2,2,0,E,1,f,A. Gomes,4-2-3-1
+356,36,2024-12-01,FLA,INT,Casa,3,2,1,V,3,f,F. Luís,4-2-3-1
+356,36,2024-12-01,INT,FLA,Fora,2,3,-1,D,0,f,R. Machado Marques,4-2-3-1
+357,36,2024-12-01,GRE,SPA,Casa,2,1,1,V,3,f,Renato Gaúcho,4-2-3-1
+357,36,2024-12-01,SPA,GRE,Fora,1,2,-1,D,0,f,L. Zubeldía,4-2-3-1
+358,36,2024-12-01,ATP,FLU,Casa,1,1,0,E,1,f,L. González,4-2-3-1
+358,36,2024-12-01,FLU,ATP,Fora,1,1,0,E,1,f,L. Venker de Menezes,4-2-3-1
+359,36,2024-12-01,RBB,CRU,Casa,1,1,0,E,1,f,F. Seabra,4-2-3-1
+359,36,2024-12-01,CRU,RBB,Fora,1,1,0,E,1,f,F. Diniz Silva,4-2-3-1
+360,36,2024-12-01,VIT,FOR,Casa,2,0,2,V,3,t,T. Carpini Barbosa,5-3-2
+360,36,2024-12-01,FOR,VIT,Fora,0,2,-2,D,0,f,J. Vojvoda,4-2-3-1
+361,37,2024-12-03,COR,BAH,Casa,3,0,3,V,3,t,R. Díaz,4-3-1-2
+361,37,2024-12-03,BAH,COR,Fora,0,3,-3,D,0,f,R. Ceni,3-4-1-2
+362,37,2024-12-04,VAS,ATM,Casa,2,0,2,V,3,t,F. Loureiro,4-1-2-1-2
+362,37,2024-12-04,ATM,VAS,Fora,0,2,-2,D,0,f,G. Milito,3-4-3
+363,37,2024-12-04,CRI,FLA,Casa,0,3,-3,D,0,f,C. Tencati,4-3-1-2
+363,37,2024-12-04,FLA,CRI,Fora,3,0,3,V,3,t,F. Luís,4-2-3-1
+364,37,2024-12-04,SPA,JUV,Casa,1,2,-1,D,0,f,L. Zubeldía,4-2-3-1
+364,37,2024-12-04,JUV,SPA,Fora,2,1,1,V,3,f,F. Matias,4-2-3-1
+365,37,2024-12-04,VIT,GRE,Casa,1,1,0,E,1,f,T. Carpini Barbosa,5-3-2
+365,37,2024-12-04,GRE,VIT,Fora,1,1,0,E,1,f,Renato Gaúcho,4-2-3-1
+366,37,2024-12-04,ATG,FOR,Casa,3,1,2,V,3,f,A. Gomes,4-2-3-1
+366,37,2024-12-04,FOR,ATG,Fora,1,3,-2,D,0,f,J. Vojvoda,4-2-3-1
+367,37,2024-12-04,CRU,PAL,Casa,1,2,-1,D,0,f,F. Diniz Silva,4-3-2-1
+367,37,2024-12-04,PAL,CRU,Fora,2,1,1,V,3,f,A. Moreira Ferreira,4-2-3-1
+368,37,2024-12-04,INT,BOT,Casa,0,1,-1,D,0,f,R. Machado Marques,4-2-2-2
+368,37,2024-12-04,BOT,INT,Fora,1,0,1,V,3,t,A. Torres Gomes Araújo Amorim,4-2-3-1
+369,37,2024-12-05,ATP,RBB,Casa,1,2,-1,D,0,f,L. González,4-2-3-1
+369,37,2024-12-05,RBB,ATP,Fora,2,1,1,V,3,f,F. Seabra,4-2-3-1
+370,37,2024-12-05,FLU,CUI,Casa,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1
+370,37,2024-12-05,CUI,FLU,Fora,0,1,-1,D,0,f,B. Franco,4-2-3-1
+371,38,2024-12-08,ATM,ATP,Casa,1,0,1,V,3,t,L. Gonçalves,4-3-3
+371,38,2024-12-08,ATP,ATM,Fora,0,1,-1,D,0,f,L. González,4-3-2-1
+372,38,2024-12-08,BAH,ATG,Casa,2,0,2,V,3,t,R. Ceni,4-2-3-1
+372,38,2024-12-08,ATG,BAH,Fora,0,2,-2,D,0,f,A. Gomes,4-1-4-1
+373,38,2024-12-08,BOT,SPA,Casa,2,1,1,V,3,f,A. Torres Gomes Araújo Amorim,
+373,38,2024-12-08,SPA,BOT,Fora,1,2,-1,D,0,f,L. Zubeldía,
+374,38,2024-12-08,RBB,CRI,Casa,5,1,4,V,3,f,F. Seabra,4-2-3-1
+374,38,2024-12-08,CRI,RBB,Fora,1,5,-4,D,0,f,C. Tencati,4-1-2-1-2
+375,38,2024-12-08,CUI,VAS,Casa,1,2,-1,D,0,f,B. Franco,4-3-3
+375,38,2024-12-08,VAS,CUI,Fora,2,1,1,V,3,f,F. Loureiro,4-3-2-1
+376,38,2024-12-08,FLA,VIT,Casa,2,2,0,E,1,f,F. Luís,4-4-2
+376,38,2024-12-08,VIT,FLA,Fora,2,2,0,E,1,f,T. Carpini Barbosa,4-3-3
+377,38,2024-12-08,FOR,INT,Casa,3,0,3,V,3,t,J. Vojvoda,4-2-3-1
+377,38,2024-12-08,INT,FOR,Fora,0,3,-3,D,0,f,R. Machado Marques,4-1-2-1-2
+378,38,2024-12-08,GRE,COR,Casa,0,3,-3,D,0,f,Renato Gaúcho,4-4-2
+378,38,2024-12-08,COR,GRE,Fora,3,0,3,V,3,t,R. Díaz,4-3-1-2
+379,38,2024-12-08,JUV,CRU,Casa,0,1,-1,D,0,f,F. Matias,4-2-3-1
+379,38,2024-12-08,CRU,JUV,Fora,1,0,1,V,3,t,F. Diniz Silva,4-2-3-1
+380,38,2024-12-08,PAL,FLU,Casa,0,1,-1,D,0,f,A. Moreira Ferreira,4-2-3-1
+380,38,2024-12-08,FLU,PAL,Fora,1,0,1,V,3,t,L. Venker de Menezes,4-2-3-1

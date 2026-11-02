@@ -1,0 +1,689 @@
+/// Medidas do dashboard. Cada uma lê a tabela do seu grão (ver powerbi/medidas.dax).
+table Medidas
+	lineageTag: 6c085732-01ff-579e-b671-743a9706582c
+
+	/// Partidas no filtro (380 no campeonato).
+	measure Partidas = COUNTROWS ( fato_partida )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: bbc2a414-a0f5-58ee-9e6f-158f7fdd4806
+
+	/// Gols do campeonato, lidos no grão partida (929).
+	measure Gols = SUM ( fato_partida[total_gols] )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: ebff3363-8a11-5463-a49e-3958accdc5ab
+
+	measure 'Média de gols por jogo' = DIVIDE ( [Gols], [Partidas] )
+		formatString: 0.00
+		displayFolder: 1. Campeonato
+		lineageTag: 27c66da6-b03e-53b9-b83b-d9ca5c54eda3
+
+	measure 'Vitórias do mandante' = CALCULATE ( [Partidas], fato_partida[resultado] = "M" )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: 1deba26a-3d06-5cf6-ab88-9fa173376750
+
+	measure Empates = CALCULATE ( [Partidas], fato_partida[resultado] = "E" )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: d56e31bf-8762-5852-bfc3-80950ad1307d
+
+	measure 'Vitórias do visitante' = CALCULATE ( [Partidas], fato_partida[resultado] = "V" )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: 53d65630-a990-598d-b3f9-0066aa7004f6
+
+	measure '% vitórias do mandante' = DIVIDE ( [Vitórias do mandante], [Partidas] )
+		formatString: 0.0%
+		displayFolder: 1. Campeonato
+		lineageTag: fd733e63-d007-5b5c-88da-4f6c77c59639
+
+	measure '% empates' = DIVIDE ( [Empates], [Partidas] )
+		formatString: 0.0%
+		displayFolder: 1. Campeonato
+		lineageTag: b3436f0f-1781-544a-95cf-1365f057afb7
+
+	measure '% vitórias do visitante' = DIVIDE ( [Vitórias do visitante], [Partidas] )
+		formatString: 0.0%
+		displayFolder: 1. Campeonato
+		lineageTag: 7a224508-8864-57c3-82a5-a1542110772c
+
+	measure 'Jogos 0 a 0' = CALCULATE ( [Partidas], fato_partida[total_gols] = 0 )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: 59081f87-0414-5c3d-9417-ef6a6b003fe4
+
+	measure 'Maior número de gols num jogo' = MAX ( fato_partida[total_gols] )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: f2d53561-52b2-58bc-889a-eeb2b7b0aa6a
+
+	/// Conta os gols um a um em fato_gol. Precisa ser igual a [Gols] (929). Com um clube no filtro, são os gols a favor dele.
+	measure 'Gols (conferência pelos eventos)' = COUNTROWS ( fato_gol )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: 669496dd-f382-5928-9372-8c52ad1633a5
+
+	measure 'Gols do mandante (eventos)' = CALCULATE ( [Gols (conferência pelos eventos)], fato_gol[mando] = "Casa" )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: f3ee7b7f-bf9a-5d46-837a-429677792b1a
+
+	measure 'Gols do visitante (eventos)' = CALCULATE ( [Gols (conferência pelos eventos)], fato_gol[mando] = "Fora" )
+		formatString: #,0
+		displayFolder: 1. Campeonato
+		lineageTag: 81c04282-3953-5f73-8094-8960329c5564
+
+	measure 'Jogos do clube' = COUNTROWS ( fato_participacao )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: 7eaa09d0-7959-57c2-90ea-5a4b026b6cfd
+
+	measure Pontos = SUM ( fato_participacao[pontos] )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: ba0d3ddb-172c-546f-a5dc-85deea604fd4
+
+	measure Vitórias = CALCULATE ( [Jogos do clube], fato_participacao[resultado] = "V" )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: 8f09b154-de51-5022-8902-1283118bc79b
+
+	measure 'Empates do clube' = CALCULATE ( [Jogos do clube], fato_participacao[resultado] = "E" )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: d0cd7209-3f36-543d-810d-ce68139e734c
+
+	measure Derrotas = CALCULATE ( [Jogos do clube], fato_participacao[resultado] = "D" )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: 8356fde5-aa5b-5400-8b3f-69f344c448b0
+
+	measure 'Gols pró' = SUM ( fato_participacao[gols_pro] )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: e041ea20-4cd0-57a6-a42d-9bf30ff6a4e9
+
+	measure 'Gols contra' = SUM ( fato_participacao[gols_contra] )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: 0ffcdccd-0c68-53ca-ab19-ea2acf0662f8
+
+	measure 'Saldo de gols' = [Gols pró] - [Gols contra]
+		formatString: +0;-0;0
+		displayFolder: 2. Clubes
+		lineageTag: 3f11bf0e-ffee-56d3-af38-5cea4dfa1d3f
+
+	/// Pontos ganhos sobre os possíveis. A CBF trunca (Athletico 36); aqui mostramos 1 casa (36,8%). Definição oficial pendente.
+	measure Aproveitamento = DIVIDE ( [Pontos], 3 * [Jogos do clube] )
+		formatString: 0.0%
+		displayFolder: 2. Clubes
+		lineageTag: 9e9b62f8-75b6-514c-9d57-68bacf8ca60d
+
+	measure 'Jogos sem sofrer gol' = CALCULATE ( [Jogos do clube], fato_participacao[sem_sofrer_gols] = TRUE () )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: 5663446a-f87e-549d-945c-ac164ea51244
+
+	measure 'Pontos em casa' = CALCULATE ( [Pontos], fato_participacao[mando] = "Casa" )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: 2f912b8c-f883-53bc-8b22-42ec72b450ef
+
+	measure 'Pontos fora' = CALCULATE ( [Pontos], fato_participacao[mando] = "Fora" )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: a34c0c82-a499-5067-a0ba-69f9075db9bd
+
+	measure 'Aproveitamento em casa' = CALCULATE ( [Aproveitamento], fato_participacao[mando] = "Casa" )
+		formatString: 0.0%
+		displayFolder: 2. Clubes
+		lineageTag: 3eb2413a-f9c4-585d-9682-1411934d8e8b
+
+	measure 'Aproveitamento fora' = CALCULATE ( [Aproveitamento], fato_participacao[mando] = "Fora" )
+		formatString: 0.0%
+		displayFolder: 2. Clubes
+		lineageTag: 7b1ed3ea-6ffc-5f2b-8d23-996fab23c3c6
+
+	measure 'Média de gols pró' = DIVIDE ( [Gols pró], [Jogos do clube] )
+		formatString: 0.00
+		displayFolder: 2. Clubes
+		lineageTag: 7d490879-e32b-5506-b47b-d8cceb27295a
+
+	measure 'Média de gols sofridos' = DIVIDE ( [Gols contra], [Jogos do clube] )
+		formatString: 0.00
+		displayFolder: 2. Clubes
+		lineageTag: 6aac0270-ce53-56a7-aa72-f8695558387c
+
+	/// Pontos acumulados até a rodada do contexto.
+	measure 'Pontos acumulados' =
+			VAR rodadaAtual = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE (
+			        [Pontos],
+			        FILTER ( ALL ( dim_rodada[rodada] ), dim_rodada[rodada] <= rodadaAtual )
+			    )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: c88d7007-4f88-5a6c-8278-c9dd4501673e
+
+	/// Gols sofridos pelo clube selecionado, um a um (permite cortar por faixa de minuto). A soma é igual a [Gols contra].
+	measure 'Gols sofridos (eventos)' =
+			VAR clubes = VALUES ( dim_clube[id_clube] )
+			VAR partidas = CALCULATETABLE ( VALUES ( fato_participacao[id_partida] ) )
+			RETURN
+			    IF (
+			        HASONEVALUE ( dim_clube[id_clube] ),
+			        CALCULATE (
+			            COUNTROWS ( fato_gol ),
+			            REMOVEFILTERS ( dim_clube ),
+			            TREATAS ( partidas, fato_gol[id_partida] ),
+			            NOT ( fato_gol[id_clube_beneficiado] IN clubes )
+			        )
+			    )
+		formatString: #,0
+		displayFolder: 2. Clubes
+		lineageTag: fe178702-e368-51b8-b14f-472caa6edf25
+
+	measure 'Nome do clube' = SELECTEDVALUE ( dim_clube[nome] )
+		displayFolder: 2. Clubes
+		lineageTag: 2a3c7a15-8ee8-5d5f-a3b3-f49acb0a0399
+
+	/// Cor principal do clube selecionado; sem seleção, o verde do tema.
+	measure 'Cor do clube' = COALESCE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#06AA48" )
+		displayFolder: 2. Clubes
+		lineageTag: 6fc3052f-d021-523c-aa05-3a087ac33f5a
+
+	measure 'Cor secundária do clube' = COALESCE ( SELECTEDVALUE ( dim_clube[cor_secundaria] ), "#0A4F29" )
+		displayFolder: 2. Clubes
+		lineageTag: 9dcc306d-197a-5e7e-9d7f-df1d2908761a
+
+	/// Cor do clube para a faixa do título com texto branco: usa a cor principal e troca pela secundária quando a principal é clara demais (ex.: amarelo do Criciúma).
+	measure 'Cor de destaque do clube' =
+			VAR c1 = SELECTEDVALUE ( dim_clube[cor_primaria] )
+			VAR c2 = SELECTEDVALUE ( dim_clube[cor_secundaria] )
+			VAR hex = "0123456789ABCDEF"
+			VAR r = ( SEARCH ( MID ( c1, 2, 1 ), hex, 1, 1 ) - 1 ) * 16 + SEARCH ( MID ( c1, 3, 1 ), hex, 1, 1 ) - 1
+			VAR g = ( SEARCH ( MID ( c1, 4, 1 ), hex, 1, 1 ) - 1 ) * 16 + SEARCH ( MID ( c1, 5, 1 ), hex, 1, 1 ) - 1
+			VAR b = ( SEARCH ( MID ( c1, 6, 1 ), hex, 1, 1 ) - 1 ) * 16 + SEARCH ( MID ( c1, 7, 1 ), hex, 1, 1 ) - 1
+			VAR luminancia = ( 0.299 * r + 0.587 * g + 0.114 * b ) / 255
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( c1 ), "#06AA48",
+			        luminancia > 0.6, c2,
+			        c1
+			    )
+		displayFolder: 2. Clubes
+		lineageTag: 81fcac6e-d464-543c-a9e8-499a26d6ad67
+
+	/// Escudo do clube (Wikimedia Commons). Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
+	measure 'Escudo ou sigla' =
+			VAR url = SELECTEDVALUE ( dim_clube[escudo_url] )
+			VAR sigla = SELECTEDVALUE ( dim_clube[id_clube] )
+			VAR c1 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#", "%23" )
+			VAR c2 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_secundaria] ), "#", "%23" )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        NOT ISBLANK ( url ), url,
+			        ISBLANK ( sigla ), BLANK (),
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
+			            & "<circle cx='50' cy='50' r='46' fill='" & c1 & "' stroke='" & c2 & "' stroke-width='6'/>"
+			            & "<text x='50' y='62' font-family='Segoe UI, Arial, sans-serif' font-size='30' font-weight='700' fill='white' text-anchor='middle'>"
+			            & sigla & "</text></svg>"
+			    )
+		displayFolder: 2. Clubes
+		lineageTag: cc4bbc2c-b5d2-506d-a57d-662f6facd24c
+		dataCategory: ImageUrl
+
+	/// Posição após a rodada do contexto, lida da view (a ordem não é recalculada em DAX).
+	measure 'Posição na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MIN ( classificacao_rodada[posicao] ), classificacao_rodada[rodada] = rodada )
+		formatString: 0
+		displayFolder: 3. Classificação
+		lineageTag: 083d407b-0dd7-5491-9bce-9ea77afab889
+
+	measure 'Pontos na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[pontos] ), classificacao_rodada[rodada] = rodada )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: 83624f62-f450-5899-afa9-27c924862716
+
+	measure 'Jogos na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[jogos] ), classificacao_rodada[rodada] = rodada )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: b37605da-5b82-5696-8076-11bc1b00f858
+
+	measure 'Vitórias na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[vitorias] ), classificacao_rodada[rodada] = rodada )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: 68f880a0-acc6-54c1-99fb-3cf74c991ed8
+
+	measure 'Empates na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[empates] ), classificacao_rodada[rodada] = rodada )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: 96fcbe4b-014a-5fe2-b834-24d61a750689
+
+	measure 'Derrotas na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[derrotas] ), classificacao_rodada[rodada] = rodada )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: ee8c16e0-e34e-5bf3-8850-9cede7128f7d
+
+	measure 'Gols pró na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[gols_pro] ), classificacao_rodada[rodada] = rodada )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: 9fd10c9b-a085-5504-ba2a-c9f464e25822
+
+	measure 'Saldo na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			RETURN
+			    CALCULATE ( MAX ( classificacao_rodada[saldo] ), classificacao_rodada[rodada] = rodada )
+		formatString: +0;-0;0
+		displayFolder: 3. Classificação
+		lineageTag: d27bc0d1-a990-5f73-abe4-ca975b1783e1
+
+	measure 'Aproveitamento na rodada' = DIVIDE ( [Pontos na rodada], 3 * [Jogos na rodada] )
+		formatString: 0.0%
+		displayFolder: 3. Classificação
+		lineageTag: 6f595b14-b094-5a5f-851e-fdd12f6f866f
+
+	/// Posições ganhas (positivo) ou perdidas desde a rodada anterior. REMOVEFILTERS(dim_rodada) deixa ler a rodada anterior mesmo com uma rodada selecionada.
+	measure 'Variação de posição' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			VAR agora =
+			    CALCULATE ( MIN ( classificacao_rodada[posicao] ), REMOVEFILTERS ( dim_rodada ), classificacao_rodada[rodada] = rodada )
+			VAR antes =
+			    CALCULATE ( MIN ( classificacao_rodada[posicao] ), REMOVEFILTERS ( dim_rodada ), classificacao_rodada[rodada] = rodada - 1 )
+			RETURN
+			    IF ( rodada > 1 && NOT ISBLANK ( agora ) && NOT ISBLANK ( antes ), antes - agora )
+		formatString: """▲ ""0;""▼ ""0;""="""
+		displayFolder: 3. Classificação
+		lineageTag: 9ea3b35e-c5f9-566b-8899-fdae63ccd24f
+
+	/// Posição final (classificacao_final, conferida com a CBF).
+	measure 'Posição final' = MIN ( classificacao_final[posicao] )
+		formatString: 0"º"
+		displayFolder: 3. Classificação
+		lineageTag: 7579564c-eec0-582f-949d-81e7e5e61293
+
+	measure Campeão = CALCULATE ( SELECTEDVALUE ( classificacao_final[clube] ), classificacao_final[ordem_exibicao] = 1 )
+		displayFolder: 3. Classificação
+		lineageTag: b5e45ae4-8e2d-5d75-b6a4-4c22bc4954cf
+
+	measure 'Pontos do campeão' = CALCULATE ( MAX ( classificacao_final[pontos] ), classificacao_final[ordem_exibicao] = 1 )
+		formatString: #,0
+		displayFolder: 3. Classificação
+		lineageTag: 5996e4f2-27b3-5ec0-a4c3-7fa8ba1a6615
+
+	measure 'Título do topo da tabela' = [Campeão] & " campeão com " & [Pontos do campeão] & " pontos"
+		displayFolder: 3. Classificação
+		lineageTag: a8feec93-83f4-5e29-849a-4d06a1dd6f49
+
+	/// Cor da zona final, para formatação condicional (valor do campo).
+	measure 'Cor da zona' =
+			SWITCH (
+			    SELECTEDVALUE ( classificacao_final[destino] ),
+			    "Campeão", "#2A78D6",
+			    "Libertadores (fase de grupos)", "#2A78D6",
+			    "Libertadores (2ª fase)", "#86B6EF",
+			    "Sul-Americana", "#1BAF7A",
+			    "Rebaixado", "#D03B3B",
+			    BLANK ()
+			)
+		displayFolder: 3. Classificação
+		lineageTag: 86054331-121b-552f-b7f5-b6fb680d9f01
+
+	/// Zona pela ordem na rodada, com as vagas finais de 2024 (Libertadores até o 8º, Sul-Americana até o 14º, rebaixamento do 17º ao 20º).
+	measure 'Cor da zona na rodada' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			VAR ordem =
+			    CALCULATE ( MIN ( classificacao_rodada[ordem_exibicao] ), classificacao_rodada[rodada] = rodada )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( ordem ), BLANK (),
+			        ordem <= 6, "#2A78D6",
+			        ordem <= 8, "#86B6EF",
+			        ordem <= 14, "#1BAF7A",
+			        ordem >= 17, "#D03B3B",
+			        "#E3E7E3"
+			    )
+		displayFolder: 3. Classificação
+		lineageTag: e672aec3-f4f1-54c1-8248-61456e9549ee
+
+	measure 'Cor do texto da zona' =
+			VAR rodada = MAX ( dim_rodada[rodada] )
+			VAR ordem =
+			    CALCULATE ( MIN ( classificacao_rodada[ordem_exibicao] ), classificacao_rodada[rodada] = rodada )
+			RETURN
+			    IF ( ordem <= 6 || ordem >= 17, "#FFFFFF", "#14181B" )
+		displayFolder: 3. Classificação
+		lineageTag: 2c64e437-96dc-5116-8d9f-d3e684ae0839
+
+	measure 'Cor do resultado' =
+			SWITCH (
+			    SELECTEDVALUE ( fato_participacao[resultado] ),
+			    "V", "#0CA30C",
+			    "E", "#6B7280",
+			    "D", "#D03B3B"
+			)
+		displayFolder: 3. Classificação
+		lineageTag: 6343fbff-f05a-5770-a021-ba8885481d38
+
+	/// Gols marcados pelo jogador (sem gols contra).
+	measure 'Gols do jogador' = CALCULATE ( COUNTROWS ( fato_gol ), fato_gol[tipo] <> "Contra" )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: c7ab40e5-e200-557d-87b3-d0f69953480b
+
+	measure 'Gols de pênalti' = CALCULATE ( COUNTROWS ( fato_gol ), fato_gol[tipo] = "Pênalti" )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 24493a78-1816-5a55-a1ff-7a79afdc8788
+
+	measure 'Gols contra (jogador)' = CALCULATE ( COUNTROWS ( fato_gol ), fato_gol[tipo] = "Contra" )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: cfcbd0a9-7e7e-5205-96e8-91e06be540de
+
+	/// Ranking parcial da Wikipédia: vazio = fora do ranking (nunca zero).
+	measure Assistências = SUM ( jogador_estatisticas[assistencias] )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 792ffb80-0c31-5e6e-884f-724746ad8bca
+
+	/// Ranking parcial da Wikipédia (goleiros).
+	measure 'Jogos sem sofrer gol (goleiro)' = SUM ( jogador_estatisticas[jogos_sem_sofrer_gols] )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 3e7d9e1d-7d90-5965-9e44-100e461edab5
+
+	measure 'Posição na artilharia' =
+			IF (
+			    [Gols do jogador] > 0,
+			    RANKX ( ALL ( dim_jogador ), [Gols do jogador],, DESC, SKIP )
+			)
+		formatString: 0
+		displayFolder: 4. Jogadores
+		lineageTag: 6c8dd9cc-a929-5a5b-9fd9-8839f1f28371
+
+	measure '% dos gols do clube' =
+			VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
+			RETURN
+			    DIVIDE (
+			        [Gols do jogador],
+			        CALCULATE ( COUNTROWS ( fato_gol ), ALL ( dim_jogador ), fato_gol[id_clube_beneficiado] = clube )
+			    )
+		formatString: 0.0%
+		displayFolder: 4. Jogadores
+		lineageTag: 19a92d2f-8244-518f-ac32-2ae41168a5f0
+
+	/// Valor do jogador na métrica escolhida na segmentação Ranking.
+	measure 'Valor no ranking' =
+			SWITCH (
+			    SELECTEDVALUE ( Ranking[Métrica], "Gols" ),
+			    "Gols", [Gols do jogador],
+			    "Assistências", [Assistências],
+			    "Jogos sem sofrer gol", [Jogos sem sofrer gol (goleiro)],
+			    "Gols de pênalti", [Gols de pênalti],
+			    "Cartões amarelos", [Cartões amarelos],
+			    "Cartões vermelhos", [Cartões vermelhos]
+			)
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 196d0114-ad04-54c6-8216-cf4403745f40
+
+	/// Mantém só os 10 primeiros (empates no corte entram todos).
+	measure 'Valor no ranking (top 10)' =
+			VAR valor = [Valor no ranking]
+			VAR posicao =
+			    IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Valor no ranking], valor, DESC, SKIP ) )
+			RETURN
+			    IF ( NOT ISBLANK ( valor ) && posicao <= 10, valor )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 696e16dd-a2a8-5bfd-9e70-69b30c6884ff
+
+	/// Mantém só os 1 primeiros (empates no corte entram todos).
+	measure 'Valor do líder' =
+			VAR valor = [Valor no ranking]
+			VAR posicao =
+			    IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Valor no ranking], valor, DESC, SKIP ) )
+			RETURN
+			    IF ( NOT ISBLANK ( valor ) && posicao <= 1, valor )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 26eeefe3-0bb2-59a1-8d9c-d571bba14d3d
+
+	/// Mantém só os 5 primeiros (empates no corte entram todos).
+	measure 'Gols do jogador (top 5)' =
+			VAR valor = [Gols do jogador]
+			VAR posicao =
+			    IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Gols do jogador], valor, DESC, SKIP ) )
+			RETURN
+			    IF ( NOT ISBLANK ( valor ) && posicao <= 5, valor )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: b2e30fb6-b03a-5a7d-8107-91488e731ab4
+
+	/// Mantém só os 10 primeiros (empates no corte entram todos).
+	measure 'Gols do jogador (top 10)' =
+			VAR valor = [Gols do jogador]
+			VAR posicao =
+			    IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Gols do jogador], valor, DESC, SKIP ) )
+			RETURN
+			    IF ( NOT ISBLANK ( valor ) && posicao <= 10, valor )
+		formatString: #,0
+		displayFolder: 4. Jogadores
+		lineageTag: 89d7d155-74be-5873-83e7-c8477bbbf765
+
+	measure 'Título do ranking' = "Top 10 · " & SELECTEDVALUE ( Ranking[Métrica], "Gols" )
+		displayFolder: 4. Jogadores
+		lineageTag: 0cf88b67-560a-54c7-9ec9-138547118cec
+
+	measure 'Nota do ranking' =
+			IF (
+			    SELECTEDVALUE ( Ranking[Métrica], "Gols" ) IN { "Assistências", "Jogos sem sofrer gol" },
+			    "Ranking parcial publicado pela Wikipédia (só os primeiros colocados).",
+			    "Súmulas compiladas (adaoduque); gols conferidos com o placar de cada jogo."
+			)
+		displayFolder: 4. Jogadores
+		lineageTag: d0cfa7b3-40e1-52ca-9d31-4b32ca9d473c
+
+	/// Foto real (Wikimedia Commons, confirmada pela Wikidata). Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
+	measure 'Foto ou camisa' =
+			VAR url = SELECTEDVALUE ( dim_jogador[foto_url] )
+			VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
+			VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
+			VAR c1 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_primaria], dim_clube[id_clube], clube ), "#", "%23" )
+			VAR c2 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_secundaria], dim_clube[id_clube], clube ), "#", "%23" )
+			VAR espacos = LEN ( nome ) - LEN ( SUBSTITUTE ( nome, " ", "" ) )
+			VAR ultima =
+			    IF ( espacos > 0, MID ( nome, FIND ( "|", SUBSTITUTE ( nome, " ", "|", espacos ) ) + 1, 1 ), "" )
+			VAR iniciais = UPPER ( LEFT ( nome, 1 ) & ultima )
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        NOT ISBLANK ( url ), url,
+			        ISBLANK ( nome ), BLANK (),
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>"
+			            & "<path d='M30 22 L42 14 Q50 24 58 14 L70 22 L90 38 L78 54 L70 47 L70 110 L30 110 L30 47 L22 54 L10 38 Z' fill='"
+			            & c1 & "' stroke='" & c2 & "' stroke-width='4' stroke-linejoin='round'/>"
+			            & "<text x='50' y='80' font-family='Segoe UI, Arial, sans-serif' font-size='26' font-weight='700' fill='white' stroke='"
+			            & c2 & "' stroke-width='1' text-anchor='middle'>" & iniciais & "</text></svg>"
+			    )
+		displayFolder: 4. Jogadores
+		lineageTag: 8b4c94a7-312d-5f96-9f64-7ce67b6d0cd0
+		dataCategory: ImageUrl
+
+	measure 'Foto do líder' = IF ( NOT ISBLANK ( [Valor do líder] ), [Foto ou camisa] )
+		displayFolder: 4. Jogadores
+		lineageTag: 1e737b1a-f1bb-5100-8005-1029ba725265
+		dataCategory: ImageUrl
+
+	measure 'Descrição do jogador' =
+			VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
+			VAR selecao =
+			    IF ( SELECTEDVALUE ( jogador_estatisticas[selecao_do_campeonato] ) = TRUE (), " · Seleção do campeonato", "" )
+			RETURN
+			    IF (
+			        NOT ISBLANK ( nome ),
+			        nome & " · " & SELECTEDVALUE ( dim_jogador[clube] ) & " · " & SELECTEDVALUE ( dim_jogador[posicao] ) & selecao
+			    )
+		displayFolder: 4. Jogadores
+		lineageTag: 123cd2ad-2197-5607-9e35-6c48c37e15d6
+
+	/// Assistências como texto: fora do ranking parcial da Wikipédia aparece escrito, nunca como zero.
+	measure 'Assistências (ficha)' = IF ( ISBLANK ( [Assistências] ), "fora do ranking", FORMAT ( [Assistências], "0" ) )
+		displayFolder: 4. Jogadores
+		lineageTag: 1f5e6713-c8ec-58e7-8777-526666e663bb
+
+	measure Cartões = COUNTROWS ( fato_cartao )
+		formatString: #,0
+		displayFolder: 5. Disciplina
+		lineageTag: 9f697526-df81-5358-97f8-47460ea8a224
+
+	measure 'Cartões amarelos' = CALCULATE ( COUNTROWS ( fato_cartao ), fato_cartao[cartao] = "Amarelo" )
+		formatString: #,0
+		displayFolder: 5. Disciplina
+		lineageTag: e787941d-4405-5403-bae2-bdc9e97a8570
+
+	measure 'Cartões vermelhos' = CALCULATE ( COUNTROWS ( fato_cartao ), fato_cartao[cartao] = "Vermelho" )
+		formatString: #,0
+		displayFolder: 5. Disciplina
+		lineageTag: c3eaf931-9131-58c9-9700-6cd4717a46c9
+
+	measure 'Cartões por jogo' = DIVIDE ( COUNTROWS ( fato_cartao ), [Partidas] )
+		formatString: 0.00
+		displayFolder: 5. Disciplina
+		lineageTag: c43f101c-fd45-55bc-aa81-0b1b4fbfec24
+
+	/// Precisa ser 0.
+	measure 'Soma do saldo' = SUM ( fato_participacao[saldo] )
+		formatString: #,0
+		displayFolder: 6. Auditoria
+		lineageTag: 00609aa6-be9a-560a-9186-b09ed50e983f
+
+	/// Compara com os números de controle do projeto (SKILL.md, seção 3).
+	measure 'Status da auditoria' =
+			IF (
+			    [Gols] = 929
+			        && [Gols (conferência pelos eventos)] = 929
+			        && [Partidas] = 380
+			        && [Jogos do clube] = 760
+			        && [Cartões] = 2096
+			        && [Pontos] = 1039
+			        && [Soma do saldo] = 0,
+			    "OK: os números de controle conferem",
+			    "DIVERGÊNCIA: confira relações e filtros"
+			)
+		displayFolder: 6. Auditoria
+		lineageTag: 0cbef311-cf2a-58ce-90d6-c9841fdb56fa
+
+	measure 'Rótulo gols' = "Gols · " & FORMAT ( [Partidas], "#,0" ) & " jogos"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: eae401a9-c061-5b12-9a88-f0a3a74491f9
+
+	measure 'Rótulo média de gols' = "Média por jogo · " & FORMAT ( [Jogos 0 a 0], "0" ) & " jogos 0 a 0"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 61bc1d0a-4a98-5c1e-8a65-51dce6e59dec
+
+	measure 'Rótulo vitórias do mandante' = "Vitórias do mandante · " & FORMAT ( [Vitórias do mandante], "0" ) & " jogos"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 5fe5bf67-7a78-57f4-8dce-521697e740a3
+
+	measure 'Rótulo empates' = "Empates · " & FORMAT ( [Empates], "0" ) & " jogos"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: d66f049c-23ae-5cfd-a302-a1e82d669497
+
+	measure 'Rótulo posição final' =
+			VAR destino = SELECTEDVALUE ( classificacao_final[destino] )
+			RETURN
+			    "Posição final" & IF ( NOT ISBLANK ( destino ), " · " & destino )
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: f4df5197-b829-55db-b1bb-75ecd0708c61
+
+	/// Pontos médios por clube no período filtrado (referência para o cartão de pontos).
+	measure 'Média de pontos da liga' =
+			DIVIDE (
+			    CALCULATE ( [Pontos], REMOVEFILTERS ( dim_clube ) ),
+			    CALCULATE ( DISTINCTCOUNT ( fato_participacao[id_clube] ), REMOVEFILTERS ( dim_clube ) )
+			)
+		formatString: 0.0
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 02992f24-f1b8-5609-aa64-cb78c5ce58f2
+
+	measure 'Aproveitamento da liga' = CALCULATE ( [Aproveitamento], REMOVEFILTERS ( dim_clube ) )
+		formatString: 0.0%
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 160bcd5f-f264-57cc-ae91-53adbc513413
+
+	measure 'Rótulo pontos' = "Pontos · média da liga " & FORMAT ( [Média de pontos da liga], "0.0" )
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 7eb5a28f-2f4a-5423-b1e1-161f82e80e0a
+
+	measure 'Rótulo aproveitamento' = "Aproveitamento · liga " & FORMAT ( [Aproveitamento da liga], "0.0%" )
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: b4bf626e-2b61-5d57-a410-9e3262d4eb70
+
+	measure 'Rótulo saldo' = "Saldo · " & FORMAT ( [Gols pró], "0" ) & " pró, " & FORMAT ( [Gols contra], "0" ) & " contra"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 62811d7f-dd2b-570f-b0ca-36ccb9de0400
+
+	measure 'Rótulo pênaltis' = "Gols de pênalti · " & FORMAT ( DIVIDE ( [Gols de pênalti], [Gols] ), "0.0%" ) & " dos gols"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 58938299-4904-536e-a124-8ca35518a3cc
+
+	measure 'Rótulo gols contra' = "Gols contra · " & FORMAT ( DIVIDE ( [Gols contra (jogador)], [Gols] ), "0.0%" ) & " dos gols"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: b4778543-127d-5ae9-917b-254c8b4d940f
+
+	measure 'Rótulo cartões por jogo' = "Cartões por jogo · " & FORMAT ( [Cartões amarelos], "#,0" ) & " amarelos"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: f3129a1e-5d4d-54e4-b421-7700821e02ed
+
+	measure 'Rótulo vermelhos' = "Cartões vermelhos · " & FORMAT ( DIVIDE ( [Cartões vermelhos], [Partidas] ), "0.00" ) & " por jogo"
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 095a3fb8-cd68-51b0-9250-14178016416e
+
+	column Valor
+		dataType: string
+		isHidden
+		lineageTag: 9ac3d798-1f09-58f2-9e66-518d739bb66c
+		summarizeBy: none
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    // Tabela vazia: só guarda as medidas.
+				    Fonte = #table(type table [Valor = text], {})
+				in
+				    Fonte
+
+	annotation PBI_ResultType = Table
+

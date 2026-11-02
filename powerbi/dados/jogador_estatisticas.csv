@@ -1,0 +1,588 @@
+id_jogador,nome_exibicao,id_clube,clube,posicao,gols,gols_penalti,gols_contra,cartoes_amarelos,cartoes_vermelhos,assistencias,jogos_sem_sofrer_gols,selecao_do_campeonato
+abner-juv,Abner,JUV,Juventude,Zagueiro,0,0,0,1,0,,,f
+ademir-bah,Ademir,BAH,Bahia,Atacante,3,0,0,1,0,,,f
+adriano-martins-atg,Adriano Martins,ATG,Atlético Goianiense,Zagueiro,0,0,0,7,0,,,f
+adriel-bah,Adriel,BAH,Bahia,Goleiro,0,0,0,1,0,,,f
+adryelson-bot,Adryelson,BOT,Botafogo,,1,0,0,0,0,,,f
+adson-vas,Adson,VAS,Vasco da Gama,Meio-campo,2,0,0,2,0,,,f
+agustin-canobbio-atp,Agustín Canobbio,ATP,Athletico Paranaense,Meio-campo,4,0,0,5,1,,,f
+agustin-giay-pal,Agustín Giay,PAL,Palmeiras,Zagueiro,0,0,0,1,0,,,f
+agustin-marchesin-gre,Agustín Marchesín,GRE,Grêmio,Goleiro,0,0,0,5,0,,,f
+agustin-rogel-int,Agustín Rogel,INT,Internacional,Zagueiro,0,0,0,2,1,,,f
+agustin-rossi-fla,Agustín Rossi,FLA,Flamengo,Goleiro,0,0,0,1,0,,8,f
+alan-empereur-cui,Alan Empereur,CUI,Cuiabá,Zagueiro,0,0,0,9,0,,,f
+alan-franco-palma-atm,Alan Franco Palma,ATM,Atlético Mineiro,Meio-campo,0,0,0,5,0,,,f
+alan-franco-spa,Alan Franco,SPA,São Paulo,Zagueiro,0,0,1,6,1,,,f
+alan-patrick-int,Alan Patrick,INT,Internacional,Meio-campo,8,4,0,3,0,,,t
+alan-ruschel-juv,Alan Ruschel,JUV,Juventude,Zagueiro,1,0,0,5,2,,,f
+aldemir-ferreira-spa,Aldemir Ferreira,SPA,São Paulo,Meio-campo,5,0,0,4,0,,,f
+alejo-cruz-atg,Alejo Cruz,ATG,Atlético Goianiense,Meio-campo,2,1,0,4,0,,,f
+alerrandro-barra-mansa-realino-de-souza-vit,Alerrandro,VIT,Vitória,Atacante,15,4,0,4,0,,,f
+alex-paulo-menezes-santana-atp,Alex Paulo Menezes Santana,ATP,Athletico Paranaense,Meio-campo,0,0,0,2,0,,,f
+alex-paulo-menezes-santana-cor,Alex Paulo Menezes Santana,COR,Corinthians,Meio-campo,0,0,0,2,0,,,f
+alex-sandro-lobo-silva-fla,Alex Sandro Lobo Silva,FLA,Flamengo,Zagueiro,0,0,0,1,0,,,f
+alex-teixeira-vas,Alex Teixeira,VAS,Vasco da Gama,,1,0,0,0,0,,,f
+alex-telles-bot,Alex Telles,BOT,Botafogo,Zagueiro,0,0,0,1,0,,,f
+alexander-aravena-gre,Alexander Aravena,GRE,Grêmio,,2,0,0,0,0,,,f
+alexander-barboza-bot,Alexander Barboza,BOT,Botafogo,Zagueiro,0,0,0,10,2,,,t
+alexandro-bernabei-int,Alexandro Bernabei,INT,Internacional,Lateral,3,0,0,5,0,,,t
+alexsander-flu,Alexsander,FLU,Fluminense,Meio-campo,0,0,0,4,0,,,f
+alisson-euler-de-freitas-castro-spa,Alisson Euler de Freitas Castro,SPA,São Paulo,Meio-campo,1,0,0,5,0,,,f
+alisson-machado-dos-santos-cri,Alisson Machado dos Santos,CRI,Criciúma,Goleiro,0,0,0,2,0,,,f
+alisson-santana-atm,Alisson Santana,ATM,Atlético Mineiro,Atacante,1,0,0,1,0,,,f
+alix-vinicius-atg,Alix Vinicius,ATG,Atlético Goianiense,Zagueiro,0,0,2,5,2,,,f
+allan-fla,Allan,FLA,Flamengo,Meio-campo,0,0,0,6,1,,,f
+allan-marques-loureiro-bot,Allan Marques Loureiro,BOT,Botafogo,Meio-campo,0,0,0,2,0,,,f
+allano-cri,Allano,CRI,Criciúma,Atacante,1,0,0,8,2,,,f
+allyson-aires-dos-santos-cui,Allyson Aires dos Santos,CUI,Cuiabá,Zagueiro,0,0,0,1,0,,,f
+alvaro-barreal-cru,Álvaro Barreal,CRU,Cruzeiro,Meio-campo,2,0,0,6,0,,,f
+anderson-cru,Anderson,CRU,Cruzeiro,Goleiro,0,0,0,2,0,,,f
+andre-carrillo-cor,André Carrillo,COR,Corinthians,Meio-campo,0,0,0,3,0,,,f
+andre-flu,André,FLU,Fluminense,Meio-campo,0,0,0,5,0,,,f
+andre-luis-cui,André Luis,CUI,Cuiabá,Atacante,0,0,0,3,0,,,f
+andre-ramalho-cor,André Ramalho,COR,Corinthians,Zagueiro,0,0,0,5,1,,,f
+andre-silva-spa,André Silva,SPA,São Paulo,Atacante,7,0,0,3,0,,,f
+angel-romero-cor,Ángel Romero,COR,Corinthians,Atacante,5,0,0,6,0,,,f
+anibal-moreno-pal,Aníbal Moreno,PAL,Palmeiras,Meio-campo,1,0,0,7,0,,,f
+anthoni-int,Anthoni,INT,Internacional,Goleiro,0,0,0,1,0,,,f
+antonio-carlos-capocasali-flu,Antonio Carlos Capocasali,FLU,Fluminense,Zagueiro,0,0,0,1,0,,,f
+arthur-caike-do-nascimento-cruz-cri,Arthur Caike do Nascimento Cruz,CRI,Criciúma,Atacante,5,0,0,4,0,,,f
+arthur-gomes-cru,Arthur Gomes,CRU,Cruzeiro,Atacante,2,0,0,1,0,,,f
+arthur-sousa-rbb,Arthur Sousa,RBB,Red Bull Bragantino,Atacante,0,0,0,1,0,,,f
+arthur-viana-cru,Arthur Viana,CRU,Cruzeiro,Meio-campo,0,0,0,1,0,,,f
+ayrton-lucas-dantas-de-medeiros-fla,Ayrton Lucas Dantas de Medeiros,FLA,Flamengo,Zagueiro,3,0,0,3,0,,,f
+bastos-bot,Bastos,BOT,Botafogo,Zagueiro,3,0,0,6,0,,,t
+benjamin-kuscevic-for,Benjamín Kuscevic,FOR,Fortaleza,Zagueiro,2,0,0,7,1,,,f
+bento-atp,Bento,ATP,Athletico Paranaense,Goleiro,0,0,0,1,0,,,f
+bernard-atm,Bernard,ATM,Atlético Mineiro,Atacante,0,0,0,1,0,,,f
+brahian-palacios-atm,Brahian Palacios,ATM,Atlético Mineiro,Atacante,2,1,0,4,0,,,f
+breno-bidon-cor,Breno Bidon,COR,Corinthians,Meio-campo,0,0,0,5,0,,,f
+breno-lopes-for,Breno Lopes,FOR,Fortaleza,Meio-campo,5,0,0,6,0,,,f
+bruno-alves-cui,Bruno Alves,CUI,Cuiabá,Zagueiro,1,0,0,3,0,,,f
+bruno-fuchs-atm,Bruno Fuchs,ATM,Atlético Mineiro,Zagueiro,0,0,0,8,1,,,f
+bruno-gomes-int,Bruno Gomes,INT,Internacional,Zagueiro,1,0,0,3,0,,,f
+bruno-henrique-corsini-int,Bruno Henrique Corsini,INT,Internacional,Meio-campo,3,0,0,5,0,,,f
+bruno-henrique-fla,Bruno Henrique,FLA,Flamengo,Atacante,6,1,0,6,0,,,f
+bruno-lopes-vas,Bruno Lopes,VAS,Vasco da Gama,Atacante,0,0,0,1,0,,,f
+bruno-pacheco-for,Bruno Pacheco,FOR,Fortaleza,Zagueiro,1,0,0,4,0,,,f
+bruno-praxedes-vas,Bruno Praxedes,VAS,Vasco da Gama,Meio-campo,0,0,0,2,0,,,f
+bruno-tabata-int,Bruno Tabata,INT,Internacional,Meio-campo,2,0,0,2,0,,,f
+bruno-tubarao-atg,Bruno Tubarão,ATG,Atlético Goianiense,Zagueiro,0,0,0,3,1,,,f
+bruno-uvini-vit,Bruno Uvini,VIT,Vitória,Zagueiro,0,0,0,1,0,,,f
+bruno-zapelli-atp,Bruno Zapelli,ATP,Athletico Paranaense,Meio-campo,0,0,0,3,0,,,f
+caca-cor,Cacá,COR,Corinthians,Zagueiro,4,0,2,5,1,,,f
+cadu-atm,Cadu,ATM,Atlético Mineiro,Atacante,3,0,0,1,0,,,f
+caio-alexandre-bah,Caio Alexandre,BAH,Bahia,Meio-campo,2,0,0,6,0,,,f
+caio-maia-atm,Caio Maia,ATM,Atlético Mineiro,Atacante,0,0,0,1,0,,,f
+caio-paulista-pal,Caio Paulista,PAL,Palmeiras,Meio-campo,0,0,0,1,1,,,f
+caio-vinicius-da-conceicao-vit,Caio Vinícius da Conceição,VIT,Vitória,Zagueiro,0,0,0,6,0,,,f
+caique-de-jesus-goncalves-juv,Caique de Jesus Gonçalves,JUV,Juventude,Meio-campo,0,0,0,5,0,,,f
+caique-santos-gre,Caíque Santos,GRE,Grêmio,Goleiro,0,0,0,1,0,,,f
+calebe-for,Calebe,FOR,Fortaleza,Meio-campo,0,0,0,1,0,,,f
+camutanga-vit,Camutanga,VIT,Vitória,Zagueiro,0,0,0,1,1,,,f
+carlinhos-fla,Carlinhos,FLA,Flamengo,Atacante,2,0,0,2,1,,,f
+carlos-alberto-gomes-da-silva-filho-bot,Carlos Alberto Gomes da Silva Filho,BOT,Botafogo,,1,0,0,0,0,,,f
+carlos-alcaraz-fla,Carlos Alcaraz,FLA,Flamengo,Meio-campo,2,2,0,1,1,,,f
+carlos-de-pena-bah,Carlos de Pena,BAH,Bahia,Meio-campo,0,0,0,5,0,,,f
+carlos-eduardo-de-oliveira-alves-bot,Carlos Eduardo de Oliveira Alves,BOT,Botafogo,Atacante,2,0,0,1,0,,,f
+carlos-eduardo-ferreira-de-souza-vit,Carlos Eduardo Ferreira de Souza,VIT,Vitória,Meio-campo,0,0,0,4,0,,,f
+carlos-miguel-cor,Carlos Miguel,COR,Corinthians,Goleiro,0,0,0,3,0,,,f
+cassio-ramos-cru,Cássio Ramos,CRU,Cruzeiro,Goleiro,0,0,0,2,0,,,f
+cauly-bah,Cauly,BAH,Bahia,Meio-campo,4,0,0,1,0,6,,f
+charles-aranguiz-int,Charles Aránguiz,INT,Internacional,Meio-campo,0,0,0,2,0,,,f
+charles-rigon-matos-cor,Charles Rigon Matos,COR,Corinthians,Meio-campo,1,0,0,4,0,,,f
+christian-roberto-alves-cardoso-atp,Christian Roberto Alves Cardoso,ATP,Athletico Paranaense,Meio-campo,1,0,0,7,0,,,f
+claudinho-cri,Claudinho,CRI,Criciúma,Zagueiro,2,0,0,3,1,,,f
+clayson-cui,Clayson,CUI,Cuiabá,Meio-campo,5,0,0,6,0,,,f
+clayton-sampaio-int,Clayton Sampaio,INT,Internacional,Zagueiro,0,0,0,1,0,,,f
+cleiton-schwengber-rbb,Cleiton Schwengber,RBB,Red Bull Bragantino,Goleiro,0,0,0,4,1,,,f
+cristian-pavon-gre,Cristian Pavón,GRE,Grêmio,Meio-campo,1,0,0,4,0,,,f
+cuiabano-bot,Cuiabano,BOT,Botafogo,Zagueiro,4,0,0,5,0,,,f
+damian-bobadilla-spa,Damián Bobadilla,SPA,São Paulo,Meio-campo,1,0,0,3,0,,,f
+damian-suarez-bot,Damián Suárez,BOT,Botafogo,Zagueiro,0,0,0,5,0,,,f
+daniel-junior-vit,Daniel Júnior,VIT,Vitória,Meio-campo,0,0,0,1,0,,,f
+daniel-peixoto-juv,Daniel Peixoto,JUV,Juventude,Meio-campo,0,0,0,1,0,,,f
+danilo-barbosa-da-silva-bot,Danilo Barbosa da Silva,BOT,Botafogo,Meio-campo,3,0,0,4,0,,,f
+danilo-boza-juv,Danilo Boza,JUV,Juventude,Zagueiro,3,0,0,2,0,,,f
+danilo-fernandes-bah,Danilo Fernandes,BAH,Bahia,Goleiro,0,0,0,1,0,,,f
+danilo-neves-bot,Danilo Neves,BOT,Botafogo,Meio-campo,0,0,0,2,1,,,f
+davi-goes-juv,Davi Goes,JUV,Juventude,Meio-campo,0,0,0,2,0,,,f
+david-correa-da-fonseca-vas,David Corrêa da Fonseca,VAS,Vasco da Gama,Meio-campo,4,0,0,6,1,,,f
+david-duarte-bah,David Duarte,BAH,Bahia,,1,0,0,0,0,,,f
+david-luiz-fla,David Luiz,FLA,Flamengo,Zagueiro,3,0,0,5,0,,,f
+david-terans-flu,David Terans,FLU,Fluminense,Meio-campo,0,0,0,1,0,,,f
+denilson-cui,Denilson,CUI,Cuiabá,Meio-campo,0,0,0,8,0,,,f
+derek-atg,Derek,ATG,Atlético Goianiense,Atacante,3,0,0,2,1,,,f
+derik-lacerda-cui,Derik Lacerda,CUI,Cuiabá,Meio-campo,4,0,0,8,0,,,f
+deyverson-atm,Deyverson,ATM,Atlético Mineiro,Atacante,2,0,0,5,0,,,f
+deyverson-cui,Deyverson,CUI,Cuiabá,,1,0,0,0,0,,,f
+diego-costa-gre,Diego Costa,GRE,Grêmio,Atacante,1,0,0,4,1,,,f
+diego-costa-spa,Diego Costa,SPA,São Paulo,Zagueiro,0,0,0,2,0,,,f
+diego-goncalves-juv,Diego Gonçalves,JUV,Juventude,,1,0,0,0,0,,,f
+diego-hernandez-bot,Diego Hernández,BOT,Botafogo,Atacante,0,0,0,3,0,,,f
+dimitri-payet-vas,Dimitri Payet,VAS,Vasco da Gama,Meio-campo,3,1,0,2,0,,,f
+diogo-barbosa-flu,Diogo Barbosa,FLU,Fluminense,Zagueiro,0,0,0,6,0,,,f
+douglas-costa-flu,Douglas Costa,FLU,Fluminense,Meio-campo,0,0,0,1,0,,,f
+douglas-mendes-rbb,Douglas Mendes,RBB,Red Bull Bragantino,Zagueiro,2,0,0,2,0,,,f
+douglas-moreira-gre,Douglas Moreira,GRE,Grêmio,Meio-campo,0,0,0,6,1,,,f
+du-queiroz-gre,Du Queiroz,GRE,Grêmio,Meio-campo,0,0,0,2,0,,,f
+dudu-cri,Dudu,CRI,Criciúma,Zagueiro,0,0,0,1,0,,,f
+dudu-vieira-juv,Dudu Vieira,JUV,Juventude,Meio-campo,0,0,0,1,0,,,f
+dudu-vit,Dudu,VIT,Vitória,Meio-campo,0,0,0,4,1,,,f
+edenilson-andrade-dos-santos-gre,Edenílson Andrade dos Santos,GRE,Grêmio,Meio-campo,1,0,0,3,0,,,f
+eder-citadin-martins-cri,Eder Citadin Martins,CRI,Criciúma,Atacante,0,0,0,5,0,,,f
+edson-carioca-juv,Edson Carioca,JUV,Juventude,Meio-campo,3,0,0,2,0,,,f
+eduardo-santos-rbb,Eduardo Santos,RBB,Red Bull Bragantino,Zagueiro,1,0,0,5,0,,,f
+eduardo-sasha-rbb,Eduardo Sasha,RBB,Red Bull Bragantino,Atacante,8,1,0,7,1,,,f
+eduardo-vargas-atm,Eduardo Vargas,ATM,Atlético Mineiro,Atacante,8,2,0,1,0,,,f
+eliel-cui,Eliel,CUI,Cuiabá,Atacante,2,0,0,2,0,,,f
+emanuel-britez-for,Emanuel Brítez,FOR,Fortaleza,Zagueiro,0,0,0,12,2,,,f
+emerson-rodriguez-vas,Emerson Rodríguez,VAS,Vasco da Gama,Meio-campo,2,0,0,1,0,,,f
+emiliano-rodriguez-atg,Emiliano Rodríguez,ATG,Atlético Goianiense,Atacante,0,0,0,2,1,,,f
+emmanuel-martinez-for,Emmanuel Martínez,FOR,Fortaleza,Meio-campo,1,0,0,4,0,,,f
+endrick-pal,Endrick,PAL,Palmeiras,Atacante,0,0,0,3,0,,,f
+enner-valencia-int,Enner Valencia,INT,Internacional,Atacante,3,0,0,2,0,,,f
+eric-dos-santos-rodrigues-rbb,Eric dos Santos Rodrigues,RBB,Red Bull Bragantino,Meio-campo,2,0,0,4,0,,,f
+erick-castillo-vit,Erick Castillo,VIT,Vitória,,1,0,0,0,0,,,f
+erick-farias-juv,Erick Farias,JUV,Juventude,Meio-campo,5,0,0,1,0,,,f
+erick-luis-conrado-carvalho-atp,Erick Luis Conrado Carvalho,ATP,Athletico Paranaense,Meio-campo,3,0,0,2,0,,,f
+erick-marcus-vas,Erick Marcus,VAS,Vasco da Gama,Atacante,0,0,0,1,0,,,f
+erick-pulgar-fla,Erick Pulgar,FLA,Flamengo,Meio-campo,0,0,0,6,1,,,f
+erick-spa,Erick,SPA,São Paulo,Atacante,1,0,0,3,0,,,f
+eros-mancuso-for,Eros Mancuso,FOR,Fortaleza,Zagueiro,1,0,0,4,1,,,f
+estevao-pal,Estêvão,PAL,Palmeiras,Atacante,13,3,0,4,0,9,,t
+everaldo-stum-bah,Everaldo,BAH,Bahia,Atacante,8,1,0,6,0,,,f
+everaldo-vit,Everaldo,VIT,Vitória,Atacante,2,0,0,3,0,,,f
+everson-atm,Everson,ATM,Atlético Mineiro,Goleiro,0,0,0,6,1,,8,f
+everton-cebolinha-fla,Everton Cebolinha,FLA,Flamengo,Meio-campo,1,0,0,1,0,,,f
+everton-gre,Everton,GRE,Grêmio,Atacante,0,0,0,4,0,,,f
+everton-messias-rbb,Everton Messias,RBB,Red Bull Bragantino,Atacante,0,0,0,1,0,,,f
+everton-ribeiro-bah,Éverton Ribeiro,BAH,Bahia,Meio-campo,2,0,0,4,0,,,f
+evertton-araujo-fla,Evertton Araújo,FLA,Flamengo,Meio-campo,1,0,0,3,0,,,f
+ewerthon-diogenes-da-silva-juv,Ewerthon Diógenes da Silva,JUV,Juventude,Zagueiro,1,0,0,1,0,,,f
+fabinho-pal,Fabinho,PAL,Palmeiras,Meio-campo,1,0,0,2,0,,,f
+fabio-deivson-lopes-maciel-flu,Fábio,FLU,Fluminense,Goleiro,0,0,0,4,0,,13,f
+fabio-pereira-da-silva-gre,Fabio Pereira da Silva,GRE,Grêmio,Zagueiro,0,0,0,1,1,,,f
+fabricio-bruno-fla,Fabrício Bruno,FLA,Flamengo,Zagueiro,1,0,0,6,0,,,f
+fabricio-bustos-int,Fabricio Bustos,INT,Internacional,Zagueiro,1,0,0,4,0,,,f
+fabricio-rbb,Fabrício,RBB,Red Bull Bragantino,Goleiro,0,0,0,1,0,,,f
+fabrizio-peralta-cru,Fabrizio Peralta,CRU,Cruzeiro,Meio-campo,0,0,0,2,0,,,f
+facundo-bernal-flu,Facundo Bernal,FLU,Fluminense,Meio-campo,0,0,0,6,0,,,f
+fagner-cor,Fagner,COR,Corinthians,Zagueiro,0,0,0,3,1,,,f
+fausto-vera-atm,Fausto Vera,ATM,Atlético Mineiro,Meio-campo,2,0,1,1,0,,,f
+felipe-anderson-pal,Felipe Anderson,PAL,Palmeiras,,2,0,0,0,0,,,f
+felipe-carballo-gre,Felipe Carballo,GRE,Grêmio,Meio-campo,0,0,0,3,0,,,f
+felipe-melo-flu,Felipe Melo,FLU,Fluminense,Zagueiro,0,0,0,3,2,,,f
+felipe-teresa-fla,Felipe Teresa,FLA,Flamengo,,1,0,0,0,0,,,f
+felipe-vizeu-cri,Felipe Vizeu,CRI,Criciúma,Atacante,2,0,0,1,1,,,f
+felipinho-atp,Felipinho,ATP,Athletico Paranaense,Meio-campo,0,0,0,3,0,,,f
+felix-torres-cor,Félix Torres,COR,Corinthians,Zagueiro,0,0,0,3,0,,,f
+fellipe-mateus-cri,Fellipe Mateus,CRI,Criciúma,Meio-campo,3,0,0,6,0,,,f
+fernandinho-atp,Fernandinho,ATP,Athletico Paranaense,Meio-campo,2,1,0,8,0,,,f
+fernando-augusto-pereira-bueno-junior-atp,Fernando Augusto Pereira Bueno Júnior,ATP,Athletico Paranaense,Zagueiro,0,0,0,4,1,,,f
+fernando-marcal-bot,Fernando Marçal,BOT,Botafogo,Zagueiro,1,0,0,5,0,,,f
+fernando-reges-int,Fernando Reges,INT,Internacional,Meio-campo,1,0,0,7,0,,,f
+fernando-sobral-cui,Fernando Sobral,CUI,Cuiabá,Meio-campo,1,1,0,7,0,,,f
+filipe-augusto-carvalho-souza-cui,Filipe Augusto Carvalho Souza,CUI,Cuiabá,Meio-campo,0,0,0,6,0,,,f
+franco-cristaldo-gre,Franco Cristaldo,GRE,Grêmio,Meio-campo,6,1,0,1,0,,,f
+gabriel-appelt-pires-flu,Gabriel Appelt Pires,FLU,Fluminense,Meio-campo,0,0,0,1,0,,,f
+gabriel-baralhas-atg,Gabriel Baralhas,ATG,Atlético Goianiense,Meio-campo,1,0,0,9,0,,,f
+gabriel-barbosa-fla,Gabriel Barbosa,FLA,Flamengo,Atacante,4,2,0,2,0,,,f
+gabriel-barros-atg,Gabriel Barros,ATG,Atlético Goianiense,Atacante,0,0,0,1,1,,,f
+gabriel-carvalho-int,Gabriel Carvalho,INT,Internacional,Meio-campo,1,0,0,3,0,,,f
+gabriel-cui,Gabriel,CUI,Cuiabá,Zagueiro,0,0,0,1,0,,,f
+gabriel-fuentes-flu,Gabriel Fuentes,FLU,Fluminense,Zagueiro,0,0,0,1,0,,,f
+gabriel-girotto-franco-atp,Gabriel Girotto Franco,ATP,Athletico Paranaense,Meio-campo,1,0,0,3,0,,,f
+gabriel-inocencio-juv,Gabriel Inocêncio,JUV,Juventude,Zagueiro,0,0,0,2,0,,,f
+gabriel-menino-pal,Gabriel Menino,PAL,Palmeiras,Meio-campo,1,0,0,7,1,,,f
+gabriel-mercado-int,Gabriel Mercado,INT,Internacional,Zagueiro,1,0,0,6,0,,,f
+gabriel-pereira-taliari-juv,Gabriel Pereira Taliari,JUV,Juventude,Atacante,2,0,0,1,0,,,f
+gabriel-souza-da-silva-vas,Gabriel Souza da Silva,VAS,Vasco da Gama,Atacante,1,0,0,1,0,,,f
+gabriel-teixeira-bah,Gabriel Teixeira,BAH,Bahia,Atacante,5,0,0,3,0,,,f
+gabriel-vasconcellos-ferreira-juv,Gabriel Vasconcellos Ferreira,JUV,Juventude,Goleiro,0,0,0,5,1,,,f
+gabriel-veron-cru,Gabriel Veron,CRU,Cruzeiro,Meio-campo,6,0,0,4,0,,,f
+gabriel-xavier-bah,Gabriel Xavier,BAH,Bahia,Zagueiro,0,0,0,8,0,,,f
+gatito-fernandez-bot,Gatito Fernández,BOT,Botafogo,Goleiro,0,0,0,1,0,,,f
+german-cano-flu,Germán Cano,FLU,Fluminense,Atacante,4,0,0,6,1,,,f
+gerson-santos-da-silva-fla,Gerson,FLA,Flamengo,Meio-campo,3,0,0,3,0,6,,t
+gilberto-moraes-junior-bah,Gilberto Moraes Júnior,BAH,Bahia,Zagueiro,1,0,0,2,0,,,f
+gilberto-oliveira-souza-junior-juv,Gilberto Oliveira Souza Junior,JUV,Juventude,Atacante,3,0,0,3,0,,,f
+giorgian-de-arrascaeta-fla,Arrascaeta,FLA,Flamengo,Meio-campo,5,0,0,3,0,,,f
+giovane-santana-do-nascimento-cor,Giovane Santana do Nascimento,COR,Corinthians,Atacante,1,0,0,1,0,,,f
+giuliano-galoppo-spa,Giuliano Galoppo,SPA,São Paulo,Meio-campo,0,0,0,2,0,,,f
+gonzalo-freitas-atg,Gonzalo Freitas,ATG,Atlético Goianiense,Meio-campo,0,0,0,7,0,,,f
+gonzalo-mastriani-atp,Gonzalo Mastriani,ATP,Athletico Paranaense,,4,0,0,0,0,,,f
+gonzalo-plata-fla,Gonzalo Plata,FLA,Flamengo,Meio-campo,1,0,0,1,0,,,f
+gregore-bot,Gregore,BOT,Botafogo,Meio-campo,3,0,0,8,0,,,f
+guga-flu,Guga,FLU,Fluminense,Zagueiro,0,0,0,3,1,,,f
+guilherme-arana-atm,Guilherme Arana,ATM,Atlético Mineiro,Zagueiro,1,0,0,5,0,,,f
+guilherme-estrella-vas,Guilherme Estrella,VAS,Vasco da Gama,Meio-campo,1,0,0,1,0,,,f
+guilherme-gomes-fla,Guilherme Gomes,FLA,Flamengo,,1,0,0,0,0,,,f
+guilherme-lopes-de-almeida-rbb,Guilherme Lopes de Almeida,RBB,Red Bull Bragantino,Zagueiro,0,0,0,1,0,,,f
+guilherme-madruga-cui,Guilherme Madruga,CUI,Cuiabá,Zagueiro,0,0,0,2,0,,,f
+guilherme-romao-atg,Guilherme Romão,ATG,Atlético Goianiense,Zagueiro,1,0,0,6,1,,,f
+guillermo-varela-fla,Guillermo Varela,FLA,Flamengo,Zagueiro,1,0,0,2,0,,,f
+gustavinho-rbb,Gustavinho,RBB,Red Bull Bragantino,Meio-campo,1,0,0,1,0,,,f
+gustavo-bonatto-barreto-cri,Gustavo Bonatto Barreto,CRI,Criciúma,Meio-campo,2,0,0,5,0,,,f
+gustavo-gomez-pal,Gustavo Gómez,PAL,Palmeiras,Zagueiro,1,1,1,9,0,,,f
+gustavo-henrique-vernes-cor,Gustavo Henrique Vernes,COR,Corinthians,Zagueiro,1,0,0,7,1,,,f
+gustavo-martins-gre,Gustavo Martins,GRE,Grêmio,Zagueiro,2,0,1,1,1,,,f
+gustavo-mosquito-cor,Gustavo Mosquito,COR,Corinthians,Atacante,1,0,0,1,0,,,f
+gustavo-mosquito-vit,Gustavo Mosquito,VIT,Vitória,Meio-campo,1,1,0,3,0,,,f
+gustavo-nonato-flu,Gustavo Nonato,FLU,Fluminense,Meio-campo,0,0,0,1,0,,,f
+gustavo-nunes-gre,Gustavo Nunes,GRE,Grêmio,Meio-campo,3,0,0,5,0,,,f
+gustavo-prado-int,Gustavo Prado,INT,Internacional,Meio-campo,1,0,0,1,0,,,f
+gustavo-scarpa-atm,Gustavo Scarpa,ATM,Atlético Mineiro,Meio-campo,4,2,0,6,1,,,f
+helio-junio-nunes-de-castro-rbb,Hélio Junio Nunes de Castro,RBB,Red Bull Bragantino,Atacante,7,0,0,4,0,,,f
+henry-mosquera-rbb,Henry Mosquera,RBB,Red Bull Bragantino,Atacante,1,0,0,4,0,,,f
+hercules-for,Hércules,FOR,Fortaleza,Meio-campo,4,0,0,5,2,,,f
+higor-meritao-cri,Higor Meritão,CRI,Criciúma,Meio-campo,2,0,0,3,0,,,f
+hugo-cor,Hugo,COR,Corinthians,Zagueiro,0,0,0,3,0,,,f
+hugo-mallo-int,Hugo Mallo,INT,Internacional,Zagueiro,1,0,0,2,0,,,f
+hugo-moura-vas,Hugo Moura,VAS,Vasco da Gama,Meio-campo,1,0,0,8,1,,,f
+hugo-souza-cor,Hugo Souza,COR,Corinthians,Goleiro,0,0,0,3,0,,,f
+hulk-atm,Hulk,ATM,Atlético Mineiro,Atacante,10,4,0,4,1,,,f
+ignacio-laquintana-rbb,Ignacio Laquintana,RBB,Red Bull Bragantino,Meio-campo,1,0,0,1,0,,,f
+igor-coronado-cor,Igor Coronado,COR,Corinthians,Meio-campo,1,0,0,6,0,,,f
+igor-gomes-atm,Igor Gomes,ATM,Atlético Mineiro,Meio-campo,1,1,0,8,0,,,f
+igor-gomes-int,Igor Gomes,INT,Internacional,Zagueiro,1,0,0,2,0,,,f
+igor-jesus-bot,Igor Jesus,BOT,Botafogo,Atacante,5,0,0,2,0,,,f
+igor-jesus-fla,Igor Jesus,FLA,Flamengo,Meio-campo,0,0,0,1,0,,,f
+igor-rabello-atm,Igor Rabello,ATM,Atlético Mineiro,Zagueiro,0,0,0,3,1,,,f
+igor-vinicius-spa,Igor Vinícius,SPA,São Paulo,Zagueiro,0,0,1,6,1,,,f
+imanol-machuca-for,Imanol Machuca,FOR,Fortaleza,,1,0,0,0,0,,,f
+isidro-pitta-cui,Isidro Pitta,CUI,Cuiabá,Atacante,7,3,0,5,0,,,f
+iury-lirio-freitas-de-castilho-vit,Iury Lirio Freitas de Castilho,VIT,Vitória,Atacante,1,0,0,1,0,,,f
+ivaldo-cru,Ivaldo,CRU,Cruzeiro,Zagueiro,1,0,0,9,0,,,f
+ivan-cavaleiro-rbb,Ivan Cavaleiro,RBB,Red Bull Bragantino,Atacante,0,0,0,1,0,,,f
+jacob-montes-bot,Jacob Montes,BOT,Botafogo,,1,0,0,0,0,,,f
+jadsom-rbb,Jadsom,RBB,Red Bull Bragantino,Meio-campo,0,0,0,10,1,,,f
+jadson-juv,Jadson,JUV,Juventude,Meio-campo,1,0,0,14,1,,,f
+jair-rodrigues-junior-vas,Jair Rodrigues Júnior,VAS,Vasco da Gama,Meio-campo,0,0,0,2,0,,,f
+jan-hurtado-atg,Jan Hurtado,ATG,Atlético Goianiense,Atacante,2,0,0,2,1,,,f
+jan-lucumi-flu,Jan Lucumí,FLU,Fluminense,Atacante,0,0,0,1,1,,,f
+janderson-atg,Janderson,ATG,Atlético Goianiense,Atacante,3,0,0,4,1,,,f
+janderson-vit,Janderson,VIT,Vitória,Atacante,3,0,0,6,0,,,f
+japa-cru,Japa,CRU,Cruzeiro,Meio-campo,0,0,0,1,0,,,f
+jean-carlos-juv,Jean Carlos,JUV,Juventude,Meio-campo,4,0,0,3,0,,,f
+jean-lucas-oliveira-bah,Jean Lucas,BAH,Bahia,Meio-campo,3,0,0,7,0,6,,f
+jean-mota-oliveira-de-souza-vit,Jean Mota Oliveira de Souza,VIT,Vitória,,1,0,0,0,0,,,f
+jefferson-ruan-pereira-dos-santos-bot,Jefferson Ruan Pereira dos Santos,BOT,Botafogo,Meio-campo,1,0,0,2,0,,,f
+jefferson-savarino-bot,Jefferson Savarino,BOT,Botafogo,Meio-campo,8,0,0,3,0,7,,f
+jemerson-de-jesus-nascimento-atm,Jemerson de Jesus Nascimento,ATM,Atlético Mineiro,Zagueiro,0,0,0,2,0,,,f
+jemerson-de-jesus-nascimento-gre,Jemerson de Jesus Nascimento,GRE,Grêmio,Zagueiro,1,0,0,5,0,,,f
+jhon-arias-flu,Jhon Arias,FLU,Fluminense,Meio-campo,7,0,0,6,0,,,f
+jhon-jhon-rbb,Jhon Jhon,RBB,Red Bull Bragantino,Meio-campo,3,0,0,3,0,,,f
+joao-cruz-atp,João Cruz,ATP,Athletico Paranaense,Meio-campo,1,0,0,2,0,,,f
+joao-lucas-juv,João Lucas,JUV,Juventude,Lateral,1,0,1,7,1,6,,f
+joao-marcelo-cru,João Marcelo,CRU,Cruzeiro,Zagueiro,0,0,0,7,1,,,f
+joao-pedro-gre,João Pedro,GRE,Grêmio,Atacante,0,0,0,1,0,,,f
+joao-pedro-maturano-dos-santos-gre,João Pedro Maturano dos Santos,GRE,Grêmio,Zagueiro,1,0,0,3,0,,,f
+joao-ricardo-riedi-for,João Ricardo,FOR,Fortaleza,Goleiro,0,0,0,2,0,,13,f
+joao-victor-andrade-caetano-cor,João Victor Andrade Caetano,COR,Corinthians,Zagueiro,0,0,0,1,1,,,f
+joao-victor-vas,João Victor,VAS,Vasco da Gama,Zagueiro,1,0,0,5,2,,,f
+joaquin-piquerez-pal,Joaquín Piquerez,PAL,Palmeiras,Zagueiro,2,1,0,2,0,,,f
+joel-campbell-atg,Joel Campbell,ATG,Atlético Goianiense,Meio-campo,2,1,0,3,0,,,f
+john-bot,John,BOT,Botafogo,Goleiro,0,0,0,3,0,,16,t
+john-kennedy-flu,John Kennedy,FLU,Fluminense,Atacante,0,0,0,1,0,,,f
+jonathan-cafu-cui,Jonathan Cafú,CUI,Cuiabá,Atacante,1,0,0,3,0,,,f
+jonathan-calleri-spa,Jonathan Calleri,SPA,São Paulo,Atacante,5,0,0,6,0,,,f
+jonathan-francisco-lemos-cri,Jonathan Francisco Lemos,CRI,Criciúma,Zagueiro,0,0,0,2,0,,,f
+jorginho-atg,Jorginho,ATG,Atlético Goianiense,Meio-campo,0,0,0,1,0,,,f
+jose-andres-martinez-cor,José Andrés Martínez,COR,Corinthians,Meio-campo,0,0,0,5,1,,,f
+jose-breno-vit,José Breno,VIT,Vitória,Meio-campo,0,0,0,0,1,,,f
+jose-carlos-cracco-neto-vit,José Carlos Cracco Neto,VIT,Vitória,Zagueiro,0,0,0,1,0,,,f
+jose-hugo-vit,José Hugo,VIT,Vitória,Atacante,1,0,0,3,0,,,f
+jose-hurtado-rbb,José Hurtado,RBB,Red Bull Bragantino,Zagueiro,0,0,0,2,0,,,f
+jose-luis-rodriguez-bebanz-vas,José Luis Rodríguez Bebanz,VAS,Vasco da Gama,Meio-campo,1,0,0,1,0,,,f
+jose-manuel-alberto-lopez-pal,Flaco López,PAL,Palmeiras,Atacante,10,0,0,8,0,,,f
+jose-rafael-vivian-pal,José Rafael Vivian,PAL,Palmeiras,Meio-campo,0,0,0,7,1,,,f
+jose-welison-for,José Welison,FOR,Fortaleza,Meio-campo,0,0,0,1,1,,,f
+josef-de-souza-dias-vas,Josef de Souza Dias,VAS,Vasco da Gama,Meio-campo,0,0,0,1,1,,,f
+juan-dinenno-cru,Juan Dinenno,CRU,Cruzeiro,Atacante,3,1,0,1,0,,,f
+juan-martin-lucero-for,Juan Martín Lucero,FOR,Fortaleza,Atacante,8,2,0,8,0,,,f
+juan-sforza-vas,Juan Sforza,VAS,Vasco da Gama,Meio-campo,1,0,0,3,0,,,f
+juan-tavares-cui,Juan Tavares,CUI,Cuiabá,Meio-campo,0,0,0,1,0,,,f
+julimar-atp,Julimar,ATP,Athletico Paranaense,Atacante,6,0,0,4,0,,,f
+julio-cesar-de-rezende-miranda-bah,Julio Cesar de Rezende Miranda,BAH,Bahia,Meio-campo,0,0,0,3,0,,,f
+juninho-capixaba-rbb,Juninho Capixaba,RBB,Red Bull Bragantino,Zagueiro,2,0,0,4,0,,,f
+junior-alonso-atm,Junior Alonso,ATM,Atlético Mineiro,Zagueiro,1,0,0,2,0,,,f
+junior-santos-bot,Júnior Santos,BOT,Botafogo,Atacante,4,0,0,2,0,,,f
+kaiki-bruno-cru,Kaiki Bruno,CRU,Cruzeiro,Lateral,1,0,0,4,0,,,f
+kaiky-naves-pal,Kaiky Naves,PAL,Palmeiras,Zagueiro,0,0,0,1,0,,,f
+kaio-jorge-cru,Kaio Jorge,CRU,Cruzeiro,Atacante,2,0,0,3,0,,,f
+kaique-rocha-atp,Kaique Rocha,ATP,Athletico Paranaense,Zagueiro,0,0,0,4,0,,,f
+kanu-bah,Kanu,BAH,Bahia,Zagueiro,0,0,0,12,0,,,f
+kaua-elias-flu,Kauã Elias,FLU,Fluminense,Atacante,6,0,0,4,0,,,f
+kaue-rodrigues-pessanha-bot,Kauê Rodrigues Pessanha,BOT,Botafogo,,1,0,0,0,0,,,f
+keno-flu,Keno,FLU,Fluminense,Atacante,1,0,0,4,0,,,f
+kervin-andrade-for,Kervin Andrade,FOR,Fortaleza,Atacante,1,0,0,2,0,,,f
+kevin-serna-flu,Kevin Serna,FLU,Fluminense,Meio-campo,3,0,0,1,0,,,f
+lautaro-diaz-cru,Lautaro Díaz,CRU,Cruzeiro,Meio-campo,1,0,0,1,0,,,f
+lawan-vit,Lawan,VIT,Vitória,Atacante,0,0,0,1,0,,,f
+lazaro-vinicius-pal,Lázaro Vinícius,PAL,Palmeiras,,2,0,0,0,0,,,f
+leandrinho-vas,Leandrinho,VAS,Vasco da Gama,Meio-campo,1,0,0,1,0,,,f
+leo-jardim-vas,Léo Jardim,VAS,Vasco da Gama,Goleiro,0,0,0,0,0,,8,f
+leo-linck-atp,Léo Linck,ATP,Athletico Paranaense,Goleiro,0,0,0,1,2,,,f
+leo-mana-cor,Léo Mana,COR,Corinthians,Zagueiro,0,0,0,1,0,,,f
+leo-naldi-vit,Léo Naldi,VIT,Vitória,Meio-campo,0,0,0,6,0,,,f
+leo-ortiz-fla,Léo Ortiz,FLA,Flamengo,Meio-campo,1,0,0,2,0,,,f
+leo-pereira-fla,Léo Pereira,FLA,Flamengo,Zagueiro,0,0,0,6,0,,,f
+leonardo-godoy-atp,Leonardo Godoy,ATP,Athletico Paranaense,Zagueiro,1,0,0,5,0,,,f
+leonardo-pinheiro-vas,Leonardo Pinheiro,VAS,Vasco da Gama,Zagueiro,0,0,0,2,0,,,f
+lepu-vit,Lepu,VIT,Vitória,Zagueiro,0,0,0,5,0,,,f
+lima-flu,Lima,FLU,Fluminense,Meio-campo,4,0,0,7,1,,,f
+lincoln-henrique-oliveira-dos-santos-rbb,Lincoln Henrique Oliveira dos Santos,RBB,Red Bull Bragantino,Meio-campo,3,1,0,4,0,,,f
+liziero-spa,Liziero,SPA,São Paulo,Meio-campo,1,0,0,1,0,,,f
+lorran-lucas-pereira-de-souza-fla,Lorran Lucas Pereira de Souza,FLA,Flamengo,,1,0,0,0,0,,,f
+luan-candido-rbb,Luan Cândido,RBB,Red Bull Bragantino,Zagueiro,1,1,0,5,0,,,f
+luan-vinicius-da-silva-santos-vit,Luan Vinícius da Silva Santos,VIT,Vitória,Meio-campo,0,0,0,5,0,,,f
+lucao-rbb,Lucão,RBB,Red Bull Bragantino,Goleiro,0,0,0,1,0,,,f
+lucas-alario-int,Lucas Alario,INT,Internacional,Atacante,0,0,0,4,0,,,f
+lucas-arcanjo-vit,Lucas Arcanjo,VIT,Vitória,Goleiro,0,0,1,4,0,,8,f
+lucas-barbosa-juv,Lucas Barbosa,JUV,Juventude,Meio-campo,7,0,0,12,1,,,f
+lucas-belezi-atp,Lucas Belezi,ATP,Athletico Paranaense,Zagueiro,1,0,0,2,0,,,f
+lucas-di-yorio-atp,Lucas Di Yorio,ATP,Athletico Paranaense,Atacante,3,0,0,1,0,,,f
+lucas-eduardo-ribeiro-de-souza-vit,Lucas Eduardo Ribeiro de Souza,VIT,Vitória,Zagueiro,0,0,0,2,0,,,f
+lucas-esquivel-atp,Lucas Esquivel,ATP,Athletico Paranaense,Zagueiro,0,0,0,4,1,,,f
+lucas-esteves-vit,Lucas Esteves,VIT,Vitória,Zagueiro,1,0,0,11,0,,,f
+lucas-evangelista-rbb,Lucas Evangelista,RBB,Red Bull Bragantino,Meio-campo,2,0,0,4,0,,,f
+lucas-fernandes-da-silva-cui,Lucas Fernandes da Silva,CUI,Cuiabá,Meio-campo,1,0,0,3,0,,,f
+lucas-ferrugem-rbb,Lucas Ferrugem,RBB,Red Bull Bragantino,Zagueiro,0,0,0,2,1,,,f
+lucas-freitas-juv,Lucas Freitas,JUV,Juventude,Zagueiro,0,0,0,2,1,,,f
+lucas-halter-bot,Lucas Halter,BOT,Botafogo,Zagueiro,1,0,0,4,0,,,f
+lucas-kal-atg,Lucas Kal,ATG,Atlético Goianiense,Meio-campo,0,0,0,1,0,,,f
+lucas-mineiro-cui,Lucas Mineiro,CUI,Cuiabá,Meio-campo,0,0,0,7,0,,,f
+lucas-moura-spa,Lucas Moura,SPA,São Paulo,Atacante,10,2,0,4,0,6,,f
+lucas-piton-vas,Lucas Piton,VAS,Vasco da Gama,Zagueiro,1,0,0,6,0,,,f
+lucas-romero-cru,Lucas Romero,CRU,Cruzeiro,Meio-campo,0,0,0,7,1,,,f
+lucas-sasha-for,Lucas Sasha,FOR,Fortaleza,Meio-campo,0,0,0,2,0,,,f
+lucas-silva-borges-cru,Lucas Silva Borges,CRU,Cruzeiro,Meio-campo,1,0,1,5,0,,,f
+lucas-villalba-cru,Lucas Villalba,CRU,Cruzeiro,Zagueiro,0,0,0,2,0,,,f
+luciano-da-rocha-neves-spa,Luciano,SPA,São Paulo,Atacante,11,1,0,12,1,,,f
+luciano-gimenez-cui,Luciano Giménez,CUI,Cuiabá,Atacante,0,0,0,0,1,,,f
+luciano-juba-bah,Luciano Juba,BAH,Bahia,Zagueiro,3,0,0,2,0,,,f
+luciano-rodriguez-bah,Luciano Rodriguez,BAH,Bahia,Meio-campo,6,1,0,2,0,,,f
+luighi-pal,Luighi,PAL,Palmeiras,,1,0,0,0,0,,,f
+luis-felipe-oyama-juv,Luís Felipe Oyama,JUV,Juventude,Meio-campo,2,0,0,2,0,,,f
+luis-mandaca-juv,Luis Mandaca,JUV,Juventude,Meio-campo,4,0,0,5,0,,,f
+luiz-adriano-vit,Luiz Adriano,VIT,Vitória,Atacante,0,0,0,1,0,,,f
+luiz-araujo-fla,Luiz Araújo,FLA,Flamengo,Meio-campo,4,0,0,3,0,,,f
+luiz-felipe-atg,Luiz Felipe,ATG,Atlético Goianiense,Zagueiro,1,0,0,4,1,,,f
+luiz-fernando-moraes-dos-santos-atg,Luiz Fernando Moraes dos Santos,ATG,Atlético Goianiense,Meio-campo,8,0,0,9,1,,,f
+luiz-gustavo-de-almeida-cri,Luiz Gustavo de Almeida,CRI,Criciúma,Goleiro,0,0,0,3,1,,,f
+luiz-gustavo-spa,Luiz Gustavo,SPA,São Paulo,Meio-campo,2,0,0,3,0,,,f
+luiz-henrique-bot,Luiz Henrique,BOT,Botafogo,Atacante,7,1,0,4,1,,,t
+lyanco-atm,Lyanco,ATM,Atlético Mineiro,Zagueiro,0,0,0,7,1,,,f
+lyncon-vas,Lyncon,VAS,Vasco da Gama,,1,0,0,0,0,,,f
+machado-cru,Machado,CRU,Cruzeiro,Meio-campo,0,0,0,2,0,,,f
+machado-vit,Machado,VIT,Vitória,Meio-campo,0,0,0,2,0,,,f
+madson-atp,Madson,ATP,Athletico Paranaense,Zagueiro,0,0,0,3,0,,,f
+magno-jose-da-silva-atg,Magno Jose da Silva,ATG,Atlético Goianiense,Zagueiro,0,0,0,4,1,,,f
+maicon-pereira-roque-vas,Maicon Pereira Roque,VAS,Vasco da Gama,Zagueiro,1,0,0,5,0,,,f
+manoel-messias-silva-carvalho-flu,Manoel Messias Silva Carvalho,FLU,Fluminense,Zagueiro,0,0,0,2,0,,,f
+marcelo-hermes-cri,Marcelo Hermes,CRI,Criciúma,Meio-campo,2,0,0,4,0,,,f
+marcelo-jose-de-lima-filho-juv,Marcelo José de Lima Filho,JUV,Juventude,Atacante,2,0,0,2,1,,,f
+marcelo-vieira-da-silva-junior-flu,Marcelo Vieira da Silva Júnior,FLU,Fluminense,Zagueiro,1,1,0,3,0,,,f
+marcos-antonio-spa,Marcos Antônio,SPA,São Paulo,Meio-campo,0,0,0,1,0,,,f
+marcos-felipe-de-freitas-monteiro-bah,Marcos Felipe,BAH,Bahia,Goleiro,0,0,0,2,0,,9,f
+marcos-rocha-pal,Marcos Rocha,PAL,Palmeiras,Zagueiro,0,0,0,5,1,,,f
+marcos-victor-bah,Marcos Victor,BAH,Bahia,Zagueiro,0,0,0,1,0,,,f
+marcus-vinicius-oliveira-alencar-flu,Marcus Vinicius Oliveira Alencar,FLU,Fluminense,Meio-campo,0,0,0,2,0,,,f
+mariano-atm,Mariano,ATM,Atlético Mineiro,Zagueiro,0,0,0,4,1,,,f
+mario-sergio-santos-costa-for,Mário Sérgio Santos Costa,FOR,Fortaleza,Meio-campo,4,0,0,4,1,,,f
+marllon-borges-cui,Marllon Borges,CUI,Cuiabá,Zagueiro,1,0,0,4,0,,,f
+marlon-flu,Marlon,FLU,Fluminense,Zagueiro,0,0,0,1,0,,,f
+marlon-freitas-bot,Marlon Freitas,BOT,Botafogo,Meio-campo,0,0,0,7,0,,,t
+marlon-rodrigues-xavier-cru,Marlon Rodrigues Xavier,CRU,Cruzeiro,Zagueiro,0,0,0,3,2,,,f
+marquinhos-cri,Marquinhos,CRI,Criciúma,Meio-campo,0,0,0,4,0,,,f
+martin-braithwaite-gre,Martin Braithwaite,GRE,Grêmio,Atacante,8,0,1,2,0,,,f
+martinelli-flu,Martinelli,FLU,Fluminense,Meio-campo,1,0,0,9,0,,,f
+mateo-gamarra-atp,Mateo Gamarra,ATP,Athletico Paranaense,Zagueiro,0,0,0,7,0,,,f
+mateo-ponte-bot,Mateo Ponte,BOT,Botafogo,Lateral,3,0,0,4,0,,,f
+mateo-zuleta-atg,Mateo Zuleta,ATG,Atlético Goianiense,Meio-campo,1,0,0,1,0,,,f
+mateus-carvalho-vas,Mateus Carvalho,VAS,Vasco da Gama,Meio-campo,2,0,0,9,1,,,f
+mateus-claus-juv,Mateus Claus,JUV,Juventude,Goleiro,0,0,0,3,0,,,f
+mateus-pasinato-cui,Mateus Pasinato,CUI,Cuiabá,Goleiro,0,0,0,1,0,,,f
+mateus-vital-cru,Mateus Vital,CRU,Cruzeiro,,1,0,0,0,0,,,f
+matheus-alexandre-anastacio-de-souza-cui,Matheus Alexandre Anastácio de Souza,CUI,Cuiabá,Zagueiro,1,0,0,6,0,,,f
+matheus-bidu-cor,Matheus Bidu,COR,Corinthians,Zagueiro,2,0,0,3,0,,,f
+matheus-dias-int,Matheus Dias,INT,Internacional,Meio-campo,0,0,0,1,0,,,f
+matheus-fernandes-rbb,Matheus Fernandes,RBB,Red Bull Bragantino,Meio-campo,1,0,0,5,0,,,f
+matheus-goncalves-fla,Matheus Gonçalves,FLA,Flamengo,Meio-campo,2,0,0,1,0,,,f
+matheus-henrique-de-souza-cru,Matheus Henrique de Souza,CRU,Cruzeiro,Meio-campo,2,0,0,4,0,,,f
+matheus-leonardo-sales-cardoso-cri,Matheus Leonardo Sales Cardoso,CRI,Criciúma,Meio-campo,5,0,0,3,0,,,f
+matheus-martins-bot,Matheus Martins,BOT,Botafogo,Atacante,2,0,0,1,0,,,f
+matheus-martins-fogaca-de-paulo-vit,Matheus Martins Fogaça de Paulo,VIT,Vitória,Meio-campo,5,0,0,5,0,,,f
+matheus-mendes-atm,Matheus Mendes,ATM,Atlético Mineiro,Goleiro,0,0,0,1,0,,,f
+matheus-pereira-cru,Matheus Pereira,CRU,Cruzeiro,Meio-campo,8,0,0,10,1,7,,f
+matheus-rossetto-for,Matheus Rossetto,FOR,Fortaleza,Meio-campo,0,0,0,3,0,,,f
+matheuzinho-cor,Matheuzinho,COR,Corinthians,Zagueiro,1,0,0,4,0,,,f
+mathias-villasanti-gre,Mathías Villasanti,GRE,Grêmio,Meio-campo,3,0,0,5,0,,,f
+matias-lacava-atg,Matías Lacava,ATG,Atlético Goianiense,Atacante,0,0,0,2,0,,,f
+matias-vina-fla,Matías Viña,FLA,Flamengo,Zagueiro,0,0,0,1,0,,,f
+matias-zaracho-atm,Matías Zaracho,ATM,Atlético Mineiro,Meio-campo,2,0,0,2,0,,,f
+mauricio-int,Maurício,INT,Internacional,Meio-campo,0,0,0,1,0,,,f
+mauricio-lemos-atm,Mauricio Lemos,ATM,Atlético Mineiro,Zagueiro,0,0,0,3,0,,,f
+mauricio-pal,Maurício,PAL,Palmeiras,Meio-campo,3,0,0,1,0,,,f
+max-alves-cui,Max Alves,CUI,Cuiabá,Meio-campo,1,0,0,3,0,,,f
+max-atg,Max,ATG,Atlético Goianiense,Atacante,0,0,0,3,0,,,f
+maxime-dominguez-vas,Maxime Dominguez,VAS,Vasco da Gama,Meio-campo,1,0,0,2,0,,,f
+maycon-de-andrade-barberan-cor,Maycon de Andrade Barberan,COR,Corinthians,Meio-campo,0,0,0,1,0,,,f
+mayke-pal,Mayke,PAL,Palmeiras,Zagueiro,1,0,0,7,0,,,f
+memphis-depay-cor,Memphis Depay,COR,Corinthians,Atacante,7,1,0,3,0,,,f
+michael-fla,Michael,FLA,Flamengo,,4,0,0,0,0,,,f
+michel-araujo-spa,Michel Araújo,SPA,São Paulo,Meio-campo,0,0,0,4,0,,,f
+miguel-monsalve-gre,Miguel Monsalve,GRE,Grêmio,Meio-campo,3,0,0,3,1,,,f
+miguel-trauco-cri,Miguel Trauco,CRI,Criciúma,Zagueiro,2,0,0,3,1,,,f
+moises-vieira-da-veiga-for,Moisés Vieira da Veiga,FOR,Fortaleza,,7,0,0,0,0,,,f
+muriel-becker-vit,Muriel Becker,VIT,Vitória,Goleiro,0,0,0,2,0,,,f
+murilo-cerqueira-pal,Murilo Cerqueira,PAL,Palmeiras,Zagueiro,1,0,0,6,1,,,f
+mycael-atp,Mycael,ATP,Athletico Paranaense,Goleiro,0,0,0,2,1,,,f
+nahuel-ferraresi-spa,Nahuel Ferraresi,SPA,São Paulo,Zagueiro,1,0,0,2,0,,,f
+nata-felipe-gre,Natã Felipe,GRE,Grêmio,Zagueiro,0,0,0,1,0,,,f
+nathan-fernandes-gre,Nathan Fernandes,GRE,Grêmio,Atacante,0,0,0,3,1,,,f
+nathan-gre,Nathan,GRE,Grêmio,Meio-campo,0,0,0,1,0,,,f
+nathan-rbb,Nathan,RBB,Red Bull Bragantino,Zagueiro,0,0,0,6,0,,,f
+nene-juv,Nenê,JUV,Juventude,Meio-campo,3,0,0,5,1,,,f
+neris-vit,Neris,VIT,Vitória,Zagueiro,1,0,0,3,1,,,f
+neuciano-gusmao-bah,Neuciano Gusmão,BAH,Bahia,Zagueiro,0,0,0,1,0,,,f
+newton-cri,Newton,CRI,Criciúma,Meio-campo,1,0,0,7,0,,,f
+nicolas-acevedo-bah,Nicolás Acevedo,BAH,Bahia,Zagueiro,0,0,0,2,0,,,f
+nicolas-de-la-cruz-fla,Nicolás de la Cruz,FLA,Flamengo,Meio-campo,2,0,0,3,0,,,f
+nikao-atp,Nikão,ATP,Athletico Paranaense,Meio-campo,6,0,0,2,0,,,f
+oscar-estupinan-bah,Óscar Estupiñán,BAH,Bahia,Atacante,3,0,0,1,0,,,f
+oscar-romero-bot,Óscar Romero,BOT,Botafogo,Meio-campo,1,1,0,5,0,,,f
+osvaldo-filho-vit,Osvaldo Filho,VIT,Vitória,Meio-campo,2,1,0,1,0,,,f
+otavio-henrique-passos-santos-atm,Otávio Henrique Passos Santos,ATM,Atlético Mineiro,Meio-campo,0,0,0,2,0,,,f
+pablo-baianinho-vit,Pablo Baianinho,VIT,Vitória,Meio-campo,0,0,0,1,0,,,f
+pablo-felipe-teixeira-atp,Pablo Felipe Teixeira,ATP,Athletico Paranaense,Atacante,3,0,0,6,0,,,f
+pablo-galdames-millan-vas,Pablo Galdames Millán,VAS,Vasco da Gama,Meio-campo,0,0,0,5,0,,,f
+pablo-vegetti-vas,Pablo Vegetti,VAS,Vasco da Gama,Atacante,12,0,0,7,0,,,f
+patric-vit,Patric,VIT,Vitória,Zagueiro,0,0,0,1,1,,,f
+patrick-de-paula-bot,Patrick de Paula,BOT,Botafogo,Meio-campo,0,0,0,2,0,,,f
+patrick-de-paula-cri,Patrick de Paula,CRI,Criciúma,Meio-campo,0,0,0,1,0,,,f
+patryck-lanza-spa,Patryck Lanza,SPA,São Paulo,Zagueiro,0,0,0,1,0,,,f
+paulinho-atm,Paulinho,ATM,Atlético Mineiro,Atacante,8,1,0,3,1,,,f
+paulo-henrique-ganso-flu,Ganso,FLU,Fluminense,Meio-campo,3,0,0,12,1,7,,f
+paulo-vas,Paulo,VAS,Vasco da Gama,Zagueiro,1,0,0,6,0,,,f
+paulo-vitor-atm,Paulo Vitor,ATM,Atlético Mineiro,Meio-campo,0,0,0,4,0,,,f
+pedrinho-atm,Pedrinho,ATM,Atlético Mineiro,Meio-campo,0,0,0,1,0,,,f
+pedro-augusto-for,Pedro Augusto,FOR,Fortaleza,Meio-campo,0,0,0,8,0,,,f
+pedro-fla,Pedro,FLA,Flamengo,Atacante,11,4,0,3,0,,,f
+pedro-geromel-gre,Pedro Geromel,GRE,Grêmio,Zagueiro,0,0,0,4,0,,,f
+pedro-henrique-konzen-cor,Pedro Henrique Konzen,COR,Corinthians,Meio-campo,1,0,0,2,0,,,f
+pedro-henrique-pereira-da-silva-atg,Pedro Henrique Pereira da Silva,ATG,Atlético Goianiense,Zagueiro,0,0,0,3,0,,,f
+pedro-henrique-ribeiro-goncalves-rbb,Pedro Henrique Ribeiro Gonçalves,RBB,Red Bull Bragantino,Zagueiro,1,0,0,5,0,,,f
+pedro-rangel-atg,Pedro Rangel,ATG,Atlético Goianiense,Goleiro,0,0,0,3,0,,,f
+pedro-raul-cor,Pedro Raul,COR,Corinthians,Atacante,0,0,0,2,0,,,f
+pepe-gre,Pepê,GRE,Grêmio,Meio-campo,1,0,0,2,1,,,f
+philippe-coutinho-vas,Philippe Coutinho,VAS,Vasco da Gama,Meio-campo,2,0,0,0,0,,,f
+rafael-da-silva-cru,Rafael da Silva,CRU,Cruzeiro,Atacante,3,0,0,2,1,,,f
+rafael-elias-cru,Rafael Elias,CRU,Cruzeiro,Atacante,1,0,0,2,0,,,f
+rafael-pires-monteiro-spa,Rafael,SPA,São Paulo,Goleiro,0,0,0,1,0,,8,f
+rafael-ratao-bah,Rafael Ratão,BAH,Bahia,,1,0,0,0,0,,,f
+rafael-santos-borre-int,Rafael Borré,INT,Internacional,Atacante,9,0,0,6,0,,,f
+rafinha-spa,Rafinha,SPA,São Paulo,Zagueiro,0,0,0,4,0,,,f
+ramiro-cru,Ramiro,CRU,Cruzeiro,Meio-campo,2,0,0,3,0,,,f
+ramon-ramos-lima-cui,Ramon Ramos Lima,CUI,Cuiabá,Zagueiro,2,0,0,9,0,,,f
+raniele-cor,Raniele,COR,Corinthians,Meio-campo,0,0,0,8,0,,,f
+raphael-veiga-pal,Raphael Veiga,PAL,Palmeiras,Meio-campo,11,3,0,3,1,,,f
+raul-bot,Raul,BOT,Botafogo,Goleiro,0,0,0,1,0,,,f
+raul-caceres-vit,Raúl Cáceres,VIT,Vitória,Zagueiro,0,0,0,2,0,,,f
+raul-rbb,Raul,RBB,Red Bull Bragantino,Meio-campo,1,0,1,2,0,,,f
+rayan-vas,Rayan,VAS,Vasco da Gama,Atacante,1,0,0,2,0,,,f
+raylan-cui,Raylan,CUI,Cuiabá,Meio-campo,0,0,0,4,0,,,f
+reinaldo-manoel-da-silva-gre,Reinaldo Manoel da Silva,GRE,Grêmio,Zagueiro,3,2,0,6,0,,,f
+renato-augusto-flu,Renato Augusto,FLU,Fluminense,,1,0,0,0,0,,,f
+renato-kayzer-cri,Renato Kayzer,CRI,Criciúma,,1,0,0,0,0,,,f
+renato-kayzer-for,Renato Kayzer,FOR,Fortaleza,Atacante,5,1,0,2,1,,,f
+rene-rodrigues-martins-int,Renê Rodrigues Martins,INT,Internacional,Zagueiro,0,0,0,2,0,,,f
+renzo-saravia-atm,Renzo Saravia,ATM,Atlético Mineiro,Zagueiro,0,0,0,3,0,,,f
+reynaldo-cesar-moraes-vit,Reynaldo Cesar Moraes,VIT,Vitória,Zagueiro,0,0,0,1,0,,,f
+rhaldney-atg,Rhaldney,ATG,Atlético Goianiense,Meio-campo,0,0,0,10,0,,,f
+ricardo-mathias-int,Ricardo Mathias,INT,Internacional,Atacante,1,0,0,2,0,,,f
+richard-rios-pal,Richard Ríos,PAL,Palmeiras,Meio-campo,3,0,0,7,0,,,f
+robert-arboleda-spa,Robert Arboleda,SPA,São Paulo,Zagueiro,2,0,0,3,0,,,f
+robert-cru,Robert,CRU,Cruzeiro,Meio-campo,0,0,0,1,0,,,f
+robert-renan-int,Robert Renan,INT,Internacional,Zagueiro,0,0,0,2,0,,,f
+rodrigo-battaglia-atm,Rodrigo Battaglia,ATM,Atlético Mineiro,Zagueiro,0,0,0,5,2,,,f
+rodrigo-ely-gre,Rodrigo Ely,GRE,Grêmio,Zagueiro,1,0,0,5,0,,,f
+rodrigo-fagundes-de-freitas-cri,Rodrigo Fagundes de Freitas,CRI,Criciúma,Zagueiro,3,0,0,9,0,,,f
+rodrigo-garro-cor,Rodrigo Garro,COR,Corinthians,Meio-campo,10,1,0,8,0,10,,t
+rodrigo-nestor-spa,Rodrigo Nestor,SPA,São Paulo,Meio-campo,0,0,0,3,1,,,f
+rodrigo-sam-juv,Rodrigo Sam,JUV,Juventude,Zagueiro,1,0,0,4,1,,,f
+romulo-atm,Rômulo,ATM,Atlético Mineiro,Zagueiro,1,0,0,3,1,,,f
+romulo-zwarg-int,Rômulo Zwarg,INT,Internacional,Meio-campo,0,0,0,3,0,,,f
+ronald-cri,Ronald,CRI,Criciúma,Meio-campo,1,0,0,6,0,,,f
+ronaldo-atg,Ronaldo,ATG,Atlético Goianiense,Goleiro,0,0,0,3,1,,,f
+ronaldo-da-silva-souza-juv,Ronaldo da Silva Souza,JUV,Juventude,Meio-campo,2,0,0,1,0,,,f
+roni-atg,Roni,ATG,Atlético Goianiense,Meio-campo,1,0,0,5,0,,,f
+ronie-carrillo-juv,Ronie Carrillo,JUV,Juventude,,1,0,0,0,0,,,f
+rony-pal,Rony,PAL,Palmeiras,Atacante,4,0,0,4,0,,,f
+rossicley-pereira-da-silva-vas,Rossicley Pereira da Silva,VAS,Vasco da Gama,Meio-campo,0,0,0,3,0,,,f
+ruan-tressoldi-netto-spa,Ruan Tressoldi Netto,SPA,São Paulo,Zagueiro,0,0,1,1,0,,,f
+rubens-atm,Rubens,ATM,Atlético Mineiro,Meio-campo,1,0,0,3,1,,,f
+ryan-cor,Ryan,COR,Corinthians,Meio-campo,0,0,0,2,0,,,f
+sabino-spa,Sabino,SPA,São Paulo,Zagueiro,0,0,0,3,0,,,f
+samuel-xavier-flu,Samuel Xavier,FLU,Fluminense,Zagueiro,0,0,0,5,0,,,f
+santiago-arias-bah,Santiago Arias,BAH,Bahia,Zagueiro,0,0,0,2,1,,,f
+sergio-antonio-de-luiz-junior-vas,Sergio Antonio De Luiz Junior,VAS,Vasco da Gama,Meio-campo,0,0,0,1,0,,,f
+sergio-palacios-rbb,Sergio Palacios,RBB,Red Bull Bragantino,Zagueiro,0,0,0,1,0,,,f
+sergio-rochet-int,Sergio Rochet,INT,Internacional,Goleiro,0,0,0,4,0,,8,f
+shaylon-atg,Shaylon,ATG,Atlético Goianiense,Atacante,2,1,0,3,0,,,f
+talles-magno-cor,Talles Magno,COR,Corinthians,Atacante,2,0,0,2,0,,,f
+tevis-gabriel-cru,Tevis Gabriel,CRU,Cruzeiro,,1,0,0,0,0,,,f
+thaciano-bah,Thaciano,BAH,Bahia,Atacante,7,0,0,6,0,,,f
+thiago-almada-bot,Thiago Almada,BOT,Botafogo,Meio-campo,1,0,0,1,0,,,f
+thiago-borbas-rbb,Thiago Borbas,RBB,Red Bull Bragantino,Atacante,2,0,0,4,0,,,f
+thiago-dos-santos-flu,Thiago dos Santos,FLU,Fluminense,Zagueiro,0,0,0,9,0,,,f
+thiago-emiliano-da-silva-flu,Thiago Silva,FLU,Fluminense,Zagueiro,0,0,0,2,0,,,f
+thiago-heleno-atp,Thiago Heleno,ATP,Athletico Paranaense,Zagueiro,0,0,0,6,1,,,f
+thiago-maia-int,Thiago Maia,INT,Internacional,Meio-campo,2,0,0,4,0,,,f
+thiaguinho-juv,Thiaguinho,JUV,Juventude,Meio-campo,0,0,0,1,0,,,f
+tinga-for,Tinga,FOR,Fortaleza,Zagueiro,2,0,0,3,1,,,f
+tiquinho-soares-bot,Tiquinho Soares,BOT,Botafogo,Atacante,5,2,0,4,1,,,f
+titi-for,Titi,FOR,Fortaleza,Zagueiro,1,0,0,9,0,,,f
+tobias-figueiredo-cri,Tobias Figueiredo,CRI,Criciúma,Zagueiro,1,0,1,6,0,,,f
+tomas-cardona-for,Tomás Cardona,FOR,Fortaleza,Zagueiro,1,0,0,5,0,,,f
+tomas-cuello-atp,Tomás Cuello,ATP,Athletico Paranaense,Atacante,3,0,0,3,0,,,f
+tomas-pochettino-for,Tomás Pochettino,FOR,Fortaleza,Meio-campo,5,0,0,4,0,6,,f
+vagner-love-atg,Vágner Love,ATG,Atlético Goianiense,Atacante,1,0,0,1,0,,,f
+victor-cuesta-bah,Víctor Cuesta,BAH,Bahia,Zagueiro,0,0,0,3,0,,,f
+victor-hugo-fla,Victor Hugo,FLA,Flamengo,Meio-campo,0,0,0,1,0,,,f
+victor-hugo-flu,Victor Hugo,FLU,Fluminense,Meio-campo,0,0,0,1,0,,,f
+victor-luis-vas,Victor Luis,VAS,Vasco da Gama,Zagueiro,1,0,0,3,1,,,f
+vinicinho-rbb,Vinicinho,RBB,Red Bull Bragantino,Meio-campo,2,0,0,3,0,,,f
+vitao-int,Vitão,INT,Internacional,Zagueiro,0,0,0,5,0,,,f
+vitinho-cru,Vitinho,CRU,Cruzeiro,Meio-campo,1,0,0,2,0,,,f
+vitor-hugo-naum-dos-santos-rbb,Vitor Hugo Naum dos Santos,RBB,Red Bull Bragantino,Atacante,3,0,0,6,0,,,f
+vitor-reis-pal,Vitor Reis,PAL,Palmeiras,Zagueiro,1,0,0,3,0,,,f
+wagner-leonardo-vit,Wagner Leonardo,VIT,Vitória,Zagueiro,5,1,1,5,1,,,f
+walace-cru,Walace,CRU,Cruzeiro,Meio-campo,0,0,0,2,0,,,f
+walisson-cri,Walisson,CRI,Criciúma,Zagueiro,0,0,0,4,0,,,f
+walter-kannemann-gre,Walter Kannemann,GRE,Grêmio,Zagueiro,0,0,0,7,1,,,f
+walter-leandro-capeloza-artune-cui,Walter,CUI,Cuiabá,Goleiro,0,0,0,6,0,,9,f
+wanderson-int,Wanderson,INT,Internacional,Meio-campo,2,0,0,3,0,,,f
+welington-spa,Welington,SPA,São Paulo,Zagueiro,0,0,0,6,0,,,f
+wellington-rato-spa,Wellington Rato,SPA,São Paulo,Meio-campo,1,0,0,2,0,,,f
+werik-popo-juv,Werik Popó,JUV,Juventude,Atacante,0,0,0,1,1,,,f
+wesley-franca-fla,Wesley França,FLA,Flamengo,Lateral,0,0,1,1,0,,,t
+wesley-gassova-ribeiro-teixeira-cor,Wesley Gassova Ribeiro Teixeira,COR,Corinthians,Atacante,2,0,0,2,0,,,f
+wesley-ribeiro-silva-int,Wesley,INT,Internacional,Atacante,11,0,0,11,0,,,f
+weverton-pereira-da-silva-pal,Weverton,PAL,Palmeiras,Goleiro,0,0,0,2,0,,16,f
+wilker-angel-cri,Wilker Ángel,CRI,Criciúma,Zagueiro,1,0,0,3,0,,,f
+william-de-asevedo-furtado-cru,William de Asevedo Furtado,CRU,Cruzeiro,Zagueiro,5,3,0,8,0,,,f
+william-gomes-spa,William Gomes,SPA,São Paulo,Atacante,3,0,0,2,0,,,f
+willian-vit,Willian,VIT,Vitória,Meio-campo,5,0,0,8,0,,,f
+yago-pikachu-for,Yago Pikachu,FOR,Fortaleza,Meio-campo,2,0,0,7,0,,,f
+yago-rocha-bah,Yago Rocha,BAH,Bahia,Meio-campo,0,0,0,3,0,,,f
+yan-souto-juv,Yan Souto,JUV,Juventude,,1,0,0,0,0,,,f
+yannick-bolasie-cri,Yannick Bolasie,CRI,Criciúma,Atacante,8,0,0,4,0,,,f
+yarlen-bot,Yarlen,BOT,Botafogo,Atacante,0,0,0,1,0,,,f
+yeferson-soteldo-gre,Yeferson Soteldo,GRE,Grêmio,Atacante,5,0,0,2,0,,,f
+young-moraes-spa,Young Moraes,SPA,São Paulo,Goleiro,0,0,0,1,0,,,f
+yuri-alberto-cor,Yuri Alberto,COR,Corinthians,Atacante,15,3,0,6,1,,,f
+ze-gabriel-vas,Zé Gabriel,VAS,Vasco da Gama,Meio-campo,0,0,0,3,0,,,f
+ze-marcos-juv,Zé Marcos,JUV,Juventude,Zagueiro,0,0,0,10,2,,,f
+ze-vitor-atp,Zé Vitor,ATP,Athletico Paranaense,Meio-campo,0,0,0,2,0,,,f

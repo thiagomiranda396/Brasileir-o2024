@@ -1,0 +1,41 @@
+/// Tabela desconectada da segmentação Ranking (página Jogadores).
+table Ranking
+	lineageTag: e911e84e-e6cf-544e-859b-23257dd8a4ca
+
+	column Métrica
+		dataType: string
+		lineageTag: c50ca27f-60d6-5413-b005-32f9a0645c18
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Métrica]
+		sortByColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordem
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: af5b3967-ab92-51fa-9a1d-030e84bae985
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Ordem]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ranking = calculated
+		mode: import
+		source =
+				DATATABLE (
+					"Métrica", STRING,
+					"Ordem", INTEGER,
+					{
+					{ "Gols", 1 },
+					{ "Assistências", 2 },
+					{ "Jogos sem sofrer gol", 3 },
+					{ "Gols de pênalti", 4 },
+					{ "Cartões amarelos", 5 },
+					{ "Cartões vermelhos", 6 }
+					}
+				)
+

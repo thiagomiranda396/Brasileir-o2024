@@ -1,0 +1,60 @@
+/// Grão: rodada nominal (38).
+table dim_rodada
+	lineageTag: fc960c62-8b0f-5e62-a8a6-9b80c611de2f
+
+	column rodada
+		dataType: int64
+		formatString: 0
+		lineageTag: 04df4670-9a32-516a-a893-7a1d55a3e2ba
+		summarizeBy: none
+		sourceColumn: rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Turno (1–19) ou Returno (20–38).
+	column turno
+		dataType: string
+		lineageTag: 95ede8b3-01d7-51bc-be58-b6e2b758b3a0
+		summarizeBy: none
+		sourceColumn: turno
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_inicio
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 755a34e0-9f8d-5cd7-ba20-5e31a96808b0
+		summarizeBy: none
+		sourceColumn: data_inicio
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_fim
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 26f65ad5-7600-5c4f-b0fb-5e4bf9b4554b
+		summarizeBy: none
+		sourceColumn: data_fim
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_rodada = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\dim_rodada.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"rodada", "turno", "data_inicio", "data_fim"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(VaziosComoNulos, {{"rodada", Int64.Type}, {"turno", type text}, {"data_inicio", type date}, {"data_fim", type date}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,197 @@
+/// Grão: partida (380). Base das métricas do campeonato.
+table fato_partida
+	lineageTag: c6b370fd-b6a9-5c5c-b379-598adb98eaa4
+
+	column id_partida
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c576673-e427-5725-8626-29f27db14b24
+		summarizeBy: none
+		sourceColumn: id_partida
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodada
+		dataType: int64
+		formatString: 0
+		lineageTag: fda805c9-ccf9-59bb-b499-729d21ad6f67
+		summarizeBy: none
+		sourceColumn: rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_partida
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 06a7d947-8a4c-53e2-b393-4e9e57b81c9d
+		summarizeBy: none
+		sourceColumn: data_partida
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column hora_inicio
+		dataType: dateTime
+		formatString: hh:mm
+		lineageTag: 5cb59613-0cd6-503b-9544-1b57d89b5b20
+		summarizeBy: none
+		sourceColumn: hora_inicio
+
+		annotation UnderlyingDateTimeDataType = Time
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Falso quando o horário foi herdado da linha anterior da fonte.
+	column hora_explicita
+		dataType: boolean
+		lineageTag: 21f7a58b-5afd-5a3a-947f-7a838c2e5af6
+		summarizeBy: none
+		sourceColumn: hora_explicita
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_mandante
+		dataType: string
+		lineageTag: e55e75d0-70ef-5486-8f15-d1d017b6ee1c
+		summarizeBy: none
+		sourceColumn: id_mandante
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_visitante
+		dataType: string
+		lineageTag: b1957f7c-c00b-5b0d-a955-ee1fba380fde
+		summarizeBy: none
+		sourceColumn: id_visitante
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_mandante
+		dataType: int64
+		formatString: 0
+		lineageTag: ff0d4156-9bb5-56db-a82e-98897a1ba1b3
+		summarizeBy: none
+		sourceColumn: gols_mandante
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_visitante
+		dataType: int64
+		formatString: 0
+		lineageTag: 866271da-35a7-5f4f-9c7e-0ab3a689fd64
+		summarizeBy: none
+		sourceColumn: gols_visitante
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_mandante_1t
+		dataType: int64
+		formatString: 0
+		lineageTag: c437bba4-93ad-5af7-9f50-e45b4409c127
+		summarizeBy: none
+		sourceColumn: gols_mandante_1t
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_visitante_1t
+		dataType: int64
+		formatString: 0
+		lineageTag: f63a7c71-4659-5a84-9dda-6d6385f1fc42
+		summarizeBy: none
+		sourceColumn: gols_visitante_1t
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_gols
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c44561f-9ee2-5d83-9319-b52e1fa2faee
+		summarizeBy: none
+		sourceColumn: total_gols
+
+		annotation SummarizationSetBy = Automatic
+
+	/// M = vitória do mandante, E = empate, V = vitória do visitante.
+	column resultado
+		dataType: string
+		lineageTag: 0045b587-b452-5e38-aeef-503e258fd6ad
+		summarizeBy: none
+		sourceColumn: resultado
+
+		annotation SummarizationSetBy = Automatic
+
+	column resultado_descricao
+		dataType: string
+		lineageTag: 82259943-cb59-53a8-bb6e-e4ba88487f99
+		summarizeBy: none
+		sourceColumn: resultado_descricao
+
+		annotation SummarizationSetBy = Automatic
+
+	column estadio
+		dataType: string
+		lineageTag: a7479c22-ccda-5377-8621-0396f4044967
+		summarizeBy: none
+		sourceColumn: estadio
+
+		annotation SummarizationSetBy = Automatic
+
+	column tecnico_mandante
+		dataType: string
+		lineageTag: 3876b95a-9ef6-5ce5-8c68-716a4ef0d8cc
+		summarizeBy: none
+		sourceColumn: tecnico_mandante
+
+		annotation SummarizationSetBy = Automatic
+
+	column tecnico_visitante
+		dataType: string
+		lineageTag: 3373527e-b352-5a32-b114-61bcf2d52acb
+		summarizeBy: none
+		sourceColumn: tecnico_visitante
+
+		annotation SummarizationSetBy = Automatic
+
+	column formacao_mandante
+		dataType: string
+		lineageTag: 37fcae08-259f-577e-88c0-73c0c83f247a
+		summarizeBy: none
+		sourceColumn: formacao_mandante
+
+		annotation SummarizationSetBy = Automatic
+
+	column formacao_visitante
+		dataType: string
+		lineageTag: a9dd66b1-fa2f-5c06-841b-9e4236b29281
+		summarizeBy: none
+		sourceColumn: formacao_visitante
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Rótulo do jogo com o placar (ex.: INT 2 x 1 BAH).
+	column confronto = fato_partida[id_mandante] & " " & fato_partida[gols_mandante] & " x " & fato_partida[gols_visitante] & " " & fato_partida[id_visitante]
+		dataType: string
+		lineageTag: 3deb2491-8764-5b7c-9ae5-dfd52c441889
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_partida = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\fato_partida.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_partida", "rodada", "data_partida", "hora_inicio", "hora_explicita", "id_mandante", "id_visitante", "gols_mandante", "gols_visitante", "gols_mandante_1t", "gols_visitante_1t", "total_gols", "resultado", "resultado_descricao", "estadio", "tecnico_mandante", "tecnico_visitante", "formacao_mandante", "formacao_visitante"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // O PostgreSQL exporta booleanos como t/f.
+				    Logicos = Table.TransformColumns(VaziosComoNulos, {{"hora_explicita", each if _ = null then null else _ = "t", type logical}}),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(Logicos, {{"id_partida", Int64.Type}, {"rodada", Int64.Type}, {"data_partida", type date}, {"hora_inicio", type time}, {"id_mandante", type text}, {"id_visitante", type text}, {"gols_mandante", Int64.Type}, {"gols_visitante", Int64.Type}, {"gols_mandante_1t", Int64.Type}, {"gols_visitante_1t", Int64.Type}, {"total_gols", Int64.Type}, {"resultado", type text}, {"resultado_descricao", type text}, {"estadio", type text}, {"tecnico_mandante", type text}, {"tecnico_visitante", type text}, {"formacao_mandante", type text}, {"formacao_visitante", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

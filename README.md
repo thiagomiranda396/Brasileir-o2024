@@ -1,198 +1,179 @@
-# Brasileirão 2024: Business Intelligence
+# Brasileirão 2024: Business Intelligence de ponta a ponta
 
-Projeto de portfólio de BI sobre o **Campeonato Brasileiro Série A 2024**, de ponta a ponta:
-aquisição e auditoria de dados públicos, modelagem em PostgreSQL, indicadores em SQL, dashboard
-em Power BI e, no futuro, uma aplicação web interativa.
+Projeto de portfólio sobre o **Campeonato Brasileiro Série A 2024**: dados públicos auditados,
+modelagem relacional em **PostgreSQL**, camada analítica em SQL, dashboard no **Power BI** e um
+**site interativo** com estatísticas, escudos, fotos de jogadores e um jogo de técnico.
 
-> **Estado atual: fase de dados concluída.** O banco PostgreSQL **ainda não foi criado**, o
-> dashboard Power BI **não foi implementado** e a aplicação web **não foi iniciada**. Este
-> repositório contém, por enquanto, a base de partidas validada, os scripts que a reproduzem, os
-> testes e a documentação de planejamento.
+> **Site:** `https://<seu-usuario>.github.io/<repositorio>/` (publicado pelo GitHub Pages a partir
+> da pasta `web/`)
 
----
+![Visão geral do site](docs/img/site-visao-geral.png)
 
-## Objetivo
+## Destaques
 
-Analisar a Série A 2024 com indicadores gerenciais e comparações entre clubes: classificação,
-pontos, vitórias, empates e derrotas, gols, desempenho como mandante e visitante, e evolução ao
-longo das rodadas. Os números são **reconstruídos a partir dos resultados das partidas** e
-conferidos com referências independentes, com rastreabilidade até a fonte original.
+- **Dados conferidos, não só coletados.** A classificação final reconstruída a partir das 380
+  partidas é igual à tabela oficial da CBF (20 clubes × 9 campos). Os 929 gols, um a um, batem com
+  o placar de cada partida, e a artilharia bate com a da Wikipédia.
+- **Modelo relacional completo:** 11 tabelas com chaves primárias e estrangeiras, `CHECK`s de regra
+  de negócio, carga transacional e idempotente com `MERGE`, auditoria de cada carga e 23 testes SQL.
+- **Uma fonte da verdade:** o Power BI e o site leem as mesmas views do schema `analytics`, por um
+  papel somente leitura.
+- **Para analisar e para se divertir:** classificação rodada a rodada com "play", evolução das
+  posições, página de cada clube e de cada jogador, partidas com gols minuto a minuto e a
+  **Prancheta 2024**, um jogo de técnico em que você escala um clube e
+  disputa um mata-mata das quartas à final.
+- **129 testes em Python** (um deles roda os testes do motor do jogo em Node) e CI no GitHub Actions que recria o banco do zero a cada push.
 
-O projeto prioriza precisão, evidências e reprodutibilidade. Limitações e pendências são
-documentadas, não omitidas.
+## Arquitetura
 
-## Estado atual
+```mermaid
+flowchart LR
+    OF[openfootball<br/>partidas, CC0] --> P[scripts Python<br/>conversão e auditoria]
+    AD[adaoduque<br/>gols e cartões] --> P
+    WK[Wikipédia<br/>assistências, prêmios] --> P
+    P --> CSV[data/processed<br/>CSVs versionados]
+    CSV --> PG[(PostgreSQL<br/>staging → core → analytics)]
+    PG --> PBI[Power BI<br/>medidas DAX]
+    PG --> JSON[web/data/*.json]
+    JSON --> WEB[Site estático<br/>GitHub Pages]
+    WD[Wikidata + Commons<br/>buscar_fotos.py] --> REF[data/reference<br/>escudos e fotos com crédito]
+    REF --> PG
+    WM[Wikimedia Commons] -. imagens .-> WEB
+```
 
-| Fase | Situação |
+## O site
+
+| Página | O que tem |
 |---|---|
-| 1. Descoberta e avaliação de fontes | Concluída |
-| 2. Aquisição, conversão e auditoria dos dados | **Concluída**: commit `805c9e1` (`805c9e1268fb51227d1142075f26a84b56d702b4`), "Fase 2: aquisição e validação das fontes de dados" |
-| 3. Modelagem e PostgreSQL | **Proposta documentada, não executada**: nenhum banco, papel ou tabela criado |
-| 4 a 8. SQL, Power BI, auditoria ponta a ponta, portfólio, publicação | Não iniciadas |
+| Visão geral | Campeão e quatro números do campeonato, gols por rodada e por minuto, seis destaques da temporada |
+| Classificação | Tabela após qualquer rodada (com animação), geral, casa ou fora, zonas de classificação, evolução de posições |
+| Clubes | Quatro indicadores e três abas: resumo (posição por rodada, casa e fora, quando marca e sofre), jogadores e técnicos, todos os jogos |
+| Jogadores | Duas abas: rankings (gols, assistências, goleiros, pênaltis, cartões, com pódio e lista expansível) e seleção do campeonato com os prêmios mensais; página de cada jogador |
+| Partidas | Os 380 jogos com gols minuto a minuto, expulsões, estádio e técnicos |
+| Minijogos | **Prancheta 2024**, jogo de técnico: escolha um dos 20 clubes, monte a escalação com botões de futebol de mesa nas cores do clube (tocar ou arrastar, funciona no celular) e dispute um mata-mata de 8 times. As partidas rolam num campo visto de cima, com placar, narração, velocidade 1x/2x ou só o resultado, e dá para pausar e mexer no time (substituições, formação e postura). Tem cansaço, cartões e pênaltis interativos. A força de cada elenco vem do desempenho real de 2024 (pontos, gols pró e contra, artilharia, assistências, seleção e prêmios do mês) |
 
-O que a Fase 2 entregou e verificou:
-
-- **380 partidas** (38 rodadas × 10 jogos) da fonte principal, numa versão fixada por commit e
-  hash SHA-256, convertidas para `data/processed/partidas.csv`.
-- **Classificação final conferida com a tabela oficial da CBF:** 20 clubes × 8 campos (pontos,
-  jogos, V, E, D, gols pró, gols contra, saldo) e as 20 posições, sem divergências. Campeão:
-  Botafogo, com 79 pontos; 929 gols no campeonato.
-- **Comparação jogo a jogo com uma fonte independente**, feita só localmente: 0 divergências de
-  placar, rodada e data nas 380 partidas.
-- Uma divergência encontrada na Wikipédia (gols pró do Juventude: 47 contra 48 oficiais) e uma
-  na fonte secundária (horário de uma partida), ambas investigadas e documentadas.
-- **70 testes automatizados** (biblioteca padrão do Python).
-
-Detalhes: [auditoria da Fase 2](docs/qualidade/auditoria_fase2.md).
-
-## Visão de produto
-
-Dois produtos complementares, sobre a mesma base validada. A visão completa, com as condições
-para cada recurso, está em [docs/visao_produto.md](docs/visao_produto.md).
-
-**A. Dashboard gerencial (Power BI):** visão executiva, classificação, desempenho dos clubes,
-mandantes × visitantes, gols e evolução por rodada.
-
-**B. Aplicação web interativa:** exploração de clubes, partidas e jogadores, com prioridade
-visual para cards de jogadores com foto e estatísticas; no futuro, quiz sobre o campeonato e
-minijogos.
-
-| Situação | Recursos |
+| Classificação | Jogadores |
 |---|---|
-| **Existente** | Base de partidas validada; classificação final conferida com a CBF; scripts e testes de reprodução |
-| **Planejado** (dados já disponíveis) | Banco PostgreSQL e views analíticas; indicadores SQL; dashboard com classificação, desempenho, mandante × visitante, gols e evolução por rodada; exploração de clubes e partidas na aplicação web; quiz sobre clubes e partidas |
-| **Depende de fontes de dados** (não avaliadas) | Fotos e estatísticas individuais de jogadores; cards de jogadores; escudos dos clubes; quiz sobre jogadores; minijogos |
+| ![Classificação](docs/img/site-classificacao.png) | ![Jogadores](docs/img/site-jogadores.png) |
+| **Clube** | **Minijogos** |
+| ![Clube](docs/img/site-clube.png) | ![Minijogos](docs/img/site-minijogos.png) |
 
-Antes de implementar os recursos que dependem de fontes, será preciso avaliar procedência,
-cobertura da temporada, **licenças e direitos** (dados, direito de imagem dos atletas, marcas dos
-escudos), disponibilidade de dados confiáveis e requisitos técnicos. Recursos sem fonte adequada
-ficam fora do produto, e a limitação é documentada.
+Visual de dashboard com identidade inspirada no ge: barra lateral em verde com o menu e os filtros de cada página, faixa do título em verde e, na página de cada clube, a faixa e os gráficos nas cores do time. Cada página responde a uma pergunta, com os números principais no topo, um gráfico que os explica e os detalhes em abas ou em "mostrar mais". Jogadores aparecem em cartas no estilo dos games, com a foto livre da Wikimedia quando existe. HTML, CSS e JavaScript puros, sem dependências nem etapa de build. Gráficos em SVG próprios, com
+tooltip, navegação por teclado, tema claro e escuro e layout para celular.
 
-## Tecnologias
+**Fotos sem homônimos.** Cada foto só entra quando uma fonte independente confirma que a pessoa
+jogou naquele clube em 2024 e tem o mesmo nome do jogador: o vínculo na Wikidata ou, quando a
+Wikidata não o registra, a ficha da página do jogador na Wikipédia em inglês. O arquivo precisa ter licença livre (CC0,
+domínio público, CC BY ou CC BY-SA) com autor. O script `scripts/buscar_fotos.py` grava a
+referência e o crédito de cada imagem no banco; o site e o Power BI carregam a imagem da Wikimedia
+Commons e mostram os créditos. Quem ficou sem confirmação aparece com a camisa do clube, sem um
+rosto inventado. A cobertura está em [docs/qualidade/fotos_jogadores.md](docs/qualidade/fotos_jogadores.md).
 
-| Ferramenta | Uso | Situação |
-|---|---|---|
-| Python 3 (só a biblioteca padrão) | Aquisição, conversão, validação e testes (`unittest`) | Em uso; testado com Python 3.14.8 no Windows |
-| Git | Versionamento | Em uso, apenas local; sem repositório remoto |
-| PostgreSQL 18 | Camadas staging, core e analytics | Previsto (Fase 3) |
-| SQL (CTEs, funções de janela, `MERGE`) | Modelagem e indicadores | Previsto (Fases 3 e 4) |
-| Power BI Desktop e DAX | Dashboard | Previsto (Fase 5) |
-| Aplicação web | Interface interativa | **Tecnologia ainda não escolhida** |
+## Banco de dados
 
-## Fontes de dados e licenças
+Três camadas no banco `brasileirao2024` ([modelo completo](docs/modelagem/modelo_dados.md)):
 
-| Fonte | Papel | Licença | No repositório? |
-|---|---|---|---|
-| [openfootball/south-america](https://github.com/openfootball/south-america) | Fonte principal das partidas | CC0 1.0 | Sim |
-| [Wikipédia (pt)](https://pt.wikipedia.org/w/index.php?oldid=70400733), predefinição da classificação de 2024 | Referência de validação | CC BY-SA 4.0 | Sim, com atribuição |
-| [Tabela oficial da CBF](https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/2024) | Validação da classificação final (consulta única) | Sem licença de reutilização | Não |
-| [adaoduque/Brasileirao_Dataset](https://github.com/adaoduque/Brasileirao_Dataset) | Validação independente jogo a jogo, **só local** | Não declarada | **Não** (fora do Git) |
+| Schema | Conteúdo |
+|---|---|
+| `staging` | Espelho dos CSVs, tudo `text`, e as funções genéricas de sincronização |
+| `core` | `clube`, `partida`, `partida_complemento`, `jogador`, `gol`, `cartao`, `ranking_wikipedia`, `selecao_campeonato`, `premio_mensal`, `escudo_clube`, `foto_jogador`, `carga_execucao` |
+| `analytics` | Dimensões, fatos (`fato_partida`, `fato_participacao`, `fato_gol`, `fato_cartao`), `classificacao_rodada` (com confronto direto), `classificacao_final`, `jogador_estatisticas`, `credito_imagem` (autor e licença de cada imagem) |
 
-Material original deste repositório: código sob [MIT](LICENSE) e documentação sob CC BY 4.0. A
-relação completa por caminho está em [LICENCAS.md](LICENCAS.md), e a procedência das fontes em
-[docs/fontes_de_dados.md](docs/fontes_de_dados.md).
+Cada métrica é calculada no seu grão: os gols do campeonato vêm de `fato_partida` (929), não da
+soma por clube (que daria 1.858). O papel `bi_brasileirao_leitura` só enxerga o `analytics`.
 
-## Limitações conhecidas
+## Power BI
 
-- A classificação **por rodada** será uma reconstrução analítica (rodada nominal, incluindo os
-  jogos adiados na rodada original), **não** a classificação oficial publicada em cada data.
-- Critérios de desempate por cartões (5º e 6º do regulamento) não estão disponíveis na fonte
-  principal. Na classificação final de 2024, só o 1º critério (vitórias) foi necessário.
-- O fuso horário das partidas não é informado pela fonte. 150 dos 380 horários são herdados da
-  linha anterior pela regra do formato e ficam marcados na coluna `hora_explicita`.
-- Pendências de auditoria em aberto:
+O dashboard está pronto como projeto do Power BI (`powerbi/Brasileirao2024.pbip`): modelo estrela em TMDL com 79 medidas e relatório de 9 páginas em PBIR, lendo os CSVs das views do `analytics`. O [guia](powerbi/README.md) explica como abrir no Power BI Desktop, atualizar e publicar no Power BI Service.
 
-  | Código | Pendência |
-  |---|---|
-  | P1 | URLs exatas das páginas da CBF consultadas pelo revisor externo |
-  | P2 | Versão oficial do regulamento (REC) hospedada pela CBF; foi consultada uma cópia de terceiros |
-  | P3 | Validação partida a partida com a CBF |
-  | P4 | Validação externa do placar do intervalo (não usado nos indicadores principais) |
+## Como executar
+
+Requisitos: Python 3.11+ (só biblioteca padrão), PostgreSQL 15+ (testado no 16 e no 18) e,
+para o dashboard, Power BI Desktop. Comandos para Windows/PowerShell, na raiz do projeto.
+
+```powershell
+# 1. Testes dos dados (não precisa de banco nem de rede)
+py -3.14 -I -X utf8 -m unittest discover -s tests -v
+
+# 2. Banco: papéis e banco (uma vez, como superusuário; ver docs/modelagem/criacao_banco.md)
+$psql = "C:\Program Files\PostgreSQL\18\bin\psql.exe"
+& $psql -v ON_ERROR_STOP=1 -U postgres -d postgres -f sql/00_criar_banco_e_papel.sql
+
+# 3. Estrutura, carga, views e testes SQL
+& $psql -v ON_ERROR_STOP=1 -U bi_brasileirao -d brasileirao2024 -f sql/executar_tudo.sql
+
+# 4. (Opcional) Exportar de novo os dados do site e os CSVs do Power BI
+py -3.14 -I scripts/exportar_web.py --psql $psql
+& $psql -v ON_ERROR_STOP=1 -U bi_brasileirao_leitura -d brasileirao2024 -f sql/06_exportar_csv.sql
+
+# 5. Abrir o site localmente
+py -3.14 -m http.server 8000 -d web    # e acesse http://localhost:8000
+```
+
+Para regenerar os dados a partir das fontes:
+
+```powershell
+py -3.14 -I scripts/baixar_fontes.py --auditoria   # baixa as fontes nas versões fixadas (confere SHA-256)
+py -3.14 -I scripts/converter_openfootball.py      # partidas
+py -3.14 -I scripts/preparar_jogadores.py          # gols, cartões, jogadores (confere com os placares)
+py -3.14 -I -X utf8 scripts/validar_dados.py       # relatório de validação das partidas
+py -3.14 -I scripts/buscar_fotos.py                # escudos e fotos (Wikidata + Commons; precisa de internet)
+```
+
+**Publicar o site:** em *Settings → Pages* do repositório, escolha *Source: GitHub Actions*. O
+workflow `.github/workflows/pages.yml` publica a pasta `web/` a cada push que a altere.
 
 ## Estrutura
 
 ```
 .
 ├── data/
-│   ├── raw/            # fontes brutas em versões fixadas + PROCEDENCIA.json (URL, versão, SHA-256)
-│   ├── processed/      # partidas.csv: base convertida e validada
-│   ├── reference/      # clubes.csv: cadastro dos 20 clubes
-│   └── external/       # (fora do Git) fonte de auditoria local sem licença de redistribuição
-├── docs/
-│   ├── fontes_de_dados.md          # procedência, reprodução, decisões de interpretação
-│   ├── regras_de_classificacao.md  # regulamento e critérios de desempate
-│   ├── visao_produto.md            # visão de produto e condições por recurso
-│   ├── qualidade/                  # auditoria da Fase 2 e relatório de validação gerado
-│   └── modelagem/                  # proposta da Fase 3 e guia de criação do banco
-├── scripts/            # baixar_fontes.py, converter_openfootball.py, validar_dados.py
-├── sql/                # 00_criar_banco_e_papel.sql (proposta; NÃO executado)
-├── tests/              # testes automatizados (unittest)
-├── LICENSE             # MIT (código)
-└── LICENCAS.md         # licenças por caminho
+│   ├── raw/              # fontes brutas em versões fixadas + PROCEDENCIA.json (URL, versão, SHA-256)
+│   ├── processed/        # partidas, gols, cartões, jogadores, complemento das partidas
+│   ├── reference/        # clubes, cores e estádios, nomes de jogadores, listas da Wikipédia
+│   └── external/         # (fora do Git) fontes sem licença de redistribuição
+├── sql/                  # 00 papéis e banco · 01 schemas · 02 tabelas · 03 carga · 04 views · 05 testes · 06 exportação
+├── scripts/              # baixar, converter, preparar jogadores, validar, exportar para o site
+├── tests/                # 129 testes (unittest)
+├── web/                  # site estático (GitHub Pages)
+├── powerbi/              # projeto do Power BI (PBIP), medidas DAX, tema, guia e CSVs das views
+├── docs/                 # fontes, regras, modelagem, auditorias, imagens
+└── .github/workflows/    # CI (Python + PostgreSQL) e publicação do site
 ```
 
-As pastas do Power BI e da aplicação web ainda não existem; serão criadas nas fases
-correspondentes.
+## Fontes de dados e licenças
 
-## Como executar (Windows, PowerShell)
-
-Requisitos: Python 3 (testado com 3.14.8) e Git. Não há dependências externas a instalar.
-Execute os comandos na raiz do projeto.
-
-```powershell
-# 1. Conferir os hashes dos arquivos de dados (sem acessar a rede)
-py -3.14 -I scripts/baixar_fontes.py --verificar
-
-# 2. (Opcional) Baixar de novo as fontes nas versões fixadas; falha se o conteúdo mudar
-py -3.14 -I scripts/baixar_fontes.py
-
-# 3. Gerar data/processed/partidas.csv a partir do arquivo bruto
-py -3.14 -I scripts/converter_openfootball.py
-
-# 4. Rodar os testes
-py -3.14 -I -X utf8 -m unittest discover -s tests -v
-
-# 5. Gerar o relatório de validação (docs/qualidade/relatorio_validacao_fase2.md)
-py -3.14 -I -X utf8 scripts/validar_dados.py
-```
-
-Observações:
-
-- Se o lançador `py` não estiver disponível, use o caminho completo do interpretador, por exemplo
-  `& "$env:LOCALAPPDATA\Programs\Python\Python314\python.exe"` no lugar de `py -3.14`.
-- `-I` executa o Python em modo isolado (sem variáveis de ambiente nem pacotes do usuário).
-  `-X utf8` garante a saída correta de caracteres acentuados no console do Windows.
-- O passo 2 confere o hash de cada arquivo baixado e só grava o que mudou: com conteúdo idêntico
-  ao versionado, nem os dados nem os `PROCEDENCIA.json` são regravados, e a saída informa
-  "inalterado". A data de aquisição registrada é a da primeira obtenção validada daquela versão
-  do conteúdo. Fontes sem hash esperado são recusadas, sem download.
-- O passo 3 é determinístico: gera um CSV idêntico byte a byte ao versionado.
-- O passo 5 só regrava o relatório versionado quando o conteúdo muda: a data de geração é
-  ignorada na comparação; os hashes dos dados validados, registrados no cabeçalho, não. Sem os
-  arquivos da auditoria local, uma auditoria anterior é **preservada** se os dados e os demais
-  resultados não mudaram; caso contrário, o relatório é regravado com a seção 2 "NÃO
-  EXECUTADA" e um aviso explícito na saída. O motivo da decisão é sempre exibido.
-- **Auditoria local (opcional):** `py -3.14 -I scripts/baixar_fontes.py --auditoria` baixa a fonte
-  secundária para `data/external/`. A comparação também exige um mapa de nomes local, que não é
-  versionado ([detalhes](docs/fontes_de_dados.md)). Sem esses arquivos, 11 dos 70 testes são
-  **pulados** de propósito, e os demais continuam executáveis.
-
-O banco de dados **não** faz parte destes passos: os scripts SQL da Fase 3 ainda não foram
-executados, e a criação do banco exige aprovação ([guia](docs/modelagem/criacao_banco.md)).
-
-## Próximas fases
-
-| Fase | Entrega | Dependências principais |
+| Fonte | Uso | Licença |
 |---|---|---|
-| 3. Modelagem e PostgreSQL | Banco `brasileirao2024`, camadas staging, core e analytics, carga com `MERGE`, testes SQL | **Autorização explícita** para criar o banco e os papéis no servidor local; proposta em [proposta_fase3.md](docs/modelagem/proposta_fase3.md) |
-| 4. SQL e indicadores | Consultas, views e dicionário de indicadores | Fase 3 |
-| 5. Power BI | Modelo analítico, medidas DAX e dashboard | Fases 3 e 4; escudos dependem de fonte licenciada |
-| 6. Auditoria ponta a ponta | Reconciliação fonte × SQL × DAX | Fases 3 a 5 |
-| 7. Documentação e portfólio | Capturas, análises e dicionário de dados | Fase 6 |
-| 8. Publicação | Repositório público no GitHub | **Autorização explícita** |
-| Futuro | Fontes de jogadores e imagens; aplicação web | Avaliação de fontes e licenças ([visao_produto.md](docs/visao_produto.md)) |
-
-## Licença
+| [openfootball/south-america](https://github.com/openfootball/south-america) | Partidas e placares | CC0 1.0 |
+| [adaoduque/Brasileirao_Dataset](https://github.com/adaoduque/Brasileirao_Dataset) | Gols, cartões, técnicos e estádios por partida (só os fatos derivados são publicados) | Não declarada |
+| [Wikipédia (en)](https://en.wikipedia.org/wiki/2024_Campeonato_Brasileiro_S%C3%A9rie_A) | Assistências, jogos sem sofrer gol, seleção e prêmios; validação da artilharia | CC BY-SA 4.0 |
+| [Wikipédia (pt)](https://pt.wikipedia.org/w/index.php?oldid=70400733) | Validação da classificação final | CC BY-SA 4.0 |
+| [Tabela oficial da CBF](https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/2024) | Validação da classificação final (consulta) | — |
+| [Wikidata](https://www.wikidata.org/) | Confirmação de quem é cada jogador nas fotos (nome e clube em 2024) | CC0 1.0 |
+| [Wikimedia Commons](https://commons.wikimedia.org/) | Escudos e fotos (só a referência e o crédito ficam no repositório) | As de cada arquivo, registradas por linha |
 
 Código sob [MIT](LICENSE); documentação sob CC BY 4.0; dados de terceiros sob as licenças de
-origem. Ver [LICENCAS.md](LICENCAS.md).
+origem. Detalhes por arquivo em [LICENCAS.md](LICENCAS.md) e procedência em
+[docs/fontes_de_dados.md](docs/fontes_de_dados.md).
+
+## Limitações conhecidas
+
+- A classificação **por rodada** é uma reconstrução analítica (rodada nominal, com jogos adiados
+  na rodada original), não a tabela oficial publicada em cada data. Só a final foi conferida.
+- **Assistências** e **jogos sem sofrer gol** cobrem só os primeiros colocados publicados pela
+  Wikipédia; não há fonte aberta com os números de todos os jogadores.
+- **Cartões** não têm fonte independente para conferência jogo a jogo.
+- Fotos só para jogadores confirmados (Wikidata ou ficha da Wikipédia) e com foto livre no Commons; os demais
+  aparecem com a camisa do clube.
+- Duas partidas têm placar do intervalo provavelmente errado no openfootball (rodada 22);
+  detalhes e demais pendências em [docs/qualidade/](docs/qualidade/auditoria_jogadores_e_banco.md).
+
+## Documentação
+
+- [Fontes de dados e procedência](docs/fontes_de_dados.md)
+- [Regras de classificação](docs/regras_de_classificacao.md)
+- [Modelo de dados](docs/modelagem/modelo_dados.md) e [criação do banco](docs/modelagem/criacao_banco.md)
+- [Auditoria das partidas](docs/qualidade/auditoria_fase2.md) e [dos jogadores e do banco](docs/qualidade/auditoria_jogadores_e_banco.md)
+- [Visão de produto](docs/visao_produto.md)
+- [Guia do Power BI](powerbi/README.md)

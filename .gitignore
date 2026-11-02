@@ -1,20 +1,16 @@
-# Dados de terceiros sem licença de redistribuição (usados apenas para validação local)
+# Fontes sem licença de redistribuição: só locais (ver LICENCAS.md)
 data/external/
 
 # Python
 __pycache__/
 *.pyc
-.venv/
 
-# Credenciais e configurações locais
-.env
-*.local.*
-
-# Power BI: arquivos temporários
+# Power BI: arquivos temporários e cache local
 *.pbix.bak
-~$*
+powerbi/**/.pbi/localSettings.json
+powerbi/**/.pbi/cache.abf
 
 # Sistema
+.DS_Store
 Thumbs.db
-desktop.ini
-.vscode/
+_backup_versao_local/

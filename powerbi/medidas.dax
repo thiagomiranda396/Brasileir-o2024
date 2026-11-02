@@ -1,0 +1,566 @@
+// =============================================================================
+// Medidas DAX do dashboard Brasileirão 2024 (referência para leitura)
+//
+// A fonte das medidas agora é o modelo do projeto Power BI:
+//   powerbi/Brasileirao2024.SemanticModel/definition/tables/Medidas.tmdl
+// Este arquivo é gerado a partir da mesma lista e serve para ler e revisar o
+// DAX fora do Power BI Desktop. Não é preciso colar nada: ao abrir
+// Brasileirao2024.pbip, as medidas já estão no modelo.
+//
+// Regra do projeto contra métricas duplicadas: cada medida lê a tabela do seu grão.
+//   fato_partida      -> números do campeonato (partidas, gols, resultados)
+//   fato_participacao -> números por clube (pontos, V/E/D, gols pró e contra)
+//   fato_gol / fato_cartao / jogador_estatisticas -> números por jogador
+// Somar gols em fato_participacao dá 1.858 (o dobro): por isso o total do
+// campeonato vem de fato_partida.
+//
+// Medidas corrigidas em relação à versão anterior deste arquivo:
+//   Variação de posição: com uma rodada selecionada, a rodada anterior ficava
+//     fora do filtro e a medida voltava vazia. Agora usa REMOVEFILTERS(dim_rodada).
+//   Posição final: fixava a rodada 38, mas o filtro de rodada continuava
+//     valendo; com outra rodada selecionada, voltava vazia. Agora lê
+//     classificacao_final, que não depende do filtro de rodada.
+// =============================================================================
+
+
+// --------------------------------------------------------------- 1. Campeonato
+
+// Partidas no filtro (380 no campeonato).
+// [formato #,0]
+Partidas = COUNTROWS ( fato_partida )
+
+// Gols do campeonato, lidos no grão partida (929).
+// [formato #,0]
+Gols = SUM ( fato_partida[total_gols] )
+
+// [formato 0.00]
+Média de gols por jogo = DIVIDE ( [Gols], [Partidas] )
+
+// [formato #,0]
+Vitórias do mandante = CALCULATE ( [Partidas], fato_partida[resultado] = "M" )
+
+// [formato #,0]
+Empates = CALCULATE ( [Partidas], fato_partida[resultado] = "E" )
+
+// [formato #,0]
+Vitórias do visitante = CALCULATE ( [Partidas], fato_partida[resultado] = "V" )
+
+// [formato 0.0%]
+% vitórias do mandante = DIVIDE ( [Vitórias do mandante], [Partidas] )
+
+// [formato 0.0%]
+% empates = DIVIDE ( [Empates], [Partidas] )
+
+// [formato 0.0%]
+% vitórias do visitante = DIVIDE ( [Vitórias do visitante], [Partidas] )
+
+// [formato #,0]
+Jogos 0 a 0 = CALCULATE ( [Partidas], fato_partida[total_gols] = 0 )
+
+// [formato #,0]
+Maior número de gols num jogo = MAX ( fato_partida[total_gols] )
+
+// Conta os gols um a um em fato_gol. Precisa ser igual a [Gols] (929). Com um clube no filtro, são os gols a favor dele.
+// [formato #,0]
+Gols (conferência pelos eventos) = COUNTROWS ( fato_gol )
+
+// [formato #,0]
+Gols do mandante (eventos) = CALCULATE ( [Gols (conferência pelos eventos)], fato_gol[mando] = "Casa" )
+
+// [formato #,0]
+Gols do visitante (eventos) = CALCULATE ( [Gols (conferência pelos eventos)], fato_gol[mando] = "Fora" )
+
+// ------------------------------------------------------------------- 2. Clubes
+
+// [formato #,0]
+Jogos do clube = COUNTROWS ( fato_participacao )
+
+// [formato #,0]
+Pontos = SUM ( fato_participacao[pontos] )
+
+// [formato #,0]
+Vitórias = CALCULATE ( [Jogos do clube], fato_participacao[resultado] = "V" )
+
+// [formato #,0]
+Empates do clube = CALCULATE ( [Jogos do clube], fato_participacao[resultado] = "E" )
+
+// [formato #,0]
+Derrotas = CALCULATE ( [Jogos do clube], fato_participacao[resultado] = "D" )
+
+// [formato #,0]
+Gols pró = SUM ( fato_participacao[gols_pro] )
+
+// [formato #,0]
+Gols contra = SUM ( fato_participacao[gols_contra] )
+
+// [formato +0;-0;0]
+Saldo de gols = [Gols pró] - [Gols contra]
+
+// Pontos ganhos sobre os possíveis. A CBF trunca (Athletico 36); aqui mostramos 1 casa (36,8%). Definição oficial pendente.
+// [formato 0.0%]
+Aproveitamento = DIVIDE ( [Pontos], 3 * [Jogos do clube] )
+
+// [formato #,0]
+Jogos sem sofrer gol = CALCULATE ( [Jogos do clube], fato_participacao[sem_sofrer_gols] = TRUE () )
+
+// [formato #,0]
+Pontos em casa = CALCULATE ( [Pontos], fato_participacao[mando] = "Casa" )
+
+// [formato #,0]
+Pontos fora = CALCULATE ( [Pontos], fato_participacao[mando] = "Fora" )
+
+// [formato 0.0%]
+Aproveitamento em casa = CALCULATE ( [Aproveitamento], fato_participacao[mando] = "Casa" )
+
+// [formato 0.0%]
+Aproveitamento fora = CALCULATE ( [Aproveitamento], fato_participacao[mando] = "Fora" )
+
+// [formato 0.00]
+Média de gols pró = DIVIDE ( [Gols pró], [Jogos do clube] )
+
+// [formato 0.00]
+Média de gols sofridos = DIVIDE ( [Gols contra], [Jogos do clube] )
+
+// Pontos acumulados até a rodada do contexto.
+// [formato #,0]
+Pontos acumulados =
+    VAR rodadaAtual = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE (
+            [Pontos],
+            FILTER ( ALL ( dim_rodada[rodada] ), dim_rodada[rodada] <= rodadaAtual )
+        )
+
+// Gols sofridos pelo clube selecionado, um a um (permite cortar por faixa de minuto). A soma é igual a [Gols contra].
+// [formato #,0]
+Gols sofridos (eventos) =
+    VAR clubes = VALUES ( dim_clube[id_clube] )
+    VAR partidas = CALCULATETABLE ( VALUES ( fato_participacao[id_partida] ) )
+    RETURN
+        IF (
+            HASONEVALUE ( dim_clube[id_clube] ),
+            CALCULATE (
+                COUNTROWS ( fato_gol ),
+                REMOVEFILTERS ( dim_clube ),
+                TREATAS ( partidas, fato_gol[id_partida] ),
+                NOT ( fato_gol[id_clube_beneficiado] IN clubes )
+            )
+        )
+
+Nome do clube = SELECTEDVALUE ( dim_clube[nome] )
+
+// Cor principal do clube selecionado; sem seleção, o verde do tema.
+Cor do clube = COALESCE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#06AA48" )
+
+Cor secundária do clube = COALESCE ( SELECTEDVALUE ( dim_clube[cor_secundaria] ), "#0A4F29" )
+
+// Cor do clube para a faixa do título com texto branco: usa a cor principal e troca pela secundária quando a principal é clara demais (ex.: amarelo do Criciúma).
+Cor de destaque do clube =
+    VAR c1 = SELECTEDVALUE ( dim_clube[cor_primaria] )
+    VAR c2 = SELECTEDVALUE ( dim_clube[cor_secundaria] )
+    VAR hex = "0123456789ABCDEF"
+    VAR r = ( SEARCH ( MID ( c1, 2, 1 ), hex, 1, 1 ) - 1 ) * 16 + SEARCH ( MID ( c1, 3, 1 ), hex, 1, 1 ) - 1
+    VAR g = ( SEARCH ( MID ( c1, 4, 1 ), hex, 1, 1 ) - 1 ) * 16 + SEARCH ( MID ( c1, 5, 1 ), hex, 1, 1 ) - 1
+    VAR b = ( SEARCH ( MID ( c1, 6, 1 ), hex, 1, 1 ) - 1 ) * 16 + SEARCH ( MID ( c1, 7, 1 ), hex, 1, 1 ) - 1
+    VAR luminancia = ( 0.299 * r + 0.587 * g + 0.114 * b ) / 255
+    RETURN
+        SWITCH (
+            TRUE (),
+            ISBLANK ( c1 ), "#06AA48",
+            luminancia > 0.6, c2,
+            c1
+        )
+
+// Escudo do clube (Wikimedia Commons). Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
+// [categoria ImageUrl]
+Escudo ou sigla =
+    VAR url = SELECTEDVALUE ( dim_clube[escudo_url] )
+    VAR sigla = SELECTEDVALUE ( dim_clube[id_clube] )
+    VAR c1 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#", "%23" )
+    VAR c2 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_secundaria] ), "#", "%23" )
+    RETURN
+        SWITCH (
+            TRUE (),
+            NOT ISBLANK ( url ), url,
+            ISBLANK ( sigla ), BLANK (),
+            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
+                & "<circle cx='50' cy='50' r='46' fill='" & c1 & "' stroke='" & c2 & "' stroke-width='6'/>"
+                & "<text x='50' y='62' font-family='Segoe UI, Arial, sans-serif' font-size='30' font-weight='700' fill='white' text-anchor='middle'>"
+                & sigla & "</text></svg>"
+        )
+
+// ------------------------------------------------------------ 3. Classificação
+
+// Posição após a rodada do contexto, lida da view (a ordem não é recalculada em DAX).
+// [formato 0]
+Posição na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MIN ( classificacao_rodada[posicao] ), classificacao_rodada[rodada] = rodada )
+
+// [formato #,0]
+Pontos na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[pontos] ), classificacao_rodada[rodada] = rodada )
+
+// [formato #,0]
+Jogos na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[jogos] ), classificacao_rodada[rodada] = rodada )
+
+// [formato #,0]
+Vitórias na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[vitorias] ), classificacao_rodada[rodada] = rodada )
+
+// [formato #,0]
+Empates na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[empates] ), classificacao_rodada[rodada] = rodada )
+
+// [formato #,0]
+Derrotas na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[derrotas] ), classificacao_rodada[rodada] = rodada )
+
+// [formato #,0]
+Gols pró na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[gols_pro] ), classificacao_rodada[rodada] = rodada )
+
+// [formato +0;-0;0]
+Saldo na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    RETURN
+        CALCULATE ( MAX ( classificacao_rodada[saldo] ), classificacao_rodada[rodada] = rodada )
+
+// [formato 0.0%]
+Aproveitamento na rodada = DIVIDE ( [Pontos na rodada], 3 * [Jogos na rodada] )
+
+// Posições ganhas (positivo) ou perdidas desde a rodada anterior. REMOVEFILTERS(dim_rodada) deixa ler a rodada anterior mesmo com uma rodada selecionada.
+// [formato "▲ "0;"▼ "0;"="]
+Variação de posição =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    VAR agora =
+        CALCULATE ( MIN ( classificacao_rodada[posicao] ), REMOVEFILTERS ( dim_rodada ), classificacao_rodada[rodada] = rodada )
+    VAR antes =
+        CALCULATE ( MIN ( classificacao_rodada[posicao] ), REMOVEFILTERS ( dim_rodada ), classificacao_rodada[rodada] = rodada - 1 )
+    RETURN
+        IF ( rodada > 1 && NOT ISBLANK ( agora ) && NOT ISBLANK ( antes ), antes - agora )
+
+// Posição final (classificacao_final, conferida com a CBF).
+// [formato 0"º"]
+Posição final = MIN ( classificacao_final[posicao] )
+
+Campeão = CALCULATE ( SELECTEDVALUE ( classificacao_final[clube] ), classificacao_final[ordem_exibicao] = 1 )
+
+// [formato #,0]
+Pontos do campeão = CALCULATE ( MAX ( classificacao_final[pontos] ), classificacao_final[ordem_exibicao] = 1 )
+
+Título do topo da tabela = [Campeão] & " campeão com " & [Pontos do campeão] & " pontos"
+
+// Cor da zona final, para formatação condicional (valor do campo).
+Cor da zona =
+    SWITCH (
+        SELECTEDVALUE ( classificacao_final[destino] ),
+        "Campeão", "#2A78D6",
+        "Libertadores (fase de grupos)", "#2A78D6",
+        "Libertadores (2ª fase)", "#86B6EF",
+        "Sul-Americana", "#1BAF7A",
+        "Rebaixado", "#D03B3B",
+        BLANK ()
+    )
+
+// Zona pela ordem na rodada, com as vagas finais de 2024 (Libertadores até o 8º, Sul-Americana até o 14º, rebaixamento do 17º ao 20º).
+Cor da zona na rodada =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    VAR ordem =
+        CALCULATE ( MIN ( classificacao_rodada[ordem_exibicao] ), classificacao_rodada[rodada] = rodada )
+    RETURN
+        SWITCH (
+            TRUE (),
+            ISBLANK ( ordem ), BLANK (),
+            ordem <= 6, "#2A78D6",
+            ordem <= 8, "#86B6EF",
+            ordem <= 14, "#1BAF7A",
+            ordem >= 17, "#D03B3B",
+            "#E3E7E3"
+        )
+
+Cor do texto da zona =
+    VAR rodada = MAX ( dim_rodada[rodada] )
+    VAR ordem =
+        CALCULATE ( MIN ( classificacao_rodada[ordem_exibicao] ), classificacao_rodada[rodada] = rodada )
+    RETURN
+        IF ( ordem <= 6 || ordem >= 17, "#FFFFFF", "#14181B" )
+
+Cor do resultado =
+    SWITCH (
+        SELECTEDVALUE ( fato_participacao[resultado] ),
+        "V", "#0CA30C",
+        "E", "#6B7280",
+        "D", "#D03B3B"
+    )
+
+// ---------------------------------------------------------------- 4. Jogadores
+
+// Gols marcados pelo jogador (sem gols contra).
+// [formato #,0]
+Gols do jogador = CALCULATE ( COUNTROWS ( fato_gol ), fato_gol[tipo] <> "Contra" )
+
+// [formato #,0]
+Gols de pênalti = CALCULATE ( COUNTROWS ( fato_gol ), fato_gol[tipo] = "Pênalti" )
+
+// [formato #,0]
+Gols contra (jogador) = CALCULATE ( COUNTROWS ( fato_gol ), fato_gol[tipo] = "Contra" )
+
+// Ranking parcial da Wikipédia: vazio = fora do ranking (nunca zero).
+// [formato #,0]
+Assistências = SUM ( jogador_estatisticas[assistencias] )
+
+// Ranking parcial da Wikipédia (goleiros).
+// [formato #,0]
+Jogos sem sofrer gol (goleiro) = SUM ( jogador_estatisticas[jogos_sem_sofrer_gols] )
+
+// [formato 0]
+Posição na artilharia =
+    IF (
+        [Gols do jogador] > 0,
+        RANKX ( ALL ( dim_jogador ), [Gols do jogador],, DESC, SKIP )
+    )
+
+// [formato 0.0%]
+% dos gols do clube =
+    VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
+    RETURN
+        DIVIDE (
+            [Gols do jogador],
+            CALCULATE ( COUNTROWS ( fato_gol ), ALL ( dim_jogador ), fato_gol[id_clube_beneficiado] = clube )
+        )
+
+// Valor do jogador na métrica escolhida na segmentação Ranking.
+// [formato #,0]
+Valor no ranking =
+    SWITCH (
+        SELECTEDVALUE ( Ranking[Métrica], "Gols" ),
+        "Gols", [Gols do jogador],
+        "Assistências", [Assistências],
+        "Jogos sem sofrer gol", [Jogos sem sofrer gol (goleiro)],
+        "Gols de pênalti", [Gols de pênalti],
+        "Cartões amarelos", [Cartões amarelos],
+        "Cartões vermelhos", [Cartões vermelhos]
+    )
+
+// Mantém só os 10 primeiros (empates no corte entram todos).
+// [formato #,0]
+Valor no ranking (top 10) =
+    VAR valor = [Valor no ranking]
+    VAR posicao =
+        IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Valor no ranking], valor, DESC, SKIP ) )
+    RETURN
+        IF ( NOT ISBLANK ( valor ) && posicao <= 10, valor )
+
+// Mantém só os 1 primeiros (empates no corte entram todos).
+// [formato #,0]
+Valor do líder =
+    VAR valor = [Valor no ranking]
+    VAR posicao =
+        IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Valor no ranking], valor, DESC, SKIP ) )
+    RETURN
+        IF ( NOT ISBLANK ( valor ) && posicao <= 1, valor )
+
+// Mantém só os 5 primeiros (empates no corte entram todos).
+// [formato #,0]
+Gols do jogador (top 5) =
+    VAR valor = [Gols do jogador]
+    VAR posicao =
+        IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Gols do jogador], valor, DESC, SKIP ) )
+    RETURN
+        IF ( NOT ISBLANK ( valor ) && posicao <= 5, valor )
+
+// Mantém só os 10 primeiros (empates no corte entram todos).
+// [formato #,0]
+Gols do jogador (top 10) =
+    VAR valor = [Gols do jogador]
+    VAR posicao =
+        IF ( NOT ISBLANK ( valor ), RANKX ( ALLSELECTED ( dim_jogador ), [Gols do jogador], valor, DESC, SKIP ) )
+    RETURN
+        IF ( NOT ISBLANK ( valor ) && posicao <= 10, valor )
+
+Título do ranking = "Top 10 · " & SELECTEDVALUE ( Ranking[Métrica], "Gols" )
+
+Nota do ranking =
+    IF (
+        SELECTEDVALUE ( Ranking[Métrica], "Gols" ) IN { "Assistências", "Jogos sem sofrer gol" },
+        "Ranking parcial publicado pela Wikipédia (só os primeiros colocados).",
+        "Súmulas compiladas (adaoduque); gols conferidos com o placar de cada jogo."
+    )
+
+// Foto real (Wikimedia Commons, confirmada pela Wikidata). Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
+// [categoria ImageUrl]
+Foto ou camisa =
+    VAR url = SELECTEDVALUE ( dim_jogador[foto_url] )
+    VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
+    VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
+    VAR c1 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_primaria], dim_clube[id_clube], clube ), "#", "%23" )
+    VAR c2 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_secundaria], dim_clube[id_clube], clube ), "#", "%23" )
+    VAR espacos = LEN ( nome ) - LEN ( SUBSTITUTE ( nome, " ", "" ) )
+    VAR ultima =
+        IF ( espacos > 0, MID ( nome, FIND ( "|", SUBSTITUTE ( nome, " ", "|", espacos ) ) + 1, 1 ), "" )
+    VAR iniciais = UPPER ( LEFT ( nome, 1 ) & ultima )
+    RETURN
+        SWITCH (
+            TRUE (),
+            NOT ISBLANK ( url ), url,
+            ISBLANK ( nome ), BLANK (),
+            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>"
+                & "<path d='M30 22 L42 14 Q50 24 58 14 L70 22 L90 38 L78 54 L70 47 L70 110 L30 110 L30 47 L22 54 L10 38 Z' fill='"
+                & c1 & "' stroke='" & c2 & "' stroke-width='4' stroke-linejoin='round'/>"
+                & "<text x='50' y='80' font-family='Segoe UI, Arial, sans-serif' font-size='26' font-weight='700' fill='white' stroke='"
+                & c2 & "' stroke-width='1' text-anchor='middle'>" & iniciais & "</text></svg>"
+        )
+
+// [categoria ImageUrl]
+Foto do líder = IF ( NOT ISBLANK ( [Valor do líder] ), [Foto ou camisa] )
+
+Descrição do jogador =
+    VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
+    VAR selecao =
+        IF ( SELECTEDVALUE ( jogador_estatisticas[selecao_do_campeonato] ) = TRUE (), " · Seleção do campeonato", "" )
+    RETURN
+        IF (
+            NOT ISBLANK ( nome ),
+            nome & " · " & SELECTEDVALUE ( dim_jogador[clube] ) & " · " & SELECTEDVALUE ( dim_jogador[posicao] ) & selecao
+        )
+
+// Assistências como texto: fora do ranking parcial da Wikipédia aparece escrito, nunca como zero.
+Assistências (ficha) = IF ( ISBLANK ( [Assistências] ), "fora do ranking", FORMAT ( [Assistências], "0" ) )
+
+// --------------------------------------------------------------- 5. Disciplina
+
+// [formato #,0]
+Cartões = COUNTROWS ( fato_cartao )
+
+// [formato #,0]
+Cartões amarelos = CALCULATE ( COUNTROWS ( fato_cartao ), fato_cartao[cartao] = "Amarelo" )
+
+// [formato #,0]
+Cartões vermelhos = CALCULATE ( COUNTROWS ( fato_cartao ), fato_cartao[cartao] = "Vermelho" )
+
+// [formato 0.00]
+Cartões por jogo = DIVIDE ( COUNTROWS ( fato_cartao ), [Partidas] )
+
+// ---------------------------------------------------------------- 6. Auditoria
+
+// Precisa ser 0.
+// [formato #,0]
+Soma do saldo = SUM ( fato_participacao[saldo] )
+
+// Compara com os números de controle do projeto (SKILL.md, seção 3).
+Status da auditoria =
+    IF (
+        [Gols] = 929
+            && [Gols (conferência pelos eventos)] = 929
+            && [Partidas] = 380
+            && [Jogos do clube] = 760
+            && [Cartões] = 2096
+            && [Pontos] = 1039
+            && [Soma do saldo] = 0,
+        "OK: os números de controle conferem",
+        "DIVERGÊNCIA: confira relações e filtros"
+    )
+
+// -------------------------------------------------------- 7. Rótulos dinâmicos
+
+Rótulo gols = "Gols · " & FORMAT ( [Partidas], "#,0" ) & " jogos"
+
+Rótulo média de gols = "Média por jogo · " & FORMAT ( [Jogos 0 a 0], "0" ) & " jogos 0 a 0"
+
+Rótulo vitórias do mandante = "Vitórias do mandante · " & FORMAT ( [Vitórias do mandante], "0" ) & " jogos"
+
+Rótulo empates = "Empates · " & FORMAT ( [Empates], "0" ) & " jogos"
+
+Rótulo posição final =
+    VAR destino = SELECTEDVALUE ( classificacao_final[destino] )
+    RETURN
+        "Posição final" & IF ( NOT ISBLANK ( destino ), " · " & destino )
+
+// Pontos médios por clube no período filtrado (referência para o cartão de pontos).
+// [formato 0.0]
+Média de pontos da liga =
+    DIVIDE (
+        CALCULATE ( [Pontos], REMOVEFILTERS ( dim_clube ) ),
+        CALCULATE ( DISTINCTCOUNT ( fato_participacao[id_clube] ), REMOVEFILTERS ( dim_clube ) )
+    )
+
+// [formato 0.0%]
+Aproveitamento da liga = CALCULATE ( [Aproveitamento], REMOVEFILTERS ( dim_clube ) )
+
+Rótulo pontos = "Pontos · média da liga " & FORMAT ( [Média de pontos da liga], "0.0" )
+
+Rótulo aproveitamento = "Aproveitamento · liga " & FORMAT ( [Aproveitamento da liga], "0.0%" )
+
+Rótulo saldo = "Saldo · " & FORMAT ( [Gols pró], "0" ) & " pró, " & FORMAT ( [Gols contra], "0" ) & " contra"
+
+Rótulo pênaltis = "Gols de pênalti · " & FORMAT ( DIVIDE ( [Gols de pênalti], [Gols] ), "0.0%" ) & " dos gols"
+
+Rótulo gols contra = "Gols contra · " & FORMAT ( DIVIDE ( [Gols contra (jogador)], [Gols] ), "0.0%" ) & " dos gols"
+
+Rótulo cartões por jogo = "Cartões por jogo · " & FORMAT ( [Cartões amarelos], "#,0" ) & " amarelos"
+
+Rótulo vermelhos = "Cartões vermelhos · " & FORMAT ( DIVIDE ( [Cartões vermelhos], [Partidas] ), "0.00" ) & " por jogo"
+
+
+// -------------------------------------------------------- Colunas calculadas (só rótulos e ordenação)
+
+// Rótulo único do jogador (nome · sigla do clube), para eixos e drill-through.
+dim_jogador[jogador] = dim_jogador[nome_exibicao] & " · " & dim_jogador[id_clube]
+
+// Rótulo do jogo com o placar (ex.: INT 2 x 1 BAH).
+fato_partida[confronto] = fato_partida[id_mandante] & " " & fato_partida[gols_mandante] & " x " & fato_partida[gols_visitante] & " " & fato_partida[id_visitante]
+
+// Nome do adversário (rótulo).
+fato_participacao[adversario] = LOOKUPVALUE ( dim_clube[nome], dim_clube[id_clube], fato_participacao[id_adversario] )
+
+// Placar do ponto de vista do clube (rótulo).
+fato_participacao[placar] = fato_participacao[gols_pro] & " x " & fato_participacao[gols_contra]
+
+// Jogo em que o gol saiu, com o placar final (rótulo).
+fato_gol[jogo] = LOOKUPVALUE ( fato_partida[confronto], fato_partida[id_partida], fato_gol[id_partida] )
+
+
+// ---------------------------------------------------------------- Tabelas calculadas
+
+// Tabela desconectada da segmentação Ranking (página Jogadores).
+Ranking =
+    DATATABLE (
+        "Métrica", STRING,
+        "Ordem", INTEGER,
+        {
+            { "Gols", 1 },
+            { "Assistências", 2 },
+            { "Jogos sem sofrer gol", 3 },
+            { "Gols de pênalti", 4 },
+            { "Cartões amarelos", 5 },
+            { "Cartões vermelhos", 6 }
+        }
+    )
+
+// Calendário de 2024, ligado a fato_partida[data_partida].
+dim_calendario =
+    VAR base = CALENDAR ( DATE ( 2024, 4, 1 ), DATE ( 2024, 12, 31 ) )
+    RETURN
+        ADDCOLUMNS (
+            SELECTCOLUMNS ( base, "Data", [Date] ),
+            "Ano", YEAR ( [Data] ),
+            "Mês", MONTH ( [Data] ),
+            "Nome do mês", FORMAT ( [Data], "mmmm", "pt-BR" ),
+            "Dia da semana", FORMAT ( [Data], "dddd", "pt-BR" ),
+            "Nº dia da semana", WEEKDAY ( [Data], 2 )
+        )

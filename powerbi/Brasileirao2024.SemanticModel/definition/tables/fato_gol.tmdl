@@ -1,0 +1,151 @@
+/// Grão: gol (929). Faixas de 15 minutos; acréscimos ficam na faixa do fim do tempo.
+table fato_gol
+	lineageTag: 92a4007a-c7d3-5969-af72-754b1c5a82b9
+
+	column id_gol
+		dataType: int64
+		formatString: 0
+		lineageTag: 27507c69-ca2e-5d01-bbd4-c3976887bef8
+		summarizeBy: none
+		sourceColumn: id_gol
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_partida
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c9bd0b6-9698-51fa-b847-4569a239efb8
+		summarizeBy: none
+		sourceColumn: id_partida
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodada
+		dataType: int64
+		formatString: 0
+		lineageTag: 98935f97-0362-5e2e-947e-b9cc2e1d318d
+		summarizeBy: none
+		sourceColumn: rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_partida
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: c2df5ec4-326b-59ee-9e56-339de679b71b
+		summarizeBy: none
+		sourceColumn: data_partida
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_jogador
+		dataType: string
+		lineageTag: 859ca85e-f340-59d0-8a90-c83582747672
+		summarizeBy: none
+		sourceColumn: id_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_clube_jogador
+		dataType: string
+		lineageTag: 7a6b3dd9-a51d-5341-9394-28f409d66fee
+		summarizeBy: none
+		sourceColumn: id_clube_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Clube que ganhou o gol (difere do clube do jogador no gol contra).
+	column id_clube_beneficiado
+		dataType: string
+		lineageTag: a8be1bbf-0db3-5397-b05f-8c0f7960624f
+		summarizeBy: none
+		sourceColumn: id_clube_beneficiado
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Mando do clube beneficiado.
+	column mando
+		dataType: string
+		lineageTag: 888d78a1-2115-584f-9f56-756a458dac1e
+		summarizeBy: none
+		sourceColumn: mando
+
+		annotation SummarizationSetBy = Automatic
+
+	column minuto
+		dataType: int64
+		formatString: 0
+		lineageTag: d78def4a-92d3-597e-8bd8-37fb69eaf8fa
+		summarizeBy: none
+		sourceColumn: minuto
+
+		annotation SummarizationSetBy = Automatic
+
+	column acrescimo
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a7a7178-f7d0-5e27-b530-8563ec07a733
+		summarizeBy: none
+		sourceColumn: acrescimo
+
+		annotation SummarizationSetBy = Automatic
+
+	column periodo
+		dataType: string
+		lineageTag: b6bd4020-6f0a-5a2b-94d0-c9bb87417cf3
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Normal, Pênalti ou Contra.
+	column tipo
+		dataType: string
+		lineageTag: e0bfa0e2-5d22-5e84-b70a-df15bcc85daf
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column minuto_texto
+		dataType: string
+		lineageTag: 6b11ec49-4b93-5d38-b24b-b87f5f6321a3
+		summarizeBy: none
+		sourceColumn: minuto_texto
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_minuto
+		dataType: string
+		lineageTag: b3f58c30-72e8-58d0-889b-2f54743e4cc6
+		summarizeBy: none
+		sourceColumn: faixa_minuto
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Jogo em que o gol saiu, com o placar final (rótulo).
+	column jogo = LOOKUPVALUE ( fato_partida[confronto], fato_partida[id_partida], fato_gol[id_partida] )
+		dataType: string
+		lineageTag: 29b895ab-681f-53d7-9fec-32b089fe7a61
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_gol = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\fato_gol.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_gol", "id_partida", "rodada", "data_partida", "id_jogador", "id_clube_jogador", "id_clube_beneficiado", "mando", "minuto", "acrescimo", "periodo", "tipo", "minuto_texto", "faixa_minuto"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(VaziosComoNulos, {{"id_gol", Int64.Type}, {"id_partida", Int64.Type}, {"rodada", Int64.Type}, {"data_partida", type date}, {"id_jogador", type text}, {"id_clube_jogador", type text}, {"id_clube_beneficiado", type text}, {"mando", type text}, {"minuto", Int64.Type}, {"acrescimo", Int64.Type}, {"periodo", type text}, {"tipo", type text}, {"minuto_texto", type text}, {"faixa_minuto", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

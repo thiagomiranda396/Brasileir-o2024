@@ -1,7 +1,8 @@
 # Criação do banco e dos papéis: guia de execução
 
-**Status: NÃO EXECUTADO.** Este guia descreve como executar
-[`sql/00_criar_banco_e_papel.sql`](../../sql/00_criar_banco_e_papel.sql) depois da sua aprovação.
+**Status: testado** num PostgreSQL limpo (em 2026-10-29 e no CI, `.github/workflows/testes.yml`).
+Este guia descreve como executar [`sql/00_criar_banco_e_papel.sql`](../../sql/00_criar_banco_e_papel.sql)
+no seu servidor local. Depois dele, rode `sql/executar_tudo.sql` (ver o README principal).
 
 O que será criado: o papel `bi_brasileirao` (dono do banco do projeto), o papel
 `bi_brasileirao_leitura` (somente leitura, para o Power BI) e o banco `brasileirao2024`.

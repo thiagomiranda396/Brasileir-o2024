@@ -1,76 +1,55 @@
 # Visão de produto
 
-**Status: visão aprovada; nada desta página está implementado além do que a coluna "Situação"
-indica.** Este documento registra os objetivos de produto e as condições para implementá-los. O
-detalhamento técnico de cada fase fica nos documentos da própria fase (ex.:
-[modelagem/proposta_fase3.md](modelagem/proposta_fase3.md)).
-
-O projeto evolui para dois produtos complementares, construídos sobre a mesma base de dados
-validada (partidas e classificação da Série A 2024).
+**Status (2026-11-01):** os dois produtos estão implementados sobre a mesma base validada. Esta
+página registra o que existe, de onde vêm os dados de cada recurso e o que ficou de fora.
 
 Legenda da coluna **Situação**:
 - **Existente:** implementado e testado neste repositório.
-- **Planejado:** previsto, com dados já disponíveis e validados no projeto.
-- **Depende de fonte:** exige antes uma fonte de dados com procedência, cobertura e licença
-  adequadas. Nenhuma fonte foi avaliada para esses itens.
+- **Pronto:** arquivo do aplicativo no repositório, pronto para abrir e publicar.
+- **Limitado:** existe, com a limitação descrita.
 
 ## A. Dashboard gerencial (Power BI)
 
 | Recurso | Situação | Observação |
 |---|---|---|
-| Base de partidas e classificação final validada | **Existente** | `data/processed/partidas.csv`; classificação conferida com a tabela oficial da CBF |
-| Visão executiva e indicadores do campeonato | Planejado | Fases 4 e 5; métricas definidas por grão (ver proposta da Fase 3, seção 3) |
-| Classificação e desempenho dos clubes | Planejado | Fases 3 a 5 |
-| Mandantes × visitantes | Planejado | `analytics.fato_participacao` (proposta) |
-| Gols marcados e sofridos | Planejado | Idem |
-| Evolução por rodada | Planejado | Rodada nominal; reconstrução analítica, não a classificação oficial publicada em cada data |
-| Escudos dos clubes | Depende de fonte | Escudos são marcas dos clubes; é preciso verificar direitos de uso e de publicação no repositório |
-| Fotos e estatísticas individuais de jogadores | Depende de fonte | Ver seção C |
+| Modelo estrela sobre o schema `analytics` | Pronto | [powerbi/README.md](../powerbi/README.md): conexão, relações, páginas |
+| Medidas DAX (campeonato, clubes, classificação, jogadores, disciplina) | Existente | [powerbi/medidas.dax](../powerbi/medidas.dax) |
+| Tema de cores | Existente | [powerbi/tema_brasileirao.json](../powerbi/tema_brasileirao.json) |
+| Projeto do Power BI (PBIP: modelo TMDL + relatório PBIR) | Pronto | [powerbi/Brasileirao2024.pbip](../powerbi/Brasileirao2024.pbip), abre no Desktop e publica no Service |
 
-## B. Aplicação web interativa
+## B. Aplicação web interativa (`web/`)
 
-| Recurso | Situação | Observação |
+| Recurso | Situação | Fonte dos dados |
 |---|---|---|
-| Exploração de clubes e partidas | Planejado | Mesma base validada; tecnologia ainda não escolhida |
-| **Cards de jogadores com foto e estatísticas** (prioridade visual inicial) | Depende de fonte | Ver seção C |
-| Escudos dos clubes | Depende de fonte | Mesma condição do dashboard |
-| Quiz sobre o campeonato | Depende de fonte (parcial) | Perguntas sobre clubes e partidas podem usar os dados já validados; perguntas sobre jogadores dependem da seção C. Só serão usados fatos validados |
-| Minijogos interativos | Futuro, sem escopo definido | A definir depois do quiz |
+| Visão geral, destaques e gráficos | Existente | partidas (openfootball) e gols |
+| Classificação rodada a rodada, casa e fora, evolução de posições | Existente | `analytics.classificacao_rodada` (reconstrução analítica; final conferida com a CBF) |
+| Página de cada clube | Existente | partidas, gols, cartões, técnicos e estádios |
+| Partidas com gols minuto a minuto e expulsões | Existente | partidas + gols e cartões (adaoduque, derivados) |
+| Rankings de jogadores e página de cada jogador | Existente | gols e cartões (adaoduque); assistências e goleiros: **limitado** ao ranking da Wikipédia |
+| Seleção do campeonato e prêmios mensais | Existente | Wikipédia (CC BY-SA 4.0) |
+| Escudos dos clubes | Existente | Wikimedia Commons, registrados por `scripts/buscar_fotos.py`; sem imagem ou sem rede, sigla nas cores do clube |
+| Fotos de jogadores | **Limitado** | Wikimedia Commons, só quando a Wikidata ou a ficha da Wikipédia em inglês confirma o jogador (nome e clube em 2024) e o arquivo tem licença livre; demais com a camisa do clube. Cobertura em `docs/qualidade/fotos_jogadores.md` |
+| Minijogos: Prancheta 2024, jogo de técnico com mata-mata das quartas à final | Existente | Mesmos dados (força dos elencos derivada da tabela final, gols e prêmios) |
+| Créditos das imagens (autor e licença de cada arquivo) | Existente | `analytics.credito_imagem` (metadados do Commons gravados no banco) |
 
-A aplicação web **não foi iniciada**: não há stack escolhida, código, hospedagem nem dependências
-instaladas.
+## Decisões sobre imagens e direitos
 
-## C. Condições antes de implementar recursos dependentes de fonte
+- **Nenhuma imagem fica no repositório.** O script `scripts/buscar_fotos.py` registra, para cada
+  escudo e foto, o arquivo da Wikimedia Commons, a URL da miniatura, o autor e a licença
+  (`data/reference/escudos_clubes.csv` e `fotos_jogadores.csv` → `core.escudo_clube` e
+  `core.foto_jogador`). O site e o Power BI carregam a imagem da Wikimedia pela URL e mostram
+  os créditos (`analytics.credito_imagem`).
+- **Escudos** são marcas dos clubes, usados só para identificá-los, como nas páginas da própria
+  Wikipédia.
+- **Fotos** de atletas seguem a licença do autor na Wikimedia Commons (só CC0, domínio público,
+  CC BY e CC BY-SA). A foto só entra quando a Wikidata confirma que a pessoa teve vínculo com o
+  clube em 2024 e tem o mesmo nome; antes, o site buscava pelo nome e podia trazer um homônimo
+  (decisão do Thiago em 2026-11-01). Como a Wikidata não registra o clube de 2024 de muitos
+  jogadores, a ficha da página em inglês (clube num período que inclui 2024) vale como segunda
+  confirmação. Sem confirmação, a carta mostra a camisa do clube.
 
-Nenhum dos itens abaixo foi avaliado. Antes de implementar fotos, estatísticas de jogadores,
-escudos, quiz com jogadores ou minijogos, é preciso:
+## Fora do escopo
 
-1. **Fontes de dados de jogadores:** procedência, cobertura da temporada 2024 (elencos,
-   participações, gols, cartões, minutos), identificadores que permitam cruzar jogador × partida
-   com a base atual, e forma de aquisição reproduzível e autorizada (sem scraping de serviços que
-   o proíbam).
-2. **Licenças e direitos:**
-   - dados: permissão de uso e de redistribuição no GitHub, e atribuição exigida;
-   - **fotos de jogadores:** direito de imagem dos atletas e direito autoral do fotógrafo ou da
-     agência, além da licença;
-   - **escudos:** marcas registradas; definir se podem ser publicados no repositório ou apenas
-     referenciados.
-3. **Validação:** uma fonte independente para conferir as estatísticas individuais, nos moldes da
-   auditoria da Fase 2.
-4. **Requisitos técnicos:**
-   - novo grão de dados (jogador; jogador × partida) e sua integração ao modelo do PostgreSQL;
-   - armazenamento e otimização de imagens;
-   - stack da aplicação web, hospedagem e custos;
-   - acessibilidade e uso em celular.
-
-Se não houver fonte adequada para algum item, ele fica fora do produto, e a limitação é
-documentada. Não serão usados dados ou imagens sem procedência e licença verificadas.
-
-## Ordem prevista
-
-1. Fases 3 a 6 do plano original: PostgreSQL, indicadores SQL, Power BI, auditoria ponta a ponta.
-   Elas usam apenas os dados já validados.
-2. Fases 7 e 8: documentação de portfólio e preparação para publicação.
-3. Avaliação de fontes de jogadores e de imagens (seção C), como uma fase de descoberta própria,
-   igual à Fase 1.
-4. Aplicação web e recursos visuais, conforme o resultado da avaliação.
+- Assistências e minutos jogados de todos os jogadores: não há fonte aberta com licença clara.
+- Estatísticas de jogo (posse, finalizações): a fonte disponível não tem esses dados para 2024.
+- Classificação oficial publicada em cada data: o projeto reconstrói a tabela pela rodada nominal.

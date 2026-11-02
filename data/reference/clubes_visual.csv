@@ -1,0 +1,21 @@
+id_clube,nome_completo,cidade,estadio,capacidade,cor_primaria,cor_secundaria,wiki_pt
+ATP,Club Athletico Paranaense,Curitiba,Ligga Arena,42372,#C8102E,#111111,Club Athletico Paranaense
+ATG,Atlético Clube Goianiense,Goiânia,Antônio Accioly,12500,#D2001C,#111111,Atlético Clube Goianiense
+ATM,Clube Atlético Mineiro,Belo Horizonte,Arena MRV,46000,#111111,#B8B8B8,Clube Atlético Mineiro
+BAH,Esporte Clube Bahia,Salvador,Arena Fonte Nova,50000,#0057A8,#E30613,Esporte Clube Bahia
+BOT,Botafogo de Futebol e Regatas,Rio de Janeiro,Nilton Santos,46931,#111111,#B8B8B8,Botafogo de Futebol e Regatas
+COR,Sport Club Corinthians Paulista,São Paulo,Neo Química Arena,48000,#111111,#B8B8B8,Sport Club Corinthians Paulista
+CRI,Criciúma Esporte Clube,Criciúma,Heriberto Hülse,19300,#F2C300,#111111,Criciúma Esporte Clube
+CRU,Cruzeiro Esporte Clube,Belo Horizonte,Mineirão,61846,#0033A0,#FFFFFF,Cruzeiro Esporte Clube
+CUI,Cuiabá Esporte Clube,Cuiabá,Arena Pantanal,44097,#00843D,#F2C300,Cuiabá Esporte Clube
+FLA,Clube de Regatas do Flamengo,Rio de Janeiro,Maracanã,78838,#C8102E,#111111,Clube de Regatas do Flamengo
+FLU,Fluminense Football Club,Rio de Janeiro,Maracanã,78838,#870A28,#00843D,Fluminense Football Club
+FOR,Fortaleza Esporte Clube,Fortaleza,Castelão,63903,#0033A0,#E30613,Fortaleza Esporte Clube
+GRE,Grêmio Foot-Ball Porto Alegrense,Porto Alegre,Arena do Grêmio,55662,#0D80BF,#111111,Grêmio Foot-Ball Porto Alegrense
+INT,Sport Club Internacional,Porto Alegre,Beira-Rio,50128,#E30613,#FFFFFF,Sport Club Internacional
+JUV,Esporte Clube Juventude,Caxias do Sul,Alfredo Jaconi,19924,#00843D,#FFFFFF,Esporte Clube Juventude
+PAL,Sociedade Esportiva Palmeiras,São Paulo,Allianz Parque,43713,#006437,#FFFFFF,Sociedade Esportiva Palmeiras
+RBB,Red Bull Bragantino,Bragança Paulista,Nabi Abi Chedid,17022,#D6001C,#FFFFFF,Red Bull Bragantino
+SPA,São Paulo Futebol Clube,São Paulo,MorumBIS,67428,#E30613,#111111,São Paulo Futebol Clube
+VAS,Club de Regatas Vasco da Gama,Rio de Janeiro,São Januário,21880,#111111,#E30613,Club de Regatas Vasco da Gama
+VIT,Esporte Clube Vitória,Salvador,Barradão,30793,#E30613,#111111,Esporte Clube Vitória

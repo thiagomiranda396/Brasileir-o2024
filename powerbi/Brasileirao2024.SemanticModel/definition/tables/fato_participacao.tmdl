@@ -1,0 +1,161 @@
+/// Grão: clube × partida (760). Base das métricas por clube. Não some gols aqui para o campeonato (dá 1.858).
+table fato_participacao
+	lineageTag: 087ac2dd-c9b3-5d83-b2e3-b13d001e612e
+
+	column id_partida
+		dataType: int64
+		formatString: 0
+		lineageTag: c87f80ca-6fd1-5f4d-b6c6-fae472aa98e5
+		summarizeBy: none
+		sourceColumn: id_partida
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodada
+		dataType: int64
+		formatString: 0
+		lineageTag: 126500a1-553e-5f4a-be65-7f9189732073
+		summarizeBy: none
+		sourceColumn: rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_partida
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 183d6fb1-f6a2-5db3-8065-7f04928a44ad
+		summarizeBy: none
+		sourceColumn: data_partida
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_clube
+		dataType: string
+		lineageTag: 7206b668-ff86-5e84-901d-a94459013aee
+		summarizeBy: none
+		sourceColumn: id_clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_adversario
+		dataType: string
+		lineageTag: 620115b8-1ed8-59cf-bd30-6706f8b06d73
+		summarizeBy: none
+		sourceColumn: id_adversario
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Casa ou Fora.
+	column mando
+		dataType: string
+		lineageTag: 39f1ded4-6a5f-50a1-892a-0b189a8d5d56
+		summarizeBy: none
+		sourceColumn: mando
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_pro
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e35147b-21e8-5348-a0a6-feb485e373e2
+		summarizeBy: none
+		sourceColumn: gols_pro
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_contra
+		dataType: int64
+		formatString: 0
+		lineageTag: 5d228428-e10b-5469-b101-1843286190e2
+		summarizeBy: none
+		sourceColumn: gols_contra
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo
+		dataType: int64
+		formatString: 0
+		lineageTag: c296468b-13a3-5f11-b0ad-3471d5cea4a9
+		summarizeBy: none
+		sourceColumn: saldo
+
+		annotation SummarizationSetBy = Automatic
+
+	/// V, E ou D, do ponto de vista do clube.
+	column resultado
+		dataType: string
+		lineageTag: 212e8b60-0af8-570e-9df0-5749f3e168d6
+		summarizeBy: none
+		sourceColumn: resultado
+
+		annotation SummarizationSetBy = Automatic
+
+	column pontos
+		dataType: int64
+		formatString: 0
+		lineageTag: a4a1db42-37ac-57e7-bd84-64b2986476e7
+		summarizeBy: none
+		sourceColumn: pontos
+
+		annotation SummarizationSetBy = Automatic
+
+	column sem_sofrer_gols
+		dataType: boolean
+		lineageTag: 9fc477e9-fc7f-5705-a059-8840c79a06f5
+		summarizeBy: none
+		sourceColumn: sem_sofrer_gols
+
+		annotation SummarizationSetBy = Automatic
+
+	column tecnico
+		dataType: string
+		lineageTag: f9cf203a-78ad-5704-ba14-4b43a7c930e6
+		summarizeBy: none
+		sourceColumn: tecnico
+
+		annotation SummarizationSetBy = Automatic
+
+	column formacao
+		dataType: string
+		lineageTag: 9adc6621-3bc3-53a5-bf3f-7c1fd84c2f35
+		summarizeBy: none
+		sourceColumn: formacao
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Nome do adversário (rótulo).
+	column adversario = LOOKUPVALUE ( dim_clube[nome], dim_clube[id_clube], fato_participacao[id_adversario] )
+		dataType: string
+		lineageTag: 99e4393b-212c-5ec8-8c7b-549604c0312b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Placar do ponto de vista do clube (rótulo).
+	column placar = fato_participacao[gols_pro] & " x " & fato_participacao[gols_contra]
+		dataType: string
+		lineageTag: f1393c1f-ae54-50f3-9933-49bda5858df9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_participacao = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\fato_participacao.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_partida", "rodada", "data_partida", "id_clube", "id_adversario", "mando", "gols_pro", "gols_contra", "saldo", "resultado", "pontos", "sem_sofrer_gols", "tecnico", "formacao"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // O PostgreSQL exporta booleanos como t/f.
+				    Logicos = Table.TransformColumns(VaziosComoNulos, {{"sem_sofrer_gols", each if _ = null then null else _ = "t", type logical}}),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(Logicos, {{"id_partida", Int64.Type}, {"rodada", Int64.Type}, {"data_partida", type date}, {"id_clube", type text}, {"id_adversario", type text}, {"mando", type text}, {"gols_pro", Int64.Type}, {"gols_contra", Int64.Type}, {"saldo", Int64.Type}, {"resultado", type text}, {"pontos", Int64.Type}, {"tecnico", type text}, {"formacao", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

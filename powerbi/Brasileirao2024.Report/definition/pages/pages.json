@@ -1,0 +1,17 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.1.0/schema.json",
+  "pageOrder": [
+    "VisaoGeral",
+    "Classificacao",
+    "Clube",
+    "JogosClube",
+    "Jogadores",
+    "GolsDisciplina",
+    "Sobre",
+    "FichaJogador",
+    "DicaClube",
+    "DicaJogador",
+    "Auditoria"
+  ],
+  "activePageName": "Sobre"
+}

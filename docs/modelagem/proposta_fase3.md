@@ -1,7 +1,11 @@
 # Proposta: Fase 3 (modelagem e PostgreSQL)
 
-**Status: PROPOSTA, revisão 3 (2026-10-19).** Nenhum banco, papel, schema ou tabela foi criado.
-Os trechos SQL deste documento são rascunhos para revisão e **não foram executados**.
+**Status: IMPLEMENTADA (2026-10-29).** Esta proposta (revisão 3, 2026-10-19) foi implementada nos
+scripts `sql/01` a `sql/05`, ampliada com os dados de jogadores. A descrição do que existe está em
+[modelo_dados.md](modelo_dados.md). Diferenças em relação à proposta: a remoção de linhas que saíram
+da fonte é um `DELETE` restrito a elas (compatível com PostgreSQL 15+, em vez de
+`WHEN NOT MATCHED BY SOURCE`), e `core.carga_execucao` registra uma linha por tabela por carga.
+Os trechos SQL abaixo são o registro histórico da proposta.
 
 Decisões já aprovadas, incorporadas aqui:
 - evolução por **rodada nominal** como perspectiva principal, preservando a data real da partida;

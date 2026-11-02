@@ -1,0 +1,165 @@
+/// Grão: clube × rodada (760). Reconstrução analítica pela rodada nominal; só a final foi conferida com a CBF.
+table classificacao_rodada
+	lineageTag: 265282de-c4df-5511-9bef-9d3edd73e19f
+
+	column rodada
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f846337-826b-50ac-9b94-3cf45eced814
+		summarizeBy: none
+		sourceColumn: rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_clube
+		dataType: string
+		lineageTag: 42845568-e18f-5a74-8de0-c37b259e07b7
+		summarizeBy: none
+		sourceColumn: id_clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column clube
+		dataType: string
+		lineageTag: 1e27f837-def3-5cf7-b1b8-2cf9002b5718
+		summarizeBy: none
+		sourceColumn: clube
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Posição com empate compartilhado (RANK).
+	column posicao
+		dataType: int64
+		formatString: 0
+		lineageTag: 27ad64db-d8e3-526a-b783-367cb2e712e7
+		summarizeBy: none
+		sourceColumn: posicao
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Ordem de exibição (desempate alfabético só para mostrar).
+	column ordem_exibicao
+		dataType: int64
+		formatString: 0
+		lineageTag: 87e718e4-7cb3-5e59-bcb8-846e7e9df47c
+		summarizeBy: none
+		sourceColumn: ordem_exibicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column jogos
+		dataType: int64
+		formatString: 0
+		lineageTag: fefc4e3f-eb9a-5e39-9495-0cf80564b349
+		summarizeBy: none
+		sourceColumn: jogos
+
+		annotation SummarizationSetBy = Automatic
+
+	column pontos
+		dataType: int64
+		formatString: 0
+		lineageTag: b841a738-24ef-578c-a8b8-8a2a533349e6
+		summarizeBy: none
+		sourceColumn: pontos
+
+		annotation SummarizationSetBy = Automatic
+
+	column vitorias
+		dataType: int64
+		formatString: 0
+		lineageTag: a3deeed3-6f71-5b07-844a-5616f7606b71
+		summarizeBy: none
+		sourceColumn: vitorias
+
+		annotation SummarizationSetBy = Automatic
+
+	column empates
+		dataType: int64
+		formatString: 0
+		lineageTag: 8ba4f111-acf9-5b3e-a8a8-dc4e244e6016
+		summarizeBy: none
+		sourceColumn: empates
+
+		annotation SummarizationSetBy = Automatic
+
+	column derrotas
+		dataType: int64
+		formatString: 0
+		lineageTag: d94ff3fc-1ff5-55f5-ad81-d0e4924ca413
+		summarizeBy: none
+		sourceColumn: derrotas
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_pro
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b7e8fd4-d864-5658-aa0e-a09a4b93920b
+		summarizeBy: none
+		sourceColumn: gols_pro
+
+		annotation SummarizationSetBy = Automatic
+
+	column gols_contra
+		dataType: int64
+		formatString: 0
+		lineageTag: 76be3438-690f-5929-baf1-e7f4f470ef51
+		summarizeBy: none
+		sourceColumn: gols_contra
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo
+		dataType: int64
+		formatString: 0
+		lineageTag: 09dab86b-adf2-5731-a4ce-936dff1e170d
+		summarizeBy: none
+		sourceColumn: saldo
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Da view: round(100 × P / (3 × J), 1).
+	column aproveitamento
+		dataType: double
+		formatString: 0.0
+		lineageTag: 7e1c0b32-d374-5abb-a04f-108a33083076
+		summarizeBy: none
+		sourceColumn: aproveitamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column empate_nao_resolvido
+		dataType: boolean
+		lineageTag: 5e376b9c-387b-59bc-b500-74303f236a57
+		summarizeBy: none
+		sourceColumn: empate_nao_resolvido
+
+		annotation SummarizationSetBy = Automatic
+
+	column decidido_por_confronto
+		dataType: boolean
+		lineageTag: 0250d5c2-52d3-5bce-bd1c-4618b5be3482
+		summarizeBy: none
+		sourceColumn: decidido_por_confronto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition classificacao_rodada = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\classificacao_rodada.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"rodada", "id_clube", "clube", "posicao", "ordem_exibicao", "jogos", "pontos", "vitorias", "empates", "derrotas", "gols_pro", "gols_contra", "saldo", "aproveitamento", "empate_nao_resolvido", "decidido_por_confronto"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // O PostgreSQL exporta booleanos como t/f.
+				    Logicos = Table.TransformColumns(VaziosComoNulos, {{"empate_nao_resolvido", each if _ = null then null else _ = "t", type logical}, {"decidido_por_confronto", each if _ = null then null else _ = "t", type logical}}),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(Logicos, {{"rodada", Int64.Type}, {"id_clube", type text}, {"clube", type text}, {"posicao", Int64.Type}, {"ordem_exibicao", Int64.Type}, {"jogos", Int64.Type}, {"pontos", Int64.Type}, {"vitorias", Int64.Type}, {"empates", Int64.Type}, {"derrotas", Int64.Type}, {"gols_pro", Int64.Type}, {"gols_contra", Int64.Type}, {"saldo", Int64.Type}, {"aproveitamento", type number}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

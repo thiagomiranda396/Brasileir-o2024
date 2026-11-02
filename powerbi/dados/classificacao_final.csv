@@ -1,0 +1,21 @@
+posicao,ordem_exibicao,id_clube,clube,jogos,pontos,vitorias,empates,derrotas,gols_pro,gols_contra,saldo,aproveitamento,empate_nao_resolvido,destino
+1,1,BOT,Botafogo,38,79,23,10,5,59,29,30,69.3,f,Campeão
+2,2,PAL,Palmeiras,38,73,22,7,9,60,33,27,64.0,f,Libertadores (fase de grupos)
+3,3,FLA,Flamengo,38,70,20,10,8,61,42,19,61.4,f,Libertadores (fase de grupos)
+4,4,FOR,Fortaleza,38,68,19,11,8,53,39,14,59.6,f,Libertadores (fase de grupos)
+5,5,INT,Internacional,38,65,18,11,9,53,36,17,57.0,f,Libertadores (fase de grupos)
+6,6,SPA,São Paulo,38,59,17,8,13,53,43,10,51.8,f,Libertadores (fase de grupos)
+7,7,COR,Corinthians,38,56,15,11,12,54,45,9,49.1,f,Libertadores (2ª fase)
+8,8,BAH,Bahia,38,53,15,8,15,49,49,0,46.5,f,Libertadores (2ª fase)
+9,9,CRU,Cruzeiro,38,52,14,10,14,43,41,2,45.6,f,Sul-Americana
+10,10,VAS,Vasco da Gama,38,50,14,8,16,43,56,-13,43.9,f,Sul-Americana
+11,11,VIT,Vitória,38,47,13,8,17,45,52,-7,41.2,f,Sul-Americana
+12,12,ATM,Atlético Mineiro,38,47,11,14,13,47,54,-7,41.2,f,Sul-Americana
+13,13,FLU,Fluminense,38,46,12,10,16,33,39,-6,40.4,f,Sul-Americana
+14,14,GRE,Grêmio,38,45,12,9,17,44,50,-6,39.5,f,Sul-Americana
+15,15,JUV,Juventude,38,45,11,12,15,48,59,-11,39.5,f,Sem vaga
+16,16,RBB,Red Bull Bragantino,38,44,10,14,14,44,48,-4,38.6,f,Sem vaga
+17,17,ATP,Athletico Paranaense,38,42,11,9,18,40,46,-6,36.8,f,Rebaixado
+18,18,CRI,Criciúma,38,38,9,11,18,42,61,-19,33.3,f,Rebaixado
+19,19,ATG,Atlético Goianiense,38,30,7,9,22,29,58,-29,26.3,f,Rebaixado
+20,20,CUI,Cuiabá,38,30,6,12,20,29,49,-20,26.3,f,Rebaixado

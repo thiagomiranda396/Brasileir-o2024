@@ -1,0 +1,32 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["PastaProjeto","Medidas","dim_clube","dim_jogador","dim_rodada","fato_partida","fato_participacao","fato_gol","fato_cartao","classificacao_rodada","classificacao_final","jogador_estatisticas","credito_imagem"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Medidas
+ref table dim_clube
+ref table dim_jogador
+ref table dim_rodada
+ref table dim_calendario
+ref table fato_partida
+ref table fato_participacao
+ref table fato_gol
+ref table fato_cartao
+ref table classificacao_rodada
+ref table classificacao_final
+ref table jogador_estatisticas
+ref table Ranking
+ref table credito_imagem
+
+ref cultureInfo pt-BR
+

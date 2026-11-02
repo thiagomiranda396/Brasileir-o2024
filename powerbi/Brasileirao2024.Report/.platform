@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Brasileirao2024"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "3158ab3d-b330-413e-a4c7-1fec72deaf64"
+  }
+}

@@ -1,0 +1,381 @@
+id_partida,rodada,data_partida,hora_inicio,hora_explicita,id_mandante,id_visitante,gols_mandante,gols_visitante,gols_mandante_1t,gols_visitante_1t,total_gols,resultado,resultado_descricao,estadio,tecnico_mandante,tecnico_visitante,formacao_mandante,formacao_visitante
+1,1,2024-04-13,18:30:00,t,INT,BAH,2,1,0,0,3,M,Vitória do mandante,Estádio Beira-Rio,E. Coudet,R. Ceni,4-4-2,4-4-2
+2,1,2024-04-13,18:30:00,f,CRI,JUV,1,1,1,0,2,E,Empate,Estádio Heriberto Hülse,C. Tencati,R. Machado Marques,4-3-1-2,4-4-2
+3,1,2024-04-13,21:00:00,t,FLU,RBB,2,2,1,0,4,E,Empate,Maracanã,F. Diniz Silva,P. Faria Caixinha,4-2-3-1,4-3-3
+4,1,2024-04-13,21:00:00,f,SPA,FOR,1,2,0,0,3,V,Vitória do visitante,MorumBIS,T. Carpini Barbosa,J. Vojvoda,3-4-1-2,3-5-2
+5,1,2024-04-14,16:00:00,t,VAS,GRE,2,1,2,0,3,M,Vitória do mandante,Estádio São Januário,R. Díaz,Renato Gaúcho,4-3-3,4-2-3-1
+6,1,2024-04-14,16:00:00,f,COR,ATM,0,0,,,0,E,Empate,Neo Química Arena,A. Cardoso de Oliveira,G. Milito,4-2-3-1,3-4-1-2
+7,1,2024-04-14,16:00:00,f,ATP,CUI,4,0,3,0,4,M,Vitória do mandante,Ligga Arena,A. Stival,L. Iubel,4-1-2-1-2,5-4-1
+8,1,2024-04-14,16:00:00,f,ATG,FLA,1,2,0,1,3,V,Vitória do visitante,Estádio Serra Dourada,J. Ribeiro Ventura,A. Bacchi,4-1-3-2,4-2-3-1
+9,1,2024-04-14,17:00:00,t,CRU,BOT,3,2,1,1,5,M,Vitória do mandante,Mineirão,F. Seabra,A. Torres Gomes Araújo Amorim,4-3-3,4-4-2
+10,1,2024-04-14,18:30:00,t,VIT,PAL,0,1,0,1,1,V,Vitória do visitante,Barradão,L. Condé,A. Moreira Ferreira,4-3-3,4-2-3-1
+11,2,2024-04-16,21:30:00,t,BAH,FLU,2,1,1,1,3,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,F. Diniz Silva,4-2-3-1,4-2-3-1
+12,2,2024-04-17,19:00:00,t,RBB,VAS,2,1,1,0,3,M,Vitória do mandante,Nabizão,P. Faria Caixinha,R. Díaz,4-3-3,4-3-3
+13,2,2024-04-17,19:00:00,f,GRE,ATP,2,0,1,0,2,M,Vitória do mandante,Arena do Grêmio,Renato Gaúcho,A. Stival,4-3-3,4-2-3-1
+14,2,2024-04-17,20:00:00,t,ATM,CRI,1,1,1,0,2,E,Empate,Arena MRV,G. Milito,C. Tencati,4-2-3-1,4-3-2-1
+15,2,2024-04-17,20:00:00,f,FOR,CRU,1,1,1,0,2,E,Empate,Arena Castelão,J. Vojvoda,F. Seabra,3-5-2,4-3-3
+16,2,2024-04-17,20:00:00,f,JUV,COR,2,0,0,0,2,M,Vitória do mandante,Alfredo Jaconi,R. Machado Marques,B. Lazaroni,4-2-3-1,4-3-3
+17,2,2024-04-17,20:00:00,f,PAL,INT,0,1,0,1,1,V,Vitória do visitante,Arena Barueri,A. Moreira Ferreira,E. Coudet,3-4-2-1,4-2-3-1
+18,2,2024-04-17,21:30:00,t,FLA,SPA,2,1,1,0,3,M,Vitória do mandante,Maracanã,A. Bacchi,T. Carpini Barbosa,4-2-3-1,3-4-2-1
+19,2,2024-04-18,21:30:00,t,BOT,ATG,1,0,1,0,1,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,E. C. Tannus Faro,4-4-2,4-4-2
+20,3,2024-04-20,16:00:00,t,FLU,VAS,2,1,1,0,3,M,Vitória do mandante,Maracanã,F. Diniz Silva,R. Díaz,4-2-3-1,4-3-3
+21,3,2024-04-20,18:30:00,t,RBB,COR,1,0,1,0,1,M,Vitória do mandante,Nabizão,P. Faria Caixinha,A. Cardoso de Oliveira,4-3-3,4-2-3-1
+22,3,2024-04-20,18:30:00,f,GRE,CUI,1,0,1,0,1,M,Vitória do mandante,Arena do Grêmio,Renato Gaúcho,L. Iubel,4-2-3-1,5-4-1
+23,3,2024-04-20,21:00:00,t,ATM,CRU,3,0,3,0,3,M,Vitória do mandante,Arena MRV,G. Milito,F. Seabra,4-4-2,4-3-3
+24,3,2024-04-21,16:00:00,t,ATP,INT,1,0,0,0,1,M,Vitória do mandante,Ligga Arena,A. Stival,E. Coudet,4-2-3-1,4-2-3-1
+25,3,2024-04-21,16:00:00,f,PAL,FLA,0,0,,,0,E,Empate,Allianz Parque,A. Moreira Ferreira,A. Bacchi,3-4-2-1,4-2-3-1
+26,3,2024-04-21,16:00:00,f,VIT,BAH,2,2,1,0,4,E,Empate,Barradão,L. Condé,R. Ceni,4-4-1-1,4-3-3
+27,3,2024-04-21,18:30:00,t,ATG,SPA,0,3,0,1,3,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,M. Cruz,4-4-2,3-4-2-1
+28,3,2024-04-21,18:30:00,f,BOT,JUV,5,1,2,0,6,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,R. Machado Marques,4-4-2,4-2-3-1
+29,4,2024-04-27,16:00:00,t,VAS,CRI,0,4,0,1,4,V,Vitória do visitante,Estádio São Januário,R. Díaz,C. Tencati,4-2-3-1,4-4-2
+30,4,2024-04-27,18:30:00,t,CUI,ATM,0,3,0,1,3,V,Vitória do visitante,Arena Pantanal,L. Iubel,G. Milito,5-4-1,3-5-2
+31,4,2024-04-27,21:00:00,t,BAH,GRE,1,0,1,0,1,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,Renato Gaúcho,4-2-3-1,4-3-3
+32,4,2024-04-28,11:00:00,t,FLA,BOT,0,2,0,0,2,V,Vitória do visitante,Maracanã,A. Bacchi,A. Torres Gomes Araújo Amorim,4-2-3-1,4-4-2
+33,4,2024-04-28,16:00:00,t,COR,FLU,3,0,2,0,3,M,Vitória do mandante,Neo Química Arena,A. Cardoso de Oliveira,F. Diniz Silva,4-3-3,4-2-3-1
+34,4,2024-04-28,16:00:00,f,CRU,VIT,3,1,0,0,4,M,Vitória do mandante,Mineirão,F. Seabra,L. Condé,4-3-3,4-4-2
+35,4,2024-04-28,18:30:00,t,FOR,RBB,1,1,1,1,2,E,Empate,Arena Castelão,J. Vojvoda,P. Faria Caixinha,4-2-3-1,4-3-3
+36,4,2024-04-28,18:30:00,f,JUV,ATP,1,1,1,0,2,E,Empate,Alfredo Jaconi,R. Machado Marques,A. Stival,4-2-3-1,4-2-3-1
+37,4,2024-04-28,20:00:00,t,INT,ATG,1,1,0,0,2,E,Empate,Estádio Beira-Rio,E. Coudet,J. Ribeiro Ventura,4-4-2,4-2-3-1
+38,4,2024-04-29,20:00:00,t,SPA,PAL,0,0,,,0,E,Empate,MorumBIS,L. Zubeldía,A. Moreira Ferreira,3-4-2-1,4-2-3-1
+39,5,2024-05-04,16:00:00,t,FLU,ATM,2,2,1,0,4,E,Empate,Kléber Andrade,F. Diniz Silva,G. Milito,4-2-3-1,4-4-2
+40,5,2024-05-04,18:30:00,t,RBB,FLA,1,1,1,0,2,E,Empate,Nabizão,P. Faria Caixinha,A. Bacchi,4-2-3-1,4-2-3-1
+41,5,2024-05-04,21:00:00,t,COR,FOR,0,0,,,0,E,Empate,Neo Química Arena,A. Cardoso de Oliveira,J. Vojvoda,4-2-3-1,4-2-3-1
+42,5,2024-05-05,16:00:00,t,ATP,VAS,1,0,1,0,1,M,Vitória do mandante,Ligga Arena,A. Stival,C. de Paiva,4-2-3-1,4-3-3
+43,5,2024-05-05,16:00:00,f,VIT,SPA,1,3,0,1,4,V,Vitória do visitante,Barradão,L. Condé,L. Zubeldía,3-4-1-2,3-4-1-2
+44,5,2024-05-05,18:30:00,t,BOT,BAH,1,2,0,1,3,V,Vitória do visitante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,R. Ceni,4-2-3-1,4-1-2-1-2
+45,5,2024-05-05,18:30:00,f,CUI,PAL,0,2,0,1,2,V,Vitória do visitante,Arena Pantanal,R. Colbachini,A. Moreira Ferreira,3-4-1-2,3-4-2-1
+46,6,2024-05-11,16:00:00,t,FLA,COR,2,0,1,0,2,M,Vitória do mandante,Maracanã,A. Bacchi,A. Cardoso de Oliveira,4-2-3-1,3-4-3
+47,6,2024-05-12,16:00:00,t,ATG,CRU,0,1,0,0,1,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,F. Seabra,4-2-3-1,4-3-3
+48,6,2024-05-12,16:00:00,f,FOR,BOT,1,1,1,1,2,E,Empate,Arena Castelão,J. Vojvoda,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+49,6,2024-05-12,16:00:00,f,PAL,ATP,0,2,0,1,2,V,Vitória do visitante,Arena Barueri,A. Moreira Ferreira,A. Stival,4-2-3-1,4-2-3-1
+50,6,2024-05-12,18:30:00,t,BAH,RBB,1,0,1,0,1,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,P. Faria Caixinha,4-1-2-1-2,4-3-3
+51,6,2024-05-12,18:30:00,f,VAS,VIT,2,1,0,0,3,M,Vitória do mandante,Estádio São Januário,C. de Paiva,L. Condé,4-2-3-1,3-4-1-2
+52,6,2024-05-13,20:00:00,t,SPA,FLU,2,1,1,1,3,M,Vitória do mandante,MorumBIS,L. Zubeldía,F. Diniz Silva,4-2-3-1,4-2-3-1
+53,7,2024-06-01,16:00:00,t,GRE,RBB,0,2,0,1,2,V,Vitória do visitante,Couto Pereira,Renato Gaúcho,P. Faria Caixinha,4-2-3-1,4-3-3
+54,7,2024-06-01,16:00:00,f,VIT,ATG,0,2,0,1,2,V,Vitória do visitante,Barradão,T. Carpini Barbosa,J. Ribeiro Ventura,4-4-2,4-3-3
+55,7,2024-06-01,18:30:00,t,CUI,INT,0,1,0,0,1,V,Vitória do visitante,Arena Pantanal,A. Gonçalves Teixeira,E. Coudet,4-3-3,4-1-3-2
+56,7,2024-06-01,18:30:00,f,FLU,JUV,1,1,1,0,2,E,Empate,Maracanã,E. de Barros,R. Machado Marques,4-2-3-1,4-2-3-1
+57,7,2024-06-01,21:00:00,t,COR,BOT,0,1,0,0,1,V,Vitória do visitante,Neo Química Arena,A. Cardoso de Oliveira,A. Torres Gomes Araújo Amorim,4-3-3,4-2-3-1
+58,7,2024-06-02,16:00:00,t,ATM,BAH,1,1,0,0,2,E,Empate,Arena MRV,G. Milito,R. Ceni,3-5-2,4-1-2-1-2
+59,7,2024-06-02,16:00:00,f,CRI,PAL,1,2,0,0,3,V,Vitória do visitante,Estádio Heriberto Hülse,C. Tencati,C. Martinho,4-3-3,4-2-3-1
+60,7,2024-06-02,16:00:00,f,VAS,FLA,1,6,1,3,7,V,Vitória do visitante,Maracanã,Á. Teixeira Pacheco,A. Bacchi,3-4-2-1,4-2-3-1
+61,7,2024-06-02,18:30:00,t,FOR,ATP,1,0,1,0,1,M,Vitória do mandante,Estádio Presidente Vargas,J. Vojvoda,A. Stival,4-3-3,4-1-4-1
+62,7,2024-06-02,18:30:00,f,SPA,CRU,2,0,1,0,2,M,Vitória do mandante,MorumBIS,L. Zubeldía,F. Seabra,4-4-2,4-3-2-1
+63,5,2024-06-05,19:00:00,t,JUV,ATG,1,0,1,0,1,M,Vitória do mandante,Alfredo Jaconi,R. Machado Marques,J. Ribeiro Ventura,4-2-3-1,4-3-3
+64,2,2024-06-05,20:00:00,t,CUI,VIT,0,0,,,0,E,Empate,Arena Pantanal,A. Gonçalves Teixeira,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+65,6,2024-06-09,16:00:00,t,CRI,CUI,2,5,0,3,7,V,Vitória do visitante,Estádio Heriberto Hülse,C. Tencati,A. Gonçalves Teixeira,4-4-2,4-3-3
+66,8,2024-06-11,19:00:00,t,ATG,COR,2,2,0,1,4,E,Empate,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,A. Cardoso de Oliveira,4-3-3,4-3-3
+67,8,2024-06-11,19:00:00,f,JUV,VIT,1,1,1,1,2,E,Empate,Alfredo Jaconi,R. Machado Marques,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+68,8,2024-06-11,20:00:00,t,BOT,FLU,1,0,0,0,1,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,F. Diniz Silva,4-4-1-1,4-2-3-1
+69,8,2024-06-11,21:30:00,t,RBB,ATM,1,2,1,2,3,V,Vitória do visitante,Nabizão,P. Faria Caixinha,G. Milito,4-3-3,3-5-2
+70,8,2024-06-13,19:00:00,t,CRU,CUI,2,1,1,0,3,M,Vitória do mandante,Mineirão,F. Seabra,A. Gonçalves Teixeira,4-3-2-1,4-2-3-1
+71,8,2024-06-13,20:00:00,t,FLA,GRE,2,1,1,0,3,M,Vitória do mandante,Maracanã,A. Bacchi,Renato Gaúcho,4-2-3-1,4-4-2
+72,8,2024-06-13,20:00:00,f,INT,SPA,0,0,,,0,E,Empate,Estádio Heriberto Hülse,E. Coudet,L. Zubeldía,4-1-3-2,4-2-3-1
+73,8,2024-06-13,20:00:00,f,ATP,CRI,3,1,1,1,4,M,Vitória do mandante,Ligga Arena,A. Stival,C. Tencati,4-2-3-1,4-4-2
+74,8,2024-06-13,21:30:00,t,BAH,FOR,1,0,0,0,1,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,J. Vojvoda,4-1-2-1-2,4-3-3
+75,8,2024-06-13,21:30:00,f,PAL,VAS,2,0,1,0,2,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,Á. Teixeira Pacheco,4-2-3-1,5-4-1
+76,9,2024-06-15,18:30:00,t,RBB,JUV,2,1,1,1,3,M,Vitória do mandante,Nabizão,P. Faria Caixinha,R. Machado Marques,4-3-3,4-2-3-1
+77,9,2024-06-15,21:00:00,t,FLU,ATG,1,2,1,0,3,V,Vitória do visitante,Maracanã,F. Diniz Silva,J. Ribeiro Ventura,4-2-3-1,4-3-3
+78,9,2024-06-16,16:00:00,t,ATP,FLA,1,1,0,0,2,E,Empate,Ligga Arena,A. Stival,M. Rizzi Bacchi,4-2-3-1,4-2-3-1
+79,9,2024-06-16,16:00:00,f,COR,SPA,2,2,2,2,4,E,Empate,Neo Química Arena,A. Cardoso de Oliveira,L. Zubeldía,4-2-3-1,4-2-3-1
+80,9,2024-06-16,16:00:00,f,VIT,INT,2,1,1,0,3,M,Vitória do mandante,Barradão,T. Carpini Barbosa,E. Coudet,4-1-4-1,4-2-3-1
+81,9,2024-06-16,18:30:00,t,CRI,BAH,2,2,1,0,4,E,Empate,Estádio Heriberto Hülse,C. Tencati,R. Ceni,4-3-1-2,4-1-3-2
+82,9,2024-06-16,18:30:00,f,CUI,FOR,5,0,4,0,5,M,Vitória do mandante,Arena Pantanal,A. Gonçalves Teixeira,J. Vojvoda,4-2-3-1,4-2-3-1
+83,9,2024-06-16,18:30:00,f,GRE,BOT,1,2,1,1,3,V,Vitória do visitante,Kléber Andrade,Renato Gaúcho,A. Torres Gomes Araújo Amorim,4-4-1-1,4-2-3-1
+84,9,2024-06-16,18:30:00,f,VAS,CRU,0,0,,,0,E,Empate,Estádio São Januário,Á. Teixeira Pacheco,F. Seabra,4-2-3-1,4-3-2-1
+85,9,2024-06-17,20:30:00,t,ATM,PAL,0,4,0,1,4,V,Vitória do visitante,Arena MRV,G. Milito,A. Moreira Ferreira,3-4-3,4-2-3-1
+86,10,2024-06-19,19:00:00,t,ATG,CRI,1,2,1,0,3,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,C. Tencati,4-3-3,4-4-2
+87,10,2024-06-19,19:00:00,f,BOT,ATP,1,1,0,0,2,E,Empate,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,D. D. S. Cerqueira,4-2-3-1,4-2-3-1
+88,10,2024-06-19,20:00:00,t,FOR,GRE,1,0,1,0,1,M,Vitória do mandante,Arena Castelão,J. Vojvoda,Renato Gaúcho,4-2-3-1,4-3-3
+89,10,2024-06-19,20:00:00,f,JUV,VAS,2,0,0,0,2,M,Vitória do mandante,Alfredo Jaconi,R. Machado Marques,Á. Teixeira Pacheco,4-2-3-1,4-2-3-1
+90,10,2024-06-19,20:00:00,f,SPA,CUI,0,1,0,0,1,V,Vitória do visitante,MorumBIS,L. Zubeldía,N. M. Gaspar Pereira,4-2-3-1,4-2-3-1
+91,10,2024-06-19,21:30:00,t,CRU,FLU,2,0,1,0,2,M,Vitória do mandante,Mineirão,F. Seabra,F. Diniz Silva,4-3-2-1,4-2-3-1
+92,10,2024-06-19,21:30:00,f,INT,COR,1,0,1,0,1,M,Vitória do mandante,Orlando Scarpelli,E. Coudet,A. Cardoso de Oliveira,4-2-3-1,4-2-3-1
+93,10,2024-06-20,18:30:00,t,VIT,ATM,4,2,2,1,6,M,Vitória do mandante,Barradão,T. Carpini Barbosa,G. Milito,4-1-4-1,3-4-2-1
+94,10,2024-06-20,20:00:00,t,FLA,BAH,2,1,1,1,3,M,Vitória do mandante,Maracanã,A. Bacchi,R. Ceni,4-2-3-1,4-1-3-2
+95,10,2024-06-20,21:30:00,t,PAL,RBB,2,1,1,0,3,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,P. Malta,4-2-3-1,4-3-3
+96,11,2024-06-22,16:00:00,t,CRI,BOT,2,1,1,0,3,M,Vitória do mandante,Estádio Heriberto Hülse,C. Tencati,A. Torres Gomes Araújo Amorim,5-3-2,4-4-2
+97,11,2024-06-22,17:30:00,t,GRE,INT,0,1,0,0,1,V,Vitória do visitante,Couto Pereira,Renato Gaúcho,E. Coudet,4-2-3-1,4-2-3-1
+98,11,2024-06-22,18:30:00,t,CUI,ATG,0,0,,,0,E,Empate,Arena Pantanal,A. Gonçalves Teixeira,A. Gomes,4-2-3-1,4-3-3
+99,11,2024-06-22,21:30:00,t,VAS,SPA,4,1,2,1,5,M,Vitória do mandante,Estádio São Januário,C. de Paiva,L. Zubeldía,4-2-3-1,4-1-3-2
+100,11,2024-06-23,16:00:00,t,ATP,COR,1,1,1,0,2,E,Empate,Ligga Arena,A. Stival,A. Cardoso de Oliveira,4-2-3-1,4-2-3-1
+101,11,2024-06-23,16:00:00,f,BAH,CRU,4,1,1,1,5,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,F. Seabra,4-1-3-2,4-3-2-1
+102,11,2024-06-23,16:00:00,f,FLU,FLA,0,1,0,0,1,V,Vitória do visitante,Maracanã,F. Diniz Silva,A. Bacchi,4-4-2,4-2-3-1
+103,11,2024-06-23,18:30:00,t,ATM,FOR,1,1,0,1,2,E,Empate,Arena MRV,G. Milito,J. Vojvoda,3-4-1-2,4-2-3-1
+104,11,2024-06-23,18:30:00,f,RBB,VIT,2,1,1,1,3,M,Vitória do mandante,Nabizão,P. Faria Caixinha,T. Carpini Barbosa,4-3-3,5-3-2
+105,11,2024-06-23,18:30:00,f,PAL,JUV,3,1,0,0,4,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,R. Machado Marques,4-2-3-1,4-2-3-1
+106,12,2024-06-26,19:00:00,t,BOT,RBB,2,1,1,1,3,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,P. Faria Caixinha,4-2-3-1,3-4-3
+107,12,2024-06-26,19:00:00,f,CRU,ATP,2,0,1,0,2,M,Vitória do mandante,Mineirão,F. Seabra,J. Antonello,4-3-3,4-2-3-1
+108,12,2024-06-26,20:00:00,t,ATG,GRE,1,1,0,0,2,E,Empate,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,Renato Gaúcho,4-3-3,4-3-3
+109,12,2024-06-26,20:00:00,f,COR,CUI,1,1,0,1,2,E,Empate,Neo Química Arena,A. Cardoso de Oliveira,A. Gonçalves Teixeira,4-2-3-1,4-3-3
+110,12,2024-06-26,20:00:00,f,JUV,FLA,2,1,1,1,3,M,Vitória do mandante,Alfredo Jaconi,R. Machado Marques,A. Bacchi,4-2-3-1,4-2-3-1
+111,12,2024-06-26,21:30:00,t,BAH,VAS,2,1,1,1,3,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,C. de Paiva,4-1-3-2,4-2-3-1
+112,12,2024-06-26,21:30:00,f,FOR,PAL,3,0,1,0,3,M,Vitória do mandante,Arena Castelão,J. Vojvoda,A. Moreira Ferreira,4-2-3-1,3-4-2-1
+113,12,2024-06-26,21:30:00,f,INT,ATM,1,2,0,0,3,V,Vitória do visitante,Estádio Heriberto Hülse,E. Coudet,G. Milito,4-3-3,4-1-4-1
+114,12,2024-06-27,19:00:00,t,FLU,VIT,0,1,0,0,1,V,Vitória do visitante,Maracanã,M. A. de Oliveira,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+115,12,2024-06-27,20:00:00,t,SPA,CRI,2,1,2,0,3,M,Vitória do mandante,MorumBIS,L. Zubeldía,C. Tencati,4-2-3-1,4-4-2
+116,13,2024-06-29,18:30:00,t,CUI,RBB,1,1,1,1,2,E,Empate,Arena Pantanal,A. Gonçalves Teixeira,P. Faria Caixinha,4-3-3,4-2-3-1
+117,13,2024-06-29,18:30:00,f,VAS,BOT,1,1,0,0,2,E,Empate,Estádio São Januário,C. de Paiva,A. Torres Gomes Araújo Amorim,4-2-3-1,4-4-2
+118,13,2024-06-30,11:00:00,t,ATM,ATG,1,1,1,1,2,E,Empate,Arena MRV,G. Milito,A. Gomes,3-4-2-1,4-3-3
+119,13,2024-06-30,16:00:00,t,FOR,JUV,2,1,2,0,3,M,Vitória do mandante,Arena Castelão,J. Vojvoda,R. Machado Marques,4-2-3-1,4-2-3-1
+120,13,2024-06-30,16:00:00,f,GRE,FLU,1,0,0,0,1,M,Vitória do mandante,Estádio Francisco Stédile | Centenário,Renato Gaúcho,M. A. de Oliveira,4-2-3-1,3-4-2-1
+121,13,2024-06-30,16:00:00,f,SPA,BAH,3,1,2,0,4,M,Vitória do mandante,MorumBIS,M. Cuberas,R. Ceni,4-2-3-1,4-1-3-2
+122,13,2024-06-30,18:30:00,t,CRI,INT,1,1,0,1,2,E,Empate,Estádio Heriberto Hülse,C. Tencati,E. Coudet,5-3-2,4-2-3-1
+123,13,2024-06-30,18:30:00,f,FLA,CRU,2,1,1,1,3,M,Vitória do mandante,Maracanã,A. Bacchi,F. Seabra,4-2-3-1,4-3-3
+124,13,2024-06-30,18:30:00,f,VIT,ATP,0,1,0,0,1,V,Vitória do visitante,Barradão,T. Carpini Barbosa,J. Antonello,4-1-4-1,4-2-3-1
+125,13,2024-07-01,20:00:00,t,PAL,COR,2,0,0,0,2,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,A. Cardoso de Oliveira,4-2-3-1,4-2-3-1
+126,14,2024-07-03,19:00:00,t,CUI,BOT,1,2,1,1,3,V,Vitória do visitante,Arena Pantanal,A. Gonçalves Teixeira,A. Torres Gomes Araújo Amorim,5-4-1,4-4-2
+127,14,2024-07-03,20:00:00,t,CRI,CRU,1,0,0,0,1,M,Vitória do mandante,Estádio Heriberto Hülse,C. Tencati,F. Seabra,4-3-1-2,4-3-3
+128,14,2024-07-03,20:00:00,f,VAS,FOR,2,0,1,0,2,M,Vitória do mandante,Estádio São Januário,C. de Paiva,J. Vojvoda,4-2-3-1,4-2-3-1
+129,14,2024-07-03,21:30:00,t,ATP,SPA,1,2,1,1,3,V,Vitória do visitante,Ligga Arena,J. Antonello,L. Zubeldía,4-2-3-1,4-2-3-1
+130,14,2024-07-03,21:30:00,f,ATM,FLA,2,4,0,2,6,V,Vitória do visitante,Arena MRV,G. Milito,A. Bacchi,4-1-4-1,4-2-3-1
+131,14,2024-07-03,21:30:00,f,RBB,ATG,3,1,3,1,4,M,Vitória do mandante,Nabizão,P. Faria Caixinha,A. Gomes,4-2-3-1,4-2-3-1
+132,14,2024-07-04,19:00:00,t,BAH,JUV,2,0,0,0,2,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,R. Machado Marques,4-1-3-2,4-2-3-1
+133,14,2024-07-04,19:00:00,f,GRE,PAL,2,2,1,0,4,E,Empate,Estádio Francisco Stédile | Centenário,Renato Gaúcho,A. Moreira Ferreira,4-2-3-1,4-3-3
+134,14,2024-07-04,20:00:00,t,COR,VIT,3,2,2,1,5,M,Vitória do mandante,Neo Química Arena,R. Laruccia,T. Carpini Barbosa,4-1-4-1,4-1-4-1
+135,14,2024-07-04,20:00:00,f,FLU,INT,1,1,1,1,2,E,Empate,Maracanã,L. Venker de Menezes,E. Coudet,4-2-3-1,4-2-3-1
+136,15,2024-07-06,20:00:00,t,FLA,CUI,1,1,0,1,2,E,Empate,Maracanã,A. Bacchi,A. Gonçalves Teixeira,4-4-2,4-5-1
+137,15,2024-07-06,20:00:00,f,SPA,RBB,2,0,0,0,2,M,Vitória do mandante,MorumBIS,C. Gruezo,P. Faria Caixinha,4-2-3-1,4-2-3-1
+138,15,2024-07-07,16:00:00,t,CRU,COR,3,0,2,0,3,M,Vitória do mandante,Mineirão,F. Seabra,R. Laruccia,4-3-3,4-2-3-1
+139,15,2024-07-07,16:00:00,f,FOR,FLU,1,0,0,0,1,M,Vitória do mandante,Arena Castelão,J. Vojvoda,L. Venker de Menezes,4-2-3-1,4-2-3-1
+140,15,2024-07-07,16:00:00,f,JUV,GRE,3,0,2,0,3,M,Vitória do mandante,Alfredo Jaconi,R. Machado Marques,Renato Gaúcho,4-2-3-1,4-4-2
+141,15,2024-07-07,18:00:00,t,INT,VAS,1,2,0,0,3,V,Vitória do visitante,Estádio Beira-Rio,E. Coudet,C. de Paiva,4-2-3-1,4-2-3-1
+142,15,2024-07-07,18:30:00,t,ATG,ATP,1,2,0,0,3,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,J. Antonello,4-3-3,4-2-3-1
+143,15,2024-07-07,18:30:00,f,PAL,BAH,2,0,1,0,2,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,R. Ceni,4-2-3-1,4-1-3-2
+144,15,2024-07-07,18:30:00,f,VIT,CRI,2,1,2,1,3,M,Vitória do mandante,Barradão,T. Carpini Barbosa,C. Tencati,4-1-4-1,4-4-2
+145,15,2024-07-07,20:30:00,t,BOT,ATM,3,0,1,0,3,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,G. Milito,4-2-3-1,3-4-2-1
+146,16,2024-07-10,18:30:00,t,GRE,CRU,0,2,0,2,2,V,Vitória do visitante,Estádio Francisco Stédile | Centenário,Renato Gaúcho,F. Seabra,4-2-3-1,4-3-3
+147,16,2024-07-10,19:00:00,t,ATP,BAH,1,3,0,2,4,V,Vitória do visitante,Ligga Arena,J. Antonello,R. Ceni,4-2-3-1,4-1-2-1-2
+148,16,2024-07-10,19:00:00,f,VAS,COR,2,0,0,0,2,M,Vitória do mandante,Estádio São Januário,C. de Paiva,R. Laruccia,4-2-3-1,4-2-3-1
+149,16,2024-07-11,19:30:00,t,PAL,ATG,3,1,1,1,4,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,V. Carmo Mancini,4-2-3-1,5-4-1
+150,16,2024-07-11,20:00:00,t,CRI,FLU,1,1,0,0,2,E,Empate,Estádio Heriberto Hülse,C. Tencati,L. Venker de Menezes,4-4-2,4-2-3-1
+151,16,2024-07-11,20:00:00,f,FLA,FOR,1,2,1,1,3,V,Vitória do visitante,Maracanã,A. Bacchi,J. Vojvoda,4-2-3-1,4-2-3-1
+152,16,2024-07-11,21:30:00,t,ATM,SPA,2,1,2,1,3,M,Vitória do mandante,Arena MRV,G. Milito,L. Zubeldía,3-4-2-1,4-2-3-1
+153,16,2024-07-11,21:30:00,f,VIT,BOT,0,1,0,0,1,V,Vitória do visitante,Barradão,T. Carpini Barbosa,A. Torres Gomes Araújo Amorim,4-1-4-1,4-4-2
+154,17,2024-07-13,16:00:00,t,BAH,CUI,1,2,0,1,3,V,Vitória do visitante,Arena Fonte Nova,R. Ceni,A. Gonçalves Teixeira,4-4-1-1,4-5-1
+155,17,2024-07-13,16:00:00,f,CRU,RBB,2,1,1,0,3,M,Vitória do mandante,Estádio Independência,F. Seabra,P. Faria Caixinha,4-3-3,4-2-3-1
+156,17,2024-07-16,19:00:00,t,JUV,ATM,1,1,1,1,2,E,Empate,Arena BRB Mané Garrincha,R. Machado Marques,G. Milito,4-2-3-1,4-2-3-1
+157,17,2024-07-16,21:00:00,t,COR,CRI,2,1,0,1,3,M,Vitória do mandante,Neo Química Arena,R. Díaz,C. Tencati,4-2-3-1,4-4-2
+158,17,2024-07-17,19:00:00,t,ATG,VAS,0,1,0,0,1,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,V. Carmo Mancini,C. de Paiva,4-3-3,4-2-3-1
+159,17,2024-07-17,20:00:00,t,SPA,GRE,1,0,1,0,1,M,Vitória do mandante,MorumBIS,L. Zubeldía,A. P. Mendes,4-2-3-1,4-3-3
+160,17,2024-07-17,21:30:00,t,BOT,PAL,1,0,0,0,1,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+161,17,2024-07-17,21:30:00,f,FOR,VIT,3,1,2,0,4,M,Vitória do mandante,Arena Castelão,J. Vojvoda,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+162,18,2024-07-20,16:00:00,t,FLA,CRI,2,1,0,1,3,M,Vitória do mandante,Arena BRB Mané Garrincha,A. Bacchi,C. Tencati,4-2-3-1,4-4-2
+163,18,2024-07-20,18:30:00,t,BOT,INT,1,0,1,0,1,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,R. Machado Marques,4-2-2-2,4-1-3-2
+164,18,2024-07-20,21:00:00,t,PAL,CRU,2,0,1,0,2,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,F. Seabra,4-2-3-1,4-3-3
+165,18,2024-07-21,11:00:00,t,GRE,VIT,2,0,0,0,2,M,Vitória do mandante,Estádio Francisco Stédile | Centenário,Renato Gaúcho,T. Carpini Barbosa,4-4-2,3-4-3
+166,18,2024-07-21,16:00:00,t,ATM,VAS,2,0,2,0,2,M,Vitória do mandante,Arena MRV,G. Milito,C. de Paiva,3-4-2-1,4-2-3-1
+167,18,2024-07-21,16:00:00,f,BAH,COR,0,1,0,1,1,V,Vitória do visitante,Arena Fonte Nova,R. Ceni,R. Díaz,4-1-2-1-2,3-4-1-2
+168,18,2024-07-21,18:30:00,t,RBB,ATP,1,0,1,0,1,M,Vitória do mandante,Nabizão,P. Faria Caixinha,M. Varini Di Zioli,4-2-3-1,4-2-3-1
+169,18,2024-07-21,18:30:00,f,FOR,ATG,3,1,1,1,4,M,Vitória do mandante,Arena Castelão,J. Vojvoda,V. Carmo Mancini,4-2-3-1,5-4-1
+170,18,2024-07-21,18:30:00,f,JUV,SPA,0,0,,,0,E,Empate,Arena BRB Mané Garrincha,J. Ribeiro Ventura,L. Zubeldía,4-2-3-1,4-2-3-1
+171,18,2024-07-21,20:00:00,t,CUI,FLU,0,1,0,0,1,V,Vitória do visitante,Arena Pantanal,A. Gonçalves Teixeira,L. Venker de Menezes,4-5-1,4-5-1
+172,19,2024-07-24,19:00:00,t,CRU,JUV,2,0,1,0,2,M,Vitória do mandante,Mineirão,F. Seabra,J. Ribeiro Ventura,4-3-3,4-2-3-1
+173,3,2024-07-24,19:00:00,t,CRI,FOR,1,1,1,0,2,E,Empate,Estádio Heriberto Hülse,C. Tencati,J. Vojvoda,4-4-2,4-2-3-1
+174,19,2024-07-24,19:30:00,t,SPA,BOT,2,2,1,2,4,E,Empate,MorumBIS,M. Cuberas,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+175,19,2024-07-24,20:00:00,t,VIT,FLA,1,2,0,1,3,V,Vitória do visitante,Barradão,T. Carpini Barbosa,A. Bacchi,4-1-4-1,4-2-3-1
+176,19,2024-07-24,21:30:00,t,ATG,BAH,1,1,0,0,2,E,Empate,Estádio Antônio Accioly - Atlético Goianiense,V. Carmo Mancini,R. Ceni,4-1-4-1,4-1-3-2
+177,19,2024-07-24,21:30:00,f,FLU,PAL,1,0,0,0,1,M,Vitória do mandante,Maracanã,L. Venker de Menezes,J. M. Barreto Martins,4-2-3-1,4-2-3-1
+178,19,2024-07-25,20:00:00,t,COR,GRE,2,2,1,1,4,E,Empate,Neo Química Arena,R. Díaz,Renato Gaúcho,3-4-1-2,3-4-3
+179,20,2024-07-27,19:00:00,t,JUV,CRI,1,2,0,0,3,V,Vitória do visitante,Alfredo Jaconi,J. Ribeiro Ventura,C. Tencati,4-2-3-1,4-2-3-1
+180,20,2024-07-27,19:00:00,f,PAL,VIT,0,2,0,0,2,V,Vitória do visitante,Allianz Parque,A. Moreira Ferreira,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+181,20,2024-07-27,20:00:00,t,BAH,INT,1,1,1,0,2,E,Empate,Arena Fonte Nova,R. Ceni,R. Machado Marques,4-1-2-1-2,4-4-1-1
+182,20,2024-07-27,21:30:00,t,BOT,CRU,0,3,0,2,3,V,Vitória do visitante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,F. Seabra,4-4-2,4-2-3-1
+183,20,2024-07-27,21:30:00,f,FOR,SPA,1,0,1,0,1,M,Vitória do mandante,Arena Castelão,J. Vojvoda,L. Zubeldía,4-2-3-1,4-4-2
+184,20,2024-07-28,11:00:00,t,RBB,FLU,0,1,0,1,1,V,Vitória do visitante,Nabizão,P. Faria Caixinha,L. Venker de Menezes,4-2-3-1,4-2-3-1
+185,20,2024-07-28,16:00:00,t,FLA,ATG,2,0,1,0,2,M,Vitória do mandante,Maracanã,A. Bacchi,V. Carmo Mancini,4-2-3-1,4-3-3
+186,20,2024-07-28,19:00:00,t,ATM,COR,2,1,1,1,3,M,Vitória do mandante,Arena MRV,G. Milito,R. Díaz,3-4-1-2,3-4-1-2
+187,20,2024-07-28,19:00:00,f,CUI,ATP,1,2,0,1,3,V,Vitória do visitante,Arena Pantanal,A. Gonçalves Teixeira,M. Varini Di Zioli,4-2-3-1,4-3-3
+188,20,2024-07-28,19:00:00,f,GRE,VAS,1,0,0,0,1,M,Vitória do mandante,Arena Condá,Renato Gaúcho,C. de Paiva,3-4-3,4-2-3-1
+189,21,2024-08-03,16:00:00,t,VIT,CUI,1,0,0,0,1,M,Vitória do mandante,Barradão,E. K. Neto,A. Gonçalves Teixeira,4-3-3,4-2-3-1
+190,21,2024-08-03,19:00:00,t,VAS,RBB,2,2,0,1,4,E,Empate,Estádio São Januário,C. de Paiva,P. Faria Caixinha,4-2-3-1,4-3-3
+191,21,2024-08-03,20:00:00,t,ATG,BOT,1,4,1,1,5,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,V. Carmo Mancini,A. Torres Gomes Araújo Amorim,4-3-3,4-4-2
+192,21,2024-08-03,20:00:00,f,CRI,ATM,2,1,0,0,3,M,Vitória do mandante,Estádio Heriberto Hülse,C. Tencati,G. Milito,4-2-3-1,3-4-1-2
+193,21,2024-08-03,21:30:00,t,SPA,FLA,1,0,0,0,1,M,Vitória do mandante,MorumBIS,L. Zubeldía,A. Bacchi,4-2-3-1,4-2-3-1
+194,21,2024-08-04,16:00:00,t,ATP,GRE,0,2,0,2,2,V,Vitória do visitante,Ligga Arena,M. Varini Di Zioli,Renato Gaúcho,3-3-3-1,4-2-3-1
+195,21,2024-08-04,16:00:00,f,COR,JUV,1,1,0,1,2,E,Empate,Neo Química Arena,R. Díaz,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+196,21,2024-08-04,16:00:00,f,FLU,BAH,1,0,1,0,1,M,Vitória do mandante,Maracanã,L. Venker de Menezes,R. Ceni,4-2-3-1,4-3-3
+197,21,2024-08-04,17:00:00,t,INT,PAL,1,1,1,0,2,E,Empate,Estádio Beira-Rio,R. Machado Marques,A. Moreira Ferreira,4-2-3-1,3-4-2-1
+198,21,2024-08-05,21:00:00,t,CRU,FOR,1,2,1,2,3,V,Vitória do visitante,Kléber Andrade,F. Seabra,J. Vojvoda,4-2-3-1,4-2-3-1
+199,22,2024-08-10,16:00:00,t,FOR,CRI,1,0,0,0,1,M,Vitória do mandante,Arena Castelão,J. Vojvoda,C. Tencati,4-2-3-1,4-2-3-1
+200,22,2024-08-10,19:00:00,t,CUI,GRE,1,3,0,1,4,V,Vitória do visitante,Arena Pantanal,A. Gonçalves Teixeira,Renato Gaúcho,5-3-2,4-2-3-1
+201,22,2024-08-10,21:30:00,t,COR,RBB,1,1,1,1,2,E,Empate,Neo Química Arena,R. Díaz,P. Faria Caixinha,4-1-2-1-2,4-3-3
+202,22,2024-08-10,21:30:00,f,CRU,ATM,0,0,,,0,E,Empate,Mineirão,F. Seabra,G. Milito,4-2-3-1,3-4-1-2
+203,22,2024-08-10,21:30:00,f,VAS,FLU,2,0,2,0,2,M,Vitória do mandante,Estádio Nilton Santos,C. de Paiva,L. Venker de Menezes,4-2-3-1,4-2-3-1
+204,22,2024-08-11,11:00:00,t,JUV,BOT,3,2,2,0,5,M,Vitória do mandante,Alfredo Jaconi,J. Ribeiro Ventura,A. Torres Gomes Araújo Amorim,4-4-2,4-2-3-1
+205,22,2024-08-11,16:00:00,t,BAH,VIT,2,0,1,0,2,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,T. Carpini Barbosa,4-1-3-2,4-3-3
+206,22,2024-08-11,16:00:00,f,FLA,PAL,1,1,0,0,2,E,Empate,Maracanã,A. Bacchi,A. Moreira Ferreira,4-2-3-1,3-4-2-1
+207,22,2024-08-11,16:00:00,f,SPA,ATG,1,0,1,0,1,M,Vitória do mandante,MorumBIS,L. Zubeldía,U. Louzer Filho,4-2-3-1,4-2-3-1
+208,22,2024-08-11,19:00:00,t,INT,ATP,2,2,1,1,4,E,Empate,Estádio Beira-Rio,R. Machado Marques,M. Varini Di Zioli,4-2-3-1,4-3-3
+209,6,2024-08-14,19:30:00,t,INT,JUV,2,1,0,1,3,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,J. Ribeiro Ventura,4-2-3-1,4-4-2
+210,23,2024-08-17,16:00:00,t,ATM,CUI,1,1,1,1,2,E,Empate,Arena MRV,G. Milito,A. Gonçalves Teixeira,3-4-2-1,3-5-1-1
+211,23,2024-08-17,16:00:00,f,GRE,BAH,0,2,0,1,2,V,Vitória do visitante,Alfredo Jaconi,Renato Gaúcho,R. Ceni,4-2-3-1,4-1-4-1
+212,23,2024-08-17,18:30:00,t,RBB,FOR,1,2,1,1,3,V,Vitória do visitante,Nabizão,P. Faria Caixinha,J. Vojvoda,4-3-3,4-2-3-1
+213,23,2024-08-17,21:00:00,t,FLU,COR,0,0,,,0,E,Empate,Maracanã,S. Lobo,R. Díaz,4-2-3-1,3-4-2-1
+214,23,2024-08-18,16:00:00,t,ATG,INT,1,0,0,0,1,M,Vitória do mandante,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,R. Machado Marques,4-2-3-1,4-2-3-1
+215,23,2024-08-18,16:00:00,f,CRI,VAS,2,2,1,2,4,E,Empate,Estádio Heriberto Hülse,C. Tencati,C. de Paiva,4-2-3-1,4-2-3-1
+216,23,2024-08-18,16:00:00,f,PAL,SPA,2,1,0,0,3,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,L. Zubeldía,4-2-3-1,3-4-3
+217,23,2024-08-18,18:30:00,t,ATP,JUV,1,2,1,1,3,V,Vitória do visitante,Ligga Arena,M. Varini Di Zioli,J. Ribeiro Ventura,4-3-3,4-2-3-1
+218,23,2024-08-18,18:30:00,f,BOT,FLA,4,1,1,1,5,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,A. Bacchi,4-2-3-1,4-2-3-1
+219,23,2024-08-19,20:00:00,t,VIT,CRU,2,2,2,0,4,E,Empate,Barradão,T. Carpini Barbosa,F. Seabra,4-3-3,4-3-3
+220,24,2024-08-24,16:00:00,t,ATG,JUV,2,1,0,0,3,M,Vitória do mandante,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+221,24,2024-08-24,18:30:00,t,PAL,CUI,5,0,4,0,5,M,Vitória do mandante,Estádio Brinco de Ouro,A. Moreira Ferreira,A. Gonçalves Teixeira,4-2-3-1,5-3-2
+222,24,2024-08-24,21:00:00,t,ATM,FLU,0,2,0,1,2,V,Vitória do visitante,Mineirão,G. Milito,L. Venker de Menezes,3-4-1-2,4-2-3-1
+223,24,2024-08-25,16:00:00,t,BAH,BOT,0,0,,,0,E,Empate,Arena Fonte Nova,R. Ceni,A. Torres Gomes Araújo Amorim,4-1-3-2,4-2-3-1
+224,24,2024-08-25,16:00:00,f,CRI,GRE,0,1,0,0,1,V,Vitória do visitante,Estádio Heriberto Hülse,C. Tencati,Renato Gaúcho,4-1-2-1-2,4-2-3-1
+225,24,2024-08-25,16:00:00,f,FOR,COR,1,0,0,0,1,M,Vitória do mandante,Arena Castelão,J. Vojvoda,R. Díaz,4-2-3-1,3-4-2-1
+226,24,2024-08-25,18:30:00,t,SPA,VIT,2,1,2,0,3,M,Vitória do mandante,MorumBIS,L. Zubeldía,T. Carpini Barbosa,4-3-3,4-1-4-1
+227,24,2024-08-25,19:00:00,t,INT,CRU,1,0,0,0,1,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,F. Seabra,4-2-3-1,4-3-3
+228,24,2024-08-25,20:00:00,t,FLA,RBB,2,1,1,0,3,M,Vitória do mandante,Maracanã,M. Rizzi Bacchi,P. Faria Caixinha,4-2-3-1,4-2-3-1
+229,24,2024-08-26,21:00:00,t,VAS,ATP,2,1,0,1,3,M,Vitória do mandante,Estádio São Januário,C. de Paiva,M. Varini Di Zioli,4-2-3-1,3-2-4-1
+230,19,2024-08-28,19:30:00,t,CRI,RBB,1,0,1,0,1,M,Vitória do mandante,Estádio Heriberto Hülse,C. Tencati,P. Faria Caixinha,4-1-4-1,4-3-3
+231,5,2024-08-28,19:30:00,t,CRU,INT,0,0,,,0,E,Empate,Mineirão,F. Seabra,R. Machado Marques,4-2-3-1,4-2-3-1
+232,25,2024-08-31,18:30:00,t,CUI,CRI,2,1,0,1,3,M,Vitória do mandante,Arena Pantanal,B. Franco,C. Tencati,4-2-3-1,4-1-4-1
+233,25,2024-08-31,21:00:00,t,BOT,FOR,2,0,0,0,2,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,J. Vojvoda,4-2-3-1,4-2-3-1
+234,25,2024-09-01,11:00:00,t,CRU,ATG,3,1,2,1,4,M,Vitória do mandante,Mineirão,F. Seabra,U. Louzer Filho,4-3-3,4-3-3
+235,25,2024-09-01,11:00:00,f,GRE,ATM,2,3,2,0,5,V,Vitória do visitante,Arena do Grêmio,Renato Gaúcho,G. Milito,4-2-3-1,4-3-3
+236,25,2024-09-01,16:00:00,t,COR,FLA,2,1,1,1,3,M,Vitória do mandante,Neo Química Arena,R. Díaz,A. Bacchi,3-4-2-1,4-2-3-1
+237,25,2024-09-01,18:30:00,t,ATP,PAL,0,2,0,1,2,V,Vitória do visitante,Ligga Arena,M. Varini Di Zioli,A. Moreira Ferreira,4-4-2,4-2-3-1
+238,25,2024-09-01,18:30:00,f,RBB,BAH,2,1,0,0,3,M,Vitória do mandante,Nabizão,P. Faria Caixinha,R. Ceni,3-4-2-1,4-3-1-2
+239,25,2024-09-01,18:30:00,f,FLU,SPA,2,0,1,0,2,M,Vitória do mandante,Maracanã,L. Venker de Menezes,L. Zubeldía,4-2-3-1,4-2-3-1
+240,25,2024-09-01,18:30:00,f,JUV,INT,1,3,0,2,4,V,Vitória do visitante,Alfredo Jaconi,J. Ribeiro Ventura,R. Machado Marques,4-2-3-1,4-2-3-1
+241,25,2024-09-01,18:30:00,f,VIT,VAS,0,1,0,0,1,V,Vitória do visitante,Barradão,T. Carpini Barbosa,C. de Paiva,4-3-3,4-2-3-1
+242,16,2024-09-05,20:00:00,t,CUI,JUV,0,0,,,0,E,Empate,Arena Pantanal,B. Franco,J. Ribeiro Ventura,4-3-3,4-2-3-1
+243,19,2024-09-11,19:30:00,t,INT,FOR,2,1,1,1,3,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,J. Vojvoda,4-2-3-1,4-2-3-1
+244,26,2024-09-14,16:00:00,t,ATG,VIT,0,2,0,1,2,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,T. Carpini Barbosa,4-2-3-1,4-2-3-1
+245,26,2024-09-14,18:30:00,t,ATP,FOR,1,1,1,1,2,E,Empate,Ligga Arena,M. Varini Di Zioli,J. Vojvoda,4-2-3-1,4-2-3-1
+246,26,2024-09-14,21:00:00,t,BOT,COR,2,1,1,0,3,M,Vitória do mandante,Estádio Nilton Santos,F. Pereira da Silva Maia Carvalho,R. Díaz,4-2-3-1,3-4-1-2
+247,26,2024-09-15,16:00:00,t,RBB,GRE,2,2,1,1,4,E,Empate,Nabizão,P. Faria Caixinha,A. P. Mendes,4-3-3,4-3-3
+248,26,2024-09-15,16:00:00,f,JUV,FLU,2,1,0,1,3,M,Vitória do mandante,Alfredo Jaconi,J. Ribeiro Ventura,L. Venker de Menezes,4-2-3-1,4-2-3-1
+249,26,2024-09-15,16:00:00,f,PAL,CRI,5,0,3,0,5,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,C. Tencati,4-2-3-1,4-1-2-1-2
+250,26,2024-09-15,18:30:00,t,BAH,ATM,3,0,0,0,3,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,G. Milito,4-3-1-2,3-5-2
+251,26,2024-09-15,18:30:00,f,CRU,SPA,0,1,0,0,1,V,Vitória do visitante,Mineirão,F. Seabra,L. Zubeldía,4-2-3-1,3-4-2-1
+252,26,2024-09-15,18:30:00,f,FLA,VAS,1,1,0,0,2,E,Empate,Maracanã,A. Bacchi,C. de Paiva,4-2-3-1,4-2-3-1
+253,26,2024-09-16,20:00:00,t,INT,CUI,3,0,2,0,3,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,B. Franco,4-2-3-1,4-2-3-1
+254,27,2024-09-21,16:00:00,t,COR,ATG,3,0,1,0,3,M,Vitória do mandante,Neo Química Arena,R. Díaz,U. Louzer Filho,4-3-1-2,4-2-3-1
+255,27,2024-09-21,16:00:00,f,VIT,JUV,1,0,1,0,1,M,Vitória do mandante,Barradão,T. Carpini Barbosa,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+256,27,2024-09-21,18:30:00,t,FLU,BOT,0,1,0,0,1,V,Vitória do visitante,Maracanã,L. Venker de Menezes,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+257,27,2024-09-21,21:00:00,t,FOR,BAH,4,1,2,1,5,M,Vitória do mandante,Arena Castelão,J. Vojvoda,R. Ceni,4-2-3-1,4-3-1-2
+258,27,2024-09-22,16:00:00,t,ATM,RBB,3,0,1,0,3,M,Vitória do mandante,Arena MRV,G. Milito,P. Faria Caixinha,3-5-2,4-3-3
+259,27,2024-09-22,16:00:00,f,VAS,PAL,0,1,0,1,1,V,Vitória do visitante,Arena BRB Mané Garrincha,C. de Paiva,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+260,27,2024-09-22,18:30:00,t,CUI,CRU,0,0,,,0,E,Empate,Arena Pantanal,B. Franco,F. Seabra,4-2-3-1,3-4-3
+261,27,2024-09-22,18:30:00,f,GRE,FLA,3,2,1,1,5,M,Vitória do mandante,Arena do Grêmio,M. Salles,A. Bacchi,4-2-3-1,4-4-2
+262,27,2024-09-22,18:30:00,f,SPA,INT,1,3,1,1,4,V,Vitória do visitante,MorumBIS,L. Zubeldía,R. Machado Marques,4-2-3-1,4-2-3-1
+263,27,2024-09-22,20:00:00,t,CRI,ATP,0,0,,,0,E,Empate,Estádio Heriberto Hülse,C. Tencati,M. Varini Di Zioli,4-1-4-1,4-3-3
+264,16,2024-09-25,19:00:00,t,RBB,INT,2,2,1,1,4,E,Empate,Nabizão,P. Faria Caixinha,R. Machado Marques,3-5-2,4-2-3-1
+265,5,2024-09-25,19:00:00,t,GRE,CRI,1,2,0,1,3,V,Vitória do visitante,Arena do Grêmio,Renato Gaúcho,C. Tencati,4-2-3-1,4-1-4-1
+266,28,2024-09-28,18:30:00,t,PAL,ATM,2,1,1,0,3,M,Vitória do mandante,Estádio Brinco de Ouro,A. Moreira Ferreira,L. Gonçalves,4-2-3-1,3-5-2
+267,28,2024-09-28,21:00:00,t,BOT,GRE,0,0,,,0,E,Empate,Arena BRB Mané Garrincha,A. Torres Gomes Araújo Amorim,M. Salles,4-2-3-1,4-2-3-1
+268,28,2024-09-29,11:00:00,t,JUV,RBB,1,1,0,0,2,E,Empate,Alfredo Jaconi,R. Squinalli,P. Faria Caixinha,4-2-3-1,4-1-4-1
+269,28,2024-09-29,16:00:00,t,ATG,FLU,1,0,0,0,1,M,Vitória do mandante,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,L. Venker de Menezes,4-3-3,4-2-3-1
+270,28,2024-09-29,16:00:00,f,FOR,CUI,1,0,1,0,1,M,Vitória do mandante,Arena Castelão,J. Vojvoda,B. Franco,4-2-3-1,4-2-3-1
+271,28,2024-09-29,16:00:00,f,SPA,COR,3,1,1,0,4,M,Vitória do mandante,Arena BRB Mané Garrincha,L. Zubeldía,R. Díaz,4-2-3-1,4-3-1-2
+272,28,2024-09-29,18:30:00,t,BAH,CRI,1,0,1,0,1,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,C. Tencati,4-4-2,4-3-1-2
+273,28,2024-09-29,18:30:00,f,CRU,VAS,1,1,0,1,2,E,Empate,Mineirão,E. de Barros,C. de Paiva,4-2-3-1,4-2-3-1
+274,28,2024-09-29,18:30:00,f,INT,VIT,3,1,1,0,4,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,T. Carpini Barbosa,4-2-3-1,4-2-3-1
+275,28,2024-09-29,20:00:00,t,FLA,ATP,1,0,0,0,1,M,Vitória do mandante,Maracanã,F. Luís,L. González,4-2-3-1,3-4-2-1
+276,29,2024-10-03,19:00:00,t,CRI,ATG,2,0,1,0,2,M,Vitória do mandante,Estádio Heriberto Hülse,C. Tencati,U. Louzer Filho,4-2-3-1,4-3-3
+277,29,2024-10-03,21:30:00,t,FLU,CRU,1,0,0,0,1,M,Vitória do mandante,Maracanã,L. Venker de Menezes,F. Diniz Silva,4-2-3-1,4-2-3-1
+278,29,2024-10-04,21:30:00,t,GRE,FOR,3,1,1,1,4,M,Vitória do mandante,Arena do Grêmio,M. Salles,J. Vojvoda,4-4-2,4-2-3-1
+279,29,2024-10-05,16:30:00,t,ATP,BOT,0,1,0,1,1,V,Vitória do visitante,Ligga Arena,L. González,A. Torres Gomes Araújo Amorim,3-4-2-1,4-2-3-1
+280,29,2024-10-05,16:30:00,f,ATM,VIT,2,2,2,0,4,E,Empate,Arena MRV,G. Milito,T. Carpini Barbosa,3-4-2-1,4-2-3-1
+281,29,2024-10-05,16:30:00,f,RBB,PAL,0,0,,,0,E,Empate,Nabizão,P. Faria Caixinha,A. Moreira Ferreira,4-1-4-1,4-2-3-1
+282,29,2024-10-05,19:00:00,t,BAH,FLA,0,2,0,1,2,V,Vitória do visitante,Arena Fonte Nova,R. Ceni,F. Luís,4-1-3-2,4-2-3-1
+283,29,2024-10-05,19:00:00,f,COR,INT,2,2,1,1,4,E,Empate,Neo Química Arena,R. Díaz,R. Machado Marques,4-1-3-2,4-1-3-2
+284,29,2024-10-05,19:00:00,f,CUI,SPA,2,0,2,0,2,M,Vitória do mandante,Arena Pantanal,B. Franco,L. Zubeldía,5-4-1,4-2-3-1
+285,29,2024-10-05,21:00:00,t,VAS,JUV,1,1,1,1,2,E,Empate,Estádio São Januário,C. de Paiva,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+286,6,2024-10-09,19:30:00,t,ATM,GRE,2,1,2,1,3,M,Vitória do mandante,Arena MRV,G. Milito,Renato Gaúcho,3-4-3,4-3-3
+287,30,2024-10-16,21:45:00,t,FOR,ATM,1,1,1,0,2,E,Empate,Arena Castelão,J. Vojvoda,G. Milito,4-2-3-1,4-2-3-1
+288,30,2024-10-16,21:45:00,f,SPA,VAS,3,0,1,0,3,M,Vitória do mandante,Estádio Brinco de Ouro,L. Zubeldía,C. de Paiva,4-2-3-1,4-2-3-1
+289,30,2024-10-17,20:00:00,t,COR,ATP,5,2,2,2,7,M,Vitória do mandante,Neo Química Arena,R. Díaz,L. González,4-1-3-2,3-4-2-1
+290,30,2024-10-17,20:00:00,f,FLA,FLU,0,2,0,0,2,V,Vitória do visitante,Maracanã,F. Luís,L. Venker de Menezes,4-2-3-1,4-2-3-1
+291,30,2024-10-18,19:00:00,t,ATG,CUI,0,0,,,0,E,Empate,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,B. Franco,4-3-3,3-4-3
+292,30,2024-10-18,20:00:00,t,BOT,CRI,1,1,0,0,2,E,Empate,Maracanã,A. Torres Gomes Araújo Amorim,C. Tencati,3-4-3,5-4-1
+293,30,2024-10-18,21:30:00,t,CRU,BAH,1,1,0,0,2,E,Empate,Mineirão,F. Diniz Silva,R. Ceni,4-2-3-1,4-3-3
+294,30,2024-10-19,16:00:00,t,INT,GRE,1,0,0,0,1,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,Renato Gaúcho,4-2-3-1,4-2-3-1
+295,30,2024-10-19,16:00:00,f,VIT,RBB,1,0,0,0,1,M,Vitória do mandante,Barradão,T. Carpini Barbosa,P. Faria Caixinha,4-2-3-1,4-2-3-1
+296,30,2024-10-20,20:00:00,t,JUV,PAL,3,5,1,2,8,V,Vitória do visitante,Alfredo Jaconi,J. Ribeiro Ventura,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+297,17,2024-10-22,19:30:00,t,FLU,ATP,1,0,0,0,1,M,Vitória do mandante,Maracanã,L. Venker de Menezes,L. González,4-2-3-1,3-4-2-1
+298,19,2024-10-24,19:00:00,t,VAS,CUI,1,0,0,0,1,M,Vitória do mandante,Estádio São Januário,C. de Paiva,B. Franco,4-2-3-1,4-2-3-1
+299,31,2024-10-26,16:30:00,t,FLA,JUV,4,2,1,1,6,M,Vitória do mandante,Maracanã,F. Luís,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+300,31,2024-10-26,16:30:00,f,GRE,ATG,3,1,1,1,4,M,Vitória do mandante,Arena do Grêmio,Renato Gaúcho,U. Louzer Filho,4-4-1-1,4-2-3-1
+301,31,2024-10-26,16:30:00,f,PAL,FOR,2,2,1,1,4,E,Empate,Allianz Parque,A. Moreira Ferreira,J. Vojvoda,4-2-3-1,3-1-4-2
+302,31,2024-10-26,16:30:00,f,VIT,FLU,2,1,1,0,3,M,Vitória do mandante,Barradão,T. Carpini Barbosa,L. Venker de Menezes,4-2-3-1,4-2-3-1
+303,31,2024-10-26,18:30:00,t,ATP,CRU,3,0,1,0,3,M,Vitória do mandante,Ligga Arena,L. González,F. Diniz Silva,4-2-3-1,4-4-1-1
+304,31,2024-10-26,19:00:00,t,ATM,INT,1,3,1,2,4,V,Vitória do visitante,Arena MRV,G. Milito,R. Machado Marques,4-2-3-1,4-2-3-1
+305,31,2024-10-26,19:00:00,f,RBB,BOT,0,1,0,0,1,V,Vitória do visitante,Nabizão,P. Faria Caixinha,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+306,31,2024-10-26,22:00:00,t,CRI,SPA,1,1,1,0,2,E,Empate,Estádio Heriberto Hülse,C. Tencati,L. Zubeldía,4-2-3-1,4-2-3-1
+307,31,2024-10-28,19:00:00,t,CUI,COR,0,1,0,1,1,V,Vitória do visitante,Arena Pantanal,B. Franco,R. Díaz,4-2-3-1,4-3-1-2
+308,31,2024-10-28,21:00:00,t,VAS,BAH,3,2,3,1,5,M,Vitória do mandante,Estádio São Januário,C. de Paiva,R. Ceni,4-2-3-1,4-1-2-1-2
+309,17,2024-10-30,19:00:00,t,INT,FLA,1,1,0,1,2,E,Empate,Estádio Beira-Rio,R. Machado Marques,F. Luís,4-2-3-1,4-2-3-1
+310,32,2024-11-01,21:00:00,t,FLU,GRE,2,2,1,1,4,E,Empate,Maracanã,L. Venker de Menezes,Renato Gaúcho,4-2-3-1,4-2-3-1
+311,32,2024-11-02,16:00:00,t,RBB,CUI,0,0,,,0,E,Empate,Nabizão,F. Seabra,B. Franco,4-2-3-1,4-1-4-1
+312,32,2024-11-02,18:30:00,t,ATP,VIT,1,2,1,1,3,V,Vitória do visitante,Ligga Arena,L. González,T. Carpini Barbosa,3-4-2-1,5-4-1
+313,32,2024-11-02,18:30:00,f,JUV,FOR,0,3,0,2,3,V,Vitória do visitante,Alfredo Jaconi,F. Matias,J. Vojvoda,4-2-3-1,3-1-4-2
+314,32,2024-11-04,20:00:00,t,COR,PAL,2,0,1,0,2,M,Vitória do mandante,Neo Química Arena,R. Díaz,A. Moreira Ferreira,3-4-1-2,4-2-3-1
+315,32,2024-11-05,21:30:00,t,BAH,SPA,0,3,0,1,3,V,Vitória do visitante,Arena Fonte Nova,R. Ceni,L. Zubeldía,4-2-3-1,4-2-3-1
+316,32,2024-11-05,21:30:00,f,BOT,VAS,3,0,2,0,3,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,C. de Paiva,4-2-3-1,4-2-3-1
+317,32,2024-11-05,21:30:00,f,INT,CRI,2,0,1,0,2,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,C. Tencati,4-2-3-1,4-4-2
+318,32,2024-11-06,21:00:00,t,ATG,ATM,1,0,0,0,1,M,Vitória do mandante,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,G. Milito,4-2-3-1,3-4-2-1
+319,32,2024-11-06,21:00:00,f,CRU,FLA,0,1,0,0,1,V,Vitória do visitante,Estádio Independência,F. Diniz Silva,F. Luís,4-2-3-1,4-2-3-1
+320,33,2024-11-08,19:00:00,t,INT,FLU,2,0,0,0,2,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,L. Venker de Menezes,4-2-3-1,4-2-3-1
+321,33,2024-11-08,21:30:00,t,PAL,GRE,1,0,0,0,1,M,Vitória do mandante,Allianz Parque,A. Moreira Ferreira,Renato Gaúcho,4-2-3-1,4-2-3-1
+322,33,2024-11-09,16:30:00,t,VIT,COR,1,2,1,1,3,V,Vitória do visitante,Barradão,T. Carpini Barbosa,R. Díaz,4-2-3-1,4-3-1-2
+323,33,2024-11-09,16:30:00,f,BOT,CUI,0,0,,,0,E,Empate,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,B. Franco,4-2-3-1,4-1-4-1
+324,33,2024-11-09,19:00:00,t,ATG,RBB,0,0,,,0,E,Empate,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,F. Seabra,4-2-3-1,4-2-3-1
+325,33,2024-11-09,19:00:00,f,CRU,CRI,2,1,1,0,3,M,Vitória do mandante,Mineirão,F. Diniz Silva,C. Tencati,4-2-3-1,4-2-3-1
+326,33,2024-11-09,19:00:00,f,FOR,VAS,3,0,1,0,3,M,Vitória do mandante,Arena Castelão,J. Vojvoda,C. de Paiva,4-2-2-2,4-3-3
+327,33,2024-11-09,19:00:00,f,JUV,BAH,2,1,0,1,3,M,Vitória do mandante,Alfredo Jaconi,F. Matias,R. Ceni,4-2-3-1,4-3-3
+328,33,2024-11-09,21:00:00,t,SPA,ATP,2,1,0,0,3,M,Vitória do mandante,MorumBIS,L. Zubeldía,L. González,4-2-3-1,4-3-3
+329,33,2024-11-13,20:00:00,t,FLA,ATM,0,0,,,0,E,Empate,Maracanã,F. Luís,G. Milito,3-4-2-1,3-1-4-2
+330,19,2024-11-16,18:30:00,t,ATP,ATM,1,0,1,0,1,M,Vitória do mandante,Ligga Arena,L. González,G. Milito,4-2-3-1,3-4-2-1
+331,34,2024-11-20,11:00:00,t,COR,CRU,2,1,2,1,3,M,Vitória do mandante,Neo Química Arena,R. Díaz,F. Diniz Silva,4-3-1-2,4-2-3-1
+332,34,2024-11-20,16:30:00,t,ATP,ATG,2,0,1,0,2,M,Vitória do mandante,Ligga Arena,L. González,A. Gomes,4-2-3-1,4-2-3-1
+333,34,2024-11-20,16:30:00,f,RBB,SPA,1,1,1,1,2,E,Empate,Nabizão,F. Seabra,M. Cuberas,4-2-3-1,4-2-3-1
+334,34,2024-11-20,16:30:00,f,CRI,VIT,0,1,0,0,1,V,Vitória do visitante,Estádio Heriberto Hülse,C. Tencati,T. Carpini Barbosa,4-2-2-2,4-2-3-1
+335,34,2024-11-20,18:00:00,t,BAH,PAL,1,2,1,1,3,V,Vitória do visitante,Arena Fonte Nova,R. Ceni,A. Moreira Ferreira,4-3-3,4-2-3-1
+336,34,2024-11-20,19:00:00,t,CUI,FLA,1,2,0,0,3,V,Vitória do visitante,Arena Pantanal,J. Bertazzo Tobar,F. Luís,5-3-2,3-4-2-1
+337,34,2024-11-20,19:00:00,f,GRE,JUV,2,2,1,1,4,E,Empate,Arena do Grêmio,Renato Gaúcho,F. Matias,4-2-2-2,4-2-3-1
+338,34,2024-11-20,21:30:00,t,ATM,BOT,0,0,,,0,E,Empate,Estádio Independência,G. Milito,A. Torres Gomes Araújo Amorim,3-4-3,4-2-3-1
+339,34,2024-11-21,20:00:00,t,VAS,INT,0,1,0,0,1,V,Vitória do visitante,Estádio São Januário,C. de Paiva,R. Machado Marques,4-2-3-1,4-2-3-1
+340,34,2024-11-22,21:30:00,t,FLU,FOR,2,2,1,2,4,E,Empate,Maracanã,L. Venker de Menezes,J. Vojvoda,4-2-3-1,3-5-2
+341,35,2024-11-23,19:30:00,t,ATG,PAL,0,1,0,1,1,V,Vitória do visitante,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+342,35,2024-11-23,19:30:00,f,BOT,VIT,1,1,0,1,2,E,Empate,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,T. Carpini Barbosa,4-1-3-2,5-3-2
+343,35,2024-11-23,19:30:00,f,JUV,CUI,1,1,0,0,2,E,Empate,Alfredo Jaconi,F. Matias,B. Franco,4-3-3,3-4-3
+344,35,2024-11-23,21:30:00,t,SPA,ATM,2,2,2,2,4,E,Empate,MorumBIS,L. Zubeldía,G. Milito,4-2-3-1,4-3-3
+345,35,2024-11-24,16:00:00,t,BAH,ATP,1,1,0,0,2,E,Empate,Arena Fonte Nova,R. Ceni,L. González,4-3-3,4-2-3-1
+346,35,2024-11-24,16:00:00,f,COR,VAS,3,1,3,0,4,M,Vitória do mandante,Neo Química Arena,R. Díaz,C. de Paiva,4-3-1-2,4-2-3-1
+347,35,2024-11-24,16:00:00,f,INT,RBB,4,1,2,1,5,M,Vitória do mandante,Estádio Beira-Rio,R. Machado Marques,F. Seabra,4-2-3-1,4-2-3-1
+348,35,2024-11-26,19:00:00,t,FLU,CRI,0,0,,,0,E,Empate,Maracanã,L. Venker de Menezes,C. Tencati,4-2-3-1,4-3-1-2
+349,35,2024-11-26,20:00:00,t,FOR,FLA,0,0,,,0,E,Empate,Arena Castelão,J. Vojvoda,F. Luís,4-2-3-1,4-2-2-2
+350,36,2024-11-26,21:30:00,t,ATM,JUV,2,3,0,1,5,V,Vitória do visitante,Estádio Independência,G. Milito,F. Matias,3-4-2-1,4-3-3
+351,36,2024-11-26,21:30:00,f,PAL,BOT,1,3,0,1,4,V,Vitória do visitante,Allianz Parque,A. Moreira Ferreira,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+352,35,2024-11-27,21:00:00,t,CRU,GRE,1,1,1,1,2,E,Empate,Mineirão,F. Diniz Silva,Renato Gaúcho,4-2-3-1,4-2-3-1
+353,36,2024-11-30,19:30:00,t,CRI,COR,2,4,2,0,6,V,Vitória do visitante,Estádio Heriberto Hülse,C. Tencati,R. Díaz,3-5-2,4-3-1-2
+354,36,2024-11-30,19:30:00,f,CUI,BAH,1,2,1,1,3,V,Vitória do visitante,Arena Pantanal,B. Franco,R. Ceni,4-3-3,4-1-4-1
+355,36,2024-11-30,21:30:00,t,VAS,ATG,2,2,0,1,4,E,Empate,Estádio São Januário,F. Loureiro,A. Gomes,4-2-3-1,4-2-3-1
+356,36,2024-12-01,16:00:00,t,FLA,INT,3,2,3,0,5,M,Vitória do mandante,Maracanã,F. Luís,R. Machado Marques,4-2-3-1,4-2-3-1
+357,36,2024-12-01,16:00:00,f,GRE,SPA,2,1,2,0,3,M,Vitória do mandante,Arena do Grêmio,Renato Gaúcho,L. Zubeldía,4-2-3-1,4-2-3-1
+358,36,2024-12-01,18:30:00,t,ATP,FLU,1,1,1,0,2,E,Empate,Ligga Arena,L. González,L. Venker de Menezes,4-2-3-1,4-2-3-1
+359,36,2024-12-01,18:30:00,f,RBB,CRU,1,1,1,0,2,E,Empate,Nabizão,F. Seabra,F. Diniz Silva,4-2-3-1,4-2-3-1
+360,36,2024-12-01,18:30:00,f,VIT,FOR,2,0,2,0,2,M,Vitória do mandante,Barradão,T. Carpini Barbosa,J. Vojvoda,5-3-2,4-2-3-1
+361,37,2024-12-03,20:00:00,t,COR,BAH,3,0,2,0,3,M,Vitória do mandante,Neo Química Arena,R. Díaz,R. Ceni,4-3-1-2,3-4-1-2
+362,37,2024-12-04,19:00:00,t,VAS,ATM,2,0,0,0,2,M,Vitória do mandante,Estádio São Januário,F. Loureiro,G. Milito,4-1-2-1-2,3-4-3
+363,37,2024-12-04,20:00:00,t,CRI,FLA,0,3,0,1,3,V,Vitória do visitante,Estádio Heriberto Hülse,C. Tencati,F. Luís,4-3-1-2,4-2-3-1
+364,37,2024-12-04,20:00:00,f,SPA,JUV,1,2,0,0,3,V,Vitória do visitante,MorumBIS,L. Zubeldía,F. Matias,4-2-3-1,4-2-3-1
+365,37,2024-12-04,20:00:00,f,VIT,GRE,1,1,0,1,2,E,Empate,Barradão,T. Carpini Barbosa,Renato Gaúcho,5-3-2,4-2-3-1
+366,37,2024-12-04,21:30:00,t,ATG,FOR,3,1,1,1,4,M,Vitória do mandante,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,J. Vojvoda,4-2-3-1,4-2-3-1
+367,37,2024-12-04,21:30:00,f,CRU,PAL,1,2,0,0,3,V,Vitória do visitante,Mineirão,F. Diniz Silva,A. Moreira Ferreira,4-3-2-1,4-2-3-1
+368,37,2024-12-04,21:30:00,f,INT,BOT,0,1,0,1,1,V,Vitória do visitante,Estádio Beira-Rio,R. Machado Marques,A. Torres Gomes Araújo Amorim,4-2-2-2,4-2-3-1
+369,37,2024-12-05,20:00:00,t,ATP,RBB,1,2,0,1,3,V,Vitória do visitante,Ligga Arena,L. González,F. Seabra,4-2-3-1,4-2-3-1
+370,37,2024-12-05,20:00:00,f,FLU,CUI,1,0,0,0,1,M,Vitória do mandante,Maracanã,L. Venker de Menezes,B. Franco,4-2-3-1,4-2-3-1
+371,38,2024-12-08,16:00:00,t,ATM,ATP,1,0,0,0,1,M,Vitória do mandante,Arena MRV,L. Gonçalves,L. González,4-3-3,4-3-2-1
+372,38,2024-12-08,16:00:00,f,BAH,ATG,2,0,1,0,2,M,Vitória do mandante,Arena Fonte Nova,R. Ceni,A. Gomes,4-2-3-1,4-1-4-1
+373,38,2024-12-08,16:00:00,f,BOT,SPA,2,1,1,0,3,M,Vitória do mandante,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,L. Zubeldía,,
+374,38,2024-12-08,16:00:00,f,RBB,CRI,5,1,2,1,6,M,Vitória do mandante,Nabizão,F. Seabra,C. Tencati,4-2-3-1,4-1-2-1-2
+375,38,2024-12-08,16:00:00,f,CUI,VAS,1,2,1,2,3,V,Vitória do visitante,Arena Pantanal,B. Franco,F. Loureiro,4-3-3,4-3-2-1
+376,38,2024-12-08,16:00:00,f,FLA,VIT,2,2,0,1,4,E,Empate,Maracanã,F. Luís,T. Carpini Barbosa,4-4-2,4-3-3
+377,38,2024-12-08,16:00:00,f,FOR,INT,3,0,2,0,3,M,Vitória do mandante,Arena Castelão,J. Vojvoda,R. Machado Marques,4-2-3-1,4-1-2-1-2
+378,38,2024-12-08,16:00:00,f,GRE,COR,0,3,0,1,3,V,Vitória do visitante,Arena do Grêmio,Renato Gaúcho,R. Díaz,4-4-2,4-3-1-2
+379,38,2024-12-08,16:00:00,f,JUV,CRU,0,1,0,1,1,V,Vitória do visitante,Alfredo Jaconi,F. Matias,F. Diniz Silva,4-2-3-1,4-2-3-1
+380,38,2024-12-08,16:00:00,f,PAL,FLU,0,1,0,1,1,V,Vitória do visitante,Allianz Parque,A. Moreira Ferreira,L. Venker de Menezes,4-2-3-1,4-2-3-1

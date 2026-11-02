@@ -1,7 +1,8 @@
 -- =============================================================================
 -- 00_criar_banco_e_papel.sql
 --
--- STATUS: PROPOSTA, NÃO EXECUTADA. Aguarda aprovação explícita.
+-- STATUS: testado num PostgreSQL limpo e no CI. Execute no seu servidor local
+-- seguindo docs/modelagem/criacao_banco.md.
 --
 -- Cria os papéis do projeto e o banco dedicado brasileirao2024 no PostgreSQL 18
 -- local. NÃO altera, remove nem concede nada em bancos ou papéis existentes

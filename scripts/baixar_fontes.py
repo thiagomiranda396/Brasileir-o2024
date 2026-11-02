@@ -15,8 +15,15 @@ registro anterior ou quando a data registrada é ausente ou inválida (não é t
 ISO 8601 com fuso UTC); nesses casos a data original não é conhecida.
 
 Fontes de "produto" alimentam o modelo analítico. Fontes de "auditoria" (sem licença de
-redistribuição) servem só para conferência local, ficam em data/external/ (fora do Git)
-e só são baixadas com --auditoria.
+redistribuição) ficam em data/external/ (fora do Git) e só são baixadas com --auditoria. Elas
+servem para a conferência local das partidas e para gerar os dados derivados de jogadores
+(gols e cartões) com scripts/preparar_jogadores.py; o arquivo bruto nunca é versionado.
+
+Falhas são tratadas por fonte: erros de rede, de leitura local e procedência
+inválida fazem só aquela fonte falhar; as demais são processadas, há um resumo
+final e o código de saída é 1 se houver qualquer falha. O PROCEDENCIA.json é lido
+e validado antes de qualquer gravação; se estiver inválido, nada daquela fonte é
+gravado e o arquivo não é reconstruído. Exceções inesperadas interrompem a execução.
 
 Uso (a partir da raiz do projeto):
     python -I scripts/baixar_fontes.py                # baixa as fontes de produto
@@ -26,14 +33,23 @@ Uso (a partir da raiz do projeto):
 
 import argparse
 import hashlib
+import http.client
 import json
+import os
+import ssl
 import sys
+import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
 USER_AGENT = "Brasileirao2024-BI/1.0 (projeto educacional de portfolio)"
+
+# Falhas de rede tratadas por fonte. Lista explícita: nenhum OSError genérico é capturado
+# em torno do download (um PermissionError, por exemplo, é inesperado e interrompe).
+ERROS_DE_REDE = (urllib.error.URLError, TimeoutError, http.client.HTTPException,
+                 ConnectionError, ssl.SSLError)
 
 OPENFOOTBALL_COMMIT = "119fa1724b2079a1072a0cb0ca0ccac26d92fd34"
 ADAODUQUE_COMMIT = "15f027c3be337bb130d6ae94436b5cdca737377c"
@@ -72,6 +88,30 @@ FONTES = [
         "uso": "auditoria",
         "destino": "data/external/adaoduque/campeonato-brasileiro-full.csv",
         "sha256": "c09d03d36debfd7d7aee71da9a9f0909b5e420fc80a1705f215efc93c76e83fc",
+    },
+    {
+        "id": "adaoduque_gols",
+        "descricao": "Gols 2003-2024, um por linha (base dos dados derivados de jogadores; "
+                     "NÃO redistribuir)",
+        "url": "https://raw.githubusercontent.com/adaoduque/Brasileirao_Dataset/"
+               f"{ADAODUQUE_COMMIT}/campeonato-brasileiro-gols.csv",
+        "versao": f"commit {ADAODUQUE_COMMIT}",
+        "licenca": "Não declarada (todos os direitos reservados)",
+        "uso": "auditoria",
+        "destino": "data/external/adaoduque/campeonato-brasileiro-gols.csv",
+        "sha256": "625262ca9e7301907f94a0ef235b672d803a488d1e9d8833c31e51d4ffbe5664",
+    },
+    {
+        "id": "adaoduque_cartoes",
+        "descricao": "Cartões 2003-2024, um por linha (base dos dados derivados de jogadores; "
+                     "NÃO redistribuir)",
+        "url": "https://raw.githubusercontent.com/adaoduque/Brasileirao_Dataset/"
+               f"{ADAODUQUE_COMMIT}/campeonato-brasileiro-cartoes.csv",
+        "versao": f"commit {ADAODUQUE_COMMIT}",
+        "licenca": "Não declarada (todos os direitos reservados)",
+        "uso": "auditoria",
+        "destino": "data/external/adaoduque/campeonato-brasileiro-cartoes.csv",
+        "sha256": "4376ed95901b25d6c425127bf542b7746e086e1a20116b49d7a5d87949ac95e8",
     },
 ]
 
@@ -123,22 +163,87 @@ def registro_esperado(fonte: dict, hash_obtido: str, tamanho: int,
     }
 
 
-def gravar_se_necessario(fonte: dict, conteudo: bytes, hash_obtido: str) -> str:
-    """Grava dados e registro de uma fonte já validada, só no que mudou; devolve o status."""
+def existe(caminho: Path) -> bool:
+    """Como Path.exists(), mas só considera ausente o que o sistema informa como inexistente.
+
+    Path.exists() devolve False para qualquer OSError (por exemplo, acesso negado à pasta), o
+    que faria um arquivo inacessível parecer ausente. Aqui, apenas FileNotFoundError significa
+    ausência; qualquer outro erro propaga e é tratado como erro de leitura.
+    """
+    try:
+        os.stat(caminho)
+    except FileNotFoundError:
+        return False
+    return True
+
+
+class ErroProcedencia(Exception):
+    """PROCEDENCIA.json inutilizável: JSON inválido, não UTF-8 ou raiz que não é objeto."""
+
+
+def caminho_procedencia(fonte: dict) -> Path:
+    return (RAIZ / fonte["destino"]).parent / "PROCEDENCIA.json"
+
+
+def ler_procedencia(manifesto: Path) -> dict:
+    """Lê e valida o PROCEDENCIA.json; ausente equivale a {}. Erros de leitura (OSError)
+    propagam; conteúdo inválido levanta ErroProcedencia e o arquivo nunca é reconstruído."""
+    if not existe(manifesto):
+        return {}
+    bruto = manifesto.read_bytes()
+    try:
+        registros = json.loads(bruto.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as erro:
+        raise ErroProcedencia(f"{manifesto.name} inválido ({type(erro).__name__}: {erro})") \
+            from erro
+    if not isinstance(registros, dict):
+        raise ErroProcedencia(f"{manifesto.name} inválido (a raiz não é um objeto JSON)")
+    return registros
+
+
+def avisos_de_consistencia(fonte: dict) -> list[str]:
+    """Só leitura: diferenças entre o hash esperado e o registro de procedência.
+
+    Usado em --verificar; os avisos não alteram o código de saída. Erros de leitura (OSError)
+    propagam e são tratados como falha.
+    """
+    manifesto = caminho_procedencia(fonte)
+    if not existe(manifesto):
+        return [f"{manifesto.name} ausente"]
+    try:
+        registros = ler_procedencia(manifesto)
+    except ErroProcedencia as erro:
+        return [str(erro)]
+    registro = registros.get(fonte["id"])
+    if not isinstance(registro, dict):
+        return ["registro de procedência ausente"]
+    if registro.get("sha256") != fonte["sha256"]:
+        return [f"sha256 registrado ({registro.get('sha256')}) difere do esperado"]
+    return []
+
+
+def descrever(erro: BaseException) -> str:
+    return f"{type(erro).__name__}: {erro}"
+
+
+def gravar_se_necessario(fonte: dict, conteudo: bytes, hash_obtido: str, registros: dict,
+                         dados_iguais: bool) -> str:
+    """Grava dados e registro de uma fonte já validada, só no que mudou; devolve o status.
+
+    `registros` é o PROCEDENCIA.json já lido e validado, antes de qualquer gravação.
+    """
     destino = RAIZ / fonte["destino"]
-    dados_iguais = destino.exists() and sha256(destino.read_bytes()) == hash_obtido
     if not dados_iguais:
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_bytes(conteudo)
 
-    manifesto = destino.parent / "PROCEDENCIA.json"
-    registros = json.loads(manifesto.read_text(encoding="utf-8")) if manifesto.exists() else {}
     anterior = registros.get(fonte["id"])
     novo = registro_esperado(fonte, hash_obtido, len(conteudo), anterior)
     if novo != anterior:
-        registros[fonte["id"]] = novo
-        manifesto.write_text(json.dumps(registros, ensure_ascii=False, indent=2) + "\n",
-                             encoding="utf-8", newline="\n")
+        registros = dict(registros, **{fonte["id"]: novo})
+        caminho_procedencia(fonte).write_text(
+            json.dumps(registros, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8", newline="\n")
 
     if anterior is None:
         return "registro criado (data atual)"
@@ -164,42 +269,87 @@ def main(argv: list[str] | None = None) -> int:
                         help="não baixa nem grava; apenas confere o hash dos arquivos locais")
     args = parser.parse_args(argv)
 
-    falhas = 0
+    falhas: list[str] = []
+    sucessos = nao_processadas = 0
     for fonte in FONTES:
         destino = RAIZ / fonte["destino"]
+        fid = fonte["id"]
         if not args.verificar and fonte["uso"] == "auditoria" and not args.auditoria:
-            print(f"[IGNORADA] {fonte['id']}: fonte de auditoria; use --auditoria")
+            print(f"[IGNORADA] {fid}: fonte de auditoria; use --auditoria")
+            nao_processadas += 1
             continue
 
         esperado = fonte.get("sha256")
         if not esperado:
-            print(f"[RECUSADA] {fonte['id']}: sem hash SHA-256 esperado; nada foi baixado, "
+            print(f"[RECUSADA] {fid}: sem hash SHA-256 esperado; nada foi baixado, "
                   "verificado ou registrado")
-            falhas += 1
+            falhas.append(fid)
             continue
 
         if args.verificar:  # somente leitura: nenhum caminho abaixo grava ou cria pastas
-            if not destino.exists():
-                if fonte["uso"] == "auditoria":
-                    print(f"[AUSENTE, opcional] {fonte['id']}: fonte de auditoria local")
-                    continue
-                print(f"[AUSENTE] {fonte['id']}: {fonte['destino']}")
-                falhas += 1
+            try:  # existe() só devolve False para FileNotFoundError; acesso negado é erro
+                conteudo = destino.read_bytes() if existe(destino) else None
+            except OSError as erro:
+                print(f"[ERRO DE LEITURA] {fid}: {descrever(erro)}")
+                falhas.append(fid)
                 continue
-            conteudo = destino.read_bytes()
+            if conteudo is None:
+                if fonte["uso"] == "auditoria":
+                    print(f"[AUSENTE, opcional] {fid}: fonte de auditoria local")
+                    nao_processadas += 1
+                    continue
+                print(f"[AUSENTE] {fid}: {fonte['destino']}")
+                falhas.append(fid)
+                continue
         else:
-            conteudo = baixar(fonte["url"])
+            try:
+                conteudo = baixar(fonte["url"])
+            except ERROS_DE_REDE as erro:
+                print(f"[ERRO DE REDE] {fid}: {descrever(erro)}; nada foi gravado")
+                falhas.append(fid)
+                continue
 
         obtido = sha256(conteudo)
         if obtido != esperado:
-            print(f"[ERRO] {fonte['id']}: hash {obtido} difere do esperado {esperado}; "
+            print(f"[ERRO] {fid}: hash {obtido} difere do esperado {esperado}; "
                   "nada foi gravado")
-            falhas += 1
+            falhas.append(fid)
             continue
 
-        situacao = "verificado" if args.verificar else gravar_se_necessario(fonte, conteudo, obtido)
-        print(f"[OK] {fonte['id']}: {len(conteudo)} bytes, sha256={obtido} ({situacao})")
+        if args.verificar:
+            try:
+                avisos = avisos_de_consistencia(fonte)
+            except OSError as erro:
+                print(f"[ERRO DE LEITURA] {fid}: PROCEDENCIA.json: {descrever(erro)}")
+                falhas.append(fid)
+                continue
+            for aviso in avisos:  # avisos não alteram o código de saída
+                print(f"[AVISO] {fid}: {aviso}")
+            situacao = "verificado"
+        else:
+            # Procedência lida e validada, e arquivo local lido, ANTES de qualquer gravação.
+            try:
+                registros = ler_procedencia(caminho_procedencia(fonte))
+                dados_iguais = existe(destino) and sha256(destino.read_bytes()) == obtido
+            except ErroProcedencia as erro:
+                print(f"[ERRO DE PROCEDÊNCIA] {fid}: {erro}; nada foi gravado e o arquivo não "
+                      "foi alterado; corrija-o manualmente")
+                falhas.append(fid)
+                continue
+            except OSError as erro:
+                print(f"[ERRO DE LEITURA] {fid}: {descrever(erro)}; nada foi gravado")
+                falhas.append(fid)
+                continue
+            situacao = gravar_se_necessario(fonte, conteudo, obtido, registros, dados_iguais)
+        print(f"[OK] {fid}: {len(conteudo)} bytes, sha256={obtido} ({situacao})")
+        sucessos += 1
 
+    resumo = f"Resumo: {sucessos} fonte(s) OK, {len(falhas)} com falha"
+    if falhas:
+        resumo += f": {', '.join(falhas)}"
+    if nao_processadas:
+        resumo += f"; {nao_processadas} não processada(s) (ignorada ou ausente opcional)"
+    print(resumo)
     return 1 if falhas else 0
 
 

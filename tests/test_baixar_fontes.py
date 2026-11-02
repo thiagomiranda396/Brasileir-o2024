@@ -7,10 +7,14 @@ os arquivos reais do projeto nunca são tocados.
 
 import contextlib
 import hashlib
+import http.client
 import io
 import json
+import os
+import ssl
 import tempfile
 import unittest
+import urllib.error
 from pathlib import Path
 from unittest import mock
 
@@ -300,6 +304,279 @@ class TestVerificar(BaseAquisicao):
         self.assertEqual(codigo, 1)
         self.assertIn("[RECUSADA]", saida)
         self.assertEqual(self.estado(), antes)
+
+
+# --------------------------------------------------------------------------
+# Etapa 2a: falhas tratadas por fonte e procedência validada antes de gravar
+# --------------------------------------------------------------------------
+
+class DownloadsSimulados(dict):
+    """Download simulado: se o valor registrado for uma exceção, ela é levantada."""
+
+    def __getitem__(self, url):
+        valor = super().__getitem__(url)
+        if isinstance(valor, BaseException):
+            raise valor
+        return valor
+
+
+class BaseFalhas(BaseAquisicao):
+
+    def setUp(self):
+        super().setUp()
+        self.downloads = DownloadsSimulados()
+
+    def arquivo(self, f: dict) -> Path:
+        return self.raiz / f["destino"]
+
+    def manifesto(self, f: dict) -> Path:
+        return self.arquivo(f).parent / "PROCEDENCIA.json"
+
+
+class TestFalhasPorFonte(BaseFalhas):
+
+    def test_14_erros_de_rede_por_tipo(self):
+        erros = {
+            "URLError": urllib.error.URLError("nome não resolvido"),
+            "HTTPError 404": urllib.error.HTTPError("https://exemplo.invalid", 404,
+                                                    "Not Found", None, None),
+            "TimeoutError": TimeoutError("tempo esgotado"),
+            "IncompleteRead": http.client.IncompleteRead(b"parcial", 100),
+            "RemoteDisconnected": http.client.RemoteDisconnected("conexão encerrada"),
+            "ConnectionResetError": ConnectionResetError("conexão redefinida"),
+            "ssl.SSLError": ssl.SSLError("falha TLS"),
+        }
+        for i, (nome, erro) in enumerate(erros.items()):
+            with self.subTest(nome):
+                f = fonte(f"rede_{i}", destino=f"data/raw/rede_{i}/a.txt")
+                self.disponibilizar(f, erro)
+                codigo, saida = self.executar([f])
+                self.assertEqual(codigo, 1)
+                self.assertIn(f"[ERRO DE REDE] {f['id']}: {type(erro).__name__}", saida)
+                self.assertIn("nada foi gravado", saida)
+                self.assertEqual(self.estado(), {"arquivos": {}, "pastas": set()})
+
+    def test_15_falha_de_rede_nao_impede_as_fontes_seguintes(self):
+        a = fonte("fonte_a", destino="data/raw/a/a.txt")
+        b = fonte("fonte_b", destino="data/raw/b/b.txt")
+        c = fonte("fonte_c", destino="data/raw/c/c.txt")
+        self.adquirir(a)
+        arquivos_a = {k: v for k, v in self.estado()["arquivos"].items()
+                      if k.startswith(str(Path("data/raw/a")))}
+        self.agora = DATA_2
+        self.disponibilizar(a, urllib.error.URLError("falha de rede"))
+        self.disponibilizar(b, b"conteudo v1")
+        self.disponibilizar(c, b"conteudo v1")
+        codigo, saida = self.executar([a, b, c])
+        self.assertEqual(codigo, 1)
+        self.assertIn("[ERRO DE REDE] fonte_a", saida)
+        self.assertEqual(self.registro(b)["adquirido_em_utc"], DATA_2)
+        self.assertEqual(self.registro(c)["adquirido_em_utc"], DATA_2)
+        depois_a = {k: v for k, v in self.estado()["arquivos"].items()
+                    if k.startswith(str(Path("data/raw/a")))}
+        self.assertEqual(depois_a, arquivos_a)  # bytes e datas de modificação da fonte que falhou
+        self.assertIn("Resumo: 2 fonte(s) OK, 1 com falha: fonte_a", saida)
+
+    def test_16_oserror_generico_no_download_interrompe(self):
+        f = fonte()
+        self.disponibilizar(f, PermissionError("acesso negado"))
+        with self.assertRaises(PermissionError):
+            self.executar([f])
+
+    def test_17_erro_de_leitura_do_destino_e_falha_da_fonte(self):
+        a = fonte("fonte_a", destino="data/raw/a/a.txt")
+        b = fonte("fonte_b", destino="data/raw/b/b.txt")
+        self.arquivo(a).mkdir(parents=True)  # destino que não pode ser lido como arquivo
+        self.disponibilizar(a, b"conteudo v1")
+        self.disponibilizar(b, b"conteudo v1")
+        antes_a = self.estado()
+        codigo, saida = self.executar([a, b])
+        self.assertEqual(codigo, 1)
+        self.assertIn("[ERRO DE LEITURA] fonte_a", saida)
+        self.assertFalse(self.manifesto(a).exists())
+        self.assertTrue(self.arquivo(a).is_dir())
+        self.assertIsNotNone(self.registro(b))
+        self.assertTrue(set(antes_a["pastas"]) <= self.estado()["pastas"])
+
+    def test_18_procedencia_invalida_bloqueia_gravacao(self):
+        invalidos = {"JSON inválido": b"{corrompido",
+                     "raiz em lista": b"[]",
+                     "não UTF-8": b"\xff\xfe{\x00"}
+        for i, (nome, bruto) in enumerate(invalidos.items()):
+            for versao in ("conteúdo idêntico", "versão nova"):
+                with self.subTest(nome, versao=versao):
+                    pasta = f"data/raw/proc_{i}_{versao[0]}"
+                    f = fonte(f"proc_{i}", destino=f"{pasta}/a.txt")
+                    outra = fonte(f"outra_{i}_{versao[0]}", destino=f"{pasta}_ok/b.txt")
+                    self.adquirir(f)
+                    self.manifesto(f).write_bytes(bruto)
+                    if versao == "versão nova":
+                        f = fonte(f"proc_{i}", conteudo=b"conteudo v2", destino=f"{pasta}/a.txt")
+                        self.disponibilizar(f, b"conteudo v2")
+                    self.disponibilizar(outra, b"conteudo v1")
+                    antes = {k: v for k, v in self.estado()["arquivos"].items()
+                             if k.startswith(str(Path(pasta)) + "\\")
+                             or k.startswith(str(Path(pasta)) + "/")}
+                    codigo, saida = self.executar([f, outra])
+                    self.assertEqual(codigo, 1)
+                    self.assertIn(f"[ERRO DE PROCEDÊNCIA] {f['id']}", saida)
+                    depois = {k: v for k, v in self.estado()["arquivos"].items() if k in antes}
+                    self.assertEqual(depois, antes)  # dados e JSON intactos, mesmo na versão nova
+                    self.assertEqual(self.arquivo(f).read_bytes(), b"conteudo v1")
+                    self.assertEqual(self.manifesto(f).read_bytes(), bruto)
+                    self.assertIsNotNone(self.registro(outra))
+
+    def test_19_erro_de_leitura_da_procedencia(self):
+        f = fonte()
+        self.disponibilizar(f, b"conteudo v1")
+        self.manifesto(f).mkdir(parents=True)  # PROCEDENCIA.json que não pode ser lido
+        codigo, saida = self.executar([f])
+        self.assertEqual(codigo, 1)
+        self.assertIn("[ERRO DE LEITURA] fonte_a", saida)
+        self.assertFalse(self.arquivo(f).exists())  # nada gravado
+        self.assertTrue(self.manifesto(f).is_dir())
+
+    def test_20_resumo_final(self):
+        boa = fonte("boa", destino="data/raw/boa/a.txt")
+        ruim = fonte("ruim", destino="data/raw/ruim/a.txt")
+        aud = fonte("aud", uso="auditoria", destino="data/external/aud/a.csv")
+        self.disponibilizar(boa, b"conteudo v1")
+        self.disponibilizar(ruim, b"adulterado")
+        codigo, saida = self.executar([boa, ruim, aud])
+        self.assertEqual(codigo, 1)
+        self.assertIn("Resumo: 1 fonte(s) OK, 1 com falha: ruim; 1 não processada(s)", saida)
+        codigo, saida = self.executar([boa])
+        self.assertEqual(codigo, 0)
+        self.assertIn("Resumo: 1 fonte(s) OK, 0 com falha", saida)
+        self.assertNotIn("com falha:", saida)
+
+    def test_21_excecao_inesperada_interrompe(self):
+        a = fonte("fonte_a", destino="data/raw/a/a.txt")
+        b = fonte("fonte_b", destino="data/raw/b/b.txt")
+        self.disponibilizar(a, TypeError("erro de programação"))
+        self.disponibilizar(b, b"conteudo v1")
+        with self.assertRaises(TypeError):
+            self.executar([a, b])
+        self.assertEqual(self.urls_baixadas, [a["url"]])  # a fonte seguinte não foi tentada
+
+
+class TestVerificarConsistencia(BaseFalhas):
+
+    def preparar(self, nome: str) -> dict:
+        f = fonte(nome, destino=f"data/raw/{nome}/a.txt")
+        self.adquirir(f)
+        return f
+
+    def test_22_verificar_avisa_inconsistencias_sem_alterar_codigo(self):
+        casos = {}
+        f = self.preparar("json_ausente")
+        self.manifesto(f).unlink()
+        casos["JSON ausente"] = (f, "PROCEDENCIA.json ausente")
+        f = self.preparar("registro_ausente")
+        self.manifesto(f).write_text(json.dumps({"outra": {}}), encoding="utf-8")
+        casos["registro ausente"] = (f, "registro de procedência ausente")
+        f = self.preparar("hash_divergente")
+        registros = json.loads(self.manifesto(f).read_text(encoding="utf-8"))
+        registros[f["id"]]["sha256"] = "0" * 64
+        self.manifesto(f).write_text(json.dumps(registros), encoding="utf-8")
+        casos["hash divergente"] = (f, f"sha256 registrado ({'0' * 64}) difere do esperado")
+        f = self.preparar("json_invalido")
+        self.manifesto(f).write_bytes(b"{corrompido")
+        casos["JSON inválido"] = (f, "PROCEDENCIA.json inválido")
+        urls_antes = list(self.urls_baixadas)
+        antes = self.estado()
+        self.agora = DATA_2
+        for nome, (f, trecho) in casos.items():
+            with self.subTest(nome):
+                codigo, saida = self.executar([f], "--verificar")
+                self.assertEqual(codigo, 0)  # avisos não alteram o código de saída
+                self.assertIn(f"[AVISO] {f['id']}: {trecho}", saida)
+                self.assertIn("(verificado)", saida)
+        self.assertEqual(self.urls_baixadas, urls_antes)  # nenhum download
+        self.assertEqual(self.estado(), antes)  # nada gravado nem criado, inclusive pastas
+
+    def test_23_verificar_erro_de_leitura_e_falha(self):
+        destino_pasta = fonte("destino_pasta", destino="data/raw/destino_pasta/a.txt")
+        self.arquivo(destino_pasta).mkdir(parents=True)
+        procedencia_pasta = self.preparar("procedencia_pasta")
+        self.manifesto(procedencia_pasta).unlink()
+        self.manifesto(procedencia_pasta).mkdir()
+        antes = self.estado()
+        for f, trecho in ((destino_pasta, "[ERRO DE LEITURA] destino_pasta"),
+                          (procedencia_pasta, "[ERRO DE LEITURA] procedencia_pasta: "
+                                              "PROCEDENCIA.json")):
+            with self.subTest(f["id"]):
+                codigo, saida = self.executar([f], "--verificar")
+                self.assertEqual(codigo, 1)
+                self.assertIn(trecho, saida)
+        self.assertEqual(self.estado(), antes)
+
+
+def stat_negado(*alvos: Path):
+    """Simula acesso negado: os.stat levanta PermissionError só para os caminhos indicados.
+
+    É o efeito real de uma pasta sem permissão no Windows: os.stat falha com WinError 5 e
+    Path.exists() devolveria False, como se o arquivo não existisse.
+    """
+    stat_real = os.stat
+    negados = {os.path.normcase(os.path.abspath(a)) for a in alvos}
+
+    def stat(caminho, *args, **kwargs):
+        if not isinstance(caminho, int) and \
+                os.path.normcase(os.path.abspath(os.fspath(caminho))) in negados:
+            raise PermissionError(13, "Acesso negado (simulado)", os.fspath(caminho))
+        return stat_real(caminho, *args, **kwargs)
+
+    return mock.patch.object(bf.os, "stat", stat)
+
+
+class TestArquivoInacessivel(BaseFalhas):
+    """Arquivo existente mas inacessível nunca é tratado como ausente."""
+
+    def test_23a_verificar_inacessivel_e_erro_de_leitura_e_nao_ausente(self):
+        produto = fonte("produto", destino="data/raw/produto/a.txt")
+        auditoria = fonte("auditoria", uso="auditoria", destino="data/external/aud/a.csv")
+        procedencia = fonte("procedencia", destino="data/raw/procedencia/a.txt")
+        self.adquirir(produto)
+        self.adquirir(auditoria)
+        self.executar([auditoria], "--auditoria")
+        self.adquirir(procedencia)
+        antes = self.estado()
+        casos = ((produto, self.arquivo(produto)),
+                 (auditoria, self.arquivo(auditoria)),
+                 (procedencia, self.manifesto(procedencia)))
+        for f, negado in casos:
+            with self.subTest(f["id"]):
+                with stat_negado(negado):
+                    codigo, saida = self.executar([f], "--verificar")
+                self.assertEqual(codigo, 1)
+                self.assertIn(f"[ERRO DE LEITURA] {f['id']}", saida)
+                self.assertNotIn("AUSENTE", saida)
+                self.assertNotIn("[AVISO]", saida)
+        self.assertEqual(self.estado(), antes)
+
+    def test_23b_download_inacessivel_nao_e_sobrescrito(self):
+        for alvo in ("arquivo de dados", "PROCEDENCIA.json"):
+            with self.subTest(alvo):
+                pasta = "dados" if alvo == "arquivo de dados" else "proc"
+                f = fonte(f"inacessivel_{pasta}", destino=f"data/raw/{pasta}/a.txt")
+                outra = fonte(f"outra_{pasta}", destino=f"data/raw/{pasta}_ok/b.txt")
+                self.adquirir(f)
+                prefixo = str(Path(f"data/raw/{pasta}")) + os.sep
+                antes = {k: v for k, v in self.estado()["arquivos"].items()
+                         if k.startswith(prefixo)}
+                f2 = fonte(f["id"], conteudo=b"conteudo v2", destino=f["destino"])
+                self.disponibilizar(f2, b"conteudo v2")  # versão nova: haveria gravação
+                self.disponibilizar(outra, b"conteudo v1")
+                negado = self.arquivo(f) if alvo == "arquivo de dados" else self.manifesto(f)
+                with stat_negado(negado):
+                    codigo, saida = self.executar([f2, outra])
+                self.assertEqual(codigo, 1)
+                self.assertIn(f"[ERRO DE LEITURA] {f['id']}", saida)
+                depois = {k: v for k, v in self.estado()["arquivos"].items()
+                          if k.startswith(prefixo)}
+                self.assertEqual(depois, antes)  # nada sobrescrito nem criado
+                self.assertIsNotNone(self.registro(outra))
 
 
 if __name__ == "__main__":

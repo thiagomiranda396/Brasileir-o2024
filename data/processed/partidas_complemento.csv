@@ -1,0 +1,381 @@
+id_partida,estadio,tecnico_mandante,tecnico_visitante,formacao_mandante,formacao_visitante
+1,Estádio Beira-Rio,E. Coudet,R. Ceni,4-4-2,4-4-2
+2,Estádio Heriberto Hülse,C. Tencati,R. Machado Marques,4-3-1-2,4-4-2
+3,Maracanã,F. Diniz Silva,P. Faria Caixinha,4-2-3-1,4-3-3
+4,MorumBIS,T. Carpini Barbosa,J. Vojvoda,3-4-1-2,3-5-2
+5,Estádio São Januário,R. Díaz,Renato Gaúcho,4-3-3,4-2-3-1
+6,Neo Química Arena,A. Cardoso de Oliveira,G. Milito,4-2-3-1,3-4-1-2
+7,Ligga Arena,A. Stival,L. Iubel,4-1-2-1-2,5-4-1
+8,Estádio Serra Dourada,J. Ribeiro Ventura,A. Bacchi,4-1-3-2,4-2-3-1
+9,Mineirão,F. Seabra,A. Torres Gomes Araújo Amorim,4-3-3,4-4-2
+10,Barradão,L. Condé,A. Moreira Ferreira,4-3-3,4-2-3-1
+11,Arena Fonte Nova,R. Ceni,F. Diniz Silva,4-2-3-1,4-2-3-1
+12,Nabizão,P. Faria Caixinha,R. Díaz,4-3-3,4-3-3
+13,Arena do Grêmio,Renato Gaúcho,A. Stival,4-3-3,4-2-3-1
+14,Arena MRV,G. Milito,C. Tencati,4-2-3-1,4-3-2-1
+15,Arena Castelão,J. Vojvoda,F. Seabra,3-5-2,4-3-3
+16,Alfredo Jaconi,R. Machado Marques,B. Lazaroni,4-2-3-1,4-3-3
+17,Arena Barueri,A. Moreira Ferreira,E. Coudet,3-4-2-1,4-2-3-1
+18,Maracanã,A. Bacchi,T. Carpini Barbosa,4-2-3-1,3-4-2-1
+19,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,E. C. Tannus Faro,4-4-2,4-4-2
+20,Maracanã,F. Diniz Silva,R. Díaz,4-2-3-1,4-3-3
+21,Nabizão,P. Faria Caixinha,A. Cardoso de Oliveira,4-3-3,4-2-3-1
+22,Arena do Grêmio,Renato Gaúcho,L. Iubel,4-2-3-1,5-4-1
+23,Arena MRV,G. Milito,F. Seabra,4-4-2,4-3-3
+24,Ligga Arena,A. Stival,E. Coudet,4-2-3-1,4-2-3-1
+25,Allianz Parque,A. Moreira Ferreira,A. Bacchi,3-4-2-1,4-2-3-1
+26,Barradão,L. Condé,R. Ceni,4-4-1-1,4-3-3
+27,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,M. Cruz,4-4-2,3-4-2-1
+28,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,R. Machado Marques,4-4-2,4-2-3-1
+29,Estádio São Januário,R. Díaz,C. Tencati,4-2-3-1,4-4-2
+30,Arena Pantanal,L. Iubel,G. Milito,5-4-1,3-5-2
+31,Arena Fonte Nova,R. Ceni,Renato Gaúcho,4-2-3-1,4-3-3
+32,Maracanã,A. Bacchi,A. Torres Gomes Araújo Amorim,4-2-3-1,4-4-2
+33,Neo Química Arena,A. Cardoso de Oliveira,F. Diniz Silva,4-3-3,4-2-3-1
+34,Mineirão,F. Seabra,L. Condé,4-3-3,4-4-2
+35,Arena Castelão,J. Vojvoda,P. Faria Caixinha,4-2-3-1,4-3-3
+36,Alfredo Jaconi,R. Machado Marques,A. Stival,4-2-3-1,4-2-3-1
+37,Estádio Beira-Rio,E. Coudet,J. Ribeiro Ventura,4-4-2,4-2-3-1
+38,MorumBIS,L. Zubeldía,A. Moreira Ferreira,3-4-2-1,4-2-3-1
+39,Kléber Andrade,F. Diniz Silva,G. Milito,4-2-3-1,4-4-2
+40,Nabizão,P. Faria Caixinha,A. Bacchi,4-2-3-1,4-2-3-1
+41,Neo Química Arena,A. Cardoso de Oliveira,J. Vojvoda,4-2-3-1,4-2-3-1
+42,Ligga Arena,A. Stival,C. de Paiva,4-2-3-1,4-3-3
+43,Barradão,L. Condé,L. Zubeldía,3-4-1-2,3-4-1-2
+44,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,R. Ceni,4-2-3-1,4-1-2-1-2
+45,Arena Pantanal,R. Colbachini,A. Moreira Ferreira,3-4-1-2,3-4-2-1
+46,Maracanã,A. Bacchi,A. Cardoso de Oliveira,4-2-3-1,3-4-3
+47,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,F. Seabra,4-2-3-1,4-3-3
+48,Arena Castelão,J. Vojvoda,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+49,Arena Barueri,A. Moreira Ferreira,A. Stival,4-2-3-1,4-2-3-1
+50,Arena Fonte Nova,R. Ceni,P. Faria Caixinha,4-1-2-1-2,4-3-3
+51,Estádio São Januário,C. de Paiva,L. Condé,4-2-3-1,3-4-1-2
+52,MorumBIS,L. Zubeldía,F. Diniz Silva,4-2-3-1,4-2-3-1
+53,Couto Pereira,Renato Gaúcho,P. Faria Caixinha,4-2-3-1,4-3-3
+54,Barradão,T. Carpini Barbosa,J. Ribeiro Ventura,4-4-2,4-3-3
+55,Arena Pantanal,A. Gonçalves Teixeira,E. Coudet,4-3-3,4-1-3-2
+56,Maracanã,E. de Barros,R. Machado Marques,4-2-3-1,4-2-3-1
+57,Neo Química Arena,A. Cardoso de Oliveira,A. Torres Gomes Araújo Amorim,4-3-3,4-2-3-1
+58,Arena MRV,G. Milito,R. Ceni,3-5-2,4-1-2-1-2
+59,Estádio Heriberto Hülse,C. Tencati,C. Martinho,4-3-3,4-2-3-1
+60,Maracanã,Á. Teixeira Pacheco,A. Bacchi,3-4-2-1,4-2-3-1
+61,Estádio Presidente Vargas,J. Vojvoda,A. Stival,4-3-3,4-1-4-1
+62,MorumBIS,L. Zubeldía,F. Seabra,4-4-2,4-3-2-1
+63,Alfredo Jaconi,R. Machado Marques,J. Ribeiro Ventura,4-2-3-1,4-3-3
+64,Arena Pantanal,A. Gonçalves Teixeira,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+65,Estádio Heriberto Hülse,C. Tencati,A. Gonçalves Teixeira,4-4-2,4-3-3
+66,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,A. Cardoso de Oliveira,4-3-3,4-3-3
+67,Alfredo Jaconi,R. Machado Marques,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+68,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,F. Diniz Silva,4-4-1-1,4-2-3-1
+69,Nabizão,P. Faria Caixinha,G. Milito,4-3-3,3-5-2
+70,Mineirão,F. Seabra,A. Gonçalves Teixeira,4-3-2-1,4-2-3-1
+71,Maracanã,A. Bacchi,Renato Gaúcho,4-2-3-1,4-4-2
+72,Estádio Heriberto Hülse,E. Coudet,L. Zubeldía,4-1-3-2,4-2-3-1
+73,Ligga Arena,A. Stival,C. Tencati,4-2-3-1,4-4-2
+74,Arena Fonte Nova,R. Ceni,J. Vojvoda,4-1-2-1-2,4-3-3
+75,Allianz Parque,A. Moreira Ferreira,Á. Teixeira Pacheco,4-2-3-1,5-4-1
+76,Nabizão,P. Faria Caixinha,R. Machado Marques,4-3-3,4-2-3-1
+77,Maracanã,F. Diniz Silva,J. Ribeiro Ventura,4-2-3-1,4-3-3
+78,Ligga Arena,A. Stival,M. Rizzi Bacchi,4-2-3-1,4-2-3-1
+79,Neo Química Arena,A. Cardoso de Oliveira,L. Zubeldía,4-2-3-1,4-2-3-1
+80,Barradão,T. Carpini Barbosa,E. Coudet,4-1-4-1,4-2-3-1
+81,Estádio Heriberto Hülse,C. Tencati,R. Ceni,4-3-1-2,4-1-3-2
+82,Arena Pantanal,A. Gonçalves Teixeira,J. Vojvoda,4-2-3-1,4-2-3-1
+83,Kléber Andrade,Renato Gaúcho,A. Torres Gomes Araújo Amorim,4-4-1-1,4-2-3-1
+84,Estádio São Januário,Á. Teixeira Pacheco,F. Seabra,4-2-3-1,4-3-2-1
+85,Arena MRV,G. Milito,A. Moreira Ferreira,3-4-3,4-2-3-1
+86,Estádio Antônio Accioly - Atlético Goianiense,J. Ribeiro Ventura,C. Tencati,4-3-3,4-4-2
+87,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,D. D. S. Cerqueira,4-2-3-1,4-2-3-1
+88,Arena Castelão,J. Vojvoda,Renato Gaúcho,4-2-3-1,4-3-3
+89,Alfredo Jaconi,R. Machado Marques,Á. Teixeira Pacheco,4-2-3-1,4-2-3-1
+90,MorumBIS,L. Zubeldía,N. M. Gaspar Pereira,4-2-3-1,4-2-3-1
+91,Mineirão,F. Seabra,F. Diniz Silva,4-3-2-1,4-2-3-1
+92,Orlando Scarpelli,E. Coudet,A. Cardoso de Oliveira,4-2-3-1,4-2-3-1
+93,Barradão,T. Carpini Barbosa,G. Milito,4-1-4-1,3-4-2-1
+94,Maracanã,A. Bacchi,R. Ceni,4-2-3-1,4-1-3-2
+95,Allianz Parque,A. Moreira Ferreira,P. Malta,4-2-3-1,4-3-3
+96,Estádio Heriberto Hülse,C. Tencati,A. Torres Gomes Araújo Amorim,5-3-2,4-4-2
+97,Couto Pereira,Renato Gaúcho,E. Coudet,4-2-3-1,4-2-3-1
+98,Arena Pantanal,A. Gonçalves Teixeira,A. Gomes,4-2-3-1,4-3-3
+99,Estádio São Januário,C. de Paiva,L. Zubeldía,4-2-3-1,4-1-3-2
+100,Ligga Arena,A. Stival,A. Cardoso de Oliveira,4-2-3-1,4-2-3-1
+101,Arena Fonte Nova,R. Ceni,F. Seabra,4-1-3-2,4-3-2-1
+102,Maracanã,F. Diniz Silva,A. Bacchi,4-4-2,4-2-3-1
+103,Arena MRV,G. Milito,J. Vojvoda,3-4-1-2,4-2-3-1
+104,Nabizão,P. Faria Caixinha,T. Carpini Barbosa,4-3-3,5-3-2
+105,Allianz Parque,A. Moreira Ferreira,R. Machado Marques,4-2-3-1,4-2-3-1
+106,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,P. Faria Caixinha,4-2-3-1,3-4-3
+107,Mineirão,F. Seabra,J. Antonello,4-3-3,4-2-3-1
+108,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,Renato Gaúcho,4-3-3,4-3-3
+109,Neo Química Arena,A. Cardoso de Oliveira,A. Gonçalves Teixeira,4-2-3-1,4-3-3
+110,Alfredo Jaconi,R. Machado Marques,A. Bacchi,4-2-3-1,4-2-3-1
+111,Arena Fonte Nova,R. Ceni,C. de Paiva,4-1-3-2,4-2-3-1
+112,Arena Castelão,J. Vojvoda,A. Moreira Ferreira,4-2-3-1,3-4-2-1
+113,Estádio Heriberto Hülse,E. Coudet,G. Milito,4-3-3,4-1-4-1
+114,Maracanã,M. A. de Oliveira,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+115,MorumBIS,L. Zubeldía,C. Tencati,4-2-3-1,4-4-2
+116,Arena Pantanal,A. Gonçalves Teixeira,P. Faria Caixinha,4-3-3,4-2-3-1
+117,Estádio São Januário,C. de Paiva,A. Torres Gomes Araújo Amorim,4-2-3-1,4-4-2
+118,Arena MRV,G. Milito,A. Gomes,3-4-2-1,4-3-3
+119,Arena Castelão,J. Vojvoda,R. Machado Marques,4-2-3-1,4-2-3-1
+120,Estádio Francisco Stédile | Centenário,Renato Gaúcho,M. A. de Oliveira,4-2-3-1,3-4-2-1
+121,MorumBIS,M. Cuberas,R. Ceni,4-2-3-1,4-1-3-2
+122,Estádio Heriberto Hülse,C. Tencati,E. Coudet,5-3-2,4-2-3-1
+123,Maracanã,A. Bacchi,F. Seabra,4-2-3-1,4-3-3
+124,Barradão,T. Carpini Barbosa,J. Antonello,4-1-4-1,4-2-3-1
+125,Allianz Parque,A. Moreira Ferreira,A. Cardoso de Oliveira,4-2-3-1,4-2-3-1
+126,Arena Pantanal,A. Gonçalves Teixeira,A. Torres Gomes Araújo Amorim,5-4-1,4-4-2
+127,Estádio Heriberto Hülse,C. Tencati,F. Seabra,4-3-1-2,4-3-3
+128,Estádio São Januário,C. de Paiva,J. Vojvoda,4-2-3-1,4-2-3-1
+129,Ligga Arena,J. Antonello,L. Zubeldía,4-2-3-1,4-2-3-1
+130,Arena MRV,G. Milito,A. Bacchi,4-1-4-1,4-2-3-1
+131,Nabizão,P. Faria Caixinha,A. Gomes,4-2-3-1,4-2-3-1
+132,Arena Fonte Nova,R. Ceni,R. Machado Marques,4-1-3-2,4-2-3-1
+133,Estádio Francisco Stédile | Centenário,Renato Gaúcho,A. Moreira Ferreira,4-2-3-1,4-3-3
+134,Neo Química Arena,R. Laruccia,T. Carpini Barbosa,4-1-4-1,4-1-4-1
+135,Maracanã,L. Venker de Menezes,E. Coudet,4-2-3-1,4-2-3-1
+136,Maracanã,A. Bacchi,A. Gonçalves Teixeira,4-4-2,4-5-1
+137,MorumBIS,C. Gruezo,P. Faria Caixinha,4-2-3-1,4-2-3-1
+138,Mineirão,F. Seabra,R. Laruccia,4-3-3,4-2-3-1
+139,Arena Castelão,J. Vojvoda,L. Venker de Menezes,4-2-3-1,4-2-3-1
+140,Alfredo Jaconi,R. Machado Marques,Renato Gaúcho,4-2-3-1,4-4-2
+141,Estádio Beira-Rio,E. Coudet,C. de Paiva,4-2-3-1,4-2-3-1
+142,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,J. Antonello,4-3-3,4-2-3-1
+143,Allianz Parque,A. Moreira Ferreira,R. Ceni,4-2-3-1,4-1-3-2
+144,Barradão,T. Carpini Barbosa,C. Tencati,4-1-4-1,4-4-2
+145,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,G. Milito,4-2-3-1,3-4-2-1
+146,Estádio Francisco Stédile | Centenário,Renato Gaúcho,F. Seabra,4-2-3-1,4-3-3
+147,Ligga Arena,J. Antonello,R. Ceni,4-2-3-1,4-1-2-1-2
+148,Estádio São Januário,C. de Paiva,R. Laruccia,4-2-3-1,4-2-3-1
+149,Allianz Parque,A. Moreira Ferreira,V. Carmo Mancini,4-2-3-1,5-4-1
+150,Estádio Heriberto Hülse,C. Tencati,L. Venker de Menezes,4-4-2,4-2-3-1
+151,Maracanã,A. Bacchi,J. Vojvoda,4-2-3-1,4-2-3-1
+152,Arena MRV,G. Milito,L. Zubeldía,3-4-2-1,4-2-3-1
+153,Barradão,T. Carpini Barbosa,A. Torres Gomes Araújo Amorim,4-1-4-1,4-4-2
+154,Arena Fonte Nova,R. Ceni,A. Gonçalves Teixeira,4-4-1-1,4-5-1
+155,Estádio Independência,F. Seabra,P. Faria Caixinha,4-3-3,4-2-3-1
+156,Arena BRB Mané Garrincha,R. Machado Marques,G. Milito,4-2-3-1,4-2-3-1
+157,Neo Química Arena,R. Díaz,C. Tencati,4-2-3-1,4-4-2
+158,Estádio Antônio Accioly - Atlético Goianiense,V. Carmo Mancini,C. de Paiva,4-3-3,4-2-3-1
+159,MorumBIS,L. Zubeldía,A. P. Mendes,4-2-3-1,4-3-3
+160,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+161,Arena Castelão,J. Vojvoda,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+162,Arena BRB Mané Garrincha,A. Bacchi,C. Tencati,4-2-3-1,4-4-2
+163,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,R. Machado Marques,4-2-2-2,4-1-3-2
+164,Allianz Parque,A. Moreira Ferreira,F. Seabra,4-2-3-1,4-3-3
+165,Estádio Francisco Stédile | Centenário,Renato Gaúcho,T. Carpini Barbosa,4-4-2,3-4-3
+166,Arena MRV,G. Milito,C. de Paiva,3-4-2-1,4-2-3-1
+167,Arena Fonte Nova,R. Ceni,R. Díaz,4-1-2-1-2,3-4-1-2
+168,Nabizão,P. Faria Caixinha,M. Varini Di Zioli,4-2-3-1,4-2-3-1
+169,Arena Castelão,J. Vojvoda,V. Carmo Mancini,4-2-3-1,5-4-1
+170,Arena BRB Mané Garrincha,J. Ribeiro Ventura,L. Zubeldía,4-2-3-1,4-2-3-1
+171,Arena Pantanal,A. Gonçalves Teixeira,L. Venker de Menezes,4-5-1,4-5-1
+172,Mineirão,F. Seabra,J. Ribeiro Ventura,4-3-3,4-2-3-1
+173,Estádio Heriberto Hülse,C. Tencati,J. Vojvoda,4-4-2,4-2-3-1
+174,MorumBIS,M. Cuberas,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+175,Barradão,T. Carpini Barbosa,A. Bacchi,4-1-4-1,4-2-3-1
+176,Estádio Antônio Accioly - Atlético Goianiense,V. Carmo Mancini,R. Ceni,4-1-4-1,4-1-3-2
+177,Maracanã,L. Venker de Menezes,J. M. Barreto Martins,4-2-3-1,4-2-3-1
+178,Neo Química Arena,R. Díaz,Renato Gaúcho,3-4-1-2,3-4-3
+179,Alfredo Jaconi,J. Ribeiro Ventura,C. Tencati,4-2-3-1,4-2-3-1
+180,Allianz Parque,A. Moreira Ferreira,T. Carpini Barbosa,4-2-3-1,4-1-4-1
+181,Arena Fonte Nova,R. Ceni,R. Machado Marques,4-1-2-1-2,4-4-1-1
+182,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,F. Seabra,4-4-2,4-2-3-1
+183,Arena Castelão,J. Vojvoda,L. Zubeldía,4-2-3-1,4-4-2
+184,Nabizão,P. Faria Caixinha,L. Venker de Menezes,4-2-3-1,4-2-3-1
+185,Maracanã,A. Bacchi,V. Carmo Mancini,4-2-3-1,4-3-3
+186,Arena MRV,G. Milito,R. Díaz,3-4-1-2,3-4-1-2
+187,Arena Pantanal,A. Gonçalves Teixeira,M. Varini Di Zioli,4-2-3-1,4-3-3
+188,Arena Condá,Renato Gaúcho,C. de Paiva,3-4-3,4-2-3-1
+189,Barradão,E. K. Neto,A. Gonçalves Teixeira,4-3-3,4-2-3-1
+190,Estádio São Januário,C. de Paiva,P. Faria Caixinha,4-2-3-1,4-3-3
+191,Estádio Antônio Accioly - Atlético Goianiense,V. Carmo Mancini,A. Torres Gomes Araújo Amorim,4-3-3,4-4-2
+192,Estádio Heriberto Hülse,C. Tencati,G. Milito,4-2-3-1,3-4-1-2
+193,MorumBIS,L. Zubeldía,A. Bacchi,4-2-3-1,4-2-3-1
+194,Ligga Arena,M. Varini Di Zioli,Renato Gaúcho,3-3-3-1,4-2-3-1
+195,Neo Química Arena,R. Díaz,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+196,Maracanã,L. Venker de Menezes,R. Ceni,4-2-3-1,4-3-3
+197,Estádio Beira-Rio,R. Machado Marques,A. Moreira Ferreira,4-2-3-1,3-4-2-1
+198,Kléber Andrade,F. Seabra,J. Vojvoda,4-2-3-1,4-2-3-1
+199,Arena Castelão,J. Vojvoda,C. Tencati,4-2-3-1,4-2-3-1
+200,Arena Pantanal,A. Gonçalves Teixeira,Renato Gaúcho,5-3-2,4-2-3-1
+201,Neo Química Arena,R. Díaz,P. Faria Caixinha,4-1-2-1-2,4-3-3
+202,Mineirão,F. Seabra,G. Milito,4-2-3-1,3-4-1-2
+203,Estádio Nilton Santos,C. de Paiva,L. Venker de Menezes,4-2-3-1,4-2-3-1
+204,Alfredo Jaconi,J. Ribeiro Ventura,A. Torres Gomes Araújo Amorim,4-4-2,4-2-3-1
+205,Arena Fonte Nova,R. Ceni,T. Carpini Barbosa,4-1-3-2,4-3-3
+206,Maracanã,A. Bacchi,A. Moreira Ferreira,4-2-3-1,3-4-2-1
+207,MorumBIS,L. Zubeldía,U. Louzer Filho,4-2-3-1,4-2-3-1
+208,Estádio Beira-Rio,R. Machado Marques,M. Varini Di Zioli,4-2-3-1,4-3-3
+209,Estádio Beira-Rio,R. Machado Marques,J. Ribeiro Ventura,4-2-3-1,4-4-2
+210,Arena MRV,G. Milito,A. Gonçalves Teixeira,3-4-2-1,3-5-1-1
+211,Alfredo Jaconi,Renato Gaúcho,R. Ceni,4-2-3-1,4-1-4-1
+212,Nabizão,P. Faria Caixinha,J. Vojvoda,4-3-3,4-2-3-1
+213,Maracanã,S. Lobo,R. Díaz,4-2-3-1,3-4-2-1
+214,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,R. Machado Marques,4-2-3-1,4-2-3-1
+215,Estádio Heriberto Hülse,C. Tencati,C. de Paiva,4-2-3-1,4-2-3-1
+216,Allianz Parque,A. Moreira Ferreira,L. Zubeldía,4-2-3-1,3-4-3
+217,Ligga Arena,M. Varini Di Zioli,J. Ribeiro Ventura,4-3-3,4-2-3-1
+218,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,A. Bacchi,4-2-3-1,4-2-3-1
+219,Barradão,T. Carpini Barbosa,F. Seabra,4-3-3,4-3-3
+220,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+221,Estádio Brinco de Ouro,A. Moreira Ferreira,A. Gonçalves Teixeira,4-2-3-1,5-3-2
+222,Mineirão,G. Milito,L. Venker de Menezes,3-4-1-2,4-2-3-1
+223,Arena Fonte Nova,R. Ceni,A. Torres Gomes Araújo Amorim,4-1-3-2,4-2-3-1
+224,Estádio Heriberto Hülse,C. Tencati,Renato Gaúcho,4-1-2-1-2,4-2-3-1
+225,Arena Castelão,J. Vojvoda,R. Díaz,4-2-3-1,3-4-2-1
+226,MorumBIS,L. Zubeldía,T. Carpini Barbosa,4-3-3,4-1-4-1
+227,Estádio Beira-Rio,R. Machado Marques,F. Seabra,4-2-3-1,4-3-3
+228,Maracanã,M. Rizzi Bacchi,P. Faria Caixinha,4-2-3-1,4-2-3-1
+229,Estádio São Januário,C. de Paiva,M. Varini Di Zioli,4-2-3-1,3-2-4-1
+230,Estádio Heriberto Hülse,C. Tencati,P. Faria Caixinha,4-1-4-1,4-3-3
+231,Mineirão,F. Seabra,R. Machado Marques,4-2-3-1,4-2-3-1
+232,Arena Pantanal,B. Franco,C. Tencati,4-2-3-1,4-1-4-1
+233,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,J. Vojvoda,4-2-3-1,4-2-3-1
+234,Mineirão,F. Seabra,U. Louzer Filho,4-3-3,4-3-3
+235,Arena do Grêmio,Renato Gaúcho,G. Milito,4-2-3-1,4-3-3
+236,Neo Química Arena,R. Díaz,A. Bacchi,3-4-2-1,4-2-3-1
+237,Ligga Arena,M. Varini Di Zioli,A. Moreira Ferreira,4-4-2,4-2-3-1
+238,Nabizão,P. Faria Caixinha,R. Ceni,3-4-2-1,4-3-1-2
+239,Maracanã,L. Venker de Menezes,L. Zubeldía,4-2-3-1,4-2-3-1
+240,Alfredo Jaconi,J. Ribeiro Ventura,R. Machado Marques,4-2-3-1,4-2-3-1
+241,Barradão,T. Carpini Barbosa,C. de Paiva,4-3-3,4-2-3-1
+242,Arena Pantanal,B. Franco,J. Ribeiro Ventura,4-3-3,4-2-3-1
+243,Estádio Beira-Rio,R. Machado Marques,J. Vojvoda,4-2-3-1,4-2-3-1
+244,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,T. Carpini Barbosa,4-2-3-1,4-2-3-1
+245,Ligga Arena,M. Varini Di Zioli,J. Vojvoda,4-2-3-1,4-2-3-1
+246,Estádio Nilton Santos,F. Pereira da Silva Maia Carvalho,R. Díaz,4-2-3-1,3-4-1-2
+247,Nabizão,P. Faria Caixinha,A. P. Mendes,4-3-3,4-3-3
+248,Alfredo Jaconi,J. Ribeiro Ventura,L. Venker de Menezes,4-2-3-1,4-2-3-1
+249,Allianz Parque,A. Moreira Ferreira,C. Tencati,4-2-3-1,4-1-2-1-2
+250,Arena Fonte Nova,R. Ceni,G. Milito,4-3-1-2,3-5-2
+251,Mineirão,F. Seabra,L. Zubeldía,4-2-3-1,3-4-2-1
+252,Maracanã,A. Bacchi,C. de Paiva,4-2-3-1,4-2-3-1
+253,Estádio Beira-Rio,R. Machado Marques,B. Franco,4-2-3-1,4-2-3-1
+254,Neo Química Arena,R. Díaz,U. Louzer Filho,4-3-1-2,4-2-3-1
+255,Barradão,T. Carpini Barbosa,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+256,Maracanã,L. Venker de Menezes,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+257,Arena Castelão,J. Vojvoda,R. Ceni,4-2-3-1,4-3-1-2
+258,Arena MRV,G. Milito,P. Faria Caixinha,3-5-2,4-3-3
+259,Arena BRB Mané Garrincha,C. de Paiva,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+260,Arena Pantanal,B. Franco,F. Seabra,4-2-3-1,3-4-3
+261,Arena do Grêmio,M. Salles,A. Bacchi,4-2-3-1,4-4-2
+262,MorumBIS,L. Zubeldía,R. Machado Marques,4-2-3-1,4-2-3-1
+263,Estádio Heriberto Hülse,C. Tencati,M. Varini Di Zioli,4-1-4-1,4-3-3
+264,Nabizão,P. Faria Caixinha,R. Machado Marques,3-5-2,4-2-3-1
+265,Arena do Grêmio,Renato Gaúcho,C. Tencati,4-2-3-1,4-1-4-1
+266,Estádio Brinco de Ouro,A. Moreira Ferreira,L. Gonçalves,4-2-3-1,3-5-2
+267,Arena BRB Mané Garrincha,A. Torres Gomes Araújo Amorim,M. Salles,4-2-3-1,4-2-3-1
+268,Alfredo Jaconi,R. Squinalli,P. Faria Caixinha,4-2-3-1,4-1-4-1
+269,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,L. Venker de Menezes,4-3-3,4-2-3-1
+270,Arena Castelão,J. Vojvoda,B. Franco,4-2-3-1,4-2-3-1
+271,Arena BRB Mané Garrincha,L. Zubeldía,R. Díaz,4-2-3-1,4-3-1-2
+272,Arena Fonte Nova,R. Ceni,C. Tencati,4-4-2,4-3-1-2
+273,Mineirão,E. de Barros,C. de Paiva,4-2-3-1,4-2-3-1
+274,Estádio Beira-Rio,R. Machado Marques,T. Carpini Barbosa,4-2-3-1,4-2-3-1
+275,Maracanã,F. Luís,L. González,4-2-3-1,3-4-2-1
+276,Estádio Heriberto Hülse,C. Tencati,U. Louzer Filho,4-2-3-1,4-3-3
+277,Maracanã,L. Venker de Menezes,F. Diniz Silva,4-2-3-1,4-2-3-1
+278,Arena do Grêmio,M. Salles,J. Vojvoda,4-4-2,4-2-3-1
+279,Ligga Arena,L. González,A. Torres Gomes Araújo Amorim,3-4-2-1,4-2-3-1
+280,Arena MRV,G. Milito,T. Carpini Barbosa,3-4-2-1,4-2-3-1
+281,Nabizão,P. Faria Caixinha,A. Moreira Ferreira,4-1-4-1,4-2-3-1
+282,Arena Fonte Nova,R. Ceni,F. Luís,4-1-3-2,4-2-3-1
+283,Neo Química Arena,R. Díaz,R. Machado Marques,4-1-3-2,4-1-3-2
+284,Arena Pantanal,B. Franco,L. Zubeldía,5-4-1,4-2-3-1
+285,Estádio São Januário,C. de Paiva,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+286,Arena MRV,G. Milito,Renato Gaúcho,3-4-3,4-3-3
+287,Arena Castelão,J. Vojvoda,G. Milito,4-2-3-1,4-2-3-1
+288,Estádio Brinco de Ouro,L. Zubeldía,C. de Paiva,4-2-3-1,4-2-3-1
+289,Neo Química Arena,R. Díaz,L. González,4-1-3-2,3-4-2-1
+290,Maracanã,F. Luís,L. Venker de Menezes,4-2-3-1,4-2-3-1
+291,Estádio Antônio Accioly - Atlético Goianiense,U. Louzer Filho,B. Franco,4-3-3,3-4-3
+292,Maracanã,A. Torres Gomes Araújo Amorim,C. Tencati,3-4-3,5-4-1
+293,Mineirão,F. Diniz Silva,R. Ceni,4-2-3-1,4-3-3
+294,Estádio Beira-Rio,R. Machado Marques,Renato Gaúcho,4-2-3-1,4-2-3-1
+295,Barradão,T. Carpini Barbosa,P. Faria Caixinha,4-2-3-1,4-2-3-1
+296,Alfredo Jaconi,J. Ribeiro Ventura,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+297,Maracanã,L. Venker de Menezes,L. González,4-2-3-1,3-4-2-1
+298,Estádio São Januário,C. de Paiva,B. Franco,4-2-3-1,4-2-3-1
+299,Maracanã,F. Luís,J. Ribeiro Ventura,4-2-3-1,4-2-3-1
+300,Arena do Grêmio,Renato Gaúcho,U. Louzer Filho,4-4-1-1,4-2-3-1
+301,Allianz Parque,A. Moreira Ferreira,J. Vojvoda,4-2-3-1,3-1-4-2
+302,Barradão,T. Carpini Barbosa,L. Venker de Menezes,4-2-3-1,4-2-3-1
+303,Ligga Arena,L. González,F. Diniz Silva,4-2-3-1,4-4-1-1
+304,Arena MRV,G. Milito,R. Machado Marques,4-2-3-1,4-2-3-1
+305,Nabizão,P. Faria Caixinha,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+306,Estádio Heriberto Hülse,C. Tencati,L. Zubeldía,4-2-3-1,4-2-3-1
+307,Arena Pantanal,B. Franco,R. Díaz,4-2-3-1,4-3-1-2
+308,Estádio São Januário,C. de Paiva,R. Ceni,4-2-3-1,4-1-2-1-2
+309,Estádio Beira-Rio,R. Machado Marques,F. Luís,4-2-3-1,4-2-3-1
+310,Maracanã,L. Venker de Menezes,Renato Gaúcho,4-2-3-1,4-2-3-1
+311,Nabizão,F. Seabra,B. Franco,4-2-3-1,4-1-4-1
+312,Ligga Arena,L. González,T. Carpini Barbosa,3-4-2-1,5-4-1
+313,Alfredo Jaconi,F. Matias,J. Vojvoda,4-2-3-1,3-1-4-2
+314,Neo Química Arena,R. Díaz,A. Moreira Ferreira,3-4-1-2,4-2-3-1
+315,Arena Fonte Nova,R. Ceni,L. Zubeldía,4-2-3-1,4-2-3-1
+316,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,C. de Paiva,4-2-3-1,4-2-3-1
+317,Estádio Beira-Rio,R. Machado Marques,C. Tencati,4-2-3-1,4-4-2
+318,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,G. Milito,4-2-3-1,3-4-2-1
+319,Estádio Independência,F. Diniz Silva,F. Luís,4-2-3-1,4-2-3-1
+320,Estádio Beira-Rio,R. Machado Marques,L. Venker de Menezes,4-2-3-1,4-2-3-1
+321,Allianz Parque,A. Moreira Ferreira,Renato Gaúcho,4-2-3-1,4-2-3-1
+322,Barradão,T. Carpini Barbosa,R. Díaz,4-2-3-1,4-3-1-2
+323,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,B. Franco,4-2-3-1,4-1-4-1
+324,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,F. Seabra,4-2-3-1,4-2-3-1
+325,Mineirão,F. Diniz Silva,C. Tencati,4-2-3-1,4-2-3-1
+326,Arena Castelão,J. Vojvoda,C. de Paiva,4-2-2-2,4-3-3
+327,Alfredo Jaconi,F. Matias,R. Ceni,4-2-3-1,4-3-3
+328,MorumBIS,L. Zubeldía,L. González,4-2-3-1,4-3-3
+329,Maracanã,F. Luís,G. Milito,3-4-2-1,3-1-4-2
+330,Ligga Arena,L. González,G. Milito,4-2-3-1,3-4-2-1
+331,Neo Química Arena,R. Díaz,F. Diniz Silva,4-3-1-2,4-2-3-1
+332,Ligga Arena,L. González,A. Gomes,4-2-3-1,4-2-3-1
+333,Nabizão,F. Seabra,M. Cuberas,4-2-3-1,4-2-3-1
+334,Estádio Heriberto Hülse,C. Tencati,T. Carpini Barbosa,4-2-2-2,4-2-3-1
+335,Arena Fonte Nova,R. Ceni,A. Moreira Ferreira,4-3-3,4-2-3-1
+336,Arena Pantanal,J. Bertazzo Tobar,F. Luís,5-3-2,3-4-2-1
+337,Arena do Grêmio,Renato Gaúcho,F. Matias,4-2-2-2,4-2-3-1
+338,Estádio Independência,G. Milito,A. Torres Gomes Araújo Amorim,3-4-3,4-2-3-1
+339,Estádio São Januário,C. de Paiva,R. Machado Marques,4-2-3-1,4-2-3-1
+340,Maracanã,L. Venker de Menezes,J. Vojvoda,4-2-3-1,3-5-2
+341,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,A. Moreira Ferreira,4-2-3-1,4-2-3-1
+342,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,T. Carpini Barbosa,4-1-3-2,5-3-2
+343,Alfredo Jaconi,F. Matias,B. Franco,4-3-3,3-4-3
+344,MorumBIS,L. Zubeldía,G. Milito,4-2-3-1,4-3-3
+345,Arena Fonte Nova,R. Ceni,L. González,4-3-3,4-2-3-1
+346,Neo Química Arena,R. Díaz,C. de Paiva,4-3-1-2,4-2-3-1
+347,Estádio Beira-Rio,R. Machado Marques,F. Seabra,4-2-3-1,4-2-3-1
+348,Maracanã,L. Venker de Menezes,C. Tencati,4-2-3-1,4-3-1-2
+349,Arena Castelão,J. Vojvoda,F. Luís,4-2-3-1,4-2-2-2
+350,Estádio Independência,G. Milito,F. Matias,3-4-2-1,4-3-3
+351,Allianz Parque,A. Moreira Ferreira,A. Torres Gomes Araújo Amorim,4-2-3-1,4-2-3-1
+352,Mineirão,F. Diniz Silva,Renato Gaúcho,4-2-3-1,4-2-3-1
+353,Estádio Heriberto Hülse,C. Tencati,R. Díaz,3-5-2,4-3-1-2
+354,Arena Pantanal,B. Franco,R. Ceni,4-3-3,4-1-4-1
+355,Estádio São Januário,F. Loureiro,A. Gomes,4-2-3-1,4-2-3-1
+356,Maracanã,F. Luís,R. Machado Marques,4-2-3-1,4-2-3-1
+357,Arena do Grêmio,Renato Gaúcho,L. Zubeldía,4-2-3-1,4-2-3-1
+358,Ligga Arena,L. González,L. Venker de Menezes,4-2-3-1,4-2-3-1
+359,Nabizão,F. Seabra,F. Diniz Silva,4-2-3-1,4-2-3-1
+360,Barradão,T. Carpini Barbosa,J. Vojvoda,5-3-2,4-2-3-1
+361,Neo Química Arena,R. Díaz,R. Ceni,4-3-1-2,3-4-1-2
+362,Estádio São Januário,F. Loureiro,G. Milito,4-1-2-1-2,3-4-3
+363,Estádio Heriberto Hülse,C. Tencati,F. Luís,4-3-1-2,4-2-3-1
+364,MorumBIS,L. Zubeldía,F. Matias,4-2-3-1,4-2-3-1
+365,Barradão,T. Carpini Barbosa,Renato Gaúcho,5-3-2,4-2-3-1
+366,Estádio Antônio Accioly - Atlético Goianiense,A. Gomes,J. Vojvoda,4-2-3-1,4-2-3-1
+367,Mineirão,F. Diniz Silva,A. Moreira Ferreira,4-3-2-1,4-2-3-1
+368,Estádio Beira-Rio,R. Machado Marques,A. Torres Gomes Araújo Amorim,4-2-2-2,4-2-3-1
+369,Ligga Arena,L. González,F. Seabra,4-2-3-1,4-2-3-1
+370,Maracanã,L. Venker de Menezes,B. Franco,4-2-3-1,4-2-3-1
+371,Arena MRV,L. Gonçalves,L. González,4-3-3,4-3-2-1
+372,Arena Fonte Nova,R. Ceni,A. Gomes,4-2-3-1,4-1-4-1
+373,Estádio Nilton Santos,A. Torres Gomes Araújo Amorim,L. Zubeldía,,
+374,Nabizão,F. Seabra,C. Tencati,4-2-3-1,4-1-2-1-2
+375,Arena Pantanal,B. Franco,F. Loureiro,4-3-3,4-3-2-1
+376,Maracanã,F. Luís,T. Carpini Barbosa,4-4-2,4-3-3
+377,Arena Castelão,J. Vojvoda,R. Machado Marques,4-2-3-1,4-1-2-1-2
+378,Arena do Grêmio,Renato Gaúcho,R. Díaz,4-4-2,4-3-1-2
+379,Alfredo Jaconi,F. Matias,F. Diniz Silva,4-2-3-1,4-2-3-1
+380,Allianz Parque,A. Moreira Ferreira,L. Venker de Menezes,4-2-3-1,4-2-3-1

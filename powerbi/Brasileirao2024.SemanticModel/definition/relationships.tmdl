@@ -1,0 +1,65 @@
+relationship 20ead5ea-96f3-5f06-8249-6aaf04035a4c
+	fromColumn: fato_partida.rodada
+	toColumn: dim_rodada.rodada
+
+relationship 57a9328b-742f-5871-978b-22f096e95aaf
+	fromColumn: fato_participacao.rodada
+	toColumn: dim_rodada.rodada
+
+relationship 5de95245-951c-58e4-9cf9-e546adfce7f1
+	fromColumn: fato_gol.rodada
+	toColumn: dim_rodada.rodada
+
+relationship fcbc8dc2-284a-54ec-a149-60714b1fe6ea
+	fromColumn: fato_cartao.rodada
+	toColumn: dim_rodada.rodada
+
+relationship 3b2c0848-7d20-5ce5-adc3-92dacbe1ea33
+	fromColumn: classificacao_rodada.rodada
+	toColumn: dim_rodada.rodada
+
+relationship 05de6108-502d-5688-b574-beffbed2f7d7
+	fromColumn: fato_participacao.id_clube
+	toColumn: dim_clube.id_clube
+
+relationship 24ea6997-346f-50fb-a246-9c32a4db68a3
+	isActive: false
+	fromColumn: fato_participacao.id_adversario
+	toColumn: dim_clube.id_clube
+
+relationship 0b0784a0-2214-523f-b80f-176735069ae7
+	fromColumn: fato_gol.id_clube_beneficiado
+	toColumn: dim_clube.id_clube
+
+relationship 8187441c-5289-5e79-a382-7e1a92342921
+	fromColumn: fato_cartao.id_clube
+	toColumn: dim_clube.id_clube
+
+relationship 71a0e610-03ff-5bd3-81d8-c3d4b200e69c
+	fromColumn: classificacao_rodada.id_clube
+	toColumn: dim_clube.id_clube
+
+relationship e13a888a-9a56-5329-ab76-c8e551ecbcbf
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: classificacao_final.id_clube
+	toColumn: dim_clube.id_clube
+
+relationship 7072964c-983b-509f-81d7-2c5a465bad2a
+	fromColumn: fato_gol.id_jogador
+	toColumn: dim_jogador.id_jogador
+
+relationship 6417cd17-cb3b-5b59-a487-f1ec7ad5766d
+	fromColumn: fato_cartao.id_jogador
+	toColumn: dim_jogador.id_jogador
+
+relationship 91e06fda-2106-55ac-9fe4-189b50c189d3
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: jogador_estatisticas.id_jogador
+	toColumn: dim_jogador.id_jogador
+
+relationship ff8a64e8-dba1-5ba6-a262-aebd71a03765
+	fromColumn: fato_partida.data_partida
+	toColumn: dim_calendario.Data
+

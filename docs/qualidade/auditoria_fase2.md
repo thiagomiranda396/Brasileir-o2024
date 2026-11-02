@@ -28,7 +28,7 @@ pode ser repetida automaticamente.
 | Horários herdados contra o adaoduque | 150/150 coincidem em até 10 min | Seção 2 do relatório gerado |
 | Classificação contra a Wikipédia (rev. 70400733) | 19/20 iguais; Juventude diverge (GP 47 na Wikipédia) | Seção 3 do relatório gerado |
 | Reprodutibilidade da conversão | CSV idêntico byte a byte numa segunda execução | Executado em 2026-10-18 |
-| Testes automatizados permanentes (`tests/`) | 70/70 aprovados com a auditoria local; 59 aprovados e 11 pulados sem os arquivos de `data/external/` | `python -I -X utf8 -m unittest discover -s tests -v`, executado em 2026-10-21 |
+| Testes automatizados permanentes (`tests/`) | 82/82 aprovados com a auditoria local; 71 aprovados e 11 pulados sem os arquivos de `data/external/` | `python -I -X utf8 -m unittest discover -s tests -v`, executado em 2026-10-22 |
 
 ## B. Consulta documental do agente
 

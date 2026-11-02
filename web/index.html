@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brasileirão 2024</title>
+  <meta name="description" content="Dashboard interativo do Campeonato Brasileiro Série A 2024: classificação rodada a rodada, clubes, partidas, jogadores e um jogo de técnico.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div class="app">
+    <aside class="lateral" aria-label="Navegação e filtros">
+      <div class="lateral-topo">
+        <a class="marca" href="#/">
+          <span class="marca-bola" aria-hidden="true">⚽</span>
+          <span><strong>Brasileirão</strong> 2024</span>
+        </a>
+        <button class="botao-tema" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">🌓</button>
+      </div>
+      <nav class="menu" aria-label="Seções">
+        <a href="#/" data-rota="">Visão geral</a>
+        <a href="#/classificacao" data-rota="classificacao">Classificação</a>
+        <a href="#/clubes" data-rota="clubes">Clubes</a>
+        <a href="#/jogadores" data-rota="jogadores">Jogadores</a>
+        <a href="#/partidas" data-rota="partidas">Partidas</a>
+        <a href="#/jogos" data-rota="jogos">Prancheta 2024</a>
+      </nav>
+      <details class="painel-filtros" open>
+        <summary>Filtros</summary>
+        <div class="filtros-laterais" id="filtros"></div>
+      </details>
+    </aside>
+
+    <div class="principal">
+      <header class="faixa-titulo" id="faixa-titulo">
+        <div class="faixa-interna"><h1>Brasileirão 2024</h1></div>
+      </header>
+
+      <main id="conteudo" tabindex="-1">
+        <p class="carregando">Carregando os dados do campeonato…</p>
+      </main>
+
+      <footer class="rodape">
+        <p>
+          Projeto de portfólio de BI. Dados: <a href="https://github.com/openfootball/south-america">openfootball</a> (CC0),
+          <a href="https://github.com/adaoduque/Brasileirao_Dataset">adaoduque/Brasileirao_Dataset</a> (dados derivados) e
+          <a href="https://en.wikipedia.org/wiki/2024_Campeonato_Brasileiro_S%C3%A9rie_A">Wikipédia</a> (CC BY-SA 4.0).
+          Escudos e fotos carregados da <a href="https://commons.wikimedia.org/">Wikimedia Commons</a>, com os créditos em
+          <a href="#/creditos">Créditos das imagens</a>. Marcas e nomes pertencem aos respectivos titulares.
+        </p>
+      </footer>
+    </div>
+  </div>
+
+  <div class="tooltip" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

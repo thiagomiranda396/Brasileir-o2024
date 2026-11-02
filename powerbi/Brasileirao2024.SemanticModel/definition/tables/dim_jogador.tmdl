@@ -1,0 +1,110 @@
+/// Grão: jogador × clube (587). Homônimos de clubes diferentes ficam separados.
+table dim_jogador
+	lineageTag: a67049ec-5266-5c07-81cc-e71f1175c88a
+
+	/// Chave: slug do nome + sigla do clube.
+	column id_jogador
+		dataType: string
+		lineageTag: 6274d811-3474-5f6b-a9cf-388a2439d1ba
+		summarizeBy: none
+		sourceColumn: id_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_exibicao
+		dataType: string
+		lineageTag: ae338741-ae16-5fc8-89a3-879ab1fa74e1
+		summarizeBy: none
+		sourceColumn: nome_exibicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_fonte
+		dataType: string
+		isHidden
+		lineageTag: 3dceddea-3bd1-5c38-8ade-b4075e600a2a
+		summarizeBy: none
+		sourceColumn: nome_fonte
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_clube
+		dataType: string
+		lineageTag: 0d54f4f4-3add-5809-ab0f-211de29bfdc3
+		summarizeBy: none
+		sourceColumn: id_clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column clube
+		dataType: string
+		lineageTag: e4c382ef-ea72-5769-8466-6f4b8f261b99
+		summarizeBy: none
+		sourceColumn: clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column posicao
+		dataType: string
+		lineageTag: 474319ea-b185-57ba-982b-b700913e6e9c
+		summarizeBy: none
+		sourceColumn: posicao
+		sortByColumn: ordem_posicao
+
+		annotation SummarizationSetBy = Automatic
+
+	column wiki
+		dataType: string
+		isHidden
+		lineageTag: 0c19ce41-0e2b-55d1-905e-d3fde01360b2
+		summarizeBy: none
+		sourceColumn: wiki
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Miniatura fixa da foto na Wikimedia Commons, só quando a Wikidata confirma o jogador (vazio se não houver).
+	column foto_url
+		dataType: string
+		lineageTag: d20c8485-b238-5de8-bd92-86b7e8e3da16
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: foto_url
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Ordem de exibição das posições (goleiro primeiro), calculada no Power Query.
+	column ordem_posicao
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 450897e4-7b19-5c5a-a7d7-e26772655c34
+		summarizeBy: none
+		sourceColumn: ordem_posicao
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Rótulo único do jogador (nome · sigla do clube), para eixos e drill-through.
+	column jogador = dim_jogador[nome_exibicao] & " · " & dim_jogador[id_clube]
+		dataType: string
+		lineageTag: 41ecd74a-3665-5fac-be43-a4f4814fdd8f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_jogador = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\dim_jogador.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_jogador", "nome_exibicao", "nome_fonte", "id_clube", "clube", "posicao", "wiki", "foto_url"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(VaziosComoNulos, {{"id_jogador", type text}, {"nome_exibicao", type text}, {"nome_fonte", type text}, {"id_clube", type text}, {"clube", type text}, {"posicao", type text}, {"wiki", type text}, {"foto_url", type text}}, "en-US"),
+				    Coluna_ordem_posicao = Table.AddColumn(Tipos, "ordem_posicao", each if [posicao] = "Goleiro" then 1 else if [posicao] = "Zagueiro" then 2 else if [posicao] = "Lateral" then 3 else if [posicao] = "Meio-campo" then 4 else if [posicao] = "Atacante" then 5 else 6, Int64.Type)
+				in
+				    Coluna_ordem_posicao
+
+	annotation PBI_ResultType = Table
+

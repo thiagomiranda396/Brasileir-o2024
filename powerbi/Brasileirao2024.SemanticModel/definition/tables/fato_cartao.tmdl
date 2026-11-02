@@ -1,0 +1,117 @@
+/// Grão: cartão (2.096). Dado da fonte, sem conferência independente.
+table fato_cartao
+	lineageTag: 1d6b0b80-6212-5d83-aa72-22862927ceb2
+
+	column id_cartao
+		dataType: int64
+		formatString: 0
+		lineageTag: 84fd83a3-7d15-583b-a2fa-9d6d6516c85d
+		summarizeBy: none
+		sourceColumn: id_cartao
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_partida
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fa5efd2-cc81-5dc7-8457-17457212e9a2
+		summarizeBy: none
+		sourceColumn: id_partida
+
+		annotation SummarizationSetBy = Automatic
+
+	column rodada
+		dataType: int64
+		formatString: 0
+		lineageTag: 3fbae9a6-a1ee-55e7-a083-094cee6863f9
+		summarizeBy: none
+		sourceColumn: rodada
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_partida
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: a5c45705-4acc-502d-8d98-da934de7c1a0
+		summarizeBy: none
+		sourceColumn: data_partida
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_jogador
+		dataType: string
+		lineageTag: 84ef6f86-3e2d-5bd4-8f53-331d1973f34f
+		summarizeBy: none
+		sourceColumn: id_jogador
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_clube
+		dataType: string
+		lineageTag: c402e48f-afd2-5e8b-b4e4-76f857159d57
+		summarizeBy: none
+		sourceColumn: id_clube
+
+		annotation SummarizationSetBy = Automatic
+
+	column mando
+		dataType: string
+		lineageTag: de3dbe25-ae0d-5773-b703-ad0ae093d074
+		summarizeBy: none
+		sourceColumn: mando
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Amarelo ou Vermelho.
+	column cartao
+		dataType: string
+		lineageTag: fc8f7674-317c-553c-bfa8-1f64e8650462
+		summarizeBy: none
+		sourceColumn: cartao
+
+		annotation SummarizationSetBy = Automatic
+
+	column minuto
+		dataType: int64
+		formatString: 0
+		lineageTag: a4b9c2c4-fb7a-54e8-aa63-5693e869b2c0
+		summarizeBy: none
+		sourceColumn: minuto
+
+		annotation SummarizationSetBy = Automatic
+
+	column acrescimo
+		dataType: int64
+		formatString: 0
+		lineageTag: 38f44095-938e-5937-b99f-b0b629383d56
+		summarizeBy: none
+		sourceColumn: acrescimo
+
+		annotation SummarizationSetBy = Automatic
+
+	column periodo
+		dataType: string
+		lineageTag: 1e949c53-6aad-5046-b11a-693b349c4998
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_cartao = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaProjeto & "powerbi\dados\fato_cartao.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars = true]),
+				    // Colunas do contrato da view; uma coluna ainda não exportada entra vazia (null), nunca como zero.
+				    Colunas = Table.SelectColumns(Cabecalhos, {"id_cartao", "id_partida", "rodada", "data_partida", "id_jogador", "id_clube", "mando", "cartao", "minuto", "acrescimo", "periodo"}, MissingField.UseNull),
+				    VaziosComoNulos = Table.ReplaceValue(Colunas, "", null, Replacer.ReplaceValue, Table.ColumnNames(Colunas)),
+				    // Localidade en-US: os decimais do CSV usam ponto.
+				    Tipos = Table.TransformColumnTypes(VaziosComoNulos, {{"id_cartao", Int64.Type}, {"id_partida", Int64.Type}, {"rodada", Int64.Type}, {"data_partida", type date}, {"id_jogador", type text}, {"id_clube", type text}, {"mando", type text}, {"cartao", type text}, {"minuto", Int64.Type}, {"acrescimo", Int64.Type}, {"periodo", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+
