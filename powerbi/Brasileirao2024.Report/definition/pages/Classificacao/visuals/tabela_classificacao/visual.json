@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "tabela_classificacao",
   "position": {
     "x": 264,
@@ -15,6 +15,21 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Escudo ou sigla"
+                }
+              },
+              "queryRef": "Medidas.Escudo ou sigla",
+              "nativeQueryRef": "Escudo ou sigla",
+              "displayName": " "
+            },
             {
               "field": {
                 "Measure": {
@@ -196,7 +211,8 @@
             },
             "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": false
       }
     },
     "objects": {
@@ -389,6 +405,20 @@
         }
       ],
       "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Escudo ou sigla"
+          }
+        },
         {
           "properties": {
             "value": {

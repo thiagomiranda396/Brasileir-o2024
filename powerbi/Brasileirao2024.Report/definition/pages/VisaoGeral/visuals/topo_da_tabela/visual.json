@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "topo_da_tabela",
   "position": {
     "x": 264,
@@ -15,6 +15,21 @@
       "queryState": {
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Escudo ou sigla"
+                }
+              },
+              "queryRef": "Medidas.Escudo ou sigla",
+              "nativeQueryRef": "Escudo ou sigla",
+              "displayName": " "
+            },
             {
               "field": {
                 "Column": {
@@ -136,7 +151,8 @@
             },
             "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": false
       }
     },
     "objects": {
@@ -458,6 +474,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "filter": {
           "Version": 2,
           "From": [
@@ -491,8 +508,7 @@
               }
             }
           ]
-        },
-        "howCreated": "User"
+        }
       }
     ]
   }
