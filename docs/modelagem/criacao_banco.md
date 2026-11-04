@@ -13,7 +13,7 @@ Nada existente no servidor é alterado. Os privilégios e suas justificativas es
 
 | # | Pré-requisito | Como verificar | Observação |
 |---|---|---|---|
-| 1 | Serviço do PostgreSQL 18 em execução | PowerShell: `Get-Service postgresql*` → `Running` | O agente ainda não verificou |
+| 1 | Serviço do PostgreSQL 18 em execução | PowerShell: `Get-Service postgresql*` → `Running` | — |
 | 2 | Saber em qual servidor e porta executar | pgAdmin → propriedades do servidor, ou `SHOW port;` | Se houver mais de uma instalação, confirme que é a do PostgreSQL 18 |
 | 3 | Credencial de um **superusuário** (ex.: `postgres`) | Consulta 1e do script | Só para este script; o projeto não usa mais o superusuário depois |
 | 4 | `psql` disponível pelo caminho completo | `& "C:\Program Files\PostgreSQL\18\bin\psql.exe" --version` | Não precisa estar no PATH |

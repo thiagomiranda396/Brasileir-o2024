@@ -1,4 +1,4 @@
-# Estado do projeto (retrato de 2026-11-01)
+# Estado do projeto (retrato de 2026-11-01, atualizado em 2026-11-04)
 
 Retrato feito na criação desta Skill, a partir de `README.md`, `docs/`, `sql/`, `scripts/`,
 `tests/`, `powerbi/`, `web/` e do histórico Git da pasta `C:\Projetos\Brasileirão2024`.
@@ -15,8 +15,8 @@ dashboard no Power BI e site interativo (estatísticas, escudos, fotos e minijog
 | Dados validados (`data/`) | Pronto. Partidas, gols, cartões e jogadores conferidos (ver seção 4) |
 | Banco PostgreSQL (`sql/`) | Pronto. 23 testes SQL passam |
 | Site (`web/`) | Pronto. Visão geral, Classificação, Clubes, Jogadores, Partidas, Minijogos (Prancheta 2024), Créditos (o quiz foi removido em 2026-11-01 a pedido do Thiago) |
-| Power BI (`powerbi/`) | **Guia pronto**: medidas DAX, tema, CSVs e layout. O `.pbix` ainda não foi montado |
-| Publicação no GitHub | **Pendente** (seção 5) |
+| Power BI (`powerbi/`) | Pronto. Projeto PBIP (TMDL + PBIR), 95 medidas, 11 páginas, layout no PowerPoint; testado pelo Thiago no Desktop em 2026-11-04 |
+| Publicação no GitHub | Pronto. github.com/thiagomiranda396/Brasileir-o2024 (`main`), CI verde, site no GitHub Pages |
 
 ## 2. Arquitetura e tecnologias
 
@@ -32,7 +32,7 @@ dashboard no Power BI e site interativo (estatísticas, escudos, fotos e minijog
 | Power BI | Power BI Desktop, modelo estrela, DAX | `powerbi/README.md`, `medidas.dax`, `tema_brasileirao.json`, `dados/*.csv` | CSVs exportados por `sql/06_exportar_csv.sql` |
 | Site | HTML, CSS e JS puros (módulos ES), gráficos SVG próprios | `web/` | Lê `web/data/brasileirao2024.json` (gerado por `scripts/exportar_web.py`). A classificação vem pronta da view; participações, casa e fora, sequências e aproveitamento são derivados de novo em JS (`web/js/dados.js` e páginas) |
 | Imagens | `scripts/buscar_fotos.py` (Wikidata ou, na falta do vínculo, a ficha da Wikipédia em inglês confirma o jogador; Commons dá arquivo, autor e licença) → `core.escudo_clube`, `core.foto_jogador` → `analytics.credito_imagem` | `data/reference/escudos_clubes.csv`, `fotos_jogadores.csv` | Só licenças livres; nenhuma imagem no repositório; o site só lê as URLs do JSON |
-| Testes | `unittest` (101), Node para o motor do jogo, SQL (21) | `tests/`, `sql/05_testes.sql` | 11 testes pulam sem `data/external/` |
+| Testes | `unittest` (130), Node para o motor do jogo, SQL (23) | `tests/`, `sql/05_testes.sql` | 12 testes pulam sem `data/external/` |
 | CI | GitHub Actions | `.github/workflows/testes.yml`, `pages.yml` | Recria o banco a cada push e confere o JSON do site |
 
 ## 3. Decisões já aprovadas (não reabrir sem motivo novo)
@@ -92,21 +92,18 @@ dashboard no Power BI e site interativo (estatísticas, escudos, fotos e minijog
 
 | Decisão | Situação | Por que importa |
 |---|---|---|
-| Definição do aproveitamento | `docs/regras_de_classificacao.md` diz "será decidida na Fase 4"; não há registro da decisão. Hoje: CBF `floor(100 × P / (3 × J))` (ex.: Athletico 36); view `round(..., 1)` (36,8); site recalcula em JS `100 × P / (3 × J)` e exibe com 1 casa (36,8%); DAX `DIVIDE` sem arredondar, formatado com 1 casa | O site e o Power BI mostram 36,8; a CBF, 36. Três implementações da mesma regra |
-| Repositório no GitHub | Nome do repositório vazio ainda não informado; a pasta local não tem remoto. Último commit em 2026-10-22 (Fase 2); Fase 3, site e Power BI não estão commitados | Sem isso, não há portfólio publicado nem CI rodando |
-| Montagem do `.pbix` e capturas `docs/img/powerbi-*.png` | Depende do Power BI Desktop do Thiago | O README aponta para imagens que ainda não existem |
+| Definição do aproveitamento | **Resolvido em 2026-11-04:** documentado em `docs/regras_de_classificacao.md` como `100 × P / (3 × J)` com 1 casa (36,8 para o Athletico; a CBF trunca para 36). Histórico: Hoje: CBF `floor(100 × P / (3 × J))` (ex.: Athletico 36); view `round(..., 1)` (36,8); site recalcula em JS `100 × P / (3 × J)` e exibe com 1 casa (36,8%); DAX `DIVIDE` sem arredondar, formatado com 1 casa | O site e o Power BI mostram 36,8; a CBF, 36. Três implementações da mesma regra |
+| Repositório no GitHub | **Resolvido:** publicado, com PRs #1 (Power BI) e #2 (sombras do site) mesclados em 2026-11-04 | Sem isso, não há portfólio publicado nem CI rodando |
+| Capturas `docs/img/powerbi-*.png` | O `.pbip` está pronto; as capturas dependem do Power BI Desktop do Thiago | O README aponta para imagens que ainda não existem |
 | Estádios | Não existe entidade estádio. Os nomes vêm de duas fontes com grafias diferentes ("Nilton Santos" em `clubes_visual.csv`, "Estádio Nilton Santos" nas partidas) e há jogos em outros estádios (ex.: o Grêmio foi mandante fora da Arena em 9 dos 19 jogos; a causa provável são as enchentes no RS, ainda não verificada jogo a jogo). O estádio de cada partida vem do adaoduque, sem conferência independente | Qualquer análise de "fator casa real" exige um mapa de estádios, que é decisão de modelagem |
 
 ### 5.3 Arrumação e documentação (encontradas na criação da Skill, nada foi alterado)
 
 | Item | Evidência | Impacto |
 |---|---|---|
-| Pasta `.github/` ausente em `C:\Projetos\Brasileirão2024` | Existe na cópia de trabalho do projeto, não na pasta local | Sem ela, o CI e a publicação do site não sobem para o GitHub |
-| `_backup_versao_local/` fora do `.gitignore` | Pasta na raiz do projeto local | Pode ir para o repositório público por engano |
-| `sql/00_criar_banco_e_papel.sql`, BLOCO 5 | A consulta final usa `datlocale`, que só existe a partir do PostgreSQL 17; no 16 ela falha depois de criar papéis e banco (verificado num banco de teste) | O README diz "testado no 16"; no 15 e no 16 o script termina com erro, embora tudo tenha sido criado |
-| README: "101 testes" nos destaques e "100 testes" na estrutura | `README.md` | Contagem atual: 101 |
-| `docs/regras_de_classificacao.md` diz que o confronto direto "será implementado" | Já está implementado em `analytics.classificacao_rodada` | Documento desatualizado |
-| `docs/modelagem/criacao_banco.md`: pré-requisito "o agente ainda não verificou" | O mesmo documento diz "Status: testado" | Documento desatualizado |
+Todos resolvidos até 2026-11-04: `.github/` no repositório; `_backup_versao_local/` no `.gitignore`;
+`datlocale` trocado por `datcollate` no BLOCO 5 (pipeline completo testado no PostgreSQL 16); contagem
+de testes do README atualizada; `regras_de_classificacao.md` e `criacao_banco.md` corrigidos.
 
 ## 6. Como reconferir este retrato
 

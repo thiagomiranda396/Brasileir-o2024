@@ -50,7 +50,7 @@ Em caso de empate em pontos ganhos entre dois ou mais clubes ao final do campeon
 | Critério | Dados disponíveis? | Tratamento |
 |---|---|---|
 | Pontos, 1 (vitórias), 2 (saldo), 3 (gols pró) | Sim, nas partidas | Implementados |
-| 4 (confronto direto) | Sim, nas partidas | Será implementado, só para empates entre exatamente 2 clubes (§2) |
+| 4 (confronto direto) | Sim, nas partidas | Implementado em `analytics.classificacao_rodada`, só para empates entre exatamente 2 clubes (§2) |
 | 5 e 6 (cartões) | **Não** na fonte principal. A CBF publica os totais, mas sem licença de reutilização | Não implementados; empates que chegarem a esses critérios serão sinalizados |
 | 7 (sorteio) | Não se aplica a dados | Sinalizado |
 
@@ -66,5 +66,7 @@ jogos adiados e de confrontos diretos incompletos estão na
 ## Aproveitamento
 
 O aproveitamento publicado pela CBF segue `floor(100 × pontos / (3 × jogos))`, com truncamento,
-o que foi verificado nos 20 clubes (auditoria, B1). A definição usada nos indicadores do projeto
-será decidida na Fase 4, com esta referência.
+o que foi verificado nos 20 clubes (auditoria, B1). Nos indicadores do projeto, o aproveitamento é
+`100 × pontos / (3 × jogos)` exibido com uma casa decimal, sem truncar: na view
+`analytics.classificacao_final` (`round(..., 1)`), no site e na medida `Aproveitamento` do Power BI.
+Exemplo: Athletico Paranaense, 42 pontos em 38 jogos, aparece com 36,8% (a CBF publica 36).
