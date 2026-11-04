@@ -218,31 +218,14 @@ table Medidas
 		displayFolder: 2. Clubes
 		lineageTag: 81fcac6e-d464-543c-a9e8-499a26d6ad67
 
-	/// Escudo do clube (Wikimedia Commons), embutido no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
-	measure 'Escudo ou sigla' =
-			VAR embutida =
-			    IF (
-			        HASONEVALUE ( dim_clube[id_clube] ),
-			        CONCATENATEX ( imagem_escudo, imagem_escudo[conteudo], "", imagem_escudo[parte], ASC )
-			    )
-			VAR url = SELECTEDVALUE ( dim_clube[escudo_url] )
-			VAR sigla = SELECTEDVALUE ( dim_clube[id_clube] )
-			VAR c1 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#", "%23" )
-			VAR c2 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_secundaria] ), "#", "%23" )
-			RETURN
-			    SWITCH (
-			        TRUE (),
-			        embutida <> "", embutida,
-			        NOT ISBLANK ( url ), url,
-			        ISBLANK ( sigla ), BLANK (),
-			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
-			            & "<circle cx='50' cy='50' r='46' fill='" & c1 & "' stroke='" & c2 & "' stroke-width='6'/>"
-			            & "<text x='50' y='62' font-family='Segoe UI, Arial, sans-serif' font-size='30' font-weight='700' fill='white' text-anchor='middle'>"
-			            & sigla & "</text></svg>"
-			    )
+	/// Sigla de 3 letras do clube; no relatório ela faz o papel do escudo, num selo com as cores do clube.
+	measure 'Sigla do clube' = SELECTEDVALUE ( dim_clube[id_clube] )
 		displayFolder: 2. Clubes
-		lineageTag: cc4bbc2c-b5d2-506d-a57d-662f6facd24c
-		dataCategory: ImageUrl
+		lineageTag: 653da35a-00b1-5122-b4fb-945b35a6d69b
+
+	measure 'Identificação do clube' = SELECTEDVALUE ( dim_clube[nome_completo] ) & " · " & SELECTEDVALUE ( dim_clube[cidade] ) & "/" & SELECTEDVALUE ( dim_clube[uf] )
+		displayFolder: 2. Clubes
+		lineageTag: 7a20cddb-0084-50b1-beb9-59f4e35da16a
 
 	/// Posição após a rodada do contexto, lida da view (a ordem não é recalculada em DAX).
 	measure 'Posição na rodada' =
@@ -517,42 +500,13 @@ table Medidas
 		displayFolder: 4. Jogadores
 		lineageTag: d0cfa7b3-40e1-52ca-9d31-4b32ca9d473c
 
-	/// Foto real (Wikimedia Commons, confirmada pela Wikidata), embutida no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
-	measure 'Foto ou camisa' =
-			VAR embutida =
-			    IF (
-			        HASONEVALUE ( dim_jogador[id_jogador] ),
-			        CONCATENATEX ( imagem_foto, imagem_foto[conteudo], "", imagem_foto[parte], ASC )
-			    )
-			VAR url = SELECTEDVALUE ( dim_jogador[foto_url] )
-			VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
-			VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
-			VAR c1 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_primaria], dim_clube[id_clube], clube ), "#", "%23" )
-			VAR c2 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_secundaria], dim_clube[id_clube], clube ), "#", "%23" )
-			VAR espacos = LEN ( nome ) - LEN ( SUBSTITUTE ( nome, " ", "" ) )
-			VAR ultima =
-			    IF ( espacos > 0, MID ( nome, FIND ( "|", SUBSTITUTE ( nome, " ", "|", espacos ) ) + 1, 1 ), "" )
-			VAR iniciais = UPPER ( LEFT ( nome, 1 ) & ultima )
-			RETURN
-			    SWITCH (
-			        TRUE (),
-			        embutida <> "", embutida,
-			        NOT ISBLANK ( url ), url,
-			        ISBLANK ( nome ), BLANK (),
-			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>"
-			            & "<path d='M30 22 L42 14 Q50 24 58 14 L70 22 L90 38 L78 54 L70 47 L70 110 L30 110 L30 47 L22 54 L10 38 Z' fill='"
-			            & c1 & "' stroke='" & c2 & "' stroke-width='4' stroke-linejoin='round'/>"
-			            & "<text x='50' y='80' font-family='Segoe UI, Arial, sans-serif' font-size='26' font-weight='700' fill='white' stroke='"
-			            & c2 & "' stroke-width='1' text-anchor='middle'>" & iniciais & "</text></svg>"
-			    )
+	measure 'Nome do jogador' = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
 		displayFolder: 4. Jogadores
-		lineageTag: 8b4c94a7-312d-5f96-9f64-7ce67b6d0cd0
-		dataCategory: ImageUrl
+		lineageTag: b42e3a0b-a0ce-532e-b1eb-ae0c8ee0b92b
 
-	measure 'Foto do líder' = IF ( NOT ISBLANK ( [Valor do líder] ), [Foto ou camisa] )
+	measure 'Clube e posição do jogador' = SELECTEDVALUE ( dim_jogador[clube] ) & " · " & SELECTEDVALUE ( dim_jogador[posicao] )
 		displayFolder: 4. Jogadores
-		lineageTag: 1e737b1a-f1bb-5100-8005-1029ba725265
-		dataCategory: ImageUrl
+		lineageTag: c57759f8-9986-526d-858b-71640339f30c
 
 	measure 'Descrição do jogador' =
 			VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
@@ -567,7 +521,7 @@ table Medidas
 		lineageTag: 123cd2ad-2197-5607-9e35-6c48c37e15d6
 
 	/// Assistências como texto: fora do ranking parcial da Wikipédia aparece escrito, nunca como zero.
-	measure 'Assistências (ficha)' = IF ( ISBLANK ( [Assistências] ), "fora do ranking", FORMAT ( [Assistências], "0" ) )
+	measure 'Assistências (ficha)' = IF ( ISBLANK ( [Assistências] ), "não listado", FORMAT ( [Assistências], "0" ) )
 		displayFolder: 4. Jogadores
 		lineageTag: 1f5e6713-c8ec-58e7-8777-526666e663bb
 
@@ -678,6 +632,27 @@ table Medidas
 	measure 'Rótulo vermelhos' = "Cartões vermelhos · " & FORMAT ( DIVIDE ( [Cartões vermelhos], [Partidas] ), "0.00" ) & " por jogo"
 		displayFolder: 7. Rótulos dinâmicos
 		lineageTag: 095a3fb8-cd68-51b0-9250-14178016416e
+
+	/// Título do gráfico ligado ao parâmetro de campo Métrica do clube. Lê a coluna de ordem: a coluna de nome do parâmetro é agrupada pela de campos e não pode ser lida sozinha por SELECTEDVALUE.
+	measure 'Título da comparação' =
+			VAR ordem = SELECTEDVALUE ( 'Métrica do clube'[Métrica do clube Ordem] )
+			VAR nome =
+			    SWITCH (
+			        ordem,
+			        0, "Pontos",
+			        1, "Vitórias",
+			        2, "Gols pró",
+			        3, "Gols sofridos",
+			        4, "Saldo de gols",
+			        5, "Aproveitamento",
+			        6, "Jogos sem sofrer gol",
+			        7, "Cartões",
+			        "escolha uma métrica"
+			    )
+			RETURN
+			    "Comparar clubes · " & nome
+		displayFolder: 7. Rótulos dinâmicos
+		lineageTag: 8b94879c-72bc-59d1-8733-e73bee95d902
 
 	column Valor
 		dataType: string

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/1.4.0/schema.json",
+  "displayName": "Classificação · Evolução",
+  "name": "indicador_evolucao",
+  "options": {
+    "targetVisualNames": [
+      "disputa_titulo",
+      "fuga_rebaixamento",
+      "btn_evolucao_on",
+      "btn_comparar_off",
+      "seg_metrica",
+      "comparar_clubes",
+      "btn_evolucao_off",
+      "btn_comparar_on"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "Classificacao",
+    "sections": {
+      "Classificacao": {
+        "visualContainers": {
+          "disputa_titulo": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {}
+            }
+          },
+          "fuga_rebaixamento": {
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {}
+            }
+          },
+          "btn_evolucao_on": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "btn_comparar_off": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "seg_metrica": {
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "comparar_clubes": {
+            "singleVisual": {
+              "visualType": "clusteredBarChart",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "btn_evolucao_off": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "btn_comparar_on": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {},
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

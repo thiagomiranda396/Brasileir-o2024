@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "disputa_titulo",
   "position": {
-    "x": 852,
-    "y": 96,
+    "x": 860,
+    "y": 152,
     "z": 19000,
-    "height": 276,
-    "width": 404,
+    "height": 264,
+    "width": 388,
     "tabOrder": 19000
   },
   "visual": {

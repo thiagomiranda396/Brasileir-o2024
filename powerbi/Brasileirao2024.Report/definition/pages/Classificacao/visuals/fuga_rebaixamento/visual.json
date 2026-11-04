@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "fuga_rebaixamento",
   "position": {
-    "x": 852,
-    "y": 388,
+    "x": 860,
+    "y": 428,
     "z": 20000,
-    "height": 276,
-    "width": 404,
+    "height": 260,
+    "width": 388,
     "tabOrder": 20000
   },
   "visual": {

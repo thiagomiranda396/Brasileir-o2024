@@ -1,0 +1,57 @@
+/// Parâmetro de campo da página Classificação: troca a medida do gráfico "Comparar clubes".
+table 'Métrica do clube'
+	lineageTag: 85fb3613-dd74-5acf-a91a-6ca0c2678a18
+
+	column 'Métrica do clube'
+		dataType: string
+		lineageTag: 028c8b32-d4f2-5813-80f6-558a56a36eea
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Métrica do clube Ordem'
+
+		relatedColumnDetails
+			groupByColumn: 'Métrica do clube Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Métrica do clube Campos'
+		dataType: string
+		isHidden
+		lineageTag: 21104851-9a26-50c3-82e4-55fbc6d96e6e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Métrica do clube Ordem'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Métrica do clube Ordem'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4d9b7c7e-a622-5b6d-8a2f-805a9934d5ee
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Métrica do clube' = calculated
+		mode: import
+		source =
+				{
+				    ("Pontos", NAMEOF ( 'Medidas'[Pontos] ), 0),
+				    ("Vitórias", NAMEOF ( 'Medidas'[Vitórias] ), 1),
+				    ("Gols pró", NAMEOF ( 'Medidas'[Gols pró] ), 2),
+				    ("Gols sofridos", NAMEOF ( 'Medidas'[Gols contra] ), 3),
+				    ("Saldo de gols", NAMEOF ( 'Medidas'[Saldo de gols] ), 4),
+				    ("Aproveitamento", NAMEOF ( 'Medidas'[Aproveitamento] ), 5),
+				    ("Jogos sem sofrer gol", NAMEOF ( 'Medidas'[Jogos sem sofrer gol] ), 6),
+				    ("Cartões", NAMEOF ( 'Medidas'[Cartões] ), 7)
+				}
+
+	annotation PBI_Id = 756f205f57525db5a89500cfb759d0af

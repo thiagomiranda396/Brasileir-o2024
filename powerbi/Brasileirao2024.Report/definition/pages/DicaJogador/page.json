@@ -3,7 +3,7 @@
   "name": "DicaJogador",
   "displayName": "Dica do jogador",
   "displayOption": "FitToPage",
-  "height": 240,
+  "height": 280,
   "width": 320,
   "pageBinding": {
     "name": "dica_DicaJogador",
@@ -11,5 +11,31 @@
     "parameters": []
   },
   "visibility": "HiddenInViewMode",
-  "type": "Tooltip"
+  "type": "Tooltip",
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFFFFF'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
 }

@@ -62,12 +62,3 @@ relationship 91e06fda-2106-55ac-9fe4-189b50c189d3
 relationship ff8a64e8-dba1-5ba6-a262-aebd71a03765
 	fromColumn: fato_partida.data_partida
 	toColumn: dim_calendario.Data
-
-relationship 3d67176e-c322-5a04-802f-d12717cf27a0
-	fromColumn: imagem_escudo.id_clube
-	toColumn: dim_clube.id_clube
-
-relationship e2b22198-1d5d-556c-8c0c-9f8ca65db9f9
-	fromColumn: imagem_foto.id_jogador
-	toColumn: dim_jogador.id_jogador
-

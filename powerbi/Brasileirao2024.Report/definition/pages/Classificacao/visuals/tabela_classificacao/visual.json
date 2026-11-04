@@ -17,17 +17,17 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas"
+                      "Entity": "dim_clube"
                     }
                   },
-                  "Property": "Escudo ou sigla"
+                  "Property": "id_clube"
                 }
               },
-              "queryRef": "Medidas.Escudo ou sigla",
-              "nativeQueryRef": "Escudo ou sigla",
+              "queryRef": "dim_clube.id_clube",
+              "nativeQueryRef": "id_clube",
               "displayName": " "
             },
             {
@@ -219,24 +219,10 @@
       "grid": [
         {
           "properties": {
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "18D"
-                }
-              }
-            },
-            "imageWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "18D"
-                }
-              }
-            },
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "3D"
                 }
               }
             },
@@ -296,7 +282,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             },
@@ -304,6 +290,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
@@ -316,7 +309,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             },
@@ -389,6 +382,47 @@
             ],
             "metadata": "Medidas.Posição na rodada"
           }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Cor de destaque do clube"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "dim_clube.id_clube"
+          }
         }
       ],
       "total": [
@@ -410,13 +444,13 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "30D"
+                  "Value": "44D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Medidas.Escudo ou sigla"
+            "metadata": "dim_clube.id_clube"
           }
         },
         {
@@ -438,13 +472,125 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "168D"
+                  "Value": "170D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "dim_clube.nome"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "34D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Pontos na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Jogos na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Vitórias na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Empates na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "30D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Derrotas na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "38D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Saldo na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Aproveitamento na rodada"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "34D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Variação de posição"
           }
         }
       ]

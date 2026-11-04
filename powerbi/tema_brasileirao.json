@@ -1,5 +1,5 @@
 {
-  "name": "Brasileirão 2024 (verde ge, refinado)",
+  "name": "Brasileirão 2024 (verde ge, fundo do PowerPoint)",
   "dataColors": [
     "#0A8F43",
     "#2A78D6",
@@ -46,24 +46,12 @@
       "*": {
         "background": [
           {
-            "show": true,
-            "color": {
-              "solid": {
-                "color": "#FFFFFF"
-              }
-            },
-            "transparency": 0
+            "show": false
           }
         ],
         "border": [
           {
-            "show": true,
-            "color": {
-              "solid": {
-                "color": "#E1E6E2"
-              }
-            },
-            "radius": 10
+            "show": false
           }
         ],
         "valueAxis": [
@@ -84,19 +72,7 @@
         ],
         "dropShadow": [
           {
-            "show": true,
-            "color": {
-              "solid": {
-                "color": "#0A4F29"
-              }
-            },
-            "position": "Outer",
-            "preset": "Custom",
-            "shadowSpread": 0,
-            "shadowBlur": 12,
-            "angle": 90,
-            "shadowDistance": 2,
-            "transparency": 88
+            "show": false
           }
         ],
         "visualTooltip": [

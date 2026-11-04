@@ -3,9 +3,9 @@
   "name": "dica_cartao_1",
   "position": {
     "x": 8,
-    "y": 88,
+    "y": 84,
     "z": 2000,
-    "height": 66,
+    "height": 84,
     "width": 148,
     "tabOrder": 2000
   },
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "18D"
+                  "Value": "15D"
                 }
               }
             },
@@ -86,7 +86,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "9D"
                 }
               }
             },
