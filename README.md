@@ -4,8 +4,8 @@ Projeto de portfólio sobre o **Campeonato Brasileiro Série A 2024**: dados pú
 modelagem relacional em **PostgreSQL**, camada analítica em SQL, dashboard no **Power BI** e um
 **site interativo** com estatísticas, escudos, fotos de jogadores e um jogo de técnico.
 
-> **Site:** `https://thiagomiranda396.github.io/Brasileir-o2024/` (publicado pelo GitHub Pages a partir
-> da pasta `web/`)
+> 🌐 **Acesse o site:** [thiagomiranda396.github.io/Brasileir-o2024](https://thiagomiranda396.github.io/Brasileir-o2024/)
+> (publicado pelo GitHub Pages a partir da pasta `web/`)
 
 ![Visão geral do site](docs/img/site-visao-geral.png)
 
@@ -14,7 +14,7 @@ modelagem relacional em **PostgreSQL**, camada analítica em SQL, dashboard no *
 - **Dados conferidos, não só coletados.** A classificação final reconstruída a partir das 380
   partidas é igual à tabela oficial da CBF (20 clubes × 9 campos). Os 929 gols, um a um, batem com
   o placar de cada partida, e a artilharia bate com a da Wikipédia.
-- **Modelo relacional completo:** 11 tabelas com chaves primárias e estrangeiras, `CHECK`s de regra
+- **Modelo relacional completo:** 12 tabelas com chaves primárias e estrangeiras, `CHECK`s de regra
   de negócio, carga transacional e idempotente com `MERGE`, auditoria de cada carga e 23 testes SQL.
 - **Uma fonte da verdade:** o Power BI e o site leem as mesmas views do schema `analytics`, por um
   papel somente leitura.
@@ -22,7 +22,7 @@ modelagem relacional em **PostgreSQL**, camada analítica em SQL, dashboard no *
   posições, página de cada clube e de cada jogador, partidas com gols minuto a minuto e a
   **Prancheta 2024**, um jogo de técnico em que você escala um clube e
   disputa um mata-mata das quartas à final.
-- **129 testes em Python** (um deles roda os testes do motor do jogo em Node) e CI no GitHub Actions que recria o banco do zero a cada push.
+- **130 testes em Python** (um deles roda os testes do motor do jogo em Node) e CI no GitHub Actions que recria o banco do zero a cada push.
 
 ## Arquitetura
 
@@ -84,7 +84,7 @@ soma por clube (que daria 1.858). O papel `bi_brasileirao_leitura` só enxerga o
 
 ## Power BI
 
-O dashboard está pronto como projeto do Power BI (`powerbi/Brasileirao2024.pbip`): modelo estrela em TMDL com 79 medidas e relatório de 9 páginas em PBIR, lendo os CSVs das views do `analytics`. O [guia](powerbi/README.md) explica como abrir no Power BI Desktop, atualizar e publicar no Power BI Service.
+O dashboard está pronto como projeto do Power BI (`powerbi/Brasileirao2024.pbip`): modelo estrela em TMDL com 93 medidas e relatório de 9 páginas em PBIR, lendo os CSVs das views do `analytics`. O [guia](powerbi/README.md) explica como abrir no Power BI Desktop, atualizar e publicar no Power BI Service.
 
 ## Como executar
 
@@ -134,7 +134,7 @@ workflow `.github/workflows/pages.yml` publica a pasta `web/` a cada push que a 
 │   └── external/         # (fora do Git) fontes sem licença de redistribuição
 ├── sql/                  # 00 papéis e banco · 01 schemas · 02 tabelas · 03 carga · 04 views · 05 testes · 06 exportação
 ├── scripts/              # baixar, converter, preparar jogadores, validar, exportar para o site
-├── tests/                # 129 testes (unittest)
+├── tests/                # 130 testes (unittest)
 ├── web/                  # site estático (GitHub Pages)
 ├── powerbi/              # projeto do Power BI (PBIP), medidas DAX, tema, guia e CSVs das views
 ├── docs/                 # fontes, regras, modelagem, auditorias, imagens
