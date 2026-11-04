@@ -17,21 +17,6 @@
           "projections": [
             {
               "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Foto do líder"
-                }
-              },
-              "queryRef": "Medidas.Foto do líder",
-              "nativeQueryRef": "Foto do líder",
-              "displayName": " "
-            },
-            {
-              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
@@ -101,20 +86,6 @@
       "grid": [
         {
           "properties": {
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "110D"
-                }
-              }
-            },
-            "imageWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "88D"
-                }
-              }
-            },
             "rowPadding": {
               "expr": {
                 "Literal": {

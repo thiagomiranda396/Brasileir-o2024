@@ -171,29 +171,10 @@ Cor de destaque do clube =
             c1
         )
 
-// Escudo do clube (Wikimedia Commons), embutido no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem imagem confirmada, mostra a sigla nas cores do clube, como no site.
-// [categoria ImageUrl]
-Escudo ou sigla =
-    VAR embutida =
-        IF (
-            HASONEVALUE ( dim_clube[id_clube] ),
-            CONCATENATEX ( imagem_escudo, imagem_escudo[conteudo], "", imagem_escudo[parte], ASC )
-        )
-    VAR url = SELECTEDVALUE ( dim_clube[escudo_url] )
-    VAR sigla = SELECTEDVALUE ( dim_clube[id_clube] )
-    VAR c1 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_primaria] ), "#", "%23" )
-    VAR c2 = SUBSTITUTE ( SELECTEDVALUE ( dim_clube[cor_secundaria] ), "#", "%23" )
-    RETURN
-        SWITCH (
-            TRUE (),
-            embutida <> "", embutida,
-            NOT ISBLANK ( url ), url,
-            ISBLANK ( sigla ), BLANK (),
-            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
-                & "<circle cx='50' cy='50' r='46' fill='" & c1 & "' stroke='" & c2 & "' stroke-width='6'/>"
-                & "<text x='50' y='62' font-family='Segoe UI, Arial, sans-serif' font-size='30' font-weight='700' fill='white' text-anchor='middle'>"
-                & sigla & "</text></svg>"
-        )
+// Sigla de 3 letras do clube; no relatório ela faz o papel do escudo, num selo com as cores do clube.
+Sigla do clube = SELECTEDVALUE ( dim_clube[id_clube] )
+
+Identificação do clube = SELECTEDVALUE ( dim_clube[nome_completo] ) & " · " & SELECTEDVALUE ( dim_clube[cidade] ) & "/" & SELECTEDVALUE ( dim_clube[uf] )
 
 // ------------------------------------------------------------ 3. Classificação
 
@@ -408,38 +389,9 @@ Nota do ranking =
         "Súmulas compiladas (adaoduque); gols conferidos com o placar de cada jogo."
     )
 
-// Foto real (Wikimedia Commons, confirmada pela Wikidata), embutida no modelo quando powerbi/gerar_imagens.py já rodou; senão, pela URL. Sem foto, a camisa do clube com as iniciais; nunca um rosto genérico.
-// [categoria ImageUrl]
-Foto ou camisa =
-    VAR embutida =
-        IF (
-            HASONEVALUE ( dim_jogador[id_jogador] ),
-            CONCATENATEX ( imagem_foto, imagem_foto[conteudo], "", imagem_foto[parte], ASC )
-        )
-    VAR url = SELECTEDVALUE ( dim_jogador[foto_url] )
-    VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
-    VAR clube = SELECTEDVALUE ( dim_jogador[id_clube] )
-    VAR c1 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_primaria], dim_clube[id_clube], clube ), "#", "%23" )
-    VAR c2 = SUBSTITUTE ( LOOKUPVALUE ( dim_clube[cor_secundaria], dim_clube[id_clube], clube ), "#", "%23" )
-    VAR espacos = LEN ( nome ) - LEN ( SUBSTITUTE ( nome, " ", "" ) )
-    VAR ultima =
-        IF ( espacos > 0, MID ( nome, FIND ( "|", SUBSTITUTE ( nome, " ", "|", espacos ) ) + 1, 1 ), "" )
-    VAR iniciais = UPPER ( LEFT ( nome, 1 ) & ultima )
-    RETURN
-        SWITCH (
-            TRUE (),
-            embutida <> "", embutida,
-            NOT ISBLANK ( url ), url,
-            ISBLANK ( nome ), BLANK (),
-            "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>"
-                & "<path d='M30 22 L42 14 Q50 24 58 14 L70 22 L90 38 L78 54 L70 47 L70 110 L30 110 L30 47 L22 54 L10 38 Z' fill='"
-                & c1 & "' stroke='" & c2 & "' stroke-width='4' stroke-linejoin='round'/>"
-                & "<text x='50' y='80' font-family='Segoe UI, Arial, sans-serif' font-size='26' font-weight='700' fill='white' stroke='"
-                & c2 & "' stroke-width='1' text-anchor='middle'>" & iniciais & "</text></svg>"
-        )
+Nome do jogador = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
 
-// [categoria ImageUrl]
-Foto do líder = IF ( NOT ISBLANK ( [Valor do líder] ), [Foto ou camisa] )
+Clube e posição do jogador = SELECTEDVALUE ( dim_jogador[clube] ) & " · " & SELECTEDVALUE ( dim_jogador[posicao] )
 
 Descrição do jogador =
     VAR nome = SELECTEDVALUE ( dim_jogador[nome_exibicao] )
@@ -528,6 +480,8 @@ Rótulo cartões por jogo = "Cartões por jogo · " & FORMAT ( [Cartões amarelo
 
 Rótulo vermelhos = "Cartões vermelhos · " & FORMAT ( DIVIDE ( [Cartões vermelhos], [Partidas] ), "0.00" ) & " por jogo"
 
+// Título do gráfico ligado ao parâmetro de campo Métrica do clube.
+Título da comparação = "Comparar clubes · " & SELECTEDVALUE ( 'Métrica do clube'[Métrica do clube], "escolha uma métrica" )
 
 // -------------------------------------------------------- Colunas calculadas (só rótulos e ordenação)
 
@@ -576,3 +530,16 @@ dim_calendario =
             "Dia da semana", FORMAT ( [Data], "dddd", "pt-BR" ),
             "Nº dia da semana", WEEKDAY ( [Data], 2 )
         )
+
+// Parâmetro de campo da página Classificação: troca a medida do gráfico "Comparar clubes".
+'Métrica do clube' =
+    {
+        ( "Pontos", NAMEOF ( 'Medidas'[Pontos] ), 0 ),
+        ( "Vitórias", NAMEOF ( 'Medidas'[Vitórias] ), 1 ),
+        ( "Gols pró", NAMEOF ( 'Medidas'[Gols pró] ), 2 ),
+        ( "Gols sofridos", NAMEOF ( 'Medidas'[Gols contra] ), 3 ),
+        ( "Saldo de gols", NAMEOF ( 'Medidas'[Saldo de gols] ), 4 ),
+        ( "Aproveitamento", NAMEOF ( 'Medidas'[Aproveitamento] ), 5 ),
+        ( "Jogos sem sofrer gol", NAMEOF ( 'Medidas'[Jogos sem sofrer gol] ), 6 ),
+        ( "Cartões", NAMEOF ( 'Medidas'[Cartões] ), 7 )
+    }

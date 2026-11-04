@@ -12,10 +12,10 @@ compactado que o Git só consegue tratar como "mudou tudo".
 | Arquivo | Conteúdo |
 |---|---|
 | `Brasileirao2024.pbip` | Atalho que abre o projeto no Power BI Desktop |
-| `Brasileirao2024.SemanticModel/` | Modelo semântico em TMDL: tabelas, consultas do Power Query, relações e as 93 medidas |
+| `Brasileirao2024.SemanticModel/` | Modelo semântico em TMDL: tabelas, consultas do Power Query, relações, as 95 medidas e o parâmetro de campo `Métrica do clube` |
 | `Brasileirao2024.Report/` | Relatório em PBIR: 11 páginas (7 visíveis, 1 de *drill-through*, 2 dicas de ferramenta e 1 de auditoria) |
 | `medidas.dax` | Todas as medidas, colunas e tabelas calculadas num arquivo só, para ler fora do Desktop (gerado do modelo) |
-| `gerar_imagens.py` | Baixa os escudos e fotos e grava em base64 em `dados/` para o modelo exibir sem depender da internet |
+| `design/Brasileirao2024_layout_powerbi.pptx` | Processo de design (objetivos, wireframe, grid, identidade visual) e o layout de fundo de cada página |
 | `tema_brasileirao.json` | Tema de cores e fontes (já aplicado ao relatório) |
 | `dados/*.csv` | As views do schema `analytics` exportadas por `sql/06_exportar_csv.sql`: a fonte do modelo |
 
@@ -47,16 +47,26 @@ Cada página responde a uma pergunta, com no máximo 4 cartões e 3 gráficos, n
 tom do ge: faixa verde `#06AA48` com o título em branco e barra lateral verde-escura `#0A4F29`
 com a navegação e os filtros. Tela 16:9 (1280 × 720), grade de 12 colunas, nada sobreposto.
 
+**Fundo desenhado no PowerPoint.** Barra lateral, marca, item ativo do menu, faixa do título e os
+painéis brancos atrás de cada visual são uma imagem por página (`fundo_<Pagina>.png` em
+`Brasileirao2024.Report/StaticResources/RegisteredResources/`), exportada de
+[`design/Brasileirao2024_layout_powerbi.pptx`](design/Brasileirao2024_layout_powerbi.pptx). Os
+visuais entram sem fundo, borda nem sombra (o tema cuida disso) e ficam nas mesmas coordenadas dos
+painéis. O arquivo do PowerPoint também registra o processo de design, na ordem em que foi feito:
+objetivos e público, perguntas e KPIs, wireframe, grid e alinhamento, identidade visual,
+componentes e recursos avançados. Para mudar um fundo, edite o slide da página, exporte como PNG e
+troque em Formatar página > Plano de fundo da tela (ajuste "Ajustar", transparência 0%).
+
 | Página | Pergunta | O que tem |
 |---|---|---|
-| Visão geral | Como foi o campeonato? | Período (turno/returno); cartões de gols, média por jogo, % de vitórias do mandante e % de empates; gols por rodada; topo da tabela com escudos; top 5 artilheiros |
-| Classificação | Quem terminou onde, e como chegou lá? | Rodada (começa na 38ª); tabela completa com escudo, posição colorida pela zona, P, J, V, E, D, SG, % e variação de posição; linhas da disputa pelo título e da fuga do rebaixamento |
-| Clube | Como foi a temporada deste clube? | Clube (começa no Botafogo); faixa do título na cor do clube; escudo; posição final, pontos, aproveitamento e saldo; posição rodada a rodada; gols em casa e fora; quando marca e quando sofre |
+| Visão geral | Como foi o campeonato? | Período (turno/returno); cartões de gols, média por jogo, % de vitórias do mandante e % de empates; gols por rodada; topo da tabela com o selo de cada clube; top 5 artilheiros |
+| Classificação | Quem terminou onde, e como chegou lá? | Rodada (começa na 38ª); tabela completa com o selo do clube, posição colorida pela zona, P, J, V, E, D, SG, % e variação de posição. À direita, dois **indicadores** (botões): *Evolução* mostra as linhas da disputa pelo título e da fuga do rebaixamento; *Comparar clubes* mostra barras dos 20 clubes na métrica escolhida pelo **parâmetro de campo** `Métrica do clube` |
+| Clube | Como foi a temporada deste clube? | Clube (começa no Botafogo); faixa do título na cor do clube; selo com a sigla nas cores do clube; posição final, pontos, aproveitamento e saldo; posição rodada a rodada; gols em casa e fora; quando marca e quando sofre |
 | Jogos do clube | Todos os jogos, artilheiros e técnicos | Os 38 jogos com resultado colorido; artilheiros do clube; técnicos com jogos, pontos e aproveitamento |
-| Jogadores | Quem se destacou? | Ranking escolhido na segmentação (gols, assistências, jogos sem sofrer gol, pênaltis, amarelos, vermelhos); líder com foto; seleção do campeonato com fotos |
+| Jogadores | Quem se destacou? | Ranking escolhido na segmentação (gols, assistências, jogos sem sofrer gol, pênaltis, amarelos, vermelhos); líder do ranking; seleção do campeonato |
 | Gols e disciplina | Quando e como saem os gols e os cartões? | Cartões de pênaltis, gols contra, cartões por jogo e vermelhos; gols por faixa de minuto (mandante × visitante); cartões por clube |
-| Sobre os dados | De onde vêm os dados? | Fontes, licenças, como ler e a tabela de créditos de cada imagem |
-| Ficha do jogador | *drill-through* (oculta) | Botão direito num jogador > Drill-through > Ficha do jogador: foto, clube, posição, gols, pênaltis, assistências, amarelos e a lista de gols |
+| Sobre os dados | De onde vêm os dados? | Fontes, licenças, como ler e como usar o painel (navegação e recursos avançados) |
+| Ficha do jogador | *drill-through* (oculta) | Botão direito num jogador > Drill-through > Ficha do jogador: nome, clube, posição, gols, pênaltis, assistências, amarelos e a lista de gols |
 | Dica do clube / Dica do jogador | dicas de ferramenta (ocultas) | Aparecem ao passar o mouse sobre um clube ou jogador |
 | Auditoria | oculta | Os 7 números de controle e o status |
 
@@ -70,8 +80,16 @@ com a navegação e os filtros. Tela 16:9 (1280 × 720), grade de 12 colunas, na
   Gols e disciplina.
 - **Limpar filtros:** botão nas páginas com filtros livres (nas páginas de clube não há, porque elas
   sempre mostram um clube).
-- **Dicas ao passar o mouse:** nos clubes aparece um cartão com escudo, posição final, pontos,
-  aproveitamento e saldo; nos jogadores, foto, clube, gols, assistências, pênaltis e amarelos.
+- **Dicas ao passar o mouse (página de dica de ferramenta):** nos clubes aparece um cartão com o
+  selo, o nome, posição final, pontos, aproveitamento e saldo; nos jogadores, nome, clube e
+  posição, gols, assistências, pênaltis e amarelos.
+- **Indicadores:** na Classificação, os botões *Evolução* e *Comparar clubes* aplicam dois
+  indicadores (grupo "Classificação", em Exibir > Indicadores) que só mostram ou escondem os
+  visuais do painel direito; não mexem nos filtros. Cada botão existe em duas versões (ativo e
+  inativo), e o indicador troca qual delas aparece.
+- **Parâmetro de campo:** `Métrica do clube` (Pontos, Vitórias, Gols pró, Gols sofridos, Saldo,
+  Aproveitamento, Jogos sem sofrer gol, Cartões) troca a medida do gráfico *Comparar clubes*; o
+  título do gráfico muda junto (medida `Título da comparação`).
 - **Clique para filtrar:** clicar num clube, jogo ou técnico filtra os outros visuais da página.
 - **Ficha do jogador:** botão direito num jogador > Drill-through > Ficha do jogador.
 - **Cartões com contexto:** o título de cada número traz uma referência (média da liga, destino na
@@ -111,8 +129,7 @@ erDiagram
 | `classificacao_rodada` | clube × rodada | 760 |
 | `classificacao_final` | clube | 20 |
 | `jogador_estatisticas` | jogador × clube | 587 |
-| `credito_imagem` | imagem (escudo ou foto), sem relação | conforme a busca de imagens |
-| `imagem_escudo`, `imagem_foto` | pedaço da imagem em base64 (ocultas), ligadas a `dim_clube` e `dim_jogador` | geradas por `gerar_imagens.py` |
+| `Métrica do clube` | parâmetro de campo (tabela calculada com `NAMEOF`), desconectado | 8 |
 | `Ranking` | métrica do ranking, tabela desconectada | 6 |
 | `Medidas` | só guarda as medidas | 0 |
 
@@ -125,8 +142,6 @@ Relações (todas de um para muitos, filtrando da dimensão para o fato, exceto 
 | `dim_clube[id_clube]` | `fato_participacao[id_adversario]` | **Não** | Use `USERELATIONSHIP` para "contra quem" |
 | `dim_clube[id_clube]` | `fato_gol[id_clube_beneficiado]` | Sim | Gols a favor do clube |
 | `dim_clube[id_clube]` | `fato_cartao[id_clube]`, `classificacao_rodada[id_clube]` | Sim | |
-| `dim_clube[id_clube]` | `imagem_escudo[id_clube]` | Sim | Escudo embutido |
-| `dim_jogador[id_jogador]` | `imagem_foto[id_jogador]` | Sim | Foto embutida |
 | `dim_clube[id_clube]` | `classificacao_final[id_clube]` | Sim (1:1, ambas as direções) | |
 | `dim_jogador[id_jogador]` | `fato_gol[id_jogador]`, `fato_cartao[id_jogador]` | Sim | |
 | `dim_jogador[id_jogador]` | `jogador_estatisticas[id_jogador]` | Sim (1:1, ambas as direções) | |
@@ -140,14 +155,15 @@ Escolhas do modelo e por quê:
   *gateway* para o banco.
 - **Power Query tolerante.** Cada consulta escolhe as colunas pelo nome com
   `MissingField.UseNull`, troca texto vazio por nulo (ausente fica vazio, nunca zero) e converte
-  `t`/`f` em Verdadeiro/Falso. Colunas de imagem que ainda não existam no CSV entram vazias, e
-  `credito_imagem.csv` é opcional: o relatório abre antes de a busca de imagens rodar.
+  `t`/`f` em Verdadeiro/Falso. Uma coluna que ainda não exista no CSV entra vazia.
 - **Sem relação entre `dim_jogador` e `dim_clube`**: criaria dois caminhos de `dim_clube` até
   `fato_gol`. O clube do jogador já está em `dim_jogador[clube]`. Também não há relação entre
   `fato_partida` e `dim_clube` (são dois clubes por partida).
-- **Tabela `Ranking` em vez de parâmetro de campo.** Uma tabela desconectada com a lista de
-  métricas e uma medida `SWITCH` fazem o mesmo papel e ainda deixam o título e a nota do gráfico
-  mudarem com a escolha (ex.: avisar que assistências é ranking parcial).
+- **Parâmetro de campo onde ele basta, tabela `Ranking` onde não basta.** Na Classificação, o
+  parâmetro `Métrica do clube` troca a medida do gráfico de comparação. No ranking de jogadores, a
+  tabela desconectada `Ranking` com uma medida `SWITCH` continua: além de trocar a métrica, ela
+  corta o top 10 e muda a nota do gráfico (ex.: avisar que assistências é ranking parcial), o que um
+  parâmetro de campo sozinho não faz.
 - **Colunas calculadas só para rótulos e ordenação**: `dim_jogador[jogador]` (nome · sigla, para
   eixos e *drill-through* sem juntar homônimos), `fato_partida[confronto]`,
   `fato_participacao[adversario]` e `[placar]`, `fato_gol[jogo]`. Nenhum número do dashboard vem
@@ -174,36 +190,25 @@ CBF trunca para inteiro (36). A medida está descrita assim no modelo e na pági
 
 ## 5. Escudos e fotos
 
-As imagens vêm de `dim_clube[escudo_url]`, `dim_jogador[foto_url]` e `credito_imagem.csv`, que a
-busca verificada pela Wikidata grava no banco e o `sql/06_exportar_csv.sql` exporta. Só entram
-arquivos do Wikimedia Commons com licença livre e, nas fotos, jogadores confirmados pela Wikidata.
+O site mostra escudos e fotos da Wikimedia Commons; o Power BI não. No Desktop, imagens por URL
+externa nem sempre aparecem, e embuti-las no modelo deixava o arquivo pesado. Por isso o relatório
+usa só texto bem formatado:
 
-Sem imagem confirmada, o relatório não inventa: o clube aparece com a sigla num círculo nas suas
-cores e o jogador com a **camisa do clube e as iniciais**, nunca um rosto genérico. Isso é feito
-pelas medidas `Escudo ou sigla` e `Foto ou camisa` (categoria URL de imagem), que montam um SVG
-quando a URL está vazia. Os 3 escudos de Corinthians, Bragantino e Vasco são de uso justo
-(`licenca` = "Uso justo", sem `licenca_url`), como no site; o crédito aparece na página Sobre os dados.
+- **Clube:** a sigla (medida `Sigla do clube`) num selo com a cor do clube (`Cor de destaque do
+  clube`, que troca a cor principal pela secundária quando ela é clara demais). Aparece nas tabelas
+  de classificação, na página do clube e na dica de ferramenta.
+- **Jogador:** só o nome (`Nome do jogador`), com clube e posição ao lado.
 
-**Imagens embutidas.** O Power BI Desktop nem sempre consegue exibir a imagem pela URL da
-Wikimedia (a tabela mostra só o nome). Por isso as imagens ficam dentro do modelo:
-
-    py -3.14 -I powerbi/gerar_imagens.py
-
-O script baixa cada escudo e foto uma vez e grava `dados/imagem_escudo.csv` e
-`dados/imagem_foto.csv` em base64, em pedaços de até 30.000 caracteres (o Power BI corta textos
-acima de 32.766). As medidas juntam os pedaços; se uma imagem não baixar, usam a URL e, sem URL, a
-sigla ou a camisa. Sem esses dois arquivos o relatório abre normalmente, só sem as imagens embutidas.
-
-Depois de exportar os CSVs de novo, rode o script e clique em **Atualizar** no Desktop.
+Os créditos das imagens do site continuam no banco (`analytics.credito_imagem`) e na página de
+créditos do site.
 
 ## 6. Publicar no Power BI Service
 
 1. No Desktop: Página Inicial > **Publicar** > entre com sua conta do Power BI e escolha o
    workspace (ex.: *Meu workspace*). O Desktop envia o modelo com os dados importados e o
    relatório.
-2. No Service (app.powerbi.com), abra o relatório e confira as páginas. Os escudos e fotos
-   vão embutidos no modelo (não dependem da Wikimedia); as siglas e camisas são geradas pelo
-   próprio relatório.
+2. No Service (app.powerbi.com), abra o relatório e confira as páginas. Os fundos vão dentro
+   do relatório e não há imagem externa, então nada depende da internet.
 3. Atualização: os dados vêm de CSVs no seu computador, então o Service não consegue atualizá-los
    sozinho (precisaria de um *gateway*). Como a temporada 2024 está fechada, não é necessário:
    quando mudar os CSVs, atualize no Desktop e publique de novo, substituindo o relatório.

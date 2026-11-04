@@ -75,6 +75,51 @@
           "name": "tema_brasileirao.json",
           "path": "tema_brasileirao.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "fundo_VisaoGeral.png",
+          "path": "fundo_VisaoGeral.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_Classificacao.png",
+          "path": "fundo_Classificacao.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_Clube.png",
+          "path": "fundo_Clube.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_JogosClube.png",
+          "path": "fundo_JogosClube.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_Jogadores.png",
+          "path": "fundo_Jogadores.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_GolsDisciplina.png",
+          "path": "fundo_GolsDisciplina.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_Sobre.png",
+          "path": "fundo_Sobre.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_FichaJogador.png",
+          "path": "fundo_FichaJogador.png",
+          "type": "Image"
+        },
+        {
+          "name": "fundo_Auditoria.png",
+          "path": "fundo_Auditoria.png",
+          "type": "Image"
         }
       ]
     }

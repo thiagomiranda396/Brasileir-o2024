@@ -67,7 +67,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Escudos e fotos: Wikimedia Commons, só arquivos com licença livre e, nas fotos, só jogadores confirmados pela Wikidata. Autor e licença de cada imagem estão na tabela ao lado.",
+                    "value": "Escudos e fotos ficam no site (Wikimedia Commons, com crédito). No Power BI o clube aparece pela sigla num selo com as cores dele e o jogador pelo nome, sem depender de imagens externas.",
                     "textStyle": {
                       "fontFamily": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
                       "fontSize": "10pt",
@@ -299,6 +299,40 @@
               "expr": {
                 "Literal": {
                   "Value": "'Fontes, método e limitações'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
                 }
               }
             }

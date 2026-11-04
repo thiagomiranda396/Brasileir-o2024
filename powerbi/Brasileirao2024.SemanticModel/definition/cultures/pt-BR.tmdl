@@ -120,15 +120,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "medidas.escudo_ou_sigla": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Escudo ou sigla"
-			        }
-			      },
-			      "State": "Generated"
-			    },
 			    "medidas.posição_na_rodada": {
 			      "Definition": {
 			        "Binding": {
@@ -588,15 +579,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "medidas.foto_do_líder": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Foto do líder"
-			        }
-			      },
-			      "State": "Generated"
-			    },
 			    "medidas.valor_do_líder": {
 			      "Definition": {
 			        "Binding": {
@@ -638,15 +620,6 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
-			    },
-			    "medidas.foto_ou_camisa": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Medidas",
-			          "ConceptualProperty": "Foto ou camisa"
-			        }
-			      },
-			      "State": "Generated"
 			    },
 			    "medidas.gols_do_jogador": {
 			      "Definition": {
@@ -1400,111 +1373,6 @@ cultureInfo pt-BR
 			      "Terms": [
 			        {
 			          "Ranking": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "credito_imagem.tipo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "credito_imagem",
-			          "ConceptualProperty": "tipo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Tipo": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "credito_imagem.nome": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "credito_imagem",
-			          "ConceptualProperty": "nome"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Clube ou jogador": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "credito_imagem.autor": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "credito_imagem",
-			          "ConceptualProperty": "autor"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Autor": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "credito_imagem.licenca": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "credito_imagem",
-			          "ConceptualProperty": "licenca"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Licença": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "credito_imagem.pagina_arquivo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "credito_imagem",
-			          "ConceptualProperty": "pagina_arquivo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Arquivo": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

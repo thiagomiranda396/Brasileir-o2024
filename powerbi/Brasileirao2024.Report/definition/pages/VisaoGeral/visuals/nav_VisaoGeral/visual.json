@@ -132,7 +132,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "100D"
                 }
               }
             }
@@ -148,7 +148,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#06AA48'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -157,7 +157,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "85D"
                 }
               }
             }

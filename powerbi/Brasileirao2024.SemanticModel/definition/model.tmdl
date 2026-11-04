@@ -7,7 +7,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["PastaProjeto","Medidas","dim_clube","dim_jogador","dim_rodada","fato_partida","fato_participacao","fato_gol","fato_cartao","classificacao_rodada","classificacao_final","jogador_estatisticas","credito_imagem","imagem_escudo","imagem_foto"]
+annotation PBI_QueryOrder = ["PastaProjeto","Medidas","dim_clube","dim_jogador","dim_rodada","fato_partida","fato_participacao","fato_gol","fato_cartao","classificacao_rodada","classificacao_final","jogador_estatisticas"]
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
@@ -24,7 +24,5 @@ ref table classificacao_rodada
 ref table classificacao_final
 ref table jogador_estatisticas
 ref table Ranking
-ref table credito_imagem
-ref table imagem_escudo
-ref table imagem_foto
+ref table 'Métrica do clube'
 

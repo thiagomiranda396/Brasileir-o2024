@@ -14,5 +14,3 @@ powerbi/**/.pbi/cache.abf
 .DS_Store
 Thumbs.db
 _backup_versao_local/
-powerbi/dados/imagem_escudo.csv
-powerbi/dados/imagem_foto.csv

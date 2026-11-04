@@ -65,8 +65,9 @@ tooltip, navegação por teclado, tema claro e escuro e layout para celular.
 jogou naquele clube em 2024 e tem o mesmo nome do jogador: o vínculo na Wikidata ou, quando a
 Wikidata não o registra, a ficha da página do jogador na Wikipédia em inglês. O arquivo precisa ter licença livre (CC0,
 domínio público, CC BY ou CC BY-SA) com autor. O script `scripts/buscar_fotos.py` grava a
-referência e o crédito de cada imagem no banco; o site e o Power BI carregam a imagem da Wikimedia
-Commons e mostram os créditos. Quem ficou sem confirmação aparece com a camisa do clube, sem um
+referência e o crédito de cada imagem no banco; o site carrega a imagem da Wikimedia Commons e
+mostra os créditos. No Power BI não há imagens externas: o clube aparece num selo com a sigla nas
+cores dele e o jogador, pelo nome. Quem ficou sem confirmação aparece com a camisa do clube, sem um
 rosto inventado. A cobertura está em [docs/qualidade/fotos_jogadores.md](docs/qualidade/fotos_jogadores.md).
 
 ## Banco de dados
@@ -84,7 +85,19 @@ soma por clube (que daria 1.858). O papel `bi_brasileirao_leitura` só enxerga o
 
 ## Power BI
 
-O dashboard está pronto como projeto do Power BI (`powerbi/Brasileirao2024.pbip`): modelo estrela em TMDL com 93 medidas e relatório de 9 páginas em PBIR, lendo os CSVs das views do `analytics`. O [guia](powerbi/README.md) explica como abrir no Power BI Desktop, atualizar e publicar no Power BI Service.
+O dashboard é um projeto do Power BI (`powerbi/Brasileirao2024.pbip`): modelo estrela em TMDL com
+95 medidas e relatório de 11 páginas em PBIR (7 visíveis, uma de drill-through, duas de dica de
+ferramenta e uma de auditoria), lendo os CSVs das views do `analytics`.
+
+- **Layout feito no PowerPoint:** [`powerbi/design/Brasileirao2024_layout_powerbi.pptx`](powerbi/design/Brasileirao2024_layout_powerbi.pptx)
+  registra o processo na ordem em que foi feito (objetivos, perguntas e KPIs, wireframe, grid de
+  12 colunas, identidade visual) e traz o fundo de cada página, aplicado no relatório como imagem.
+- **Recursos avançados:** drill-through para a ficha do jogador, páginas de dica de ferramenta
+  para clube e jogador, indicadores que alternam *Evolução* e *Comparar clubes* na Classificação,
+  parâmetro de campo `Métrica do clube` e segmentações sincronizadas entre páginas (rodadas, clube
+  e período).
+
+O [guia](powerbi/README.md) explica como abrir no Power BI Desktop, atualizar e publicar no Power BI Service.
 
 ## Como executar
 
@@ -136,7 +149,7 @@ workflow `.github/workflows/pages.yml` publica a pasta `web/` a cada push que a 
 ├── scripts/              # baixar, converter, preparar jogadores, validar, exportar para o site
 ├── tests/                # 130 testes (unittest)
 ├── web/                  # site estático (GitHub Pages)
-├── powerbi/              # projeto do Power BI (PBIP), medidas DAX, tema, guia e CSVs das views
+├── powerbi/              # projeto do Power BI (PBIP), layout no PowerPoint, medidas DAX, tema, guia e CSVs
 ├── docs/                 # fontes, regras, modelagem, auditorias, imagens
 └── .github/workflows/    # CI (Python + PostgreSQL) e publicação do site
 ```

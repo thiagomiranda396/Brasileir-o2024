@@ -17,17 +17,17 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas"
+                      "Entity": "dim_clube"
                     }
                   },
-                  "Property": "Escudo ou sigla"
+                  "Property": "id_clube"
                 }
               },
-              "queryRef": "Medidas.Escudo ou sigla",
-              "nativeQueryRef": "Escudo ou sigla",
+              "queryRef": "dim_clube.id_clube",
+              "nativeQueryRef": "id_clube",
               "displayName": " "
             },
             {
@@ -159,20 +159,6 @@
       "grid": [
         {
           "properties": {
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "26D"
-                }
-              }
-            },
-            "imageWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "26D"
-                }
-              }
-            },
             "rowPadding": {
               "expr": {
                 "Literal": {
@@ -283,6 +269,47 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Cor de destaque do clube"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "dim_clube.id_clube"
+          }
         }
       ],
       "total": [
@@ -295,6 +322,22 @@
                 }
               }
             }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "44D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_clube.id_clube"
           }
         }
       ]
