@@ -58,7 +58,7 @@ flowchart LR
 | **Clube** | **Minijogos** |
 | ![Clube](docs/img/site-clube.png) | ![Minijogos](docs/img/site-minijogos.png) |
 
-Visual de dashboard com identidade inspirada no ge: barra lateral em verde com o menu e os filtros de cada página, faixa do título em verde e, na página de cada clube, a faixa e os gráficos nas cores do time. Cada página responde a uma pergunta, com os números principais no topo, um gráfico que os explica e os detalhes em abas ou em "mostrar mais". Jogadores aparecem em cartas no estilo dos games, com a foto livre da Wikimedia quando existe. HTML, CSS e JavaScript puros, sem dependências nem etapa de build. Gráficos em SVG próprios, com
+Visual de dashboard com identidade inspirada no ge: barra lateral em verde com o menu e os filtros de cada página, faixa do título em verde e, na página de cada clube, a faixa e os gráficos nas cores do time. Cada página responde a uma pergunta, com os números principais no topo, um gráfico que os explica e os detalhes em abas ou em "mostrar mais". Cartões e painéis têm profundidade em três níveis (fundo plano, painéis com sombra discreta, indicadores e destaques um nível acima), com sombras próprias para o tema claro e para o escuro, definidas uma vez como variáveis no CSS. Jogadores aparecem em cartas no estilo dos games, com a foto livre da Wikimedia quando existe. HTML, CSS e JavaScript puros, sem dependências nem etapa de build. Gráficos em SVG próprios, com
 tooltip, navegação por teclado, tema claro e escuro e layout para celular.
 
 **Fotos sem homônimos.** Cada foto só entra quando uma fonte independente confirma que a pessoa

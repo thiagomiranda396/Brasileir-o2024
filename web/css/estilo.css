@@ -37,7 +37,15 @@
   --zona-lib2: #86b6ef;
   --zona-sula: #1baf7a;
   --zona-rebaixado: #d03b3b;
-  --sombra: 0 1px 2px rgba(10, 40, 20, .06), 0 6px 18px rgba(10, 40, 20, .05);
+  /* Profundidade em três níveis: fundo da página (plano) → painéis (sombra discreta) → KPIs
+     e destaques (sombra um pouco maior). Elementos dentro dos painéis ficam planos. */
+  --sombra-cor: 10, 40, 20;   /* verde muito escuro: a sombra combina com a identidade */
+  --sombra-painel: 0 1px 2px rgba(var(--sombra-cor), .06), 0 6px 16px -2px rgba(var(--sombra-cor), .08);
+  --sombra-kpi: 0 1px 3px rgba(var(--sombra-cor), .08), 0 10px 26px -6px rgba(var(--sombra-cor), .20);
+  --sombra-hover: 0 2px 4px rgba(var(--sombra-cor), .07), 0 14px 30px -8px rgba(var(--sombra-cor), .22);
+  --sombra-flutuante: 0 10px 30px rgba(var(--sombra-cor), .18), 0 2px 6px rgba(var(--sombra-cor), .08);
+  --sombra-faixa: 0 2px 10px rgba(var(--sombra-cor), .10);
+  --sombra: var(--sombra-painel);
   --raio: 14px;
   --fonte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -68,7 +76,13 @@
     --zona-lib: #3987e5;
     --zona-lib2: #184f95;
     --zona-sula: #199e70;
-    --sombra: none;
+    /* No escuro a sombra preta precisa de mais opacidade, e um fio de luz no topo separa o cartão do fundo. */
+    --sombra-painel: inset 0 1px 0 rgba(255, 255, 255, .03), 0 4px 14px rgba(0, 0, 0, .32);
+    --sombra-kpi: inset 0 1px 0 rgba(255, 255, 255, .05), 0 10px 24px -8px rgba(0, 0, 0, .6);
+    --sombra-hover: inset 0 1px 0 rgba(255, 255, 255, .06), 0 16px 32px -10px rgba(0, 0, 0, .7);
+    --sombra-flutuante: 0 12px 32px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06);
+    --sombra-faixa: 0 2px 12px rgba(0, 0, 0, .45);
+    --sombra: var(--sombra-painel);
   }
 }
 :root[data-theme="dark"] {
@@ -96,7 +110,13 @@
   --zona-lib: #3987e5;
   --zona-lib2: #184f95;
   --zona-sula: #199e70;
-  --sombra: none;
+  /* No escuro a sombra preta precisa de mais opacidade, e um fio de luz no topo separa o cartão do fundo. */
+  --sombra-painel: inset 0 1px 0 rgba(255, 255, 255, .03), 0 4px 14px rgba(0, 0, 0, .32);
+  --sombra-kpi: inset 0 1px 0 rgba(255, 255, 255, .05), 0 10px 24px -8px rgba(0, 0, 0, .6);
+  --sombra-hover: inset 0 1px 0 rgba(255, 255, 255, .06), 0 16px 32px -10px rgba(0, 0, 0, .7);
+  --sombra-flutuante: 0 12px 32px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06);
+  --sombra-faixa: 0 2px 12px rgba(0, 0, 0, .45);
+  --sombra: var(--sombra-painel);
 }
 
 * { box-sizing: border-box; }
@@ -175,6 +195,7 @@ h3 { font-size: 1rem; }
 .faixa-titulo {
   background: var(--faixa-fundo, var(--ge)); color: var(--faixa-texto, #ffffff);
   border-bottom: 5px solid var(--faixa-listra, var(--ge-escuro));
+  box-shadow: var(--sombra-faixa); position: relative; z-index: 1;
 }
 .faixa-interna {
   max-width: 1200px; margin: 0 auto; padding: 1.35rem 24px; width: 100%;
@@ -218,9 +239,12 @@ main:focus { outline: none; }
 .grade-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
 .cartao {
   background: var(--superficie); border: 1px solid var(--borda);
-  border-radius: var(--raio); padding: 1rem 1.1rem; box-shadow: var(--sombra);
+  border-radius: var(--raio); padding: 1rem 1.1rem; box-shadow: var(--sombra-painel);
   min-width: 0;
 }
+/* KPIs e destaques sobem um nível; cartões dentro de cartões ficam planos para não empilhar sombras. */
+.faixa-kpis > .cartao, .cartao.campeao, .cartao.destaque { box-shadow: var(--sombra-kpi); }
+.cartao .cartao { box-shadow: none; }
 .cartao > h2 { display: flex; align-items: center; gap: .5rem; }
 .cartao .sub { color: var(--texto-3); font-size: .85rem; margin: -.3rem 0 .75rem; }
 .filtros { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
@@ -266,8 +290,9 @@ input[type="range"] { accent-color: var(--acento); }
 .pilha-pagina { display: flex; flex-direction: column; gap: 1.5rem; }
 .cartao a:not(.botao) { color: inherit; text-decoration: none; }
 .cartao a:not(.botao):hover { text-decoration: underline; }
-a.cartao { color: inherit; text-decoration: none; transition: border-color .15s; }
-a.cartao:hover { border-color: var(--acento); }
+a.cartao { color: inherit; text-decoration: none; transition: border-color .15s, box-shadow .2s, transform .2s; }
+a.cartao:hover { border-color: var(--acento); box-shadow: var(--sombra-hover); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { a.cartao, a.carta { transition: none; } a.cartao:hover, a.carta:hover { transform: none; } }
 .nota { margin: 0; color: var(--texto-3); font-size: .82rem; }
 .cartao .nota { margin-top: .6rem; }
 .proximo { margin: 0; font-weight: 600; }
@@ -375,7 +400,7 @@ tbody tr.clicavel { cursor: pointer; }
 .tooltip {
   position: fixed; z-index: 50; pointer-events: none; max-width: 260px;
   background: var(--superficie); color: var(--texto); border: 1px solid var(--borda);
-  border-radius: 10px; padding: .5rem .65rem; box-shadow: 0 6px 24px rgba(0,0,0,.18); font-size: .85rem;
+  border-radius: 10px; padding: .5rem .65rem; box-shadow: var(--sombra-flutuante); font-size: .85rem;
 }
 .tooltip .tt-titulo { color: var(--texto-2); margin-bottom: .2rem; }
 .tooltip .tt-linha { display: flex; align-items: center; gap: .4rem; }
