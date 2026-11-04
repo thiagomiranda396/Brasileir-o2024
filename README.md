@@ -91,7 +91,9 @@ ferramenta e uma de auditoria), lendo os CSVs das views do `analytics`.
 
 ![Power BI: visão geral do campeonato](docs/img/powerbi-visao-geral.png)
 
-![Power BI: página do clube](docs/img/powerbi-clube.png)
+| Classificação | Clube |
+|---|---|
+| ![Power BI: classificação](docs/img/powerbi-classificacao.png) | ![Power BI: página do clube](docs/img/powerbi-clube.png) |
 
 - **Layout feito no PowerPoint:** [`powerbi/design/Brasileirao2024_layout_powerbi.pptx`](powerbi/design/Brasileirao2024_layout_powerbi.pptx)
   registra o processo na ordem em que foi feito (objetivos, perguntas e KPIs, wireframe, grid de
