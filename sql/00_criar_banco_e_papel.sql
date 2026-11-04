@@ -119,7 +119,7 @@ SELECT rolname, rolsuper, rolcreatedb, rolcreaterole, rolcanlogin, rolconnlimit,
 FROM pg_authid WHERE rolname LIKE 'bi_brasileirao%' ORDER BY rolname;
 
 -- Espera-se: dono = bi_brasileirao, provedor 'i' (ICU), datacl sem entrada para PUBLIC ("=").
-SELECT datname, pg_get_userbyid(datdba) AS dono, datlocprovider, datlocale, datacl
+SELECT datname, pg_get_userbyid(datdba) AS dono, datlocprovider, datcollate, datacl   -- colunas presentes do PostgreSQL 15 ao 18
 FROM pg_database WHERE datname = 'brasileirao2024';
 
 

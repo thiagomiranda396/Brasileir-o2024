@@ -1,6 +1,6 @@
 # Visão de produto
 
-**Status (2026-11-01):** os dois produtos estão implementados sobre a mesma base validada. Esta
+**Status (2026-11-04):** os dois produtos estão implementados sobre a mesma base validada. Esta
 página registra o que existe, de onde vêm os dados de cada recurso e o que ficou de fora.
 
 Legenda da coluna **Situação**:
@@ -37,8 +37,9 @@ Legenda da coluna **Situação**:
 - **Nenhuma imagem fica no repositório.** O script `scripts/buscar_fotos.py` registra, para cada
   escudo e foto, o arquivo da Wikimedia Commons, a URL da miniatura, o autor e a licença
   (`data/reference/escudos_clubes.csv` e `fotos_jogadores.csv` → `core.escudo_clube` e
-  `core.foto_jogador`). O site e o Power BI carregam a imagem da Wikimedia pela URL e mostram
-  os créditos (`analytics.credito_imagem`).
+  `core.foto_jogador`). O site carrega a imagem da Wikimedia pela URL e mostra os créditos
+  (`analytics.credito_imagem`). O Power BI não usa imagens externas: o clube aparece num selo
+  com a sigla nas cores dele e o jogador, pelo nome.
 - **Escudos** são marcas dos clubes, usados só para identificá-los, como nas páginas da própria
   Wikipédia.
 - **Fotos** de atletas seguem a licença do autor na Wikimedia Commons (só CC0, domínio público,
