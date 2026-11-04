@@ -89,6 +89,10 @@ O dashboard é um projeto do Power BI (`powerbi/Brasileirao2024.pbip`): modelo e
 95 medidas e relatório de 11 páginas em PBIR (7 visíveis, uma de drill-through, duas de dica de
 ferramenta e uma de auditoria), lendo os CSVs das views do `analytics`.
 
+![Power BI: visão geral do campeonato](docs/img/powerbi-visao-geral.png)
+
+![Power BI: página do clube](docs/img/powerbi-clube.png)
+
 - **Layout feito no PowerPoint:** [`powerbi/design/Brasileirao2024_layout_powerbi.pptx`](powerbi/design/Brasileirao2024_layout_powerbi.pptx)
   registra o processo na ordem em que foi feito (objetivos, perguntas e KPIs, wireframe, grid de
   12 colunas, identidade visual) e traz o fundo de cada página, aplicado no relatório como imagem.
