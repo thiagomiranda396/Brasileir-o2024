@@ -324,7 +324,7 @@
 .pr-dialogo {
   width: min(1100px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); overflow-y: auto; container-type: inline-size;
   border: 0; border-radius: var(--raio); padding: 1rem; background: var(--superficie); color: var(--texto);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+  box-shadow: var(--sombra-flutuante);
 }
 .pr-dialogo::backdrop { background: rgba(5, 20, 10, .6); }
 .pr-dialogo-topo { display: flex; justify-content: space-between; align-items: center; gap: .75rem; flex-wrap: wrap; margin-bottom: .75rem; }
