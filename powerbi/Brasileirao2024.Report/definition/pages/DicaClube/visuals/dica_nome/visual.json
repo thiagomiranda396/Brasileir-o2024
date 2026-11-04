@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "dica_nome",
   "position": {
-    "x": 88,
+    "x": 80,
     "y": 8,
     "z": 1001,
-    "height": 72,
-    "width": 224,
+    "height": 64,
+    "width": 232,
     "tabOrder": 1001
   },
   "visual": {

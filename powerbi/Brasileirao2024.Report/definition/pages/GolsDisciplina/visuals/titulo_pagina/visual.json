@@ -3,7 +3,7 @@
   "name": "titulo_pagina",
   "position": {
     "x": 264,
-    "y": 16,
+    "y": 14,
     "z": 4000,
     "height": 44,
     "width": 900,
@@ -106,6 +106,40 @@
               "expr": {
                 "Literal": {
                   "Value": "'Quando e como saem os gols e os cartões?'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }

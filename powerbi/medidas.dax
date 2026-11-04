@@ -404,7 +404,7 @@ Descrição do jogador =
         )
 
 // Assistências como texto: fora do ranking parcial da Wikipédia aparece escrito, nunca como zero.
-Assistências (ficha) = IF ( ISBLANK ( [Assistências] ), "fora do ranking", FORMAT ( [Assistências], "0" ) )
+Assistências (ficha) = IF ( ISBLANK ( [Assistências] ), "não listado", FORMAT ( [Assistências], "0" ) )
 
 // --------------------------------------------------------------- 5. Disciplina
 
@@ -480,8 +480,24 @@ Rótulo cartões por jogo = "Cartões por jogo · " & FORMAT ( [Cartões amarelo
 
 Rótulo vermelhos = "Cartões vermelhos · " & FORMAT ( DIVIDE ( [Cartões vermelhos], [Partidas] ), "0.00" ) & " por jogo"
 
-// Título do gráfico ligado ao parâmetro de campo Métrica do clube.
-Título da comparação = "Comparar clubes · " & SELECTEDVALUE ( 'Métrica do clube'[Métrica do clube], "escolha uma métrica" )
+// Título do gráfico ligado ao parâmetro de campo Métrica do clube. Lê a coluna de ordem: a coluna de nome do parâmetro é agrupada pela de campos e não pode ser lida sozinha por SELECTEDVALUE.
+Título da comparação =
+    VAR ordem = SELECTEDVALUE ( 'Métrica do clube'[Métrica do clube Ordem] )
+    VAR nome =
+        SWITCH (
+            ordem,
+            0, "Pontos",
+            1, "Vitórias",
+            2, "Gols pró",
+            3, "Gols sofridos",
+            4, "Saldo de gols",
+            5, "Aproveitamento",
+            6, "Jogos sem sofrer gol",
+            7, "Cartões",
+            "escolha uma métrica"
+        )
+    RETURN
+        "Comparar clubes · " & nome
 
 // -------------------------------------------------------- Colunas calculadas (só rótulos e ordenação)
 

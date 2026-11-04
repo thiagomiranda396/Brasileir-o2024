@@ -67,23 +67,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Medidas"
-                  }
-                },
-                "Property": "Pontos"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "objects": {

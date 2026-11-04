@@ -521,7 +521,7 @@ table Medidas
 		lineageTag: 123cd2ad-2197-5607-9e35-6c48c37e15d6
 
 	/// Assistências como texto: fora do ranking parcial da Wikipédia aparece escrito, nunca como zero.
-	measure 'Assistências (ficha)' = IF ( ISBLANK ( [Assistências] ), "fora do ranking", FORMAT ( [Assistências], "0" ) )
+	measure 'Assistências (ficha)' = IF ( ISBLANK ( [Assistências] ), "não listado", FORMAT ( [Assistências], "0" ) )
 		displayFolder: 4. Jogadores
 		lineageTag: 1f5e6713-c8ec-58e7-8777-526666e663bb
 
@@ -633,8 +633,24 @@ table Medidas
 		displayFolder: 7. Rótulos dinâmicos
 		lineageTag: 095a3fb8-cd68-51b0-9250-14178016416e
 
-	/// Título do gráfico ligado ao parâmetro de campo Métrica do clube.
-	measure 'Título da comparação' = "Comparar clubes · " & SELECTEDVALUE ( 'Métrica do clube'[Métrica do clube], "escolha uma métrica" )
+	/// Título do gráfico ligado ao parâmetro de campo Métrica do clube. Lê a coluna de ordem: a coluna de nome do parâmetro é agrupada pela de campos e não pode ser lida sozinha por SELECTEDVALUE.
+	measure 'Título da comparação' =
+			VAR ordem = SELECTEDVALUE ( 'Métrica do clube'[Métrica do clube Ordem] )
+			VAR nome =
+			    SWITCH (
+			        ordem,
+			        0, "Pontos",
+			        1, "Vitórias",
+			        2, "Gols pró",
+			        3, "Gols sofridos",
+			        4, "Saldo de gols",
+			        5, "Aproveitamento",
+			        6, "Jogos sem sofrer gol",
+			        7, "Cartões",
+			        "escolha uma métrica"
+			    )
+			RETURN
+			    "Comparar clubes · " & nome
 		displayFolder: 7. Rótulos dinâmicos
 		lineageTag: 8b94879c-72bc-59d1-8733-e73bee95d902
 

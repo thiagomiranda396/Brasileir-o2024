@@ -3,7 +3,7 @@
   "name": "DicaClube",
   "displayName": "Dica do clube",
   "displayOption": "FitToPage",
-  "height": 240,
+  "height": 272,
   "width": 320,
   "pageBinding": {
     "name": "dica_DicaClube",
@@ -11,5 +11,31 @@
     "parameters": []
   },
   "visibility": "HiddenInViewMode",
-  "type": "Tooltip"
+  "type": "Tooltip",
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFFFFF'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
 }
